@@ -1,5 +1,44 @@
 /* navigation bar (home.html) */
-nav>a{
+body{
+    /* background-color: #10141b; */
+    font-family: Sofia Pro,serif;
+    color: #fff;
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 24px;
+    color: #000;
+}
+
+.root {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    background-color: transparent;
+    transition: 0.3s background-color ease-in;
+    padding: 12px 0 10px;
+    z-index: 9997;
+}
+
+.upper_bar{
+    background-image: linear-gradient(180deg, rgba(10, 12, 17, 0.8) 50%, rgba(16, 20, 27, 0));
+}
+
+.upper_bar{
+    display:flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    background-color: transparent;
+    padding: 12px 0 10px;
+    z-index: 9997;
+}
+
+/* nav>a{
     text-decoration: none;
     color: white;
     text-align: center;
@@ -10,6 +49,4 @@ nav>a{
 nav{
     background-color: black;
     overflow: hidden;
-}
-
-nav
+} */
