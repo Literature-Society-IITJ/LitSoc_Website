@@ -4,7 +4,7 @@ import './Navbar.css'
 import Nav_panel from './Nav_panel';
 
 const changeNavBarBG = () =>{
-    var cursorposition = window.scrollY/2
+    var cursorposition = window.scrollY/8
 
     document.querySelectorAll(".nav-bar")[0].style.backgroundImage = "linear-gradient(180deg, rgba(0, 0, 0, 0.7)" + cursorposition + "%, rgba(16, 20, 27, 0))";
 

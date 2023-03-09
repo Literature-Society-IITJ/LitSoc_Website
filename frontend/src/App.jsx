@@ -1,18 +1,16 @@
 import { useState } from 'react'
 import './App.css'
+import Home_main from './components/Home_main/Home_main'
 import Navbar from './components/Navbar/Navbar'
 import './components/Navbar/Navbar_upper'
-import Navbar_upper from './components/Navbar/Navbar_upper'
 
 
 function App() {
-
-
     return (
-        // <h1>App</h1>
         <div className='App'>
-            <Navbar />
+            <Home_main />
         </div>
+        
     )
 }
 
