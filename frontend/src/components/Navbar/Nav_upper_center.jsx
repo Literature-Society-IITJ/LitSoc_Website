@@ -1,5 +1,5 @@
 import React from 'react'
-import lit_logo from './../../media/images/Navbar/lit_logo.png'
+import lit_logo from '../../media/images/Navbar/lit_logo.png'
 
 export default function Logo() {
   return (
