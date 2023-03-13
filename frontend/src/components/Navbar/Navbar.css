@@ -24,7 +24,7 @@
     /* z-index: 9997; */
 }
 
-.Navbar_upper{
+.Navbar-upper{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
@@ -81,7 +81,7 @@
     transition: .3s ease-in-out;
 }
 
-.Nav_panel{
+.Nav-panel{
     position: relative;
     top: 0px;
     padding: 0px;
@@ -106,7 +106,7 @@
     /* transition: 1s; */
 }
 
-.Nav_panel>a{
+.Nav-panel>a{
     font-size: 1.5vw;
     font-weight: 400;
     /* font-style: italic; */
@@ -118,12 +118,12 @@
     padding: 1vh 3vw;
 }
 
-.Nav_panel>a:hover{
+.Nav-panel>a:hover{
     background-color: rgba(255, 255, 255, 0.7);
     color: #000000;
 }
 
-.Nav_panel:hover{
+.Nav-panel:hover{
     background-color: rgba(0, 0, 0, 0.2);
     
 }
@@ -137,7 +137,7 @@
     display: none;
 }
 
-.Nav_panel_items:hover .Nav-drop-down-ul{
+.Nav-panel-items:hover .Nav-drop-down-ul{
     display:flex;
     flex-direction: column;
     height: fit-content;
@@ -176,7 +176,7 @@
 }
 
 
-.Nav_panel_clubs_items{
+.Nav-panel-clubs-items{
     display: flex;
     flex-direction: column;
 
@@ -188,11 +188,5 @@
 
     /* background-color: #000000; */
 }
-
-/* .Nav_panel_dropdowns>a>.Nav_panel_clubs_items{
-    border-style: solid;
-    border-width: 0px 0px 1px 0px; 
-    border-color: #ffffff;
-} */
 
 

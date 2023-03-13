@@ -5,7 +5,7 @@ export default function MainLogo() {
   return (
     <div className="upper-bar-center" tabIndex={2}>
         <a className="upper-bar-logo" href="/">
-            <div className="Lit_Logo">
+            <div className="Lit-Logo">
                 <img id="ub-logo-img" src={lit_logo} alt="LitSoc Logo" width="80px"></img>
             </div>
         </a>

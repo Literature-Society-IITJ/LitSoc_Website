@@ -5,7 +5,7 @@ export default function IITJLogo() {
   return (
     <div className='upper-bar-left' tabIndex={1}>
         <a className="upper-bar-iitj-logo" href="/">
-            <div className="IITJ_Logo">
+            <div className="IITJ-Logo">
                 <img id="ub-iitj-logo-img" src = {Logo_IITJ} alt="IITJ Logo" width="70px"></img>
             </div>
         </a>

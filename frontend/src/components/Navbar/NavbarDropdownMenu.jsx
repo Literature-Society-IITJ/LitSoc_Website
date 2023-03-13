@@ -7,7 +7,7 @@ export default function NavbarDropdownMenu(props) {
 
 
     return (
-        <a className='Nav_panel_items'>{title}
+        <a className='Nav-panel-items'>{title}
             <ul className='Nav-drop-down-ul'>
                 {
                     items.map((item) =>(
