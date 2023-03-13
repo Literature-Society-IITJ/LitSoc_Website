@@ -1,9 +1,9 @@
 import React from 'react'
 import './Home_main.css'
 import Navbar from '../Navbar/Navbar'
-import Bottom_bar from '../Bottom_bar/Bottom_bar'
-import Home_top from './Home_top'
-import Home_middle from './Home_middle'
+import Bottom_bar from '../BottomBar/BottomBar'
+import Home_top from './HomeTop'
+import Home_middle from './HomeMiddle'
 
 
 export default function Home_main() {

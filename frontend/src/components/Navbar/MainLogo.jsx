@@ -1,7 +1,7 @@
 import React from 'react'
 import lit_logo from '../../media/images/Navbar/lit_logo.png'
 
-export default function Logo() {
+export default function MainLogo() {
   return (
     <div className="upper-bar-center" tabIndex={2}>
         <a className="upper-bar-logo" href="/">

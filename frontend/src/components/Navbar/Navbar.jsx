@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import Navbar_upper from './Navbar_upper'
+import NavbarUpper from './NavbarUpper'
 import './Navbar.css'
-import Nav_panel from './Nav_panel';
+import NavPanel from './NavPanel';
 // import Nav_Club_dropdowns from './Nav_Club_drop';
 
 const changeNavBarBG = () =>{
@@ -17,8 +17,8 @@ export default function Navbar() {
     return (
         <div className='nav-bar'>
             <div className='nav-bar-main' tabIndex={1}>
-                <Navbar_upper />
-                <Nav_panel />
+                <NavbarUpper />
+                <NavPanel />
             </div>
         </div>
     )

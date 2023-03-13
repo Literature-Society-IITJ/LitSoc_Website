@@ -1,7 +1,7 @@
 import React from 'react'
-import './Bottom_bar.css'
+import './BottomBar.css'
 
-export default function Bottom_bar() {
+export default function BottomBar() {
   return (
     <div className='bottom_bar'>
         <div className='bottom_bar_box'></div>

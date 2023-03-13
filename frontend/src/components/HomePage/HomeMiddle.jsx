@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Home_middle() {
+export default function HomeMiddle() {
   return (
     <div className='home_middle' tabIndex={2}>
         <div className='home_middle_content' id='hmc_1' tabIndex={1}>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function NavBarOption(props) {
+export default function NavbarDropdownMenu(props) {
 
     let title = props.title
     let items = props.items

@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo_IITJ from '../../media/images/Navbar/Logo_IITJ.png'
 
-export default function IITJ_logo() {
+export default function IITJLogo() {
   return (
     <div className='upper-bar-left' tabIndex={1}>
         <a className="upper-bar-iitj-logo" href="/">

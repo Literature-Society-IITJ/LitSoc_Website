@@ -1,2 +1,2 @@
 # LitSoc_Website
-Website of Literature Society IIT Jodhpur.
+Website of The Literature Society, IIT Jodhpur.
