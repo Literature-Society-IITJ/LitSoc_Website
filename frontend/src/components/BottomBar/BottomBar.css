@@ -1,21 +1,25 @@
-.bottom_bar{
+.bottom-bar{
     position: relative;
 
-    width: 100vw;
+    width: 100%;
     height: auto;
 
-    background-color: rgb(43, 46, 71);
+    background-color: rgb(0, 0, 0);
 
     border-style: solid;
     border-width: 1px 0px 0px 0px;
 }
 
-.bottom_bar_box{
+.bottom-bar-box{
+    display: flex;
+    flex-direction: row;
+
     position: relative;
 
-    height: 400px;
+    height: auto;
+    
     margin: 40px 50px 100px 50px;
-    padding: 10px;
+    padding: 2vh 4vw;
 
     border-style: solid;
     border-width: 1px;
@@ -23,4 +27,11 @@
     border-color: rgba(255, 255, 255, 0.5);
 
     background-color: transparent;
+}
+
+.bottom-bar-logos{
+    position: relative;
+
+    padding: 1.5vh 1vw 1.5vh 1vw;
+    margin: 0vh 5vw 0vh 1vw;
 }
