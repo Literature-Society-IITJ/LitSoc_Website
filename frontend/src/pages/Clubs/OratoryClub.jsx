@@ -7,13 +7,11 @@ import '../components/HomePage/HomePage.css'
 
 export default function HomePage() {
     return (
-        <>
-            <div className='home-main'>
-                <HomeTop />
-                <HomeMiddle />
-                <BottomBar />
-            </div>
+        <div className='home-main'>
+            <HomeTop />
+            {/* <HomeMiddle /> */}
             <Navbar />
-        </>
+            <BottomBar />
+        </div>
     )
 }

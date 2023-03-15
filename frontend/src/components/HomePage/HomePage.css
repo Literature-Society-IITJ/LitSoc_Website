@@ -1,4 +1,4 @@
-.home_main{
+.home-main{
     display: flex;
     flex-direction: column;
     
@@ -18,9 +18,10 @@
     width: 100vw;
     height: 90vh;
 
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 1%, rgba(0, 0, 0, 0)), url('../../media/images/bg3.jpg');
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 1%, rgba(0, 0, 0, 0)), url('../../media/images/bg4.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .home_middle{
@@ -32,17 +33,25 @@
     height: auto;
 
     background-color: rgb(0, 0, 0);
-    background-image: linear-gradient(90deg, rgba(247, 247, 247, 0.5) 1%, rgba(16, 20, 27, 0)), linear-gradient(270deg, rgba(131, 129, 43, 0.5) 1%, rgba(16, 20, 27, 0)), linear-gradient(45deg, rgba(255, 0, 0, 0.5) 1%, rgba(16, 20, 27, 0)), linear-gradient(2250deg, rgba(0, 0, 0, 0.5) 1%, rgba(16, 20, 27, 0));
+    /* background-image: linear-gradient(90deg, rgba(247, 247, 247, 0.5) 1%, rgba(16, 20, 27, 0)), linear-gradient(270deg, rgba(131, 129, 43, 0.5) 1%, rgba(16, 20, 27, 0)),
+    linear-gradient(45deg, rgba(255, 0, 0, 0.5) 1%, rgba(16, 20, 27, 0)),
+    /* linear-gradient(225deg, rgba(0, 0, 0, 0.5) 1%, rgba(16, 20, 27, 0)), */
+    /* linear-gradient(180deg, rgba(0, 0, 0, 0.9) 1%, rgba(0, 0, 0, 0)); */ 
+
+    background-image: linear-gradient(0deg, rgba(176, 84, 111, 0.34) 30%, rgba(0, 0, 0, 0));
 }
 
 .home_middle_content{
+    display: flex;
+    flex-direction: row;
     position: relative;
 
     margin: 30px 150px;
-
     padding: 20px;
 
-    height: 400px;
+    height: auto;
+
+    align-content: start;
 
     /* background-color: transparent; */
     background-image: linear-gradient(90deg, rgba(247, 247, 247, 0.7) 15%, rgba(16, 20, 27, 0));
@@ -52,4 +61,25 @@
     border-style: solid;
     border-width: 0px 0px 3px 0px; 
     border-color: #ffffff;
+}
+
+.home-top-content{
+    position: relative;
+    top: 30vh;
+
+    margin: 0vh 5vw;
+    padding: 5vh 5vw;
+
+    border-style: solid;
+    border-width: 1px 0px 0px 1px; 
+    border-color: #ffffff;
+
+    font-size: 7vh;
+
+    /* transition: 0.3s; */
+}
+
+.home-top-content:hover{
+    backdrop-filter: blur(10px);
+    border-width: 1px 1px 1px 1px;
 }

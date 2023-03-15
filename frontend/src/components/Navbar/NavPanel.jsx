@@ -7,7 +7,7 @@ export default function NavPanel() {
         <div className='Nav-panel' tabIndex={2}>
             {
                 navPanelItems.map((item) =>(
-                    <NavbarDropdownMenu key={item.title} title={item.title} items={navClubsItems}/>
+                    <NavbarDropdownMenu key={item.title} title={item.title} items={item.dropdown} />
                 ))
             }
         </div>

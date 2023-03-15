@@ -1,6 +1,7 @@
 import React from 'react'
 import './BottomBar.css'
 import Bottombar from '../../media/images/Bottombar.png'
+import lit_logo from '../../media/images/Navbar/lit_logo.png'
 
 export default function BottomBar() {
   return (
@@ -11,23 +12,31 @@ export default function BottomBar() {
             </div>
 
             <div className='bottom-bar-middle' tabIndex={2}>
-                <h1>Address</h1>
                 <p>
+                    <strong className='title'>Address: </strong> <br />
                     NH 62, Surpura Bypass Road, <br />
                     Karwar, Jodhpur, <br />
                     Rajasthan 342030 <br /><br />
 
-                    <strong>Email: </strong>literature@iitj.ac.in <br />
-                    <strong>Phone No: </strong> +91 70541 61004 <br />
+                    <strong>Email:</strong><br />literature@iitj.ac.in <br /><br />
+                    <strong>Phone No:</strong><br />+91 70541 61004 <br /><br />
+                </p>
+            </div>
+
+            <div className='bottom-bar-right' tabIndex={3}>
+                <p>
+                    <strong>Social Media Links</strong>
                 </p>
 
-                {/* <p>
-                    NH 62, Surpura Bypass Rd, <br></br>
-                    Karwar, Rajasthan 342030<br><br></br></br>
-                    <strong>Email:</strong> ecell@iitj.ac.in<br></br>
-                    <strong>Phone:</strong> +1 5589 55488 55<br></br>
-                </p> */}
-                <p></p>
+                <div>
+                    <a href="https://www.instagram.com/litsociitj/" target='_blank'>
+                        <div>
+                            <img src={lit_logo} alt="LitSoc | Instagram" />
+                        </div>
+                    </a>
+                </div>
+
+                <p>&copy; Copyright <strong>LitSoc IITJ.</strong> All RIghts Teserved.</p>
             </div>
         </div>
 
