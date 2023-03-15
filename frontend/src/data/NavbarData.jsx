@@ -1,34 +1,33 @@
 export const navClubsItems = [
     {
-        id: "dropdown-clubs-bc",
+        id: "dropdown-clubs-bc",    
         index: 1,
         title: "Book Club",
-        path: "frontend/src/pages/Clubs/BookClub.jsx"
-
+        path: "/bookclub"
     },
     {
         id: "dropdown-clubs-oc",
         index: 2,
         title: "Oratory Club",
-        path: "#"
+        path: "/oratoryclub"
     },
     {
         id: "dropdown-clubs-cwpc",
         index: 3,
         title: "Creative Writing & Poetry Club",
-        path: "#"
+        path: "/cwpclub"
     },
     {
         id: "dropdown-clubs-wgc",
         index: 4,
         title: "Word Games Club",
-        path: "#"
+        path: "/wordgamesclub"
     },
     {
         id: "dropdown-clubs-goonj",
         index: 5,
         title: "Goonj",
-        path: "#"
+        path: "/goonj"
     }
 ]
 
@@ -70,31 +69,31 @@ export const navPanelItems = [
     {
         index: 3,
         title: "READER'S SECTION",
-        path: "#",
+        path: "/readersec",
         dropdown: [],
     },
     {
         index: 4,
         title: "ARCHIVE",
-        path: "#",
+        path: "/archive",
         dropdown: [],
     },
     {
         index: 5,
         title: "PUZZLES",
-        path: "#",
+        path: "/puzzles",
         dropdown: [],
     },
     {
         index: 6,
         title: "TEAM",
-        path: "#",
+        path: "/team",
         dropdown: [],
     },
     {
         index: 7,
         title: "LIBRARY",
-        path: "#",
+        path: "/library",
         dropdown: [],
     }   
 ]

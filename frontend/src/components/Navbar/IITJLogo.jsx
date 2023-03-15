@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo_IITJ from '../../media/images/Navbar/Logo_IITJ.png'
+import Logo_IITJ from '../../media/images/Navbar/Logo_IITJ.gif'
 
 export default function IITJLogo() {
   return (
