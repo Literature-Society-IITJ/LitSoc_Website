@@ -24,12 +24,12 @@
 
 .clubs-top-content{
     position: relative;
-    top: 15vh;
+    top: 0vh;
 
     display: flex;
     flex-direction: column;
 
-    padding: 5vh 20vh;
+    padding: 20vh 10vw 8vh 10vw;
 
     text-align: center;
     align-items: center;

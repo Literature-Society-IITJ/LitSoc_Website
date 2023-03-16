@@ -9,10 +9,13 @@ export default function BookclubMain() {
     let clubdata = ClubsData.BookClub
 
     return (
-        <div className='club-main' id={clubdata.id}>
-            <ClubsTop id={clubdata.id} clubname={clubdata.clubname} quote={clubdata.quote} imgsrc={clubdata.imgsrc} />
-            
-            <BottomBar />
-        </div>
+        <>
+            <div className='club-main' id={clubdata.id}>
+                <ClubsTop id={clubdata.id} clubname={clubdata.clubname} quote={clubdata.quote} imgsrc={clubdata.imgsrc} tabindex={1}/>
+                
+                <BottomBar tabindex={2}/>
+                
+            </div>
+        </>
     )
 }
