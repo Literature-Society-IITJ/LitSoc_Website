@@ -1,11 +1,22 @@
 import React from 'react'
-import GoonjMain from '../../components/Clubs/GoonjMain'
+import { GeneralTopData } from '../../data/GeneralTopData'
 import Navbar from '../../components/Navbar/Navbar'
+import BottomBar from '../../components/BottomBar/BottomBar'
+import GeneralTop from '../../components/GeneralTop'
+import '../../components/Clubs/Clubs.css'
 
 export default function Goonj() {
+
+    let item = GeneralTopData.Goonj
+    let imgsrc = item.imgsrc
+
     return (
         <>
-            <GoonjMain />
+            <div className='club-main' style={{backgroundImage: `url(${imgsrc})`}}>
+                <GeneralTop item={item} />
+                {/* <HomeMiddle /> */}
+                <BottomBar />
+            </div>
             <Navbar />
         </>
     )

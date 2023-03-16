@@ -1,12 +1,22 @@
 import React from 'react'
-import BookclubMain from '../../components/Clubs/BookclubMain'
+import { GeneralTopData } from '../../data/GeneralTopData'
 import Navbar from '../../components/Navbar/Navbar'
+import BottomBar from '../../components/BottomBar/BottomBar'
+import GeneralTop from '../../components/GeneralTop'
+import '../../components/Clubs/Clubs.css'
 
 export default function BookClub() {
+
+    let item = GeneralTopData.BookClub
+    let imgsrc = item.imgsrc
+
     return (
         <>
-            <BookclubMain />
-            {/* <BottomBar /> */}
+            <div className='club-main' style={{backgroundImage: `url(${imgsrc})`}}>
+                <GeneralTop item={item} />
+                {/* <HomeMiddle /> */}
+                <BottomBar />
+            </div>
             <Navbar />
         </>
     )

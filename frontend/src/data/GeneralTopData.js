@@ -48,39 +48,42 @@ export const GeneralTopData = {
     },
 
     BookClub: {
-        className: 'book-club-top',
+        className: 'clubs-top',
         id: 'book-club',
-        clubname: "BOOK CLUB",
-        quote: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/image/bg4.jpg'
+        title: "BOOK CLUB",
+        tagline: "\"Lorem Ipsum for testing the script. Lorem Ipsum for testing the script. Lorem Ipsum for testing the script. Lorem Ipsum for testing the script.Lorem Ipsum for testing the script. Lorem Ipsum for testing the script. Lorem Ipsum for testing the script.\"",
+        imgsrc: '/src/media/images/bg4.jpg'
     },
 
     OratoryClub: {
+        className: 'clubs-top',
         id: 'oratory-club',
-        clubname: "ORATORY CLUB",
-        quote: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/image/bg4.jpg'
+        title: "ORATORY CLUB",
+        tagline: "\"Lorem Ipsum for testing the script.\"",
+        imgsrc: '/src/media/images/bg4.jpg'
     },
 
     CWPClub: {
+        className: 'clubs-top',
         id: 'cwp-club',
-        clubname: "CREATIVE WRITING & POETRY CLUB",
-        quote: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/image/bg4.jpg'
+        title: "CREATIVE WRITING & POETRY CLUB",
+        tagline: "\"Lorem Ipsum for testing the script.\"",
+        imgsrc: '/src/media/images/bg4.jpg'
     },
 
-    WordgamesClub: {
+    WordGamesClub: {
+        className: 'clubs-top',
         id: 'word-games-club',
-        clubname: "WORD GAMES CLUB",
-        quote: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/image/bg4.jpg'
+        title: "WORD GAMES CLUB",
+        tagline: "\"Lorem Ipsum for testing the script.\"",
+        imgsrc: '/src/media/images/bg4.jpg'
     },
 
     Goonj: {
+        className: 'clubs-top',
         id: 'Goonj',
-        clubname: "GOONJ",
-        quote: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/image/bg4.jpg'
+        title: "GOONJ",
+        tagline: "\"Lorem Ipsum for testing the script.\"",
+        imgsrc: '/src/media/images/bg4.jpg'
     },
-
 }

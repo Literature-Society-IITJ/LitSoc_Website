@@ -8,7 +8,7 @@ import '../components/HomePage/HomePage.css'
 
 export default function Archive() {
     
-    let item = GeneralTopData.HomePage
+    let item = GeneralTopData.Archive
     let imgsrc = item.imgsrc
 
     return (
