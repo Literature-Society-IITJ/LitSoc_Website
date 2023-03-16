@@ -1,17 +1,23 @@
 import React from 'react'
+// import { ClubsData } from '../../data/Clubs'
 
-export default function GeneralTop() {
+export default function GeneralTop({item}) {
+
     
-    let imgsrc = props.imgsrc
-    let id = props.id
-    let clubname = props.clubname
-    let quote = props.quote
+    let className = item.className
+    
+    let contentClass = className + '-content'
+    let titleClass = contentClass + '-title'
+    let taglineClass = contentClass + '-tagline'
+    let id = item.id
+    let title = item.title
+    let tagline = item.tagline
 
     return (
-        <div className='clubs-top' tabIndex={1}>
-            <div className='clubs-top-content'>
-                <div className='clubs-top-content-title' tabIndex={1} id={id}>{clubname}</div>
-                <div className='clubs-top-content-quote' tabIndex={2} id={id}>{quote}</div>
+        <div className={className} tabIndex={1}>
+            <div className={contentClass}>
+                <div className={titleClass} tabIndex={1} id={id}>{title}</div>
+                <div className={taglineClass} tabIndex={2} id={id}>{tagline}</div>
             </div>
         </div>
     )

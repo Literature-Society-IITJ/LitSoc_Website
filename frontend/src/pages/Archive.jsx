@@ -1,9 +1,24 @@
 import React from 'react'
+import { GeneralTopData } from '../data/GeneralTopData'
+import BottomBar from '../components/BottomBar/BottomBar'
+import HomeMiddle from '../components/HomePage/HomeMiddle'
+import Navbar from '../components/Navbar/Navbar'
+import GeneralTop from '../components/GeneralTop'
+import '../components/HomePage/HomePage.css'
 
 export default function Archive() {
-  return (
-    <div><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam totam quo iusto aliquid repellat, assumenda nobis animi aperiam quam molestiae quia atque repudiandae, quaerat, modi tempora ducimus voluptates ipsam! Ex repellat harum debitis nisi quis.</p>
-    <br />
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae earum officiis perspiciatis illum dignissimos, tenetur sed doloremque ut quos magnam.</p></div>
-  )
+    
+    let item = GeneralTopData.HomePage
+    let imgsrc = item.imgsrc
+
+    return (
+        <>
+            <div className='home-main' style={{backgroundImage: `url(${imgsrc})`}}>
+                <GeneralTop item={item} />
+                <HomeMiddle />
+                <BottomBar />
+            </div>
+            <Navbar />
+        </>
+    )
 }
