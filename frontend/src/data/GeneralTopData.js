@@ -32,7 +32,7 @@ export const GeneralTopData = {
     },
 
     Team:{
-        className: 'team-top',
+        className: 'teams-top',
         id: 'team',
         title: "TEAM",
         tagline: "Current Team (2022-23)",
@@ -81,9 +81,33 @@ export const GeneralTopData = {
 
     Goonj: {
         className: 'clubs-top',
-        id: 'Goonj',
+        id: 'goonj',
         title: "GOONJ",
         tagline: "\"Lorem Ipsum for testing the script.\"",
         imgsrc: '/src/media/images/bg4.jpg'
     },
+
+    AllEvents: {
+        className: 'events-top',
+        id: 'events',
+        title: "EVENTS",
+        tagline: "\"Lorem Ipsum for testing the script.\"",
+        imgsrc: '/src/media/images/bg4.jpg'
+    },
+
+    LitsChamber: {
+        className: 'lits-chamber-top',
+        id: 'lits-chamber',
+        title: "Lit's Chamber of Witchcraft and Wizardry",
+        tagline: "\"Lorem Ipsum for testing the script.\"",
+        imgsrc: '/src/media/images/bg4.jpg'
+    },
+
+    MUN: {
+        className: 'mun-top',
+        id: 'mun',
+        title: "Model United Nations",
+        tagline: "\"Lorem Ipsum for testing the script.\"",
+        imgsrc: '/src/media/images/bg4.jpg'
+    }
 }

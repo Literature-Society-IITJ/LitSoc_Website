@@ -4,7 +4,7 @@ import BottomBar from '../components/BottomBar/BottomBar'
 import HomeMiddle from '../components/HomePage/HomeMiddle'
 import Navbar from '../components/Navbar/Navbar'
 import GeneralTop from '../components/GeneralTop'
-import '../components/HomePage/HomePage.css'
+import '../components/Archive/Archive.css'
 
 export default function Archive() {
     
@@ -13,7 +13,7 @@ export default function Archive() {
 
     return (
         <>
-            <div className='home-main' style={{backgroundImage: `url(${imgsrc})`}}>
+            <div className='archive-main' style={{backgroundImage: `url(${imgsrc})`}}>
                 <GeneralTop item={item} />
                 <HomeMiddle />
                 <BottomBar />

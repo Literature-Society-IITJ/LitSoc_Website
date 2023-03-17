@@ -7,12 +7,14 @@ import Archive from './pages/Archive'
 import Puzzles from './pages/Puzzles'
 import Team from './pages/Team'
 import Library from './pages/Library'
-
 import BookClub from './pages/clubs/BookClub'
 import OratoryClub from './pages/clubs/OratoryClub'
 import CWPClub from './pages/clubs/CWPClub'
 import WordGamesClub from './pages/clubs/WordGamesCLub'
 import Goonj from './pages/clubs/Goonj'
+import AllEvents from './pages/AllEvents'
+import LitsChamber from './pages/LitsChamber'
+import MUN from './pages/MUN';
 // import home-main from './pages/HomePage'
 
 
@@ -30,9 +32,9 @@ function App() {
                     <Route path='/wordgamesclub' element={<WordGamesClub />} />
                     <Route path='/goonj' element={<Goonj />}/>
 
-                    {/* <Route path='/allevents' element={<AllEvents />}/>
-                    <Route path='/litschamber' element={<LitsChamber />}/>
-                    <Route path='/mun' element={<MUN />}/> */}
+                    <Route path='/allevents' element={<AllEvents />} />
+                    <Route path='/litschamber' element={<LitsChamber />} />
+                    <Route path='/mun' element={<MUN />}/>
 
                     <Route path='/readersec' element={<ReaderSection />} />
                     <Route path='/archive' element={<Archive />} />

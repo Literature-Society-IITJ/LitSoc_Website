@@ -36,20 +36,20 @@ export const navEventsItems = [
         id: "dropdown-events-all",
         index: 1,
         title: "All Events",
-        path: "frontend/src/pages/Clubs/BookClub.jsx"
+        path: "/allevents"
 
     },
     {
         id: "dropdown-events-lits-chamber",
         index: 2,
         title: "Lit's Chamber of WitchCraft and Wizardry",
-        path: "#"
+        path: "/litschamber"
     },
     {
         id: "dropdown-events-mun",
         index: 3,
         title: "Model United Nations",
-        path: "#"
+        path: "/mun"
     }
 ]
 
