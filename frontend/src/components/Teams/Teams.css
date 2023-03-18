@@ -15,6 +15,7 @@
     background-attachment: fixed;
 
     /* background-color: black; */
+    align-items: center;
 }
 
 .teams-top{
@@ -80,4 +81,124 @@
     border-color: #ffffff;
 
     font-size: 7vh;
+}
+
+
+
+.member-card{
+    color: black
+}
+
+.member-card-main{
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    align-items: center;
+    text-align: center;
+}
+
+.member-card{
+    background-color: rgba(255, 255, 255, 1);
+
+    width:min-content;
+    padding: 1vh;
+
+    border-radius: 3%;
+
+    transition: 0.3s ease-in;
+}
+
+.member-card-image{
+    position: relative;
+
+    width: auto;
+    height: fit-content;
+
+    border-radius: 3%;
+}
+
+.member-card-image-object{
+    width: 200px;
+    height: 200px;
+
+    border-radius: 4px;
+}
+
+.member-card-name{
+    padding: 2vh 0vh 0vh 0vh;
+
+    font-size: 2.5vh;
+    font-weight: 600;
+    color: black;
+
+    /* transition: display 0.3s; */
+}
+
+.member-card:hover{
+    display: flex;
+    flex-direction: row;
+}
+
+.member-card:hover .member-card-name{
+    display: none;
+}
+
+.member-card:hover .member-card-image-object{
+    width: 250px;
+    height: 250px;
+}
+
+.member-card-left{
+    display: none;
+}
+
+.member-card:hover .member-card-left{
+    display: block;
+}
+
+.member-card:hover .member-card-main{
+    display: none;
+}
+
+.member-card-right{
+    display: none;
+
+    padding: 1vh 1vh 1vh 2vh;
+
+    width:max-content;
+    max-width: 20vw;
+
+    text-align: left;
+
+    justify-content: center;
+}
+
+.member-card:hover .member-card-right{
+    display: flex;
+    flex-direction: column;
+}
+
+.member-card-right-name{
+    font-size: 3.5vh;
+    font-weight: 800;
+}
+
+.member-card-right-quote{
+    font-size: 2.5vh;
+
+    padding: 2vh 0vh;
+}
+
+.member-card-links{
+    display: flex;
+    flex-direction: row;
+}
+.member-card-links>a>img{
+    height: 2.2vw;
+}
+
+.member-card-links>a{
+    margin: 1vw 2vw 0vw 0vw;
 }

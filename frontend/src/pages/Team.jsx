@@ -4,6 +4,7 @@ import BottomBar from '../components/BottomBar/BottomBar'
 import Navbar from '../components/Navbar/Navbar'
 import '../components/Teams/Teams.css'
 import GeneralTop from '../components/GeneralTop'
+import TeamMain from '../components/Teams/TeamMain'
 
 export default function Team() {
 
@@ -14,6 +15,7 @@ export default function Team() {
         <>
             <div className='teams-main' style={{backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0)), url(${imgsrc})`}}>
                 <GeneralTop item={item} />
+                <TeamMain />
                 {/* <HomeMiddle /> */}
                 <BottomBar />
             </div>
