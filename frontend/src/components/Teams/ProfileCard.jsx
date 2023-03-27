@@ -6,7 +6,7 @@ import insta_logo from '../../media/Teams/instagram-logo.svg'
 export default function ProfileCard() {
 
     let name = 'Aaditya Baranwal'
-    let quote = 'I am a master at  giving bear hugs.'
+    let quote = 'Secretary LitSoc'
     let id = 'secy-2022';
     let linkedin = 'https://www.linkedin.com/in/aadityabaranwal'
     let instagram = 'https://www.instagram.com/__.aeternum.__/?hl=en'

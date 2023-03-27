@@ -1,13 +1,11 @@
 import React from 'react'
 
-export default function LoginButton() {
+export default function LoginButton(props) {
     return (
         <div className="upper-bar-right" tabIndex={3}>
-            <a href="#" className="login" title="Login">
-                <button type="button" className="login-button" id="litsoc-login">
-                    LOGIN
-                </button>
-            </a>
+            <button type="button" className="login-button" id="litsoc-login" onClick={()=>props.setShowSignInPopUp(true)}>
+                LOGIN
+            </button>
         </div>
     )
 }

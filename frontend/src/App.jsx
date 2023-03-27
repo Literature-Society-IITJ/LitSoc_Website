@@ -14,7 +14,8 @@ import WordGamesClub from './pages/clubs/WordGamesCLub'
 import Goonj from './pages/clubs/Goonj'
 import AllEvents from './pages/AllEvents'
 import LitsChamber from './pages/LitsChamber'
-import MUN from './pages/MUN';
+import MUN from './pages/MUN'
+import Login from './pages/Login'
 // import home-main from './pages/HomePage'
 
 
@@ -41,6 +42,8 @@ function App() {
                     <Route path='/puzzles' element={<Puzzles />} />
                     <Route path='/team' element={<Team />} />
                     <Route path='/library' element={<Library />} />
+
+                    <Route path='/login' element={<Login />} />
                 </Routes>
             </BrowserRouter>
         </> 

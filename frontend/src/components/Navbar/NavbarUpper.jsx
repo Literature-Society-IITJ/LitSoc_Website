@@ -3,12 +3,12 @@ import LoginButton from './LoginButton'
 import MainLogo from './MainLogo'
 import IITJLogo from './IITJLogo'
 
-export default function NavbarUpper() {
+export default function NavbarUpper(props) {
     return (
         <div className='Navbar-upper' tabIndex={1}>
             <IITJLogo />
             <MainLogo />
-            <LoginButton />
+            <LoginButton {...props} />
         </div>
     )
 }

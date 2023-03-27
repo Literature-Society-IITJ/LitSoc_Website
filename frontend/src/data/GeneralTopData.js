@@ -99,7 +99,7 @@ export const GeneralTopData = {
         className: 'lits-chamber-top',
         id: 'lits-chamber',
         title: "Lit's Chamber of Witchcraft and Wizardry",
-        tagline: "\"Lorem Ipsum for testing the script.\"",
+        tagline: "\"Its LEVIOOSA NOT LEVIOSAAAA\"",
         imgsrc: '/src/media/images/bg4.jpg'
     },
 
