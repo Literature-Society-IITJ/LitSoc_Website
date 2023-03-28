@@ -3,7 +3,7 @@ import secy from '../../media/Teams/secy_dity.jpg'
 import linkedin_logo from '../../media/Teams/linkedin-logo.svg'
 import insta_logo from '../../media/Teams/instagram-logo.svg'
 
-export default function ProfileCard() {
+export default function ProfileCard(props) {
 
     let name = 'Aaditya Baranwal'
     let quote = 'Secretary LitSoc'
