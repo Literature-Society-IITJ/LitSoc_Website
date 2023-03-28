@@ -31,18 +31,19 @@ export default function TeamMain() {
                 <div className='team-members-por-container' id={item.id}>
                     <div className='members-por-fixed-label'>{item.title}</div>
                     <div className='members-por-cards-container'>
-                        {
-                            item.members.map((member) =>(
-                                <ProfileCard />
-                            ))
-                        }
+                    {
+                        item.members.map((member) =>(
+                            <ProfileCard name={member.name} quote={member.quote} linkedin={member.linkedIn_link} insta={member.insta_link} mail={member.mailto} />
+                        ))
+                    }
                     </div>
                 </div>
             ))
         }
         </div>
 
-        {/* <ProfileCard /> */}
+        {/* <Profi
+        leCard /> */}
     </div>
   )
 }

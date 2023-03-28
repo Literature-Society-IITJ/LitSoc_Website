@@ -5,12 +5,12 @@ import insta_logo from '../../media/Teams/instagram-logo.svg'
 
 export default function ProfileCard(props) {
 
-    let name = 'Aaditya Baranwal'
-    let quote = 'Secretary LitSoc'
+    let name = props.name
+    let quote = props.quote
     let id = 'secy-2022';
-    let linkedin = 'https://www.linkedin.com/in/aadityabaranwal'
-    let instagram = 'https://www.instagram.com/__.aeternum.__/?hl=en'
-    let gmail = 'mailto: goyal.22@iitj.ac.in'
+    let linkedin = props.linkedin
+    let instagram = props.insta
+    let gmail = props.mail
 
     return (
         <div class='member-card' id={id}>

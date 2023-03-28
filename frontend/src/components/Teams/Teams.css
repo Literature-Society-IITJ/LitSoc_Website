@@ -235,21 +235,27 @@
 /* } */
 
 .team-members-container{
-    padding: 2vw;
+    padding: 2vw 0vw;
+    width: 100%;
 }
 
 .team-members-por-container{
     display: flex;
     flex-direction: column;
 
-    width: 100;
+    /* width: 100%; */
+
+    padding: 20px 0px;
 }
 
 .members-por-cards-container{
     display: flex;
     flex-direction: row;
 
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-evenly;
+
+    
 }
 
 
@@ -339,7 +345,8 @@
 
     border-radius: 3%;
 
-    transition: 3s ease-in;
+    transition: 0.3s ease-in;
+
 }
 
 .member-card-image{
@@ -349,7 +356,6 @@
     height: fit-content;
 
     border-radius: 3%;
-
     transition: 3s ease-in;
 }
 
@@ -370,27 +376,28 @@
     color: black;
 
     /* transition: display 0.3s; */
-    transition: 3s ease-in;
+    transition: 0.3s ease-in;
 }
 
 .member-card:hover{
+    background-color: rgba(255, 255, 255, 0.7);
+
     display: flex;
     flex-direction: row;
     /* transition: 0.3s; */
-
-    transition: 3s ease-in;
+    height: 250px;
+    transition: 0.3s ease-in;
 }
 
 .member-card:hover .member-card-name{
     display: none;
-
+    
     transition: 3s ease-in;
 }
 
 .member-card:hover .member-card-image-object{
     width: 250px;
     height: 250px;
-
     transition: 3s ease-in;
 }
 

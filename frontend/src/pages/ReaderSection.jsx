@@ -4,6 +4,8 @@ import BottomBar from '../components/BottomBar/BottomBar'
 import Navbar from '../components/Navbar/Navbar'
 import '../components/ReaderSection/ReaderSection.css'
 import GeneralTop from '../components/GeneralTop'
+import ReadSecMain from '../components/ReaderSection/ReadSecMain'
+import ItemCard from '../components/ReaderSection/ItemCard'
 
 export default function ReaderSection() {
   
@@ -14,6 +16,8 @@ export default function ReaderSection() {
         <>
             <div className='reader-sec-main' style={{backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0)), url(${imgsrc})`}}>
                 <GeneralTop item={item} />
+                <ReadSecMain />
+                {/* <ItemCard /> */}
                 {/* <HomeMiddle /> */}
                 <BottomBar />
             </div>

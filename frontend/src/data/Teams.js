@@ -19,7 +19,7 @@ export const team_2022 = [
         members: [
             {
                 name: "Soham Deshmukh",
-                quote: "Me chutiya",
+                quote: "Poems OP",
                 insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
                 linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
                 mailto: 'mailto: goyal.22@iitj.ac.in'
@@ -40,6 +40,27 @@ export const team_2022 = [
             }
         ]
     },
+
+    {
+        title: "Creative Writin and Poetry Club",
+        id: "cwpc",
+        members: [
+            {
+                name: "Soham Deshmukh",
+                quote: "Poems OP",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            },
+            {
+                name: "Shubh Goyal",
+                quote: "Hehe",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            }
+        ]
+    }
 ]
 
 
