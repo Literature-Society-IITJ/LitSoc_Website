@@ -97,6 +97,14 @@
     align-items: center;
 }
 
+
+
+
+
+
+
+
+
 .teams-nav-panel{
     position: relative;
     top: 0px;
@@ -124,7 +132,7 @@
     /* transition: 1s; */
 }
 
-.teams-nav-panel>a{
+.teams-nav-panel-items{
     font-size: 1.5vw;
     font-weight: 400;
     /* font-style: italic; */
@@ -136,7 +144,7 @@
     padding: 1vh 2.4vw;
 }
 
-.teams-nav-panel>a:hover{
+.teams-nav-panel>div:hover{
     background-color: rgba(255, 255, 255, 1);
     color: #000000;
 }

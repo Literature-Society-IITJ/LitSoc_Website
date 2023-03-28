@@ -6,6 +6,9 @@ export default function ReadSecMain() {
     <div className='reader-sec-body'>
         Welcome to the reader section
         <ItemCard />
+        <ItemCard />
+        <ItemCard />
+        <ItemCard />
     </div>
   )
 }

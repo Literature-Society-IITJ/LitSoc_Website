@@ -10,8 +10,10 @@ export default function ItemCard(props) {
   return (
     <div className='reader-sec item-card'>
         <div className='reader-sec item-card-image-container'>
-            <button></button>
-            <img src={img_src} alt={title} className='reader-sec item-card-image' />
+            {/* <button className='reader-sec item-card-image-button'> */}
+                <img src={img_src} alt={title} className='reader-sec item-card-image' />
+            {/* </button> */}
+            
             <div className='reader-sec item-card-image-border'>
             </div>
         </div>

@@ -54,7 +54,7 @@ export const team_2022 = [
             },
             {
                 name: "Shubh Goyal",
-                quote: "Hehe",
+                quote: "Loyalty is a two way street.",
                 insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
                 linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
                 mailto: 'mailto: goyal.22@iitj.ac.in'
@@ -69,6 +69,7 @@ export const teamAlumniYears = [
         id: "dropdown-events-all",
         index: 1,
         title: "2021",
+        id: "alumni-2021",
         path: "/allevents"
 
     },
@@ -76,12 +77,14 @@ export const teamAlumniYears = [
         id: "dropdown-events-lits-chamber",
         index: 2,
         title: "2020",
+        id: "alumni-2020",
         path: "/litschamber"
     },
     {
         id: "dropdown-events-mun",
         index: 3,
         title: "2019",
+        id: "alumni-2019",
         path: "/mun"
     }
 ]
@@ -90,12 +93,14 @@ export const teamsNavPanelItems = [
     {
         index: 1,
         title: "TEAM",
+        class: "team current-team",
         path: "#",
         dropdown: [],
     },
     {
         index: 2,
-        title: "ALUMNI ",
+        title: "ALUMNI",
+        class: "team alumni",
         path: "#",
         dropdown: teamAlumniYears,
     }
