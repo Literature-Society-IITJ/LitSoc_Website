@@ -343,7 +343,7 @@
 
 
 .member-card{
-    color: black
+    color: black;
 }
 
 .member-card-main{
@@ -364,7 +364,7 @@
 
     border-radius: 3%;
 
-    transition: 0.3s ease-in;
+    transition: 0.3s !important;
 
 }
 
@@ -422,7 +422,6 @@
 
 .member-card-left{
     display: none;
-
     transition: 3s ease-in;
 }
 
@@ -440,24 +439,17 @@
 
 .member-card-right{
     display: none;
-
     padding: 1vh 1vh 1vh 2vh;
-
     width:max-content;
     max-width: 20vw;
-
     text-align: left;
-
     justify-content: center;
-
-    transition: 3s ease-in;
 }
 
 .member-card:hover .member-card-right{
     display: flex;
     flex-direction: column;
-
-    transition: 3s ease-in;
+    transition: 3s;
 }
 
 .member-card-right-name{

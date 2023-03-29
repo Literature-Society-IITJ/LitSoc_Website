@@ -4,7 +4,7 @@ import ItemCard from './ItemCard'
 export default function ReadSecMain() {
   return (
     <div className='reader-sec-body'>
-        Welcome to the reader section
+        {/* Welcome to the reader section */}
         <ItemCard />
         <ItemCard />
         <ItemCard />

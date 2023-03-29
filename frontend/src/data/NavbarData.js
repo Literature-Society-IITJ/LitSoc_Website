@@ -72,12 +72,12 @@ export const navPanelItems = [
         path: "/readersec",
         dropdown: [],
     },
-    {
-        index: 4,
-        title: "ARCHIVE",
-        path: "/archive",
-        dropdown: [],
-    },
+    // {
+    //     index: 4,
+    //     title: "ARCHIVE",
+    //     path: "/archive",
+    //     dropdown: [],
+    // },
     {
         index: 5,
         title: "PUZZLES",

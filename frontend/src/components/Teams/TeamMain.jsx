@@ -13,7 +13,7 @@ export default function TeamMain() {
         <div className='teams-main-body'>
             <div className='teams-nav-panel'>
                 <div className='teams-nav-panel-items'>
-                    <button onClick={()=>setDisplayTeam(item.year)}>
+                    <button onClick={()=>setDisplayTeam('current')}>
                         {Team.title}
                     </button>
                 </div>
