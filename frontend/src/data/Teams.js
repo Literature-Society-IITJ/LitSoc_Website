@@ -178,22 +178,23 @@ export const teamAlumniYears = [
     }
 ]
 
-export const teamsNavPanelItems = [
-    {
+export const teamsNavPanelItems = {
+    "Team": {
         index: 1,
         title: "TEAM",
         class: "team current-team",
         path: "#",
         dropdown: [],
     },
-    {
+
+    "alumni": {
         index: 2,
         title: "ALUMNI",
         class: "team alumni",
         path: "#",
         dropdown: teamAlumniYears,
     }
-]
+}
 
 export const teamNameObjectMap = {
     "current": currentTeam,

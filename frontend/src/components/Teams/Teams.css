@@ -154,6 +154,17 @@
     
 } */
 
+.teams-nav-panel-items>button{
+    background-color: transparent;
+    height: fit-content;
+    width: fit-content;
+
+    border-radius: 0px;
+    
+    padding: 0px;
+    margin: 0px;
+}
+
 .teams-nav-panel-items:hover{
     background-color: rgba(255, 255, 255, 0.7);
     color: #000000;
