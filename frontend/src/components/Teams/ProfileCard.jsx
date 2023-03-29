@@ -13,17 +13,17 @@ export default function ProfileCard(props) {
     let gmail = props.mail
 
     return (
-        <div class='member-card' id={id}>
-            <div class='member-card-main' id={id}>
-                <div class='member-card-image' id={id} tabIndex={1}>
+        <div className='member-card' id={id}>
+            <div className='member-card-main' id={id}>
+                <div className='member-card-image' id={id} tabIndex={1}>
                     <img src={secy} width='200px' height='200px' className='member-card-image-object'></img>
                 </div>
-                <div class='member-card-name' tabIndex={2}>{name}</div>
+                <div className='member-card-name' tabIndex={2}>{name}</div>
             {/* ProfileCard */}
             </div>
 
             <div className='member-card-left' tabIndex={1}>
-                <div class='member-card-image' id={id} tabIndex={1}>
+                <div className='member-card-image' id={id} tabIndex={1}>
                     <img src={secy} width='200px' height='200px' className='member-card-image-object'></img>
                 </div>
             </div>

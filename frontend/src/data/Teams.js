@@ -1,4 +1,6 @@
-export const team_2022 = [
+
+
+export const currentTeam = [
     {
         title: "Secretary",
         id: "secretary",
@@ -63,12 +65,99 @@ export const team_2022 = [
     }
 ]
 
+export const alumni2021 = [
+    {
+        title: "Secretary",
+        id: "secretary",
+        members: [
+            {
+                name: "Aditi Goyal",
+                quote: "Literature is an art.",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            }
+        ]
+    },
+
+    {
+        title: "Joint Secretaries",
+        id: "joint-sec",
+        members: [
+            {
+                name: "Aaditya Baranwal",
+                quote: "Poems OP",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            },
+            {
+                name: "Vrushali Pandit",
+                quote: "Hehe",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            },
+            {
+                name: "Akshat Jain",
+                quote: "MUNs OPPP",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            }
+        ]
+    }
+]
+
+export const alumni2020 = [
+    {
+        title: "Secretary",
+        id: "secretary",
+        members: [
+            {
+                name: "Nivedit Jain",
+                quote: "Literature is an art.",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            }
+        ]
+    },
+
+    {
+        title: "Joint Secretaries",
+        id: "joint-sec",
+        members: [
+            {
+                name: "Harsh Agrawal",
+                quote: "Poems OP",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            },
+            {
+                name: "Aditi Goyal",
+                quote: "Hehe",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            },
+            {
+                name: "Suyash Maniyar",
+                quote: "MUNs OPPP",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            }
+        ]
+    }
+]
 
 export const teamAlumniYears = [
     {
         id: "dropdown-events-all",
         index: 1,
-        title: "2021",
+        year: "2021",
         id: "alumni-2021",
         path: "/allevents"
 
@@ -76,14 +165,14 @@ export const teamAlumniYears = [
     {
         id: "dropdown-events-lits-chamber",
         index: 2,
-        title: "2020",
+        year: "2020",
         id: "alumni-2020",
         path: "/litschamber"
     },
     {
         id: "dropdown-events-mun",
         index: 3,
-        title: "2019",
+        year: "2019",
         id: "alumni-2019",
         path: "/mun"
     }
@@ -106,3 +195,8 @@ export const teamsNavPanelItems = [
     }
 ]
 
+export const teamNameObjectMap = {
+    "current": currentTeam,
+    "2021": alumni2021,
+    "2020": alumni2020
+}
