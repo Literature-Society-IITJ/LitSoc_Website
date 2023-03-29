@@ -11,7 +11,7 @@ class TeamUpdate(APIView):
         serializer = TeamUpdateSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             new = serializer.save()
-            return Response({'new':new,'msg':'Team Updated Successfully'})
+            return Response({'new':serializer.data, 'msg':'Team Updated Successfully'})
         return Response(serializer.errors)
 
 class TeamView(APIView):
