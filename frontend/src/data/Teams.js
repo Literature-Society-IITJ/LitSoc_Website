@@ -1,5 +1,3 @@
-
-
 export const currentTeam = [
     {
         title: "Secretary",
@@ -44,7 +42,7 @@ export const currentTeam = [
     },
 
     {
-        title: "Creative Writin and Poetry Club",
+        title: "Creative Writing and Poetry Club",
         id: "cwpc",
         members: [
             {
@@ -56,7 +54,7 @@ export const currentTeam = [
             },
             {
                 name: "Shubh Goyal",
-                quote: "Loyalty is a two way street.",
+                quote: "If you are faced against the wall with a gun on your head then break the goddamn wall.",
                 insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
                 linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
                 mailto: 'mailto: goyal.22@iitj.ac.in'
@@ -111,11 +109,11 @@ export const alumni2021 = [
 
 export const alumni2020 = [
     {
-        title: "Secretary",
+        title: "Captain",
         id: "secretary",
         members: [
             {
-                name: "Nivedit Jain",
+                name: "Mohit Jain",
                 quote: "Literature is an art.",
                 insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
                 linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
@@ -125,7 +123,7 @@ export const alumni2020 = [
     },
 
     {
-        title: "Joint Secretaries",
+        title: "Vice Captains",
         id: "joint-sec",
         members: [
             {
@@ -144,6 +142,50 @@ export const alumni2020 = [
             },
             {
                 name: "Suyash Maniyar",
+                quote: "MUNs OPPP",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            }
+        ]
+    }
+]
+
+export const alumni2019 = [
+    {
+        title: "Captain",
+        id: "secretary",
+        members: [
+            {
+                name: "Sabyasachi Pradhan",
+                quote: "Literature is an art.",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            }
+        ]
+    },
+
+    {
+        title: "Vice Captains",
+        id: "joint-sec",
+        members: [
+            {
+                name: "Harsh Anand",
+                quote: "Poems OP",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            },
+            {
+                name: "Shreya Das",
+                quote: "Hehe",
+                insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
+                linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
+                mailto: 'mailto: goyal.22@iitj.ac.in'
+            },
+            {
+                name: "Nivedit Jain",
                 quote: "MUNs OPPP",
                 insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
                 linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
@@ -199,5 +241,6 @@ export const teamsNavPanelItems = {
 export const teamNameObjectMap = {
     "current": currentTeam,
     "2021": alumni2021,
-    "2020": alumni2020
+    "2020": alumni2020,
+    "2019": alumni2019,
 }

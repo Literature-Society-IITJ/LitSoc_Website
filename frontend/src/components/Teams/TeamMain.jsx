@@ -12,24 +12,26 @@ export default function TeamMain() {
     return (
         <div className='teams-main-body'>
             <div className='teams-nav-panel'>
-                <div className='teams-nav-panel-items'>
-                    <button onClick={()=>setDisplayTeam('current')}>
-                        {Team.title}
-                    </button>
+                {/* <div className='teams-nav-panel-items'> */}
+                <div className='teams-nav-panel-items' onClick={()=>setDisplayTeam('current')}>
+                    {Team.title}       
                 </div>
+                {/* </div> */}
 
-                <div className='teams-nav-panel-items'>
-                    {Alumni.title}
-                    <ul className='teams-nav-drop-down-ul'>
-                        {
-                            Alumni.dropdown.map((item) =>(
-                                <button key= {item.id}className="teams-nav-dropdown-items" tabIndex={item.index} onClick={()=>setDisplayTeam(item.year)}>
-                                    {item.year}
-                                </button>
-                            ))
-                        }
-                    </ul>
-                </div>
+                {/* <div className='teams-nav-panel-items teams-nav-alumni-label'> */}
+                    <div className='teams-nav-panel-items'>
+                        {Alumni.title}
+                        <ul className='teams-nav-drop-down-ul'>
+                            {
+                                Alumni.dropdown.map((item) =>(
+                                    <button key= {item.id}className="teams-nav-dropdown-items" tabIndex={item.index} onClick={()=>setDisplayTeam(item.year)}>
+                                        {item.year}
+                                    </button>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                {/* </div> */}
             </div>
 
             <TeamMembersGen displayTeam={displayTeam} />

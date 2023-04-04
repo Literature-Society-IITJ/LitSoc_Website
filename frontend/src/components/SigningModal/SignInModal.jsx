@@ -12,7 +12,7 @@ export default function SignInModal(props) {
                     </div>
                 </div>
                 <div className='sign-modal-body' id='sign-in'>
-                    <div style={{fontSize:"25px", padding:"10px 0px 30px 0px", fontSize:"25px", fontWeight:"normal"}}>LOG IN TO YOUR ACCOUNT</div>
+                    <div style={{fontSize:"25px", padding:"10px 0px 30px 0px", fontWeight:"normal"}}>LOG IN TO YOUR ACCOUNT</div>
 
                     <section className='signin-form-container'>
                         <form className='signin-form' action="get" id='signin-form'>
