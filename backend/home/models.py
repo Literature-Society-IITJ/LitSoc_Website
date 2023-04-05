@@ -41,6 +41,7 @@ class Member(AbstractBaseUser):
     email = models.EmailField(max_length=200, unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
+    roll_number = models.CharField(max_length=9, default="none")
     date_time_created = models.DateTimeField(auto_now_add=True)
 
     objects = MemberManager()
