@@ -11,5 +11,8 @@ class Team(models.Model):
     instagram = models.URLField(max_length=200)
     description = models.CharField(max_length=200)
 
+    USERNAME_FIELD = 'name'
+    REQUIRED_FIELDS = ['name']
+
     def __str__(self):
         return self.name

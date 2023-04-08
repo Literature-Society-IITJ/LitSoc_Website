@@ -4,7 +4,7 @@ from team.models import Team
 class TeamViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Team
-        fields = ['name', 'por', 'year', 'linkedin','instagram', 'description']
+        fields = ['year',]
 
 class TeamUpdateSerializer(serializers.ModelSerializer):
     class Meta:
