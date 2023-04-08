@@ -16,11 +16,20 @@ class TeamUpdate(APIView):
         return Response(serializer.errors)
 
 class TeamView(APIView):
-    queryset = Team.objects.all()
-    serializer_class = TeamViewSerializer()
+    # def __init__(self):
+    #     self.new = None
+    # queryset = Team.objects.all()
     def get(self, request, format=None):
-        query_set = list(self.queryset.values())
-        return Response(query_set)
+        serializer = TeamViewSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            new = request.data.get('year')
+            team = Team.objects.filter(year = str(new)).values()
+            # print(list(team))
+            return Response(list(team))
+
+    # def get(self, request, format=None):
+    #     query_set = list(Team.objects.all().filter('year'==str(self.new)))
+    #     return Response(query_set)
         # if serializer.is_valid(raise_exception=True):
         #     return Response(serializer.data)
         # return Response(serializer.errors)
