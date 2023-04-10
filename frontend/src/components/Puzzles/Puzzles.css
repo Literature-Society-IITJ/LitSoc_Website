@@ -81,3 +81,83 @@
 
     font-size: 7vh;
 }
+
+
+.puzzles-body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    background-color: rgba(255, 255, 255, 1);
+
+    /* background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.2)); */
+
+    color: black;
+
+    width: 100%;
+    /* height: 10px; */
+
+    padding: 5vh 0vh;
+
+    align-items: center;
+    justify-items: center;
+}
+
+
+.puzzle-card{
+    display: flex;
+    flex-direction: column;
+
+    width: min-content;
+
+    padding: 40px;
+}
+
+.puzzle-card-image-container{
+    height: 30vw;
+    width: 30vw;
+
+    margin: 5px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.puzzle-card-image-button{
+    height: 20px;
+    width: 20px;
+
+    padding: 0px;
+    margin: 0px;
+
+    border: solid black 1px;
+}
+
+.puzzle-card-image{
+    /* position: relative; */
+    height: inherit;
+    width: inherit;
+}
+
+/* .puzzle-card-image-border{
+
+    position: fixed;
+
+    height: inherit;
+    width: inherit;
+
+    border: 2px solid rgb(0, 0, 0);
+
+    padding: 5px;
+} */
+
+.puzzle-card-title{
+    text-transform: uppercase;
+
+    justify-content: left;
+}
+
+
+
+
+
+

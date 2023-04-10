@@ -2,7 +2,7 @@ export const ClubsData = {
     BookClub: {
         id: 'book-club',
         clubname: "BOOK CLUB",
-        quote: "\"Lorem Ipsum for testing the script. Lorem Ipsum for testing the script. Lorem Ipsum for testing the script. Lorem Ipsum for testing the script. Lorem Ipsum for testing the script. Lorem Ipsum for testing the script. Lorem Ipsum for testing the script.\"",
+        quote: "\"Sharing stories, creating connections, and discovering new perspectives - all through the power of books.\"",
         imgsrc: '../media/image/bg4.jpg'
     },
     OratoryClub: {

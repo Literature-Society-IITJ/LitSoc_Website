@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import BottomBar from '../../components/BottomBar/BottomBar'
 import GeneralTop from '../../components/GeneralTop'
 import '../../components/Clubs/Clubs.css'
+import BookclubMain from '../../components/Clubs/BookclubMain'
 
 export default function BookClub() {
 
@@ -14,7 +15,7 @@ export default function BookClub() {
         <>
             <div className='club-main' style={{backgroundImage: `url(${imgsrc})`}}>
                 <GeneralTop item={item} />
-                {/* <HomeMiddle /> */}
+                <BookclubMain />
                 <BottomBar />
             </div>
             <Navbar />

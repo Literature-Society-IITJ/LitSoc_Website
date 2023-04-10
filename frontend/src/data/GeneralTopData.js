@@ -51,7 +51,7 @@ export const GeneralTopData = {
         className: 'clubs-top',
         id: 'book-club',
         title: "BOOK CLUB",
-        tagline: "\"Lorem Ipsum for testing the script. Lorem Ipsum for testing the script. Lorem Ipsum for testing the script. Lorem Ipsum for testing the script.Lorem Ipsum for testing the script. Lorem Ipsum for testing the script. Lorem Ipsum for testing the script.\"",
+        tagline: "\"Sharing stories, creating connections, and discovering new perspectives - all through the power of books.\"",
         imgsrc: '/src/media/images/bg4.jpg'
     },
 

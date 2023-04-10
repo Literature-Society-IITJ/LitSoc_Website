@@ -13,7 +13,7 @@ export default function SignUpModal(props) {
                     </div>
                 </div>
                 <div className='sign-modal-body' id='sign-up'>
-                    <div style={{fontSize:"25px", padding:"10px 0px 30px 0px", fontSize:"25px", fontWeight:"normal"}}>Become a Literati Now</div>
+                    <div style={{fontSize:"25px", padding:"10px 0px 30px 0px", fontWeight:"normal"}}>Become a Literati Now</div>
 
                     <section className='signup-form-container'>
                         <form className='signup-form' action="get">

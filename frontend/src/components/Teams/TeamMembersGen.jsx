@@ -1,8 +1,12 @@
 import React from 'react'
 import { currentTeam, alumni2021, teamNameObjectMap } from '../../data/Teams'
 import ProfileCard from './ProfileCard'
+import getQuotes from '../../api/axios'
 
 export default function TeamMembersGen(props) {
+
+    console.log(getQuotes())
+    
 
     let onDisplay = props.displayTeam
     let onDisplayObject = teamNameObjectMap[onDisplay]
@@ -15,7 +19,7 @@ export default function TeamMembersGen(props) {
                     <div className='members-por-fixed-label'>{item.title}</div>
                     <div className='members-por-cards-container'>
                     {
-                        item.members.map((member) =>(
+                        item.members.map((member) => (
                         <ProfileCard name={member.name} quote={member.quote} linkedin={member.linkedIn_link} insta={member.insta_link} mail={member.mailto} />
                         ))
                     }

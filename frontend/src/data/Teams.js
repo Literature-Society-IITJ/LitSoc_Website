@@ -5,7 +5,7 @@ export const currentTeam = [
         members: [
             {
                 name: "Aaditya Baranwal",
-                quote: "I give bear hugs",
+                quote: "<YearBook Quote>",
                 insta_link: 'https://www.instagram.com/__.aeternum.__/?hl=en',
                 linkedIn_link: 'https://www.linkedin.com/in/aadityabaranwal',
                 mailto: 'mailto: goyal.22@iitj.ac.in'

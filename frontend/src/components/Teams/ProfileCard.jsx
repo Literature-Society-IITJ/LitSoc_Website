@@ -2,6 +2,8 @@ import React from 'react'
 import secy from '../../media/Teams/secy_dity.jpg'
 import linkedin_logo from '../../media/Teams/linkedin-logo.svg'
 import insta_logo from '../../media/Teams/instagram-logo.svg'
+import gmail_logo from '../../media/Teams/gmail-logo.svg'
+
 
 export default function ProfileCard(props) {
 
@@ -36,10 +38,10 @@ export default function ProfileCard(props) {
                         <img src={linkedin_logo} alt="linkedin" />
                     </a>
                     <a href={instagram}>
-                        <img src={insta_logo} alt="linkedin" />
+                        <img src={insta_logo} alt="instagram" />
                     </a>
                     <a href={gmail}>
-                        <img src={linkedin_logo} alt="linkedin" />
+                        <img src={gmail_logo} alt="gmail" />
                     </a>
                 </div>
             </div>

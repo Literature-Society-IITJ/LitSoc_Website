@@ -94,7 +94,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.6);
 
     /* background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.2)); */
 
