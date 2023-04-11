@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from library.models import IssuedBook, Book
-from library.serializers import BookIssueSerializer, BookAddSerializer
+from library.serializers import BookIssueSerializer, BookAddSerializer, BookViewSerializer
 from django.contrib.admin.views.decorators import staff_member_required
 from home.models import Member
 
@@ -38,3 +38,15 @@ class BookIssueView(APIView):
             return Response({'bookissued': serializer.data, 'msg':'Book issued successfully'})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         # return Response({'1': '2'})
+
+class BookView(APIView):
+    def get(self, request, format=None):
+        
+        # __request.GET and request.query_params are same__
+        
+        # serializer = TeamViewSerializer(data=request.GET)
+        serializer = BookViewSerializer(data=request.query_params)
+        if serializer.is_valid(raise_exception=True):
+            category = serializer.data.get('category')
+            books = Book.objects.filter(category = str(category)).values()
+            return Response(list(books))
