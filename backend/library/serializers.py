@@ -10,3 +10,8 @@ class BookAddSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         fields = ['name', 'isbn', 'book_id', 'author', 'category']
+
+class BookViewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ['category',]
