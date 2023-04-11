@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import BottomBar from '../../components/BottomBar/BottomBar'
 import GeneralTop from '../../components/GeneralTop'
 import '../../components/Clubs/Clubs.css'
+import CWPclubMain from '../../components/Clubs/CWPclubMain'
 
 export default function CWPClub() {
 
@@ -14,7 +15,7 @@ export default function CWPClub() {
         <>
             <div className='club-main' style={{backgroundImage: `url(${imgsrc})`}}>
                 <GeneralTop item={item} />
-                {/* <HomeMiddle /> */}
+                <CWPclubMain />
                 <BottomBar />
             </div>
             <Navbar />

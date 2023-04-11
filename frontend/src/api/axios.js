@@ -15,13 +15,12 @@ const instance = axios.create({
 
 // export default getQuotes;
 
-const getQuotes = async () => {
-	const response = await instance.get('/team', {
-		params: { id: 1 },
-	});
-	console.log(response.data);
 
-    return response.data;
+async function getQuotes() {
+    let baseURL =  'http://127.0.0.1:8000/'
+    let response = await axios.get(`${baseURL}team/`, {params : {'year' : '2022'}})
+    console.log(response.data);
+    return response.data;    
 }
 
 export default getQuotes;

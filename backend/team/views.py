@@ -12,7 +12,7 @@ class TeamUpdate(APIView):
         serializer = TeamUpdateSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             new = serializer.save()
-            return Response({'new':serializer.data, 'msg':'Team Updated Successfully'})
+            return Response({'new': serializer.data, 'msg': 'Team Updated Successfully'})
         return Response(serializer.errors)
 
 # class TeamView(APIView):
@@ -27,12 +27,6 @@ class TeamUpdate(APIView):
 #             # print(list(team))
 #             return Response(list(team))
 
-    # def get(self, request, format=None):
-    #     query_set = list(Team.objects.all().filter('year'==str(self.new)))
-    #     return Response(query_set)
-        # if serializer.is_valid(raise_exception=True):
-        #     return Response(serializer.data)
-        # return Response(serializer.errors)
     
 class TeamView(APIView):
 

@@ -81,3 +81,75 @@
 
     font-size: 7vh;
 }
+
+
+
+
+
+
+
+
+
+.lib-book-issue-sec{
+    display: flex;
+    flex-direction: row;
+
+    padding: 80px 100px;
+    /* margin: 0px 100px; */
+
+    height: auto;
+
+    backdrop-filter: blur(20px);
+
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 2px 0px 1px 0px;
+}
+
+.book-issue-sec-main{
+    width: 100%;
+    align-items: center;
+}
+
+.book-issue-search-bar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px 30px;
+
+    border-style: solid;
+    border-color: beige;
+    border-width: 2px 0px;
+}
+
+.lib-search-bar-containers{
+    display: flex;
+
+    width: 40%;
+
+    font-size: 25px;
+
+    /* justify-content: center; */
+    align-items: center;
+
+    padding: 10px 30px;
+}
+
+.lib-search-bar-containers>span{
+    padding: 0px 20px 0px 0px;
+}
+
+.lib-search-bar-containers>input{
+
+    font-size: 20px;
+
+    max-width: 50%;
+
+    background-color: transparent;
+
+    
+}
