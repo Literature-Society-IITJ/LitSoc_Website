@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'team',
     'library',
     'corsheaders',
+    'readerSection',
 ]
 
 MIDDLEWARE = [
