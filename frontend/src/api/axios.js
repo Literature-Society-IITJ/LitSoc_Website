@@ -20,12 +20,12 @@ async function getQuotes() {
 
 export default getQuotes;
 
-import React from 'react'
 
-export async function getBooks(props) {
+export async function getBooks(params) {
     let baseURL =  'http://127.0.0.1:8000/'
-    let response = await axios.get(`${baseURL}library/`, {params : {'category' : props.genre}})
-    console.log(response.data);
+    console.log(params.genreInput)
+    let response = await axios.get(`${baseURL}library/`, {params : {'category' : params.genreInput}})
+    console.log('resp data', response.data);
     return response.data;
 }
 

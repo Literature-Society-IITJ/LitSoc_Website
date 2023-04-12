@@ -46,7 +46,10 @@ class BookView(APIView):
         
         # serializer = TeamViewSerializer(data=request.GET)
         serializer = BookViewSerializer(data=request.query_params)
-        if serializer.is_valid(raise_exception=True):
+        if serializer.is_valid():
             category = serializer.data.get('category')
             books = Book.objects.filter(category = str(category)).values()
+            print(books)
             return Response(list(books))
+        else:
+            return Response([])
