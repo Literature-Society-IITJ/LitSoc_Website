@@ -1,10 +1,5 @@
 import axios from 'axios'
 
-const instance = axios.create({
-    baseURL: 'http://127.0.0.1:8000/'
-});
-
-
 // API Call
 // const getQuotes = async () => {
 // 	const response = await instance.get('/team', {
@@ -24,3 +19,13 @@ async function getQuotes() {
 }
 
 export default getQuotes;
+
+import React from 'react'
+
+export async function getBooks(props) {
+    let baseURL =  'http://127.0.0.1:8000/'
+    let response = await axios.get(`${baseURL}library/`, {params : {'category' : props.genre}})
+    console.log(response.data);
+    return response.data;
+}
+

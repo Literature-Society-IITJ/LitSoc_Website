@@ -34,6 +34,7 @@ class MemberManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+
 class Member(AbstractBaseUser):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200)
@@ -41,7 +42,7 @@ class Member(AbstractBaseUser):
     email = models.EmailField(max_length=200, unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    roll_number = models.CharField(max_length=9, default="none")
+    roll_number = models.CharField(max_length=10, default="none")
     date_time_created = models.DateTimeField(auto_now_add=True)
 
     objects = MemberManager()

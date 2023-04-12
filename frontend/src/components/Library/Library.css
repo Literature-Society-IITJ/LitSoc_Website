@@ -146,10 +146,27 @@
 .lib-search-bar-containers>input{
 
     font-size: 20px;
+    color: #ffffff;
 
-    max-width: 50%;
+    height: 25px;
+
+    width: 50%;
 
     background-color: transparent;
 
-    
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.7);
+    border-width: 0px 2px 2px 0px;
+
+}
+
+.lib-search-bar-containers>input:active{
+
+    font-size: 20px;
+
+    max-width: 40%;
+
+    background-color: transparent;
+
+
 }
