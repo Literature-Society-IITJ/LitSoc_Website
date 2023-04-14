@@ -29,3 +29,12 @@ export async function getBooks(params) {
     return response.data;
 }
 
+
+
+export async function login(email, password) {
+    let baseURL =  'http://127.0.0.1:8000/'
+    let response = await axios.post(`${baseURL}home/login/`, {'email': email, 'password': password})
+    // console.log('login returned', response.data);
+    return response.data;
+}
+

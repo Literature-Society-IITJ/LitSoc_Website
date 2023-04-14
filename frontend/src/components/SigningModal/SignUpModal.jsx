@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function SignUpModal(props) {
-    {console.log(props.showSignupPopup)}
+    // {console.log(props.showSignupPopup)}
     return props.showSignupPopup?(
         
         <div className='sign-modal' id='sign-up'>
