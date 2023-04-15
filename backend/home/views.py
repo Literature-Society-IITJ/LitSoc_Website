@@ -29,7 +29,6 @@ from rest_framework_simplejwt.tokens import RefreshToken
 #     serializer_class = MemberRegistrationSerializer
 #     queryset = get_user_model().objects.all() #Member.objects.all()
 
-
 def get_tokens_for_user(user):
     refresh = RefreshToken.for_user(user)
 
@@ -44,10 +43,10 @@ class MemberRegistrationView(APIView):
     
     def post(self, request, format=None):
         serializer = MemberRegistrationSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
+        if serializer.is_valid():
             user = serializer.save()
             token = get_tokens_for_user(user)
-            return Response({'token': token, 'msg':'Registration Success'})
+            return Response({'token': token, 'msg':'Registration Success'}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
@@ -63,11 +62,10 @@ class MemberLoginView(APIView):
             member = authenticate(email=email, password=password)
             if member is not None:
                 token = get_tokens_for_user(member)
-                return Response({'token':token, 'msg':'Login Success'})
+                return Response({'token':token, 'msg':'Login Success'}, status=status.HTTP_200_OK)
             else:
-                return Response({'errors':{'non_field_errors':['Email or password is not valid']}}, status=status.HTTP_404_NOT_FOUND)
-       
-     
+                return Response({'errors':{'non_field_errors':['Email or passowrd is not valid']}}, status=status.HTTP_404_NOT_FOUND)
+            
 class MemberProfileView(APIView):
     renderer_classes = [MemberRenderer]
     permission_classes = [IsAuthenticated]

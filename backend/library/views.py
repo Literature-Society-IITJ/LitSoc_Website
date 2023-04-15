@@ -16,17 +16,17 @@ class BookAddView(APIView):
     # @staff_member_required
     def post(self, request, format=None):
         serializer = BookAddSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
+        if serializer.is_valid():
             add = serializer.save()
-            return Response({'bookadded': serializer.data, 'msg' : 'Book added successfully'})
-        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+            return Response({'bookadded': serializer.data, 'msg' : 'Book added successfully'}, status=status.HTTP_200_OK)
+        return Response("Please check the credentials", status= status.HTTP_400_BAD_REQUEST)
 
 class BookIssueView(APIView):
     # @staff_member_required
     def post(self, request, format=None):
         print(request.data)
         serializer = BookIssueSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
+        if serializer.is_valid():
             print(serializer.data)
             issued_book_id = request.data.get('book_id_temp')
             user_id = serializer.data.get('roll_number')
@@ -35,8 +35,8 @@ class BookIssueView(APIView):
             issued_by = Member.objects.filter(roll_number = str(user_id))[0]
             # print(issued_book)
             issued = serializer.save()
-            return Response({'bookissued': serializer.data, 'msg':'Book issued successfully'})
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'bookissued': serializer.data, 'msg':'Book issued successfully'}, status=status.HTTP_200_OK)
+        return Response("Please check the credentials", status=status.HTTP_400_BAD_REQUEST)
         # return Response({'1': '2'})
 
 class BookView(APIView):
@@ -50,6 +50,6 @@ class BookView(APIView):
             category = serializer.data.get('category')
             books = Book.objects.filter(category = str(category)).values()
             print(books)
-            return Response(list(books))
+            return Response(list(books), status=status.HTTP_200_OK)
         else:
-            return Response([])
+            return Response("Please check the credentials", status=status.HTTP_400_BAD_REQUEST)

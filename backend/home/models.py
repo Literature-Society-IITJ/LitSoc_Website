@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.contrib.auth.models import AbstractUser
+import re
 
 # Create your models here.
 
@@ -34,15 +35,16 @@ class MemberManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-
 class Member(AbstractBaseUser):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=200)
-    # phone = models.CharField(max_length=10)
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    username = models.CharField(max_length=25)
+    roll_number = models.CharField(max_length=10, default="none")
+    phone = models.IntegerField(max_length=10)
     email = models.EmailField(max_length=200, unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    roll_number = models.CharField(max_length=10, default="none")
     date_time_created = models.DateTimeField(auto_now_add=True)
 
     objects = MemberManager()
