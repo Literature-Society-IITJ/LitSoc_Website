@@ -2,14 +2,6 @@ import React, {useState, useEffect} from 'react'
 import LibrarySearchBar from './LibrarySearchBar'
 import BooksDisplay from './BooksDisplay'
 
-// var bookNameInput = '';
-// var authorNameInput = '';
-// var genreInput = '';
-// var isbnInput = '';
-
-
-
-
 
 export default function BookIssueSection(props) {
 
@@ -17,8 +9,6 @@ export default function BookIssueSection(props) {
     let [authorNameInput, setAuthorNameInput] = useState('')
     let [genreInput, setGenreInput] = useState('')
     let [isbnInput, setIsbnInput] = useState('')
-
-    
 
     console.log(bookNameInput)
     console.log(authorNameInput)
