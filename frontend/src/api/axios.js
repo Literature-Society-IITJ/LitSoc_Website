@@ -38,3 +38,9 @@ export async function login(email, password) {
     return response.data;
 }
 
+export async function signup(firstname, lastname, rollnumber, phonenumber, username, email, password, cnfrmpassword) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let response = await axios.post(`${baseURL}home/register/`, {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
+
+    return response.data;
+}
