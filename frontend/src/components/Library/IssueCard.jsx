@@ -1,5 +1,6 @@
 import React from 'react'
 import { RxCross2 } from "react-icons/rx"
+import { issueRequest } from '../../api/axios'
 
 
 export default function IssueCard(props) {
@@ -27,7 +28,7 @@ export default function IssueCard(props) {
                                 <div>{bookDetails.name}</div>
                             </div>
                             <div>
-                                <button onClick={()=>{}}>Issue Book</button>
+                                <button onClick={()=>{ issueRequest(bookDetails.book_id)} }>Issue Book</button>
                             </div>
                         </>
                         ) : <div>Please return the first book to issue next.</div>

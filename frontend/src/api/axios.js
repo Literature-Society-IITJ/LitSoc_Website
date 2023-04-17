@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { getToken } from '../utilities/localStorage';
 
 // API Call
 // const getQuotes = async () => {
@@ -8,7 +9,7 @@ import axios from 'axios'
 // 	console.log(response.data);
 // }
 
-// export default getQuotes;
+export default getQuotes;
 
 
 export async function getQuotes() {
@@ -50,8 +51,12 @@ export async function signup(firstname, lastname, rollnumber, phonenumber, usern
 export async function issueRequest(bookId){
     let baseURL = 'http://127.0.0.1:8000/'
     const token = JSON.parse(sessionStorage.getItem('data'))
-    // const token = user.data.id
+    let { access_token } = getToken()
+    console.log(access_token)
+    let response = await axios.post(`${baseURL}library/issue/`, {'book_id': bookId}, 
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'application/json'} })
 
-    let response = await axios.post(`${baseURL}home/library/`, {'book_id': bookId}, { headers: {"Authorization" : `Bearer ${token}`} 
-    })
+    console.log(response)
+    return response.data
 }
