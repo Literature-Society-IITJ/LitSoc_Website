@@ -21,6 +21,7 @@ function loginFunction(setErrorMessage, setShowSignInPopUp) {
     .then((response) => {
         console.log(response.token.access)
         storeToken(response.token)
+        window.location.reload()
         setShowSignInPopUp(false)
     })
     .catch((error) => {
@@ -69,7 +70,7 @@ export default function SignInModal(props) {
                                 </div>
                                 <div>{errorMessage}</div>
                                 <br />
-                                <button onClick={() => {loginFunction(setErrorMessage, props.setShowSignInPopUp)}}> Login </button>
+                                <button onClick={() =>{loginFunction(setErrorMessage, props.setShowSignInPopUp)}}> Login </button>
                             </div>
                         {/* </form> */}
 

@@ -11,14 +11,13 @@ import axios from 'axios'
 // export default getQuotes;
 
 
-async function getQuotes() {
+export async function getQuotes() {
     let baseURL =  'http://127.0.0.1:8000/'
-    let response = await axios.get(`${baseURL}team/`, {params : {'year' : '2022'}})
+    let response = await axios.get(`${baseURL}team/`, {params : {'year' : '20'}})
     console.log(response.data);
     return response.data;    
 }
 
-export default getQuotes;
 
 
 export async function getBooks(params) {
@@ -43,5 +42,16 @@ export async function signup(firstname, lastname, rollnumber, phonenumber, usern
     let baseURL = 'http://127.0.0.1:8000/'
     let response = await axios.post(`${baseURL}home/register/`, {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
 
+    console.log(response.data)
+
     return response.data;
+}
+
+export async function issueRequest(bookId){
+    let baseURL = 'http://127.0.0.1:8000/'
+    const token = JSON.parse(sessionStorage.getItem('data'))
+    // const token = user.data.id
+
+    let response = await axios.post(`${baseURL}home/library/`, {'book_id': bookId}, { headers: {"Authorization" : `Bearer ${token}`} 
+    })
 }

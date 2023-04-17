@@ -27,13 +27,16 @@ function signupFunction(setErrorMessage, setShowSignInPopUp) {
 
     signup(firstname, lastname, rollnumber, phonenumber, username, email, password, cnfrmpwd)
     .then((response) => {
+        console.log(response)
         console.log(response.token.access)
         storeToken(response.token)
-        setShowSignUnPopUp(false)
+        setShowSignInPopUp(false)
     })
     .catch((error) => {
-        let errorMsg = error.response.data.errors.non_field_errors[0]
-        setErrorMessage(errorMsg)
+        console.log('error')
+        console.log(error.response.data)
+        let errorMsg = error.response.data
+        setErrorMessage(JSON.stringify(errorMsg))
     })
 
     console.log('login returned')
@@ -139,6 +142,7 @@ export default function SignUpModal(props) {
                             
                         </div>
 
+                        {/* console.log('signed') */}
                         <div>{errorMessage}</div>
 
                         <button onClick={()=>{signupFunction(setErrorMessage, props.setShowSignUpPopUp)}}>Lit Me Up</button>

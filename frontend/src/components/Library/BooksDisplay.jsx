@@ -6,8 +6,8 @@ export default function BooksDisplay(props) {
 
     // let booksList = getBooks(props)
     
-    let [showBookItem, setShowBookItem] = useState(false)
-    let [bookDetail, setBookDetail] = useState(false)
+    // let [showBookItem, setShowBookItem] = useState(false)
+    // let [bookDetail, setBookDetail] = useState(false)
     let [booksList, setBooksList] = useState([])
 
     useEffect(() => {getBooks(props).then((data) => {setBooksList(data)})}, [props])
@@ -26,25 +26,33 @@ export default function BooksDisplay(props) {
                     </tr>
                 </thead>
 
+                    {/* <div className=''> */}
                 <tbody>
                 {
                     booksList.length ? booksList.map((book) => (
                         // console.log('book is')
-                        <tr className='book-display-body'>
-                            <td className='isbn'>{book.isbn}</td>
-                            <td className='bookname'>{book.name}</td>
-                            <td className='author'>{book.author}</td>
-                            <td className='genre'>{book.category}</td>
-                            <td className='button'>
-                                <div onClick={()=>[setShowBookItem(true), console.log('1'), setBookDetail(book)]}>Isuue</div>
-                            </td>
-                        </tr>
+                            <tr className='book-display-body'>
+                                <td className='isbn'>{book.isbn}</td>
+                                <td className='bookname'>{book.name}</td>
+                                <td className='author'>{book.author}</td>
+                                <td className='genre'>{book.category}</td>
+                                {
+                                    true ? (<td className='button'>
+                                    <button onClick={()=>[props.setShowBookItem(true), console.log('1'), props.setBookDetail(book)]}>Isuue Book</button>
+                                    </td>)
+                                    
+                                    : <td className='button'>Available by 14th</td>
+                                }
+                                
+                                
+                            </tr>
                         )): 
                         <tr>
                             <td colSpan={5}>No Results</td>
                         </tr>
                     }
                 </tbody>
+                        {/* </div> */}
 
                 {/* {
                 booksList.length ?
@@ -68,9 +76,9 @@ export default function BooksDisplay(props) {
             </table>
 
         </div>
-        <IssueCard showBookItem={showBookItem} 
+        {/* <IssueCard showBookItem={showBookItem} 
                    setShowBookItem = {setShowBookItem}
-                   bookDetail = {bookDetail}/>
+                   bookDetail = {bookDetail}/> */}
         </>
 
     )
