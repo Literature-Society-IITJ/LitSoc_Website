@@ -14,4 +14,9 @@ class BookAddSerializer(serializers.ModelSerializer):
 class BookViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ['category',]
+        fields = ['category', 'name', 'isbn', 'author']
+
+class BookReturnSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IssuedBook
+        fields = ['roll_number', 'returned']

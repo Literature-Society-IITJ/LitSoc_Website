@@ -2,11 +2,11 @@ from django.db import models
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.contrib.auth.models import AbstractUser
 import re
-
+from library.models import IssuedBook
 # Create your models here.
 
 class MemberManager(BaseUserManager):
-    def create_user(self, email, name, password=None, password2=None):
+    def create_user(self, email, username, phone, roll_number, first_name, last_name, password=None, password2=None):
         """
         Creates and saves a User with the given email, name and password.
         """
@@ -14,21 +14,29 @@ class MemberManager(BaseUserManager):
             raise ValueError('Members must have an email address')
 
         user = self.model(
-            email=self.normalize_email(email),
-            name=name,
+            first_name = first_name,
+            last_name = last_name,
+            username = username,
+            roll_number = roll_number,
+            phone = phone,
+            email=self.normalize_email(email)
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, name, password=None):
+    def create_superuser(self, email, username, phone, roll_number, first_name, last_name, password=None):
         """
         Creates and saves a superuser with the given email, name and password.
         """
         user = self.create_user(
             email,
-            name=name,
+            username=username,
+            phone=phone,
+            roll_number=roll_number,
+            first_name=first_name,
+            last_name=last_name,
             password=password,
         )
         user.is_admin = True
@@ -39,18 +47,19 @@ class Member(AbstractBaseUser):
     id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
-    username = models.CharField(max_length=25)
-    roll_number = models.CharField(max_length=10, default="none")
-    phone = models.IntegerField(max_length=10)
+    username = models.CharField(max_length=25, unique=True)
+    roll_number = models.CharField(max_length=10, default="none", unique=True)
+    phone = models.IntegerField(unique=True)
     email = models.EmailField(max_length=200, unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     date_time_created = models.DateTimeField(auto_now_add=True)
+    # book_issued = models.ForeignKey(IssuedBook, on_delete=models.CASCADE)
 
     objects = MemberManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name']
+    REQUIRED_FIELDS = ['username', 'phone', 'roll_number', 'first_name', 'last_name']
 
     def __str__(self):
         return self.email

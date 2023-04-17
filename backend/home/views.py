@@ -55,8 +55,8 @@ class MemberLoginView(APIView):
     
     def post(self, request, format=None):
         serializer = MemberLoginSerializer(data=request.data)
-        print(request.data)
-        if serializer.is_valid(raise_exception=True):
+        # print(request.data)
+        if serializer.is_valid():
             email = serializer.data.get('email')
             password = serializer.data.get('password')
             member = authenticate(email=email, password=password)
