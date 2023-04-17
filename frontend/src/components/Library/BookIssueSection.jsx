@@ -10,6 +10,8 @@ export default function BookIssueSection(props) {
     let [genreInput, setGenreInput] = useState('')
     let [isbnInput, setIsbnInput] = useState('')
 
+    let loggedIn = true
+
     console.log(bookNameInput)
     console.log(authorNameInput)
     console.log(genreInput)
@@ -26,22 +28,25 @@ export default function BookIssueSection(props) {
     // isbnInput.onChange = useValue;
     // // nameValidationInput.onblur = useValue;
 
-  return (
-    <div className='lib-book-issue-sec'>
-        <div className='book-issue-sec-main'>
-            <LibrarySearchBar bookNameInput={bookNameInput} setBookNameInput={setBookNameInput} authorNameInput={authorNameInput} setAuthorNameInput={setAuthorNameInput} genreInput={genreInput} setGenreInput={setGenreInput} isbnInput={isbnInput} setIsbnInput={setIsbnInput}/>
+    return (
+        <div className='lib-book-issue-sec'>
+            {
+                loggedIn ? (
+                    <div className='book-issue-sec-main'>
+                    <LibrarySearchBar bookNameInput={bookNameInput} setBookNameInput={setBookNameInput} authorNameInput={authorNameInput} setAuthorNameInput={setAuthorNameInput} genreInput={genreInput} setGenreInput={setGenreInput} isbnInput={isbnInput} setIsbnInput={setIsbnInput}/>
 
-            <BooksDisplay 
-                            bookNameInput={bookNameInput} 
-                            setBookNameInput={setBookNameInput} 
-                            authorNameInput={authorNameInput} 
-                            setAuthorNameInput={setAuthorNameInput} 
-                            genreInput={genreInput} 
-                            setGenreInput={setGenreInput} 
-                            isbnInput={isbnInput} 
-                            setIsbnInput={setIsbnInput}
-                        />
+                    <BooksDisplay 
+                                    bookNameInput={bookNameInput} 
+                                    setBookNameInput={setBookNameInput} 
+                                    authorNameInput={authorNameInput} 
+                                    setAuthorNameInput={setAuthorNameInput} 
+                                    genreInput={genreInput} 
+                                    setGenreInput={setGenreInput} 
+                                    isbnInput={isbnInput} 
+                                    setIsbnInput={setIsbnInput}
+                                    />
+                </div>) : <div>Please Login to Issue</div>
+            }   
         </div>
-    </div>
-  )
+    )
 }

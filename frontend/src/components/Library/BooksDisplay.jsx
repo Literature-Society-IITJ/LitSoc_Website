@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { getBooks } from '../../api/axios'
+import IssueCard from './IssueCard'
 
 export default function BooksDisplay(props) {
 
     // let booksList = getBooks(props)
     
     let [showBookItem, setShowBookItem] = useState(false)
+    let [bookDetail, setBookDetail] = useState(false)
     let [booksList, setBooksList] = useState([])
 
     useEffect(() => {getBooks(props).then((data) => {setBooksList(data)})}, [props])
 
     return (
+        <>
         <div className='book-display-sec'>
             <table className='book-display-sec-table'>
                 <thead>
@@ -33,7 +36,7 @@ export default function BooksDisplay(props) {
                             <td className='author'>{book.author}</td>
                             <td className='genre'>{book.category}</td>
                             <td className='button'>
-                                <button>Isuue</button>
+                                <div onClick={()=>[setShowBookItem(true), console.log('1'), setBookDetail(book)]}>Isuue</div>
                             </td>
                         </tr>
                         )): 
@@ -63,7 +66,12 @@ export default function BooksDisplay(props) {
 
 
             </table>
+
         </div>
+        <IssueCard showBookItem={showBookItem} 
+                   setShowBookItem = {setShowBookItem}
+                   bookDetail = {bookDetail}/>
+        </>
 
     )
 }
