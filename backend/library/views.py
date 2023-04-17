@@ -6,9 +6,11 @@ from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from library.models import IssuedBook, Book
-from library.serializers import BookIssueSerializer, BookAddSerializer, BookViewSerializer
+from library.serializers import BookIssueSerializer, BookAddSerializer, BookViewSerializer, BookReturnSerializer
 from django.contrib.admin.views.decorators import staff_member_required
 from home.models import Member
+from datetime import datetime
+from django.db.models import Q
 
 # Create your views here.
 
@@ -22,6 +24,8 @@ class BookAddView(APIView):
         return Response("Please check the credentials", status= status.HTTP_400_BAD_REQUEST)
 
 class BookIssueView(APIView):
+    def get(self, request, format=None):
+        time = datetime.str
     # @staff_member_required
     def post(self, request, format=None):
         print(request.data)
@@ -40,16 +44,27 @@ class BookIssueView(APIView):
         # return Response({'1': '2'})
 
 class BookView(APIView):
+
     def get(self, request, format=None):
         
         # __request.GET and request.query_params are same__
+
+        category = str(request.query_params.get('category'))
+        name = str(request.query_params.get('name'))
+        isbn = str(request.query_params.get('isbn'))
+        author = str(request.query_params.get('author'))
+
+        filtered_books = Book.objects.filter(Q(category__icontains = category) 
+                            & Q(name__icontains = name) 
+                            & Q(isbn__icontains = isbn) 
+                            & Q(author__icontains = author)).values()
         
-        # serializer = TeamViewSerializer(data=request.GET)
-        serializer = BookViewSerializer(data=request.query_params)
+        return Response(filtered_books, status=status.HTTP_200_OK)
+        
+
+class BookReturnView(APIView):
+    def put(self, request, id, format=None):
+        returned_by = IssuedBook.objects.filter(book_id = id)
+        serializer = BookReturnSerializer(returned_by, data=request.data)
         if serializer.is_valid():
-            category = serializer.data.get('category')
-            books = Book.objects.filter(category = str(category)).values()
-            print(books)
-            return Response(list(books), status=status.HTTP_200_OK)
-        else:
-            return Response("Please check the credentials", status=status.HTTP_400_BAD_REQUEST)
+            serializer.save()
