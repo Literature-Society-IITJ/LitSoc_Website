@@ -8,7 +8,7 @@ export default function BooksDisplay(props) {
     let [showBookItem, setShowBookItem] = useState(false)
     let [booksList, setBooksList] = useState([])
 
-    useEffect(() => {getBooks(props).then((data) => {setBooksList(data)})}, [props.genreInput])
+    useEffect(() => {getBooks(props).then((data) => {setBooksList(data)})}, [props])
 
     return (
         <div className='book-display-sec'>

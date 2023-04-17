@@ -1,5 +1,6 @@
 from rest_framework import fields, serializers
 from home.models import Member
+import re
 # from django.contrib.auth import get_user_model
 
 
@@ -19,6 +20,11 @@ class MemberRegistrationSerializer(serializers.ModelSerializer):
 
         if password != password2:
             raise serializers.ValidationError('Passwords do not match')
+
+        email = attrs.get('email')
+        if not re.search(r"^[A-Za-z0-9._%+-]+@iitj.ac.in$", email):
+            raise serializers.ValidationError('Not a valid email address')
+
         return attrs
 
     def create(self, validate_data):

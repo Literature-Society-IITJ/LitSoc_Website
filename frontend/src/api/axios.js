@@ -24,7 +24,8 @@ export default getQuotes;
 export async function getBooks(params) {
     let baseURL =  'http://127.0.0.1:8000/'
     console.log(params.genreInput)
-    let response = await axios.get(`${baseURL}library/`, {params : {'category' : params.genreInput}})
+    let response = await axios.get(`${baseURL}library/`, 
+    {params : {'category': params.genreInput, 'name': params.bookNameInput, 'isbn': params.isbnInput, 'author': params.authorNameInput}})
     console.log('resp data', response.data);
     return response.data;
 }
