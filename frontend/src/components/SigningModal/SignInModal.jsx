@@ -10,7 +10,7 @@ function loginFunction(setErrorMessage, setShowSignInPopUp) {
     console.log(email, password)
     // let response = ''
     if(email == '' || password == '') {
-        setErrorMessage('Email and Password cannot be empty!!')
+        setErrorMessage('Kripya bakchodi na kare!')
         return
     }
     else {

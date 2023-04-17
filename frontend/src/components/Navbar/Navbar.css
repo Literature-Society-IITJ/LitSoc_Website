@@ -79,6 +79,37 @@
     transition: .3s ease-in-out;
 }
 
+/* .profile-button-anchor{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+} */
+
+.profile-button-anchor{
+    display: flex;
+
+    height: 40px;
+    width: 40px;
+
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    border-radius: 50%;
+
+    background-color: #b0546f;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+
 .Nav-panel{
     position: relative;
     top: 0px;
