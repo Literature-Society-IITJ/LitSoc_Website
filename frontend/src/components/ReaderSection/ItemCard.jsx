@@ -24,7 +24,7 @@ export default function ItemCard(props) {
             </div>
             <div className='reader-sec item-card-title'>{title}</div>
 
-            <ItemMain showItem={showItem} setShowItem={setShowItem} content={props.content} author={props,author}/>
+            <ItemMain showItem={showItem} setShowItem={setShowItem} content={props.content} author={props.author}/>
         </div>
     )
 }

@@ -14,6 +14,7 @@ class FileUpload(models.Model):
         ]
     member_name = models.CharField(max_length=100)
     title = models.CharField(max_length=200)
+
     roll_number = models.ForeignKey(Member, on_delete=models.CASCADE,default='none')
     category=models.CharField(max_length=30,choices=categories,default='prose')
-    file = models.FileField()
+    # roll_number = models.ForeignKey(Member, on_delete=models.CASCADE,default='none')

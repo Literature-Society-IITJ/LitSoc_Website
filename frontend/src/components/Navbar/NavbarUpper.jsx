@@ -3,6 +3,7 @@ import LoginButton from './LoginButton'
 import MainLogo from './MainLogo'
 import IITJLogo from './IITJLogo'
 import { tokenExists } from '../../utilities/localStorage'
+import ProfileButton from './ProfileButton'
 
 export default function NavbarUpper(props) {
     return (
@@ -10,7 +11,7 @@ export default function NavbarUpper(props) {
             <IITJLogo />
             <MainLogo />
             { !tokenExists() && <LoginButton {...props} />}
-            { tokenExists() && <div>Profile</div>}
+            { tokenExists() && <ProfileButton />}
         </div>
     )
 }
