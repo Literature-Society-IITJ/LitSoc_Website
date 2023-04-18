@@ -77,5 +77,5 @@ class MemberLoginSerializer(serializers.ModelSerializer):
 class MemberProfileViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
-        fields = ['id', 'email', 'username']
+        fields = ['id', 'email', 'username', 'roll_number']
         

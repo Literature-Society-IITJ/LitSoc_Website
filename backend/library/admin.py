@@ -1,5 +1,5 @@
 from django.contrib import admin
-from library.models import Book
+from library.models import Book, IssuedBook
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 # Register your models here.
 
@@ -28,4 +28,6 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
     # filter_horizontal = ()
 
 admin.site.register(Book)
+admin.site.register(IssuedBook)
+
 

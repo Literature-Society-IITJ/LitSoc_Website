@@ -4,7 +4,7 @@ from library.models import IssuedBook, Book, IssueRequest
 class BookIssueSerializer(serializers.ModelSerializer):
     class Meta:
         model = IssuedBook
-        fields = ['roll_number']
+        fields = ['member']
 
 
 class BookAddSerializer(serializers.ModelSerializer):
@@ -16,10 +16,10 @@ class BookAddSerializer(serializers.ModelSerializer):
 class BookReturnSerializer(serializers.ModelSerializer):
     class Meta:
         model = IssuedBook
-        fields = ['roll_number']
+        fields = ['member']
 
 
 class BookIssueRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = IssueRequest
-        fields = ['book', 'roll_number', 'moderator', 'approved']
+        fields = ['book', 'member', 'moderator', 'approved']

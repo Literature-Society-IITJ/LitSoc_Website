@@ -11,6 +11,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from home.models import Member
 from datetime import datetime, timedelta
 from django.db.models import Q
+from home.serializers import MemberProfileViewSerializer
 
 # Create your views here.
 
@@ -25,19 +26,25 @@ class BookAddView(APIView):
 
 
 class BookIssueView(APIView):
+    
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
-        roll_number = request.user.get('roll_number')
+        print('______________________________________' + str(request) + '___________________________________')
+        print(request.user)
+        
+        is_valid = "yes"
 
-        is_valid = False
+        if len(IssueRequest.objects.filter(Q(member = request.user) & Q(approved = False) & Q(moderator = ''))) != 0:
+            is_valid = "requested"
 
-        if len(IssueRequest.objects.filter(roll_number = roll_number, approved = False, moderator = None)) != 0:
-            is_valid = "Requested"
-
-        elif len(IssuedBook.objects.filter(roll_number = roll_number, availability = False)) != 0:
-            is_valid = "Issued"
+        elif len(IssuedBook.objects.filter(Q(member = request.user) & Q(availability = False))) != 0:
+            is_valid = "issued"
+            
+        print(is_valid)
 
         return Response(is_valid, status=status.HTTP_200_OK)
+
 
     def post(self, request, format=None):
         member = request.user
@@ -71,24 +78,28 @@ class BookSearchView(APIView):
         filtered_books = filtered_book_objects.values()
 
         # print('__________________________________________________________________________________________________')
-        print(filtered_book_objects[1])
+        # print(filtered_books[1])
+        # print('_______________________________________________________________________________________')
 
         for i in range(len(filtered_book_objects)):
-            # print(filtered_book_objects[i].issuedbook_set.filter(availability = True))
-            # if len(filtered_book_objects[i].issuedbook_set.all().filter(availability = True)) == 0:
-            #     filtered_books[i]['time'] = str(datetime.today()+timedelta(days=15))
-
-
-            if len(IssuedBook.objects.filter(Q(book = filtered_book_objects[i]) & Q(availability = True))) != 0:
+            
+            if len(IssuedBook.objects.filter(Q(book = filtered_book_objects[i]) & Q(availability = False))) == 0:
                 filtered_books[i]['date'] = str(datetime.today()+timedelta(days=15))
                 filtered_books[i]['availability'] = True
-
+                
             else:
-                filtered_books[i]['date'] = str(IssuedBook.objects.filter(Q(book = filtered_book_objects[i]) & Q(availability = False)).values()['return_date'])
-                filtered_books[i]['availability'] = False
+                temp = IssuedBook.objects.filter(Q(book = filtered_book_objects[i]))
+                
+                if len(temp) == 0:
+                    filtered_books[i]['date'] = str(datetime.today()+timedelta(days=15))
+                    filtered_books[i]['availability'] = True
+                
+                else:
+                    filtered_books[i]['date'] = str(IssuedBook.objects.filter(Q(book = filtered_book_objects[i]) & Q(availability = False)).values()[0]['return_date'])
+                    filtered_books[i]['availability'] = False
+                    
+                # print(IssuedBook.objects.filter(Q(book = filtered_book_objects[i]) & Q(availability = False)).values())
 
-        # def get(self, request, format=None):
-        #     return datetime.today() + timedelta(days=15)
         return Response(filtered_books, status=status.HTTP_200_OK)
         
 
@@ -127,35 +138,35 @@ class BookIssueApprovalView(APIView):
 
     # mods see the pending issue requests from here
     def get(self, request, format=None):
-        books = IssueRequest.objects.filter(approved = False).values()
+        
+        if request.user.role not in ['moderator', 'admin']:
+            return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
+        
+        books = IssueRequest.objects.filter(Q(approved = False) & Q(moderator = '')).values()
         return Response(books, status=status.HTTP_200_OK)
+    
     
     # mods approve any particular request from here
     def post(self, request, format=None):
-        serializer = BookIssueSerializer(data=request.data)
+        
+        if request.user.role not in ['moderator', 'admin']:
+            return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
+        
+        member = Member.objects.filter(roll_number = request.data.get('roll_number'))[0]
+        issueRequest = IssueRequest.objects.filter(Q(member = member) & Q(approved = False) & Q(moderator = '')).values()
 
-        book = IssueRequest.objects.filter(book_id = serializer.data.get('book_id')).values()
-
-        if len(book) == 0:
+        if len(issueRequest) == 0:
             return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
             
         else:
-            book = book[0]
-            book.approved = True
-            book.save()
-
-        print(request.data)
-        user = request.user
-        if serializer.is_valid():
-            print(serializer.data)
-            issued_book_id = request.data.get('book_id_temp')
-            user_id = request.user.get('roll_number')
-            # print(issued_book_id)
-            issued_book = Book.objects.filter(book_id = str(issued_book_id))[0]
-            issued_by = Member.objects.filter(roll_number = str(user_id))[0]
-            # print(issued_book)
-            issued = serializer.save()
-            return Response({'bookissued': serializer.data, 'msg':'Book issued successfully'}, status=status.HTTP_200_OK)
-        return Response("Please check the credentials", status=status.HTTP_400_BAD_REQUEST)
-        # return Response({'1': '2'})
-
+            issueRequest = issueRequest[0]
+            issueRequest.approved = True
+            issueRequest.moderator = request.user.first_name
+            issueRequest.save()
+            
+            issuedBook = IssuedBook.objects.create(book = issueRequest.book, 
+                                                   member = member, 
+                                                   return_date = datetime.today() + timedelta(days = 15))
+            issuedBook.save()
+            
+            return Response({'bookissued': issueRequest.book.name, 'msg':'Book issued successfully'}, status=status.HTTP_200_OK)

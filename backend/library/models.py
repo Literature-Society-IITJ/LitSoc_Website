@@ -37,13 +37,13 @@ def get_expiry():
 class IssueRequest(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
-    moderator = models.CharField(max_length=100)
+    moderator = models.CharField(max_length=100, default='')
     approved = models.BooleanField(default=False)
 
 
 class IssuedBook(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    # roll_number = models.ForeignKey(Member, on_delete=models.CASCADE, default='null')
+    member = models.ForeignKey(Member, on_delete=models.CASCADE)
     issue_date=models.DateField(auto_now=True)
     return_date=models.DateField(default=get_expiry)
     availability = models.BooleanField(default=False)
