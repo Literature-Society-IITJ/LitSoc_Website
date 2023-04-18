@@ -49,4 +49,4 @@ class IssuedBook(models.Model):
     availability = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.roll_number
+        return self.member.roll_number
