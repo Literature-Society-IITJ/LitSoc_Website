@@ -26,6 +26,19 @@ class BookAddView(APIView):
 
 class BookIssueView(APIView):
 
+    def get(self, request, format=None):
+        roll_number = request.user.get('roll_number')
+
+        is_valid = False
+
+        if len(IssueRequest.objects.filter(roll_number = roll_number, approved = False, moderator = None)) != 0:
+            is_valid = "Requested"
+
+        elif len(IssuedBook.objects.filter(roll_number = roll_number, availability = False)) != 0:
+            is_valid = "Issued"
+
+        return Response(is_valid, status=status.HTTP_200_OK)
+
     def post(self, request, format=None):
         member = request.user
         book_ = Book.objects.filter(book_id = request.data.get('book_id'))
@@ -100,6 +113,8 @@ class BookReturnView(APIView):
             else:
                 book = qset[0]
                 book.availability = True
+                book.returned_on = datetime.today()
+                book.returned_to = str(request.user.get('first_name')) + str(request.user.get('last_name'))
                 book.save()
                 return Response("Details updated successfully", status=status.HTTP_200_OK)
                 
