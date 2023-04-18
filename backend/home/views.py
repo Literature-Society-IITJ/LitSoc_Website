@@ -9,25 +9,6 @@ from home.serializers import MemberRegistrationSerializer, MemberLoginSerializer
 from home.renderers import MemberRenderer
 from rest_framework_simplejwt.tokens import RefreshToken
 
-# points = ["one", "two", "three"]
-
-# # Create your views here.
-# def index(request):
-#     return HttpResponse("Hello")
-
-# def login(request):
-#     return render(request, "home/login.html")
-
-# def register(request):
-#     return render(request, "home/register.html", {
-#         "points" : points,
-#     })
-
-# class MemberViewSet(viewsets.ModelViewSet):
-
-#     permission_classes = (IsAuthenticated,)
-#     serializer_class = MemberRegistrationSerializer
-#     queryset = get_user_model().objects.all() #Member.objects.all()
 
 def get_tokens_for_user(user):
     refresh = RefreshToken.for_user(user)
@@ -66,7 +47,8 @@ class MemberLoginView(APIView):
                 return Response({'token':token, 'msg':'Login Success'}, status=status.HTTP_200_OK)
             else:
                 return Response({'errors':{'non_field_errors':['Email or passowrd is not valid']}}, status=status.HTTP_404_NOT_FOUND)
-            
+
+
 class MemberProfileView(APIView):
     renderer_classes = [MemberRenderer]
     permission_classes = [IsAuthenticated]
@@ -74,3 +56,17 @@ class MemberProfileView(APIView):
     def get(self, request, format=None):
         serializer = MemberProfileViewSerializer(request.user)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class MemberToModeratorView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, format=None):
+        roll_number = request.data.get('roll_number')
+        member = Member.objects.filter(roll_number = roll_number).values()
+
+        if len(member) == 0:
+            return Response("Please check the credentials and try again", status=status.HTTP_400_BAD_REQUEST)
+        else:
+            member['role'] = "moderator"
+            return Response("Role updated successfully", status=status.HTTP_200_OK)

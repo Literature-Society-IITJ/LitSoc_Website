@@ -1,12 +1,12 @@
 from rest_framework import fields, serializers
-from readerSection.models import FileUpload
+from readerSection.models import ContentUpload
 
 class ReaderSectionViewSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FileUpload
-        fields = ['issuer', 'roll_number']
+        model = ContentUpload
+        fields = ['title', 'roll_number', 'category', 'content']
 
 class ReaderSectionUploadSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FileUpload
-        fields = ['name', 'isbn', 'book_id', 'author', 'category']
+        model = ContentUpload
+        fields = ['title', 'roll_number', 'category', 'content']

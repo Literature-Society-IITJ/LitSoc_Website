@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path
-from library.views import BookIssueView, BookAddView, BookView
+from library.views import BookIssueView, BookAddView, BookSearchView
 
 urlpatterns = [
     path('issue/', BookIssueView.as_view(), name='bookissue'),
     path('add/', BookAddView.as_view(), name='bookadd'),
-    path('', BookView.as_view(), name='bookview'),
+    path('', BookSearchView.as_view(), name='BookSearchView'),
     # path('update/', TeamUpdate.as_view())
 ]
