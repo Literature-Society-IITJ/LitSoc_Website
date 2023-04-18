@@ -20,12 +20,12 @@ export default function BookIssueSection(props) {
 
 
     let loggedIn = tokenExists()
-    console.log(loggedIn)
+    // console.log(loggedIn)
 
-    console.log(bookNameInput)
-    console.log(authorNameInput)
-    console.log(genreInput)
-    console.log(isbnInput)
+    // console.log(bookNameInput)
+    // console.log(authorNameInput)
+    // console.log(genreInput)
+    // console.log(isbnInput)
 
     // var bookNameInput = ((document.getElementById("cal_preview")||{}).value)||"";
     

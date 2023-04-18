@@ -123,13 +123,13 @@ export default function SignUpModal(props) {
                                     <input placeholder='Email Address' type="email" className='input-label' name='email' id='emailInput'/>
                                 </div>
 
-                                <div className='input-container' id='password'>
+                                <div className='input-container'>
                                     <span className='input-container-fixed-label'>Password</span>
                                     <br />
                                     <input placeholder='Password' type="password" className='input-label' name='password' id='password'/>
                                 </div>
 
-                                <div className='input-container' id='password'>
+                                <div className='input-container'>
                                     <span className='input-container-fixed-label'>Confirm Password</span>
                                     <br />
                                     <input placeholder='Password' type="password" className='input-label' name='cnfrmpwd' id='cnfrmPwd'/>

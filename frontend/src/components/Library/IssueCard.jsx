@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { RxCross2 } from "react-icons/rx"
-import { issueRequest } from '../../api/axios'
+import { isUserBook, issueRequest } from '../../api/axios'
 
+
+function canIssueInfo(setCanIssue) {
+    isUserBook()
+    .then((val) => {
+        console.log(val)
+        setCanIssue(val)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+}
 
 export default function IssueCard(props) {
 
-    let currentIssued = true
-    let bookDetails = props.bookDetail
+    let [canIssue, setCanIssue] = useState('')
+    
+    canIssueInfo(setCanIssue)
 
+    let bookDetails = props.bookDetail
     let returnDate = 'xxxx yyyyy zzzzz'
 
     return (
@@ -22,7 +35,7 @@ export default function IssueCard(props) {
                     </div>
 
                     {
-                    currentIssued ? (
+                    (canIssue=="yes") ? (
                         <>
                             <div className='book-card-details'>
                                 <div>{bookDetails.name}</div>
@@ -31,7 +44,16 @@ export default function IssueCard(props) {
                                 <button onClick={()=>{ issueRequest(bookDetails.book_id)} }>Issue Book</button>
                             </div>
                         </>
-                        ) : <div>Please return the first book to issue next.</div>
+                        )
+                        
+                        : 
+                        
+                            (canIssue==="requested") ? (
+                                <div>You already have a book issue request in process.</div>
+                            ) : <div>Please return the first book to issue next.</div>
+
+                        
+                        
                     }
                 </div>
             </div>) :  null

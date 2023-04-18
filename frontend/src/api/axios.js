@@ -41,6 +41,8 @@ export async function login(email, password) {
 
 export async function signup(firstname, lastname, rollnumber, phonenumber, username, email, password, cnfrmpassword) {
     let baseURL = 'http://127.0.0.1:8000/'
+    console.log('pass', password)
+    console.log('conf', cnfrmpassword)
     let response = await axios.post(`${baseURL}home/register/`, {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
 
     console.log(response.data)
@@ -50,7 +52,7 @@ export async function signup(firstname, lastname, rollnumber, phonenumber, usern
 
 export async function issueRequest(bookId){
     let baseURL = 'http://127.0.0.1:8000/'
-    const token = JSON.parse(sessionStorage.getItem('data'))
+    // const token = JSON.parse(sessionStorage.getItem('data'))
     let { access_token } = getToken()
     // console.log(bookId)
     let response = await axios.post(`${baseURL}library/issue/`, {'book_id': bookId}, 
@@ -58,5 +60,18 @@ export async function issueRequest(bookId){
                                     'Content-Type': 'application/json'} })
 
     console.log(response)
+    return response.data
+}
+
+
+export async function isUserBook() {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    // console.log(access_token)
+
+    let response = await axios.get(`${baseURL}library/issue/`,
+    { headers: {'Authorization': `Bearer ${access_token}`} })
+
     return response.data
 }
