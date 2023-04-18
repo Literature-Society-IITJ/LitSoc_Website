@@ -37,11 +37,11 @@ export default function BooksDisplay(props) {
                                 <td className='author'>{book.author}</td>
                                 <td className='genre'>{book.category}</td>
                                 {
-                                    true ? (<td className='button'>
+                                    book.availability ? (<td className='button'>
                                     <button onClick={()=>[props.setShowBookItem(true), console.log('1'), props.setBookDetail(book)]}>Isuue Book</button>
                                     </td>)
                                     
-                                    : <td className='button'>Available by 14th</td>
+                                    : <td className='button'>Available by {book.date}</td>
                                 }
                                 
                                 
