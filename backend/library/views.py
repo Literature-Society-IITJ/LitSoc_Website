@@ -75,17 +75,20 @@ class BookSearchView(APIView):
                             & Q(isbn__icontains = isbn) 
                             & Q(author__icontains = author))
         
-        filtered_books = filtered_book_objects.values()
+        filtered_books = list(filtered_book_objects.values())
 
-        # print('__________________________________________________________________________________________________')
-        # print(filtered_books[1])
-        # print('_______________________________________________________________________________________')
+        # # print('__________________________________________________________________________________________________')
+        # # print(filtered_books[1])
+        # # print('_______________________________________________________________________________________')
 
         for i in range(len(filtered_book_objects)):
             
             if len(IssuedBook.objects.filter(Q(book = filtered_book_objects[i]) & Q(availability = False))) == 0:
                 filtered_books[i]['date'] = str(datetime.today()+timedelta(days=15))
                 filtered_books[i]['availability'] = True
+                # print(filtered_books[i])
+                # print('1111')
+                # print('1111')
                 
             else:
                 temp = IssuedBook.objects.filter(Q(book = filtered_book_objects[i]))
@@ -93,13 +96,18 @@ class BookSearchView(APIView):
                 if len(temp) == 0:
                     filtered_books[i]['date'] = str(datetime.today()+timedelta(days=15))
                     filtered_books[i]['availability'] = True
+                    # print('2222')
                 
                 else:
+                    # print('3333')
                     filtered_books[i]['date'] = str(IssuedBook.objects.filter(Q(book = filtered_book_objects[i]) & Q(availability = False)).values()[0]['return_date'])
                     filtered_books[i]['availability'] = False
                     
                 # print(IssuedBook.objects.filter(Q(book = filtered_book_objects[i]) & Q(availability = False)).values())
+        # filtered_books[0]['hello'] = 'hi'
+        # print(filtered_books)
 
+        # print(filtered_books[0])
         return Response(filtered_books, status=status.HTTP_200_OK)
         
 
