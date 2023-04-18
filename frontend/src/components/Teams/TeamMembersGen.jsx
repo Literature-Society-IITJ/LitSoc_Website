@@ -1,6 +1,6 @@
 import React from 'react'
 import { currentTeam, alumni2021, teamNameObjectMap } from '../../data/Teams'
-import ProfileCard from './ProfileCard'
+import MemberCard from './MemberCard'
 import getQuotes from '../../api/axios'
 
 export default function TeamMembersGen(props) {
@@ -20,7 +20,7 @@ export default function TeamMembersGen(props) {
                     <div className='members-por-cards-container'>
                     {
                         item.members.map((member) => (
-                        <ProfileCard name={member.name} quote={member.quote} linkedin={member.linkedIn_link} insta={member.insta_link} mail={member.mailto} />
+                        <MemberCard name={member.name} quote={member.quote} linkedin={member.linkedIn_link} insta={member.insta_link} mail={member.mailto} />
                         ))
                     }
                     </div>

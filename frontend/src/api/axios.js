@@ -52,7 +52,7 @@ export async function issueRequest(bookId){
     let baseURL = 'http://127.0.0.1:8000/'
     const token = JSON.parse(sessionStorage.getItem('data'))
     let { access_token } = getToken()
-    console.log(access_token)
+    // console.log(bookId)
     let response = await axios.post(`${baseURL}library/issue/`, {'book_id': bookId}, 
                                     { headers: {'Authorization': `Bearer ${access_token}`, 
                                     'Content-Type': 'application/json'} })

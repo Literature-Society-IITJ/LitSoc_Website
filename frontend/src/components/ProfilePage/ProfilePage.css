@@ -10,3 +10,176 @@
     display: flex;
     flex-direction: row;
 }
+
+.profile-page-top{
+
+    padding: 20px 100px;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+}
+
+.profile-page-home-button{
+    padding: 2px 5px;
+    
+    font-size: 17px;
+    
+    border-radius: 2px;
+}
+
+.profile-page-home-button>button{
+    background-color: rgb(63, 91, 123);
+}
+.profile-page-home-button>button>a{
+    color: white;
+}
+
+.profile-page-logout-button{
+    padding: 2px 5px;
+    
+    font-size: 17px;
+    
+    border-radius: 2px;
+}
+.profile-page-logout-button>button{
+    background-color: rgb(63, 91, 123);
+}
+.profile-page-logout-button>button>a{
+    color: white;
+}
+
+
+.profile-page-body{
+    display: flex;
+    flex-direction: column;
+
+    padding: 50px 100px;
+}
+
+.profile-page-body-general{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+    
+
+    /* height: 700px; */
+
+    /* width: 1000px; */
+    max-height: 700px;
+
+    align-content: center;
+
+}
+
+.profile-card{
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 100px 20px 20px;
+    /* margin: 0px 0px 0px 30px; */
+
+
+    height: 600px;
+
+    backdrop-filter: blur(20px);
+
+    border-style: solid;
+    border-color: beige;
+    border-width: 0px 1px 0px 0px;
+
+    align-items: center;
+    justify-content: center;
+
+    width: min-content;
+}
+
+.profile-card-image-container{
+    padding: 10px 10px 3px 10px;
+    background-color: white;
+}
+
+.profile-card-image{
+    border-radius: 2px;
+}
+
+.profile-card-name{
+    font-size: 35px;
+    font-weight: bold;
+
+    padding: 30px 0px 20px 0px;
+}
+
+.profile-card-position{
+    font-size: 25px;
+    font-weight: normal;
+}
+
+
+.general-data-card{
+    display: flex;
+    flex-direction: column;
+
+    margin: 40px 70px;
+    /* padding: 40px 20px; */
+    /* padding: 40px 20px; */
+    /* border: solid white 1px; */
+    
+    max-height: 600px;
+    text-align: start;
+
+
+}
+
+.general-data-card-issuedbook-info{
+    padding: 0px 20px 15px 20px;
+
+    border-style: solid;
+    border-color: beige;
+    border-width: 0px 0px 1px 0px;
+}
+.issuedbook-header{
+    font-size: 35px;
+    font-weight: bold;
+}
+.issuedbook-name{
+    font-size: 25px;
+    font-weight: normal;
+}
+
+
+.general-data-card-uploadedcontent-info{
+    margin-top: 30px;
+
+    padding: 0px 20px 15px 20px;
+    border-style: solid;
+    border-color: beige;
+    border-width: 0px 0px 1px 0px;
+}
+
+
+
+
+
+.mod-admin-section{
+    margin: 50px 0px 0px 0px;
+
+    padding: 50px;
+
+    border-style: solid;
+    border-color: beige;
+    border-width: 1px 0px 0px 0px;
+
+    text-align: start;
+}
+
+.book-issue-sec{
+    max-height: 500px;
+}
+
+.book-issue-section-header{
+    font-size: 30px;
+    font-weight: bold;
+}
+

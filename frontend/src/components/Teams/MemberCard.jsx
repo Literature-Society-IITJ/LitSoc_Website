@@ -5,7 +5,7 @@ import insta_logo from '../../media/Teams/instagram-logo.svg'
 import gmail_logo from '../../media/Teams/gmail-logo.svg'
 
 
-export default function ProfileCard(props) {
+export default function MemberCard(props) {
 
     let name = props.name
     let quote = props.quote
