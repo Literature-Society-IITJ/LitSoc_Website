@@ -151,7 +151,7 @@ class BookIssueApprovalView(APIView):
             return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
         
         books = IssueRequest.objects.filter(Q(approved = False) & Q(moderator = '')).values()
-        return Response(books, status=status.HTTP_200_OK)
+        return Response(list(books), status=status.HTTP_200_OK)
     
     
     # mods approve any particular request from here

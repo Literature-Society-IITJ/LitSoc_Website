@@ -8,6 +8,9 @@ from rest_framework.permissions import IsAuthenticated
 from home.serializers import MemberRegistrationSerializer, MemberLoginSerializer, MemberProfileViewSerializer
 from home.renderers import MemberRenderer
 from rest_framework_simplejwt.tokens import RefreshToken
+from library.models import IssuedBook, IssueRequest
+from django.db.models import Q
+from readerSection.models import Content
 
 
 def get_tokens_for_user(user):
@@ -55,7 +58,29 @@ class MemberProfileView(APIView):
     
     def get(self, request, format=None):
         serializer = MemberProfileViewSerializer(request.user)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        book = IssuedBook.objects.filter(Q(member = request.user) & Q(availability = False)).values()
+        issue_request = IssueRequest.objects.filter(Q(member = request.user) & Q(approved = False) & Q(moderator = '')).values()
+        content = Content.objects.filter(Q(member = request.user) & Q(approval_by_admin = "approved")).values()
+        upload_request = Content.objects.filter(Q(member = request.user) & Q(approval_by_admin = "pending")).values()
+
+        temp_book = "No book issued"
+        temp_content = "No content uploaded"
+
+        if len(book) != 0:
+            temp_book = book
+
+        elif len(issue_request) != 0:
+            temp_book = issue_request
+
+        if len(content) != 0:
+            temp_content = content
+
+        elif len(upload_request) != 0:
+            temp_content = upload_request
+
+        details = {'member_details': serializer.data, 'book': temp_book, 'content': temp_content}
+
+        return Response(details, status=status.HTTP_200_OK)
 
 
 class MemberToModeratorView(APIView):
