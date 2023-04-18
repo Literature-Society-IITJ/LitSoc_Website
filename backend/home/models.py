@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.contrib.auth.models import AbstractUser
-import re
-from library.models import IssuedBook
 # Create your models here.
 
 class MemberManager(BaseUserManager):
@@ -53,8 +51,9 @@ class Member(AbstractBaseUser):
     email = models.EmailField(max_length=200, unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
+    role = models.CharField(max_length = 20, default="member")
     date_time_created = models.DateTimeField(auto_now_add=True)
-    # book_issued = models.ForeignKey(IssuedBook, on_delete=models.CASCADE)
+    # book_issued = models.IntegerField(default=-1)
 
     objects = MemberManager()
 
@@ -76,3 +75,8 @@ class Member(AbstractBaseUser):
         "Is the user a member of staff?"
         return self.is_admin
 
+    def is_moderator(self):
+        "Is the user a moderator?"
+        if self.role == "member":
+            return False
+        return True
