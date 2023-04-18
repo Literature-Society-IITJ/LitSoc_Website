@@ -38,7 +38,14 @@ export default function IssueCard(props) {
                     (canIssue=="yes") ? (
                         <>
                             <div className='book-card-details'>
-                                <div>{bookDetails.name}</div>
+                                {console.log(bookDetails)}
+                                <div>Name:{bookDetails.name}</div>
+                                <div>Book Id: {bookDetails.book_id}</div>
+                                <div>ISBN: {bookDetails.isbn}</div>
+                                <div>Author: {bookDetails.author}</div>
+                                <div>Category: {bookDetails.category}</div>
+
+                                <div>Return Date: {bookDetails.date}</div>
                             </div>
                             <div>
                                 <button onClick={()=>{ issueRequest(bookDetails.book_id)} }>Issue Book</button>
