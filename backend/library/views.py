@@ -166,9 +166,14 @@ class BookIssueApprovalView(APIView):
         if len(issueRequest) == 0:
             return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
             
-        else:
+        elif request.data.get('status') == "approved":
             issueRequest = issueRequest[0]
             issueRequest.approved = True
+            issueRequest.moderator = request.user.first_name
+            issueRequest.save()
+
+        elif request.data.get('status') == "rejected":
+            issueRequest = issueRequest[0]
             issueRequest.moderator = request.user.first_name
             issueRequest.save()
             
