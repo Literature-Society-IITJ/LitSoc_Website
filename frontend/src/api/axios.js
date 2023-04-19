@@ -75,3 +75,54 @@ export async function isUserBook() {
 
     return response.data
 }
+
+
+
+export async function getUserData() {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    console.log(access_token)
+
+    let response = await axios.get(`${baseURL}home/profile/`,
+    { headers: {'Authorization': `Bearer ${access_token}`}})
+
+    return response.data
+}
+
+
+export async function getIssueRequests() {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    // console.log(access_token)
+
+    let response = await axios.get(`${baseURL}library/bookapproval/`,
+    { headers: {'Authorization': `Bearer ${access_token}`}})
+
+    return response.data
+}
+export async function modBookResponse(bookId, roll_number, status) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    // console.log(access_token)
+
+    let response = await axios.get(`${baseURL}library/bookapproval/`, 
+    {'bookId':bookId, 'roll_number':roll_number, 'status':status},
+    { headers: {'Authorization': `Bearer ${access_token}`, 
+                'Content-Type': 'application/json'} })
+
+    return response.data
+}
+
+export async function getIssuedBooks() {
+    let baseURL = 'http://127.0.0.1:8000/'
+    // let { access_token } = getToken()
+
+    // console.log(access_token)
+
+    let response = await axios.get(`${baseURL}library/bookreturn/`)
+
+    return response.data
+}

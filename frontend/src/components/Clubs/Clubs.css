@@ -34,6 +34,8 @@
     text-align: center;
     align-items: center;
 
+    /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 1%, rgba(0, 0, 0, 0)), linear-gradient(315deg, rgba(255, 255, 255, 0.8) 1%, rgba(0, 0, 0, 0)); */
+
     /* height: auto; */
 }
 
@@ -92,9 +94,44 @@
 
     padding: 50px 100px;
 
-    height: 600px;
-    background-color: rgba(255, 255, 255,0.95);
+    /* height: 600px; */
+    /* background-color: rgba(255, 255, 255,0.95); */
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 1%, rgba(0, 0, 0, 0)), linear-gradient(315deg, rgba(255, 255, 255, 0.8) 1%, rgba(0, 0, 0, 0));
+    backdrop-filter: blur(5px);
 }
+
+.oratory-middle{
+    position: relative;
+
+    /* width: 100vw; */
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 50px 100px;
+
+    /* height: 600px; */
+    /* background-color: rgba(255, 255, 255,0.95); */
+    background-image: linear-gradient(0deg, rgba(247, 6, 6, 0.8) 1%, rgba(0, 0, 0, 0)), linear-gradient(315deg, rgba(255, 255, 255, 0.8) 1%, rgba(0, 0, 0, 0));
+    backdrop-filter: blur(5px);
+}
+
+.cwpc-middle{
+    position: relative;
+
+    /* width: 100vw; */
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 50px 100px;
+
+    /* height: 600px; */
+    /* background-color: rgba(255, 255, 255,0.95); */
+    background-image: linear-gradient(0deg, rgba(247, 6, 6, 0.8) 1%, rgba(0, 0, 0, 0)), linear-gradient(315deg, rgba(255, 255, 255, 0.8) 1%, rgba(0, 0, 0, 0));
+    backdrop-filter: blur(5px);
+}
+
 
 .middle-container-1{
     display: flex;
@@ -105,11 +142,16 @@
     padding: 10px 10px 60px 10px;
 
     border-style: solid;
-    border-color: rgb(0, 0, 0);
+    border-color: beige;
     /* border-width: 4px; */
     border-width: 0px 0px 4px 0px;
 
     max-width: 100%;
+
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .middle-container-1-image{
@@ -125,17 +167,18 @@
     padding: 60px;
 
     border-style: solid;
-    border-color: rgb(0, 0, 0);
+    border-color: beige;
     /* border-width: 4px; */
-    border-width: 4px 0px 0px 4px;
+    border-width: 4px 4px 0px 0px;
 
     justify-content: center;
     align-items: center;
 
-    width: 700px;
-    height: 280px;
+    width: 900px;
+    /* height: 280px; */
     color: black;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 600;
 }
 
 .middle-container-2{
@@ -151,6 +194,8 @@
 
     /* width: 700px;
     height: 280px; */
-    color: black;
-    font-size: 20px;
+    color: beige;
+    font-size: 25px;
+    font-weight: 600;
+
 }

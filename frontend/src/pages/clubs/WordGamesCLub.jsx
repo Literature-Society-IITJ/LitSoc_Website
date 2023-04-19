@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import BottomBar from '../../components/BottomBar/BottomBar'
 import GeneralTop from '../../components/GeneralTop'
 import '../../components/Clubs/Clubs.css'
+import WordgamesclubMain from '../../components/Clubs/WordgamesclubMain'
 
 export default function WordGamesCLub() {
 
@@ -14,7 +15,7 @@ export default function WordGamesCLub() {
         <>
             <div className='club-main' style={{backgroundImage: `url(${imgsrc})`}}>
                 <GeneralTop item={item} />
-                {/* <HomeMiddle /> */}
+                <WordgamesclubMain />
                 <BottomBar />
             </div>
             <Navbar />

@@ -10,7 +10,7 @@ export default function CWPclubMain() {
     // let clubdata = ClubsData.CWPClub
 
     return (
-        <div className='book-club-middle'>
+        <div className='cwpc-middle'>
             <div className='middle-container-1'>
                 <div className='middle-container-1-image'></div>
                 <div className='middle-container-1-description'>
