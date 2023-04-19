@@ -21,7 +21,7 @@ class TeamUpdate(APIView):
 class TeamView(APIView):
 
     def get(self, request, format=None):
-        positions = {'1':['Captain', 'Secretary'], '2':['Vice Captain', 'Joint Secretary', 'Head']}
+        # positions = {'1':['Captain', 'Secretary'], '2':['Vice Captain', 'Joint Secretary', 'Head']}
         # __request.GET and request.query_params are same__
         
         # serializer = TeamViewSerializer(data=request.GET) 
@@ -32,17 +32,24 @@ class TeamView(APIView):
             team = Team.objects.filter(year = str(year)).values()
             # temp = list(team)
             # final = []
-            new1 = []
-            new2 = []
-
+            max = 1
             for i in team:
-                if i['por'] in positions['1']:
-                    new1.append[i]
+                if i['hierarchy'] > max:
+                    max = i['hierarchy']
+            final = []
+            for i in range(1, max+1):
+                team_details = {}
+                members = []
+                title = None
+                for j in team:
+                    if j['hierarchy'] == i:
+                        title = j['por']
+                        members.append(j)
+                team_details['title'] = title
+                team_details['members'] = members
+                final.append(team_details)
 
-                elif i['por'] in positions['2']:
-                    new2.append[i]
-
-            final = [{'title': new1[0]['por'], 'members': new1}, {'title': new2[0]['por'], 'members': new2}]
+            print(final)
 
             return Response(final, status=status.HTTP_200_OK)
         return Response("Please check the credentials", status=status.HTTP_404_NOT_FOUND)
