@@ -38,17 +38,66 @@ export default function IssueCard(props) {
                     (canIssue=="yes") ? (
                         <>
                             <div className='book-card-details'>
-                                {console.log(bookDetails)}
-                                <div>Name:{bookDetails.name}</div>
-                                <div>Book Id: {bookDetails.book_id}</div>
-                                <div>ISBN: {bookDetails.isbn}</div>
-                                <div>Author: {bookDetails.author}</div>
-                                <div>Category: {bookDetails.category}</div>
+                                {/* {console.log(bookDetails)} */}
+                                <div>
+                                    <div className='book-card-details-head'>
+                                        Name:&nbsp;&nbsp;
+                                    </div>
+                                    <div className='book-card-details-data'>
+                                        {bookDetails.name}
+                                    </div>
+                                </div>
 
-                                <div>Return Date: {bookDetails.date}</div>
+                                <div>
+                                    <div className='book-card-details-head'>
+                                        Author:&nbsp;&nbsp;
+                                    </div>
+                                    <div className='book-card-details-data'>
+                                        {bookDetails.author}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div className='book-card-details-head'>
+                                        Book Id:&nbsp;&nbsp;
+                                    </div>
+                                    <div className='book-card-details-data'>
+                                        {bookDetails.book_id}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div className='book-card-details-head'>
+                                        ISBN:&nbsp;&nbsp;
+                                    </div>
+                                    <div className='book-card-details-data'>
+                                        {bookDetails.isbn}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div className='book-card-details-head'>
+                                        Category:&nbsp;&nbsp;
+                                    </div>
+                                    <div className='book-card-details-data'>
+                                        {bookDetails.category}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div className='book-card-details-head'>
+                                        Return Date:&nbsp;&nbsp;
+                                    </div>
+                                    <div className='book-card-details-data'>
+                                        {bookDetails.date.split(' ')[0]}
+                                    </div>
+                                </div>
+
+                                {/* <div>Return Date: {bookDetails.date}</div> */}
                             </div>
-                            <div>
-                                <button onClick={()=>{ issueRequest(bookDetails.book_id)} }>Issue Book</button>
+
+                            <div className='book-card-bottom'>
+                                <button className='book-card-button' onClick={()=>[ issueRequest(bookDetails.book_id), window.location.reload()] }>Issue Book</button>
                             </div>
                         </>
                         )
@@ -56,8 +105,8 @@ export default function IssueCard(props) {
                         : 
                         
                             (canIssue==="requested") ? (
-                                <div>You already have a book issue request in process.</div>
-                            ) : <div>Please return the first book to issue next.</div>
+                                <div className='issue-error-message'>You already have a book issue request in process.</div>
+                            ) : <div className='issue-error-message'>Please return the first book to issue next.</div>
 
                         
                         
