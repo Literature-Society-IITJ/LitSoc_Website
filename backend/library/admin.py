@@ -1,5 +1,5 @@
 from django.contrib import admin
-from library.models import Book, IssuedBook
+from library.models import Book, IssuedBook, IssueRequest
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 # Register your models here.
 
@@ -29,5 +29,4 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 admin.site.register(Book)
 admin.site.register(IssuedBook)
-
-
+admin.site.register(IssueRequest)

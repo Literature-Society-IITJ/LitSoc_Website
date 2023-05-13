@@ -5,9 +5,8 @@ import getQuotes from '../../api/axios'
 
 export default function TeamMembersGen(props) {
 
-    console.log(getQuotes())
+    // console.log(getQuotes())
     
-
     let onDisplay = props.displayTeam
     let onDisplayObject = teamNameObjectMap[onDisplay]
 

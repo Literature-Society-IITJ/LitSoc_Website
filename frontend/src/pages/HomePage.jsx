@@ -14,7 +14,7 @@ export default function HomePage() {
 
     return (
         <>
-            <div className='home-main' style={{backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0)), url(${imgsrc})`}}>
+            <div className='home-main'>
                 <GeneralTop item={item} />
                 <HomeMiddle />
                 <BottomBar />

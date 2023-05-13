@@ -15,8 +15,8 @@ class BookAddSerializer(serializers.ModelSerializer):
 
 class BookReturnSerializer(serializers.ModelSerializer):
     class Meta:
-        model = IssuedBook
-        fields = ['member']
+        model = Book
+        fields = ['book_id']
 
 
 class BookIssueRequestSerializer(serializers.ModelSerializer):

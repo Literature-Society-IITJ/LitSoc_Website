@@ -6,7 +6,7 @@ import { isUserBook, issueRequest } from '../../api/axios'
 function canIssueInfo(setCanIssue) {
     isUserBook()
     .then((val) => {
-        console.log(val)
+        // console.log(val)
         setCanIssue(val)
     })
     .catch((err) => {
@@ -19,6 +19,7 @@ export default function IssueCard(props) {
     let [canIssue, setCanIssue] = useState('')
     
     canIssueInfo(setCanIssue)
+    
 
     let bookDetails = props.bookDetail
     let returnDate = 'xxxx yyyyy zzzzz'

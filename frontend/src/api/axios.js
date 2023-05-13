@@ -15,7 +15,7 @@ export default getQuotes;
 export async function getQuotes() {
     let baseURL =  'http://127.0.0.1:8000/'
     let response = await axios.get(`${baseURL}team/`, {params : {'year' : '20'}})
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;    
 }
 
@@ -26,7 +26,7 @@ export async function getBooks(params) {
     console.log(params.genreInput)
     let response = await axios.get(`${baseURL}library/`, 
     {params : {'category': params.genreInput, 'name': params.bookNameInput, 'isbn': params.isbnInput, 'author': params.authorNameInput}})
-    console.log('resp data', response.data);
+    // console.log('resp data', response.data);
     return response.data;
 }
 
@@ -45,7 +45,7 @@ export async function signup(firstname, lastname, rollnumber, phonenumber, usern
     console.log('conf', cnfrmpassword)
     let response = await axios.post(`${baseURL}home/register/`, {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
 
-    console.log(response.data)
+    // console.log(response.data)
 
     return response.data;
 }
@@ -59,7 +59,7 @@ export async function issueRequest(bookId){
                                     { headers: {'Authorization': `Bearer ${access_token}`, 
                                     'Content-Type': 'application/json'} })
 
-    console.log(response)
+    // console.log(response)
     return response.data
 }
 
@@ -87,6 +87,8 @@ export async function getUserData() {
     let response = await axios.get(`${baseURL}home/profile/`,
     { headers: {'Authorization': `Bearer ${access_token}`}})
 
+    console.log(response)
+
     return response.data
 }
 
@@ -95,21 +97,22 @@ export async function getIssueRequests() {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
-    // console.log(access_token)
+    console.log('getting issue req')
 
     let response = await axios.get(`${baseURL}library/bookapproval/`,
     { headers: {'Authorization': `Bearer ${access_token}`}})
 
+    console.log(response.data)
     return response.data
 }
-export async function modBookResponse(bookId, roll_number, status) {
+export async function modBookResponse(bookId, roll_number, appprovalStatus) {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
     // console.log(access_token)
 
-    let response = await axios.get(`${baseURL}library/bookapproval/`, 
-    {'bookId':bookId, 'roll_number':roll_number, 'status':status},
+    let response = await axios.post(`${baseURL}library/bookapproval/`, 
+    {'bookId':bookId, 'roll_number':roll_number, 'status':appprovalStatus},
     { headers: {'Authorization': `Bearer ${access_token}`, 
                 'Content-Type': 'application/json'} })
 
@@ -124,5 +127,45 @@ export async function getIssuedBooks() {
 
     let response = await axios.get(`${baseURL}library/bookreturn/`)
 
+    console.log(response.data)
+
+    return response.data
+}
+
+export async function getTeamDetails(year) {
+    let baseURL = 'http://127.0.0.1:8000/'
+
+    let response = await axios.get(`${baseURL}team/`,
+                                    {params : {'year' : '20'}})
+
+    return response.data
+}
+
+
+export async function markBookReturned(bookId) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    console.log(bookId)
+
+    let response = await axios.post(`${baseURL}library/bookreturn/`, 
+    {'book_id': bookId},
+    { headers: {'Authorization': `Bearer ${access_token}`, 
+                'Content-Type': 'application/json'} })
+    console.log(response.data)
+    return response.data
+}
+
+export async function addModerator(rollNumber) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    console.log(rollNumber)
+
+    let response = await axios.post(`${baseURL}home/newmoderator/`, 
+    {'roll_number': rollNumber},
+    { headers: {'Authorization': `Bearer ${access_token}`, 
+                'Content-Type': 'application/json'} })
+    console.log(response.data)
     return response.data
 }

@@ -11,7 +11,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from home.models import Member
 from datetime import datetime, timedelta
 from django.db.models import Q
-from home.serializers import MemberProfileViewSerializer
+from home.serializers import MemberProfileViewSerializer, FullMemSz
 
 # Create your views here.
 
@@ -82,7 +82,6 @@ class BookSearchView(APIView):
         # # print('_______________________________________________________________________________________')
 
         for i in range(len(filtered_book_objects)):
-            
             if len(IssuedBook.objects.filter(Q(book = filtered_book_objects[i]) & Q(availability = False))) == 0:
                 filtered_books[i]['date'] = str(datetime.today()+timedelta(days=15))
                 filtered_books[i]['availability'] = True
@@ -90,6 +89,9 @@ class BookSearchView(APIView):
                 # print('1111')
                 # print('1111')
                 
+                filtered_books[i]["date"] = str(datetime.today()+timedelta(days=15))
+                filtered_books[i]["availability"] = True
+                # print(filtered_books[i]['availability'])
             else:
                 temp = IssuedBook.objects.filter(Q(book = filtered_book_objects[i]))
                 
@@ -115,28 +117,48 @@ class BookReturnView(APIView):
     
     # get a list of all the issued books i.e. approved requests
     def get(self, request, format=None):
-        approved = IssueRequest.objects.filter(approved = True).values()
-        return Response(approved, status=status.HTTP_200_OK)
+        issued_books = IssuedBook.objects.filter(availability = False).values()
+        
+        for book in issued_books:
+            member_info_all = Member.objects.filter(id = book['member_id']).values()[0]
+            member_info = {}
+            member_info['name'] = f"{member_info_all['first_name']} {member_info_all['last_name']}"
+            member_info['roll_number'] = member_info_all['roll_number']
+            
+            book_info = Book.objects.filter(id = book['book_id']).values()[0]
+            # print(member_info)
+            # print(book_info)
+            book['member_info'] = member_info
+            book['book_info'] = book_info
+        issued_books[0]['issue_date'] = str(issued_books[0]['issue_date'])
+        issued_books[0]['return_date'] = str(issued_books[0]['return_date'])
+        print(issued_books)
+        return Response(issued_books, status=status.HTTP_200_OK)
     
 
     # change availability of a book when it is returned
     def post(self, request, format=None):
-        serializer = BookReturnSerializer(data=request.data)
-        if serializer.is_valid():
-            book = Book.objects.filter(book_id = serializer.data.get('book_id'))
-            qset = IssuedBook.objects.filter(book = book, availability = False)
+        print(1)
+        # serializer = BookReturnSerializer(data=request.data)
+        # if serializer.is_valid():
+        if True:
+            print(request.data)
+            book = Book.objects.filter(book_id = request.data.get('book_id'))[0]
+            print(book)
+            print("00000000000000000000000000000000000000000000000")
+            qset = IssuedBook.objects.filter(Q(book = book) & Q(availability = False))
+            print("99999999999999999999999999999999999999999999999")
 
             if len(qset) == 0:
                 return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
-            
             else:
-                book = qset[0]
-                book.availability = True
-                book.returned_on = datetime.today()
-                book.returned_to = str(request.user.get('first_name')) + str(request.user.get('last_name'))
-                book.save()
+                Issued_book = qset[0]
+                Issued_book.availability = True
+                # book.returned_on = datetime.today()
+                # book.returned_to = str(request.user.get('first_name')) + str(request.user.get('last_name'))
+                Issued_book.save()
+                print(Issued_book)
                 return Response("Details updated successfully", status=status.HTTP_200_OK)
-                
         return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
     
 
@@ -146,22 +168,41 @@ class BookIssueApprovalView(APIView):
 
     # mods see the pending issue requests from here
     def get(self, request, format=None):
+        print('___________________________',request.user.is_admin)
+        # sz = FullMemSz(request.user)
+        # print(sz.is_valid())
+        # print(sz.errors)
         
-        if request.user.role not in ['moderator', 'admin']:
+        if request.user.role not in ['moderator', 'admin'] and not request.user.is_admin:
+            print('eeeeeeeeeeeeeeeeeeeeeeeee')
             return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
         
-        books = IssueRequest.objects.filter(Q(approved = False) & Q(moderator = '')).values()
-        return Response(list(books), status=status.HTTP_200_OK)
+        issueRequest = IssueRequest.objects.filter(Q(approved = False) & Q(moderator = '')).values()
+        
+        for req in issueRequest:
+            member_info_all = Member.objects.filter(id = req['member_id']).values()[0]
+            member_info = {}
+            member_info['name'] = f"{member_info_all['first_name']} {member_info_all['last_name']}"
+            member_info['roll_number'] = member_info_all['roll_number']
+            
+            book_info = Book.objects.filter(id = req['book_id']).values()[0]
+            # print(member_info)
+            # print(book_info)
+            req['member_info'] = member_info
+            req['book_info'] = book_info
+        return Response(list(issueRequest), status=status.HTTP_200_OK)
     
     
     # mods approve any particular request from here
     def post(self, request, format=None):
         
-        if request.user.role not in ['moderator', 'admin']:
+        # print(request.user)
+        if request.user.role not in ['moderator', 'admin'] and not request.user.is_admin:
+            print(111111111)
             return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
         
         member = Member.objects.filter(roll_number = request.data.get('roll_number'))[0]
-        issueRequest = IssueRequest.objects.filter(Q(member = member) & Q(approved = False) & Q(moderator = '')).values()
+        issueRequest = IssueRequest.objects.filter(Q(member = member) & Q(approved = False) & Q(moderator = ''))
 
         if len(issueRequest) == 0:
             return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
@@ -170,6 +211,10 @@ class BookIssueApprovalView(APIView):
             issueRequest = issueRequest[0]
             issueRequest.approved = True
             issueRequest.moderator = request.user.first_name
+            issuedBook = IssuedBook.objects.create(book = issueRequest.book, 
+                                                   member = member, 
+                                                   return_date = datetime.today() + timedelta(days = 15))
+            issuedBook.save()
             issueRequest.save()
 
         elif request.data.get('status') == "rejected":
@@ -177,9 +222,4 @@ class BookIssueApprovalView(APIView):
             issueRequest.moderator = request.user.first_name
             issueRequest.save()
             
-            issuedBook = IssuedBook.objects.create(book = issueRequest.book, 
-                                                   member = member, 
-                                                   return_date = datetime.today() + timedelta(days = 15))
-            issuedBook.save()
-            
-            return Response({'bookissued': issueRequest.book.name, 'msg':'Book issued successfully'}, status=status.HTTP_200_OK)
+        return Response({'bookissued': issueRequest.book.name, 'msg':'Book issued successfully'}, status=status.HTTP_200_OK)

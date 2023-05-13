@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from home.serializers import MemberRegistrationSerializer, MemberLoginSerializer, MemberProfileViewSerializer
 from home.renderers import MemberRenderer
 from rest_framework_simplejwt.tokens import RefreshToken
-from library.models import IssuedBook, IssueRequest
+from library.models import IssuedBook, IssueRequest, Book
 from django.db.models import Q
 from readerSection.models import Content
 
@@ -58,28 +58,37 @@ class MemberProfileView(APIView):
     
     def get(self, request, format=None):
         serializer = MemberProfileViewSerializer(request.user)
+        
         book = IssuedBook.objects.filter(Q(member = request.user) & Q(availability = False)).values()
         issue_request = IssueRequest.objects.filter(Q(member = request.user) & Q(approved = False) & Q(moderator = '')).values()
         content = Content.objects.filter(Q(member = request.user) & Q(approval_by_admin = "approved")).values()
+        # print('_____________________________________' , len(content))
         upload_request = Content.objects.filter(Q(member = request.user) & Q(approval_by_admin = "pending")).values()
 
-        temp_book = "No book issued"
-        temp_content = "No content uploaded"
+        temp_book = False
+        temp_content = False
 
         if len(book) != 0:
+            book[0]['issue_date'] = str(book[0]['issue_date'])
+            book[0]['return_date'] = str(book[0]['return_date'])
             temp_book = book
 
         elif len(issue_request) != 0:
             temp_book = issue_request
 
         if len(content) != 0:
-            temp_content = content
+            temp_content = list(content)
 
         elif len(upload_request) != 0:
-            temp_content = upload_request
-
-        details = {'member_details': serializer.data, 'book': temp_book, 'content': temp_content}
-
+            temp_content = list(upload_request)
+            
+        # print(temp_book)
+        # print('__________',temp_book)
+        book_name = Book.objects.filter(pk = temp_book[0]['book_id']).values()[0]
+        # print(temp_book[0])
+        
+        details = {'member_details': serializer.data, 'book': {'book_name':book_name, 'return_date':temp_book[0]['return_date']}, 'content': temp_content}
+        print(details)
         return Response(details, status=status.HTTP_200_OK)
 
 
@@ -87,11 +96,14 @@ class MemberToModeratorView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, format=None):
+        print(request.data)
         roll_number = request.data.get('roll_number')
-        member = Member.objects.filter(roll_number = roll_number).values()
+        member = Member.objects.filter(roll_number = roll_number)
 
         if len(member) == 0:
             return Response("Please check the credentials and try again", status=status.HTTP_400_BAD_REQUEST)
         else:
-            member['role'] = "moderator"
+            member = member[0]
+            member.role = "moderator"
+            member.save()
             return Response("Role updated successfully", status=status.HTTP_200_OK)

@@ -1,5 +1,7 @@
 import React from 'react'
-import bg4 from '../../media/images/bg4.jpg'
+import img1 from '../../media/images/1.jpg'
+import img2 from '../../media/images/2.jpg'
+
 
 export default function HomeMiddle() {
     return (
@@ -7,7 +9,7 @@ export default function HomeMiddle() {
             <div className='home-society-desc'>
                 <div className='home-society-desc-row row-1'>
                     <div className='home-society-desc-image'>
-                        <img src={bg4} alt="" height='300px' width='700px'/>
+                        <img className='home-soc-desc-img' src={img1} alt="" height='300px' width='700px'/>
                     </div>
 
                     <div className='home-society-desc-content' id='row1-content'>
@@ -39,7 +41,7 @@ export default function HomeMiddle() {
                     </div>
 
                     <div>
-                        <img src={bg4} alt="" height='300px' width='700px'/>
+                        <img className='home-soc-desc-img' src={img2} alt="" height='300px' width='700px'/>
                     </div>
                 </div>
             </div>
@@ -55,13 +57,13 @@ export default function HomeMiddle() {
                         <br />
 
                         <div className='content'>
-                            to the Batch of 2023
+                            To the Batch of 2023,
                             <br />
-                            to our Mentors
+                            To our family...
                             <br />
-                            to our family
+                            To the OGs of Lit,
                             <br />
-                            to the OGs of Lit...
+                            and to our beloved Mentors...
                         </div>
                     </div>
                 </div>
@@ -69,16 +71,24 @@ export default function HomeMiddle() {
                 <div className='home-feature' id='right'>
                     <div className='home-feature-text' id='right-text'>
                         <div className='heading'>
-                            We Love you guys...
+                            Will miss you guys...
                         </div>
                         <br />
 
                         <div className='content'>
-                            Will miss you always
+                            With heavy hearts we bid adieu,
+                            <br />
+                            Our seniors leaving, our emotions askew...
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* <div className='home-events'>
+                <div className='home-events-text'>
+                    <h1>Events</h1>
+                </div>
+            </div> */}
         </div>
     )
 }

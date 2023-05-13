@@ -8,17 +8,25 @@
 
     width: 100vw;
 
-    /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 1%, rgba(0, 0, 0, 0)), url('../../media/images/bg4.jpg');
+    /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 1%, rgba(0, 0, 0, 0)), url('../../media/images/bg4.jpg'); */
 
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 1%, rgba(0, 0, 0, 0)), url('../../media/images/bg4.jpg'); */
-
+    
+    
+    /* 8 background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 1%, rgba(0, 0, 0, 0)), url('../../media/images/bg4.jpg'); */
+    
     background-attachment: fixed;
+    
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 1%, rgba(0, 0, 0, 0)), url('../../media/images/meet2.jpeg');
+    background-size: cover;
 
     /* background-color: black; */
 }
 
+
+
 .home-top{
     position: relative;
+    top: 100px;
 
     padding: 0px;
 
@@ -61,8 +69,9 @@
     border-width: 0px 0px 4px 0px; 
     border-color: #ffffff;
     
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0));
-    
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0));
+
+    /* color: black; */
     font-size: 6vw;
 }
 
@@ -79,12 +88,14 @@
     border-width: 0px 0px 0px 0px; 
     border-color: #ffffff;
 
+    /* color: black; */
     font-size: 7vh;
 }
 
 
 .home-content{
     position: relative;
+    top: 100px;
     left: 0px;
     display: flex;
     flex-direction: column;
@@ -95,11 +106,9 @@
 
     height: auto;
     
+    color: black;
     /* background-color: rgb(0, 0, 0); */
     /* background-image: linear-gradient(180deg, rgba(255, 255, 255, 1) 1%, rgba(16, 20, 27, 0)); */
-    
-    /* background-image: linear-gradient(0deg, rgba(176, 84, 111, 0.34) 30%, rgba(0, 0, 0, 0)); */
-    
     backdrop-filter: blur(10px);
 
     padding: 0px 0px;
@@ -111,6 +120,11 @@
 
 
 
+
+
+.home-soc-desc-img{
+    border: double silver 10px;
+}
 
 .home-society-featured{
     border-style: solid;
@@ -175,7 +189,8 @@
     border-color: beige;
     border-width: 4px 0px 0px 4px;
 
-    color: #271c19;
+    /* color: #271c19; */
+    color: beige;
 }
 .row-2{
     justify-content: right;
@@ -270,7 +285,10 @@
     width: 100vw;
 
     padding: 50px 0px;
-    
+
+    /* color: beige; */
+    /* color: #959ca7; */
+    color: silver;
 }
 
 #left{
@@ -309,4 +327,20 @@
 #right-text>.content{
     font-size: 40px;
     font-weight: 600;
+}
+
+.home-events{
+    width: 100%;
+
+    color: beige;
+
+    background-image:linear-gradient(180deg, rgba(0, 0, 0, 1) 1%, rgba(0, 0, 0, 0)), linear-gradient(45deg, rgba(255, 255, 255, 0.8) 1%, rgba(0, 0, 0, 0));
+}
+
+.home-events-text{
+    margin: 30px;
+    padding: 30px;
+
+    border: solid beige 2px;
+    text-align: start;
 }

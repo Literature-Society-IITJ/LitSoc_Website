@@ -1,6 +1,10 @@
 import React from 'react'
 
-export default function ProfileDataCard() {
+export default function ProfileDataCard(props) {
+
+    console.log(props.bookDetails)
+    const bookData = props.bookDetails
+    console.log(bookData)
     return (
         <div className='profile-page general-data-card'>
             <div className='general-data-card-issuedbook-info'>
@@ -8,12 +12,20 @@ export default function ProfileDataCard() {
                     Issued Book:
                 </div>
                 <br />
-                <div className='issuedbook-name'>
-                    Harry Potter and the Philosophers Stone
-                </div>
-                <div>
-                    Return Date: 11th Dec 2023
-                </div>
+
+                {
+                    bookData ? (
+                        <>
+                            <div className='issuedbook-name'>
+                                {bookData.book_name.name}
+                            </div>
+                            <div>
+                                Return Date: {bookData.return_date}
+                            </div>
+                        </>
+                    ) : <div>No book issued.</div>
+                }
+                
             </div>
 
 
@@ -24,7 +36,7 @@ export default function ProfileDataCard() {
                 </div>
                 <br />
                 <div className='issuedbook-name'>
-                    Harry Potter and the Philosophers Stone
+                    {/* Harry Potter and the Philosophers Stone */}
                 </div>
             </div>
         </div>

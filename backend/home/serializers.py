@@ -77,5 +77,11 @@ class MemberLoginSerializer(serializers.ModelSerializer):
 class MemberProfileViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
-        fields = ['id', 'email', 'username', 'roll_number']
+        fields = ['username', 'role']
+       
+       
+class FullMemSz(serializers.ModelSerializer):
+    class Meta:
+        model = Member
+        fields = ['id', 'first_name', 'last_name', 'username', 'roll_number', 'phone', 'email', 'is_active', 'is_admin', 'role', 'date_time_created',]
         

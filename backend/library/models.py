@@ -49,4 +49,4 @@ class IssuedBook(models.Model):
     availability = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.member.roll_number
+        return f'{self.book.name} is issued to {self.member.roll_number}'

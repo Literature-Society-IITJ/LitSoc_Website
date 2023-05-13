@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class MemberManager(BaseUserManager):
-    def create_user(self, email, username, phone, roll_number, first_name, last_name, password=None, password2=None):
+    def create_user(self, email, username, phone, roll_number, first_name, last_name, role, password=None, password2=None):
         """
         Creates and saves a User with the given email, name and password.
         """
@@ -17,14 +17,15 @@ class MemberManager(BaseUserManager):
             username = username,
             roll_number = roll_number,
             phone = phone,
-            email=self.normalize_email(email)
+            email=self.normalize_email(email),
+            role = role
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, username, phone, roll_number, first_name, last_name, password=None):
+    def create_superuser(self, email, username, phone, roll_number, first_name, last_name, role, password=None):
         """
         Creates and saves a superuser with the given email, name and password.
         """
@@ -36,6 +37,7 @@ class MemberManager(BaseUserManager):
             first_name=first_name,
             last_name=last_name,
             password=password,
+            role = role
         )
         user.is_admin = True
         user.save(using=self._db)

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getBooks } from '../../api/axios'
-import IssueCard from './IssueCard'
+// import IssueCard from './IssueCard'
 
 export default function BooksDisplay(props) {
 

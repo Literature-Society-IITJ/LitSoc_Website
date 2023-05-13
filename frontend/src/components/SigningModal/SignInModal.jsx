@@ -10,7 +10,7 @@ function loginFunction(setErrorMessage, setShowSignInPopUp) {
     console.log(email, password)
     // let response = ''
     if(email == '' || password == '') {
-        setErrorMessage('Kripya bakchodi na kare!')
+        setErrorMessage('Please enter all the fields')
         return
     }
     else {
