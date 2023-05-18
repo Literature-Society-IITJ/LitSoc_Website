@@ -12,7 +12,7 @@ export const GeneralTopData = {
         id: 'reader-section',
         title: "READER'S SECTION",
         tagline: "We welcome you to LitSoc!",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/images/readsecbg.jpg'
     },
 
     Archive:{
