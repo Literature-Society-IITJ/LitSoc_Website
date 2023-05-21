@@ -4,7 +4,7 @@ from django.db import models
 
 class Team(models.Model):
     name = models.CharField(max_length=200)
-    image = models.ImageField(upload_to = '', default=None)
+    image = models.ImageField(upload_to = 'team', default=None)
     por = models.CharField(max_length=200)
     year = models.IntegerField()
     linkedin = models.URLField(max_length=200)
