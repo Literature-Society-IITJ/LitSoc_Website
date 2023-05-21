@@ -13,8 +13,6 @@ export default function ReadSecMain() {
             {/* Welcome to the reader section */}
             <ItemCard content={content} author={author}/>
             <ItemCard content={content2} author={author}/>
-            <ItemCard />
-            <ItemCard />
         </div>
   )
 }

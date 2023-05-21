@@ -138,6 +138,8 @@ export async function getTeamDetails(year) {
     let response = await axios.get(`${baseURL}team/`,
                                     {params : {'year' : '20'}})
 
+    console.log(response.data)
+
     return response.data
 }
 

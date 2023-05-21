@@ -7,22 +7,25 @@ export default function ItemCard(props) {
     let [showItem, setShowItem] = useState(false)
 
 
-    let title = 'Oblivian'
-    let img_src = '/src/media/images/bg4.jpg'
+    let title = 'Oblivian are the days and oblivious is me'
+    let img_src = '/src/media/images/bg.jpg'
     let content = props.content
     let author = props.author
 
     return (
-        <div className='reader-sec item-card'>
+        <>
+        <div className='reader-sec item-card' onClick={()=>setShowItem(true)}>
             <div className='reader-sec item-card-image-container'>
                 <div className='reader-sec item-card-image' style={{backgroundImage: `url(${img_src})`}}>
-                    <div className='reader-sec item-card-image-button' onClick={() =>setShowItem(true)}>
-                        <div className='reader-sec item-card-title'>{title}</div>              
-                    </div>
                 </div>
             </div>
+            <div className='reader-sec item-card-content-container'>
+                <div className='reader-sec item-card-title'>{title}</div>
+                <div className='reader-sec item-card-author'>{author}</div>             
+            </div>
 
-            <ItemMain showItem={showItem} setShowItem={setShowItem} content={props.content} author={props.author}/>
         </div>
+        <ItemMain showItem={showItem} setShowItem={setShowItem} content={content} author={author}/>
+        </>
     )
 }

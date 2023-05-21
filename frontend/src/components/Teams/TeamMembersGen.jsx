@@ -1,13 +1,13 @@
 import React from 'react'
 import { currentTeam, alumni2021, teamNameObjectMap } from '../../data/Teams'
 import MemberCard from './MemberCard'
-import getQuotes from '../../api/axios'
+import getQuotes, { getTeamDetails } from '../../api/axios'
 
 export default function TeamMembersGen(props) {
 
-    // console.log(getQuotes())
     
     let onDisplay = props.displayTeam
+    console.log(getTeamDetails(onDisplay))
     let onDisplayObject = teamNameObjectMap[onDisplay]
 
     return (
