@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from team.serializers import TeamViewSerializer, TeamUpdateSerializer
 from django.contrib.admin.views.decorators import staff_member_required
 from team.models import Team
+import datetime
 # Create your views here.
 
 
@@ -24,12 +25,20 @@ class TeamView(APIView):
         # positions = {'1':['Captain', 'Secretary'], '2':['Vice Captain', 'Joint Secretary', 'Head']}
         # __request.GET and request.query_params are same__
         
-        # serializer = TeamViewSerializer(data=request.GET) 
+        # serializer = TeamViewSerializer(data=request.GET)
+        # print(request.query_params['year'])
+        # if request.query_params['year'] != 'current':
         serializer = TeamViewSerializer(data=request.query_params)
 
         if serializer.is_valid():
+            # year = 0
+            # if request.query_params['year'] != 'current':
             year = serializer.data.get('year')
-            print(year)
+            # else:
+                # year = datetime.date.today().year
+            
+            # print(year)
+
             team = Team.objects.filter(year = str(year)).values()
             # temp = list(team)
             # final = []
@@ -42,11 +51,14 @@ class TeamView(APIView):
                 team_details = {}
                 members = []
                 title = None
+                id = None
                 for j in team:
                     if j['hierarchy'] == i:
                         title = j['por']
+                        id = j['div_id']
                         members.append(j)
                 team_details['title'] = title
+                team_details['id'] = id
                 team_details['members'] = members
                 final.append(team_details)
 
