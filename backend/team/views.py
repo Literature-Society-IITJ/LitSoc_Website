@@ -27,15 +27,16 @@ class TeamView(APIView):
         
         # serializer = TeamViewSerializer(data=request.GET)
         # print(request.query_params['year'])
-        # if request.query_params['year'] != 'current':
-        serializer = TeamViewSerializer(data=request.query_params)
+        if request.query_params['year'] != 'current':
+            serializer = TeamViewSerializer(data=request.query_params)
+        else:
+            Year = datetime.date.today().year
+            query_dict = {'year':Year}
+            serializer = TeamViewSerializer(data=query_dict)
 
         if serializer.is_valid():
             # year = 0
-            # if request.query_params['year'] != 'current':
             year = serializer.data.get('year')
-            # else:
-                # year = datetime.date.today().year
             
             # print(year)
 
