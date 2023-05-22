@@ -1,4 +1,6 @@
 import React from 'react'
+import { RxCross2 } from "react-icons/rx"
+
 
 export default function ItemMain(props) {
 
@@ -13,8 +15,8 @@ export default function ItemMain(props) {
             <div className='item-main-box'>
                 <div className='sign-modal-top' id='sign-in'>
                     <div className='sign-modal-top-left'>{title}</div>
-                    <div className='sign-modal-top-right'>
-                        <button onClick={()=>props.setShowItem(false)}>X</button>
+                    <div className='sign-modal-top-right' onClick={()=>props.setShowItem(false)}>
+                        <RxCross2 />
                     </div>
                 </div>
                 <div className='item-main-body' id='sign-in'>

@@ -29,6 +29,7 @@ class TeamView(APIView):
 
         if serializer.is_valid():
             year = serializer.data.get('year')
+            print(year)
             team = Team.objects.filter(year = str(year)).values()
             # temp = list(team)
             # final = []

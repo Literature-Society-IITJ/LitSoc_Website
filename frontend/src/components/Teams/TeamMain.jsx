@@ -5,7 +5,7 @@ import TeamMembersGen from './TeamMembersGen'
 
 export default function TeamMain() {
 
-    let [displayTeam, setDisplayTeam] = useState('current')
+    let [displayTeam, setDisplayTeam] = useState('2021')
     let Team = teamsNavPanelItems["Team"]
     let Alumni = teamsNavPanelItems["alumni"]
 
@@ -13,7 +13,7 @@ export default function TeamMain() {
         <div className='teams-main-body'>
             <div className='teams-nav-panel'>
                 {/* <div className='teams-nav-panel-items'> */}
-                <div className='teams-nav-panel-items' onClick={()=>setDisplayTeam('current')}>
+                <div className='teams-nav-panel-items' onClick={()=>setDisplayTeam('2021')}>
                     {Team.title}       
                 </div>
                 {/* </div> */}

@@ -133,10 +133,11 @@ export async function getIssuedBooks() {
 }
 
 export async function getTeamDetails(year) {
+    console.log(year)
     let baseURL = 'http://127.0.0.1:8000/'
 
     let response = await axios.get(`${baseURL}team/`,
-                                    {params : {'year' : '20'}})
+                                    {params : {'year' : '2021'}})
 
     console.log(response.data)
 
