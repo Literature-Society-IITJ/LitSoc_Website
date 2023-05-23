@@ -1,8 +1,10 @@
-import React from 'react'
-import secy from '../../media/Teams/secy_dity.jpg'
+import React, { useEffect, useState } from 'react'
+import secy from '../../../../media/team/aditi.jpeg'
 import linkedin_logo from '../../media/Teams/linkedin-logo.svg'
 import insta_logo from '../../media/Teams/instagram-logo.svg'
 import gmail_logo from '../../media/Teams/gmail-logo.svg'
+
+const img = '../../../../media/team/aditi.jpeg'
 
 
 export default function MemberCard(props) {
@@ -13,12 +15,13 @@ export default function MemberCard(props) {
     let linkedin = props.linkedin
     let instagram = props.insta
     let gmail = props.mail
+    
 
     return (
         <div className='member-card' id={id}>
             <div className='member-card-main' id={id}>
                 <div className='member-card-image' id={id} tabIndex={1}>
-                    <img src={secy} width='200px' height='200px' className='member-card-image-object'></img>
+                    <img src={ img } width='200px' height='200px' className='member-card-image-object'></img>
                 </div>
                 <div className='member-card-name' tabIndex={2}>{name}</div>
             {/* ProfileCard */}
@@ -26,7 +29,7 @@ export default function MemberCard(props) {
 
             <div className='member-card-left' tabIndex={1}>
                 <div className='member-card-image' id={id} tabIndex={1}>
-                    <img src={secy} width='200px' height='200px' className='member-card-image-object'></img>
+                    <img src={img} width='200px' height='200px' className='member-card-image-object'></img>
                 </div>
             </div>
 

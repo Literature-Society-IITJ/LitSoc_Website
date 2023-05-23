@@ -137,9 +137,10 @@ export async function getTeamDetails(year) {
     let baseURL = 'http://127.0.0.1:8000/'
 
     let response = await axios.get(`${baseURL}team/`,
-                                    {params : {'year' : '2021'}})
+                                    {params : {'year' : year}})
 
-    console.log(response.data)
+    // console.log('4')
+    // console.log(response.data)
 
     return response.data
 }

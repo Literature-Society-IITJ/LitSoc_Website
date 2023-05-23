@@ -199,6 +199,14 @@ export const teamAlumniYears = [
     {
         id: "dropdown-events-all",
         index: 1,
+        year: "2022",
+        id: "alumni-2022",
+        path: "/allevents"
+
+    },
+    {
+        id: "dropdown-events-all",
+        index: 2,
         year: "2021",
         id: "alumni-2021",
         path: "/allevents"
@@ -206,14 +214,14 @@ export const teamAlumniYears = [
     },
     {
         id: "dropdown-events-lits-chamber",
-        index: 2,
+        index: 3,
         year: "2020",
         id: "alumni-2020",
         path: "/litschamber"
     },
     {
         id: "dropdown-events-mun",
-        index: 3,
+        index: 4,
         year: "2019",
         id: "alumni-2019",
         path: "/mun"
