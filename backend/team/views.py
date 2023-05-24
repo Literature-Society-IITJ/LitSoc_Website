@@ -63,7 +63,7 @@ class TeamView(APIView):
                 team_details['members'] = members
                 final.append(team_details)
 
-            print(final)
+            # print(final)
 
             return Response(final, status=status.HTTP_200_OK)
         return Response("Please check the credentials", status=status.HTTP_404_NOT_FOUND)

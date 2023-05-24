@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { RxCross2 } from "react-icons/rx"
 import { login } from '../../api/axios'
 import { storeToken } from '../../utilities/localStorage'
 
@@ -45,42 +46,43 @@ export default function SignInModal(props) {
             <div className='sign-modal-box' id='sign-in'>
                 <div className='sign-modal-top' id='sign-in'>
                     <div className='sign-modal-top-left'>SIGN IN</div>
-                    <div className='sign-modal-top-right'>
-                        <button onClick={()=>props.setShowSignInPopUp(false)}>X</button>
+                    <div className='sign-modal-x-button' onClick={()=>props.setShowSignInPopUp(false)}>
+                        <RxCross2 />
                     </div>
                 </div>
                 <div className='sign-modal-body' id='sign-in'>
-                    <div style={{fontSize:"25px", padding:"10px 0px 30px 0px", fontWeight:"normal"}}>LOG IN TO YOUR ACCOUNT</div>
+                    <div className='sign-modal-body-top-msg' >Welcome Literati!</div>
 
                     <section className='signin-form-container'>
                         <div className='signin-form' id='signin-form'>
-
-                        {/* <form className='signin-form' action="get" id='signin-form'> */}
                             <div className='signin-form-input-container'>
                                 <div className='input-container' id='email'>
-                                    <span className='input-container-fixed-label'>Email Address</span>
+                                    <span className='input-container-fixed-label'>
+                                        Email Address
+                                    </span>
                                     <br />
                                     <input placeholder='Email Address' type="email" className='input-label' name='email' id='emailInput'/>
                                 </div>
 
                                 <div className='input-container' id='password'>
-                                    <span className='input-container-fixed-label'>Password</span>
+                                    <span className='input-container-fixed-label'>
+                                        Password
+                                    </span>
                                     <br />
                                     <input placeholder='Password' type="password" className='input-label' name='password' id='passwordInput'/>
                                 </div>
                                 <div>{errorMessage}</div>
                                 <br />
-                                <button onClick={() =>{loginFunction(setErrorMessage, props.setShowSignInPopUp)}}> Login </button>
                             </div>
-                        {/* </form> */}
-
+                            <button onClick={() =>{loginFunction(setErrorMessage, props.setShowSignInPopUp)}}>
+                            Login
+                            </button>
                         </div>
-                        
                     </section>
 
                     <br />
-                    <span>Not a literati yet?</span>
                     <br />
+                    <span>Not a literati yet?</span>
                     <br />
                     <button onClick={()=>[props.setShowSignInPopUp(false) ,props.setShowSignUpPopUp(true)]}>Sign Up Now</button>
                 
