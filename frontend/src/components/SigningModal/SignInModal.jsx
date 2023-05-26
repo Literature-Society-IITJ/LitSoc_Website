@@ -50,41 +50,47 @@ export default function SignInModal(props) {
                         <RxCross2 />
                     </div>
                 </div>
+
                 <div className='sign-modal-body' id='sign-in'>
-                    <div className='sign-modal-body-top-msg' >Welcome Literati!</div>
+
+                    <div className='sign-modal-body-top-msg'>
+                        Welcome Literati!
+                    </div>
 
                     <section className='signin-form-container'>
                         <div className='signin-form' id='signin-form'>
                             <div className='signin-form-input-container'>
                                 <div className='input-container' id='email'>
-                                    <span className='input-container-fixed-label'>
+                                    <span className='input-container fixed-label'>
                                         Email Address
                                     </span>
-                                    <br />
-                                    <input placeholder='Email Address' type="email" className='input-label' name='email' id='emailInput'/>
+                                    <input type="email" className='input-label' name='email' id='emailInput'/>
                                 </div>
 
+
+
                                 <div className='input-container' id='password'>
-                                    <span className='input-container-fixed-label'>
+                                    <span className='input-container fixed-label'>
                                         Password
                                     </span>
-                                    <br />
-                                    <input placeholder='Password' type="password" className='input-label' name='password' id='passwordInput'/>
+                                    <input type="password" className='input-label' name='password' id='passwordInput'/>
                                 </div>
-                                <div>{errorMessage}</div>
+                                
+                                <div className='sign-modal-error-msg'>{'*' + errorMessage}</div>
+
                                 <br />
                             </div>
-                            <button onClick={() =>{loginFunction(setErrorMessage, props.setShowSignInPopUp)}}>
+
+                            <button className='sign-modal-button' onClick={() =>{loginFunction(setErrorMessage, props.setShowSignInPopUp)}}>
                             Login
                             </button>
+
                         </div>
                     </section>
 
                     <br />
-                    <br />
                     <span>Not a literati yet?</span>
-                    <br />
-                    <button onClick={()=>[props.setShowSignInPopUp(false) ,props.setShowSignUpPopUp(true)]}>Sign Up Now</button>
+                    <button className='sign-modal-button' onClick={()=>[props.setShowSignInPopUp(false) ,props.setShowSignUpPopUp(true)]}>Sign Up Now</button>
                 
                     
                 </div>

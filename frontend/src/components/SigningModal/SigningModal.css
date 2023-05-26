@@ -102,9 +102,74 @@
 
 .sign-modal-body-top-msg{
     font-size:25px; 
-    padding: 10px 0px 30px 0px;
+    padding: 10px 0px 25px 0px;
     font-weight: normal;
 }
+
+.signin-form-input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+
+    flex-basis: 50%;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+
+    margin: 10px 0px 0px 0px;
+}
+
+.fixed-label{
+    margin: 0px;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.input-label{
+    margin: 5px 0px 10px 0px;
+    padding: 20px 15px;
+    width: 300px;
+    height: 0px;
+
+    text-align: left;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    color: white;
+
+    font-size: 15px;
+
+    border-radius: 2px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.sign-modal-error-msg{
+    margin: 5px 0px 0px 0px;
+    font-weight: normal;
+    font-size: 17px;
+
+    text-align: left;
+}
+
+.sign-modal-button{
+    padding: 8px 15px;
+    border-radius: 2px;
+}
+
+.sign-modal-body>span{
+    margin: 10px 0px 15px 0px;
+    font-weight: 500;
+}
+
+
+
 
 
 
@@ -118,44 +183,16 @@
     flex-direction: column;
     justify-content:space-evenly;
 
+    /* padding: 0px 0px 15px 0px; */
+
     flex-basis: 50%;
 
-    border-style: solid;
-    /* border-width: 1px; */
-    border-width: 0px 0px 1px 0px;
+    /* border-style: solid; */
+    /* border-width: 0px 0px 1px 0px; */
 }
 
-.signup-form-name-fields{
+.signup-form-field-row{
     display: flex;
     flex-direction: row;
-}
-
-.input-container{
-    width: fit-content;
-    justify-items: left;
-}
-
-.input-container-fixed-label{
-    font-size: 20px;
-    font-weight: normal;
-    /* text-transform: uppercase; */
-    padding: 5px 0px;
-    align-content: left;
-}
-
-.input-label{
-    margin: 0px 10px 20px 0px;
-    padding: 5% 10px;
-    width: 300px;
-    height: 0px;
-
-    text-align: left;
-
-    background-color: rgba(255, 255, 255, 0.8);
-
-    border-radius: 6px;
-
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    gap: 60px;
 }
