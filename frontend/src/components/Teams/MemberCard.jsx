@@ -11,11 +11,11 @@ export default function MemberCard(props) {
 
     let name = props.name
     let quote = props.quote
-    let id = 'secy-2022';
+    let id = props.id;
     let linkedin = props.linkedin
     let instagram = props.insta
     let gmail = props.mail
-    let img = '/src/media_back/' + props.image    
+    let img = '/src/media/' + props.image    
 
     return (
         <div className='member-card' id={id}>
@@ -24,7 +24,6 @@ export default function MemberCard(props) {
                     <img src={ img } width='200px' height='200px' className='member-card-image-object'></img>
                 </div>
                 <div className='member-card-name' tabIndex={2}>{name}</div>
-            {/* ProfileCard */}
             </div>
 
             <div className='member-card-left' tabIndex={1}>

@@ -252,18 +252,6 @@
     border-width: 2px; */
 }
 
-/* .teams-nav-panel-clubs-items{
-    display: flex;
-    flex-direction: column;
-
-    padding: 5px;
-
-    position: relative;
-    /* top: 150px;
-    left: 80px; */
-
-    /* background-color: #000000; */
-/* } */
 
 
 .team-members-container{
@@ -323,13 +311,19 @@
 .member-card{
     background-color: rgba(255, 255, 255, 1);
 
+
     width:min-content;
     padding: 6px;
 
-    border-radius: 5px;
+
+    border-radius: 2px;
+
+
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 50px 170px 1000px rgba(255, 255, 255, 1);
+
 
     transition: 0.3s !important;
-
 }
 
 .member-card-image{
@@ -338,7 +332,7 @@
     width: auto;
     height: fit-content;
 
-    border-radius: 3%;
+    border-radius: 2px;
     transition: 3s ease-in;
 }
 
@@ -346,7 +340,7 @@
     width: 200px;
     height: 200px;
 
-    border-radius: 5px;
+    border-radius: 2px;
 
     transition: 3s ease-in;
 }
@@ -381,7 +375,7 @@
 
 .member-card:hover .member-card-image-object{
     height: 260px;
-    width: auto;
+    width: 260px;
     transition: 0.3s ease-in;
 }
 
