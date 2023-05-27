@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class MemberManager(BaseUserManager):
-    def create_user(self, email, username, phone, roll_number, first_name, last_name, role, password=None, password2=None):
+    def create_user(self, email, username, phone, roll_number, first_name, last_name, role="member", password=None, password2=None):
         """
         Creates and saves a User with the given email, name and password.
         """
