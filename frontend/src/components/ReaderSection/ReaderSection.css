@@ -77,13 +77,114 @@
 
 .reader-sec-body{
     display: flex;
+    flex-direction: column;
+
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+
+.reader-sec-featured{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+
+    background-color: white;
+    padding: 50px;
+}
+
+.featured-image{
+    height: 500px;
+    width: 500px;
+
+    background-color: blue;
+    background-image: url('../../media/content/T7pQnb2MN7pCW1r3Uj6g--1--0DI3N_4x.jpg');
+
+    /* position: relative; */
+    /* left: 30%; */
+}
+
+.featured-content{
+    height: 500px;
+    width: 500px;
+
+    margin: 50px 0px 0px -50px;
+    background-color: gray;
+
+    /* position: relative; */
+    /* left: 30%; */
+    /* top: 100px; */
+}
+
+
+
+
+
+
+
+
+
+.readersec-content-main{
+    display: flex;
+    flex-direction: column;
+
+    padding: 100px;
+}
+
+
+
+.reader-sec-nav-panel{
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+
+    /* border-style: solid;
+    border-color: white;
+    border-width: 0px 0px 2px 0px; */
+
+    background-color: black;
+}
+
+.reader-sec-nav-panel-items{
+    flex: 1 1 auto;
+    padding: 12px 20px;
+    text-transform: uppercase;
+
+    border-bottom: solid 2px white;
+
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.reader-sec-nav-panel-items + .reader-sec-nav-panel-items{
+    border-left: solid 2px white;
+}
+
+.reader-sec-nav-panel-items:hover{
+    background-color: white;
+    color: black;
+}
+
+.reader-sec-nav-panel-items:active{
+    background-color: black;
+    color: white;
+
+    border-style: solid;
+    border-color: white;
+    border-width: 2px 2px 2px 0px;
+}
+
+
+
+.reader-sec-contents{
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
 
-    background-color: rgba(0, 0, 0, 0.3);
-
-    /* background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.2)); */
+    /* background-color: rgba(0, 0, 0, 0.3); */
 
     color: black;
 
@@ -94,6 +195,30 @@
     align-items: center;
     justify-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .item-card{

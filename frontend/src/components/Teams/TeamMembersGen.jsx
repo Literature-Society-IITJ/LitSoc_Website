@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { currentTeam, alumni2021, teamNameObjectMap } from '../../data/Teams'
 import MemberCard from './MemberCard'
-import getQuotes, { getTeamDetails } from '../../api/axios'
+import { getTeamDetails } from '../../api/axios'
 
 export default function TeamMembersGen(props) {
 
@@ -18,7 +17,7 @@ export default function TeamMembersGen(props) {
 
     return (
         <div className='team-members-container' id='current-team'>
-        {console.log(onDisplayObject)}{
+        {
             onDisplayObject.map((item) =>(
                 <div className='team-members-por-container' id={item.id}>
                     <div className='members-por-fixed-label'>{item.title}</div>

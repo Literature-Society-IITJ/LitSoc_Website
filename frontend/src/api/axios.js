@@ -105,6 +105,7 @@ export async function getIssueRequests() {
     console.log(response.data)
     return response.data
 }
+
 export async function modBookResponse(bookId, roll_number, appprovalStatus) {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
@@ -133,18 +134,14 @@ export async function getIssuedBooks() {
 }
 
 export async function getTeamDetails(year) {
-    console.log(year)
+    // console.log(year)
     let baseURL = 'http://127.0.0.1:8000/'
 
     let response = await axios.get(`${baseURL}team/`,
                                     {params : {'year' : year}})
 
-    // console.log('4')
-    // console.log(response.data)
-
     return response.data
 }
-
 
 export async function markBookReturned(bookId) {
     let baseURL = 'http://127.0.0.1:8000/'
@@ -171,5 +168,18 @@ export async function addModerator(rollNumber) {
     { headers: {'Authorization': `Bearer ${access_token}`, 
                 'Content-Type': 'application/json'} })
     console.log(response.data)
+    return response.data
+}
+
+export async function getReadSecItems(category) {
+    let baseURL = 'http://127.0.0.1:8000/'
+
+    // console.log(123)
+
+    let response = await axios.get(`${baseURL}readerSection/`,
+                                    {params : {'category' : category}})
+
+    // console.log(1234567)
+    // console.log(response.data)
     return response.data
 }

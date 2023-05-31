@@ -7,8 +7,8 @@ export default function ItemCard(props) {
     let [showItem, setShowItem] = useState(false)
 
 
-    let title = 'Oblivian are the days and oblivious is me'
-    let img_src = '/src/media/images/bg.jpg'
+    let title = props.title
+    let img_src = 'src/media/' + props.img
     let content = props.content
     let author = props.author
 
@@ -23,9 +23,8 @@ export default function ItemCard(props) {
                 <div className='reader-sec item-card-title'>{title}</div>
                 <div className='reader-sec item-card-author'>{author}</div>             
             </div>
-
         </div>
-        <ItemMain showItem={showItem} setShowItem={setShowItem} content={content} author={author}/>
+        <ItemMain showItem={showItem} setShowItem={setShowItem} content={content} author={author} img={img_src}/>
         </>
     )
 }

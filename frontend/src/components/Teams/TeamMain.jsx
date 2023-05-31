@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import {teamsNavPanelItems} from '../../data/Teams'
+import {teamsNavPanelItems} from '../../data/PageNavbarItems'
 import TeamMembersGen from './TeamMembersGen'
 
 export default function TeamMain() {
