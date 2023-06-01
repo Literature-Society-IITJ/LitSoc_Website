@@ -9,6 +9,17 @@ export default function ItemMain(props) {
     let content = props.content
     let author = props.author
     
+    // let a = "hello\nworld"
+    
+    // content.replace("\n", "<br>")
+    // content = content.replace(/[\r\n]+/g,"<br />")
+    // console.log(content)
+
+    // let f = () => {
+    //     document.getElementById(`readSec${title}`).innerHTML = content
+    // }
+
+
     return props.showItem ? (
         <div className='item-main'>
             <div className='item-main-box' style={{backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.6) 75%, rgba(0, 0, 0, 0)), linear-gradient(90deg, rgba(0, 0, 0, 0.6) 75%, rgba(0, 0, 0, 0)), url(${img_src})`}}>
@@ -20,7 +31,9 @@ export default function ItemMain(props) {
                 </div>
 
                 <div className='item-main-body' id='sign-in'>
-                    <div style={{fontSize:"25px", padding:"10px 0px 30px 0px", fontWeight:"normal"}}>{content}</div>
+                    <div id={`readSec${title}`} style={{fontSize:"25px", padding:"10px 0px 30px 0px", fontWeight:"normal"}}>
+                    {content.split(/\n/).map(line => <div key={line}>{line}<br /></div>)}
+                    </div>
                     <div>{author}</div>
                 </div>
             </div>
