@@ -6,7 +6,6 @@ import { isUserBook, issueRequest } from '../../api/axios'
 function canIssueInfo(setCanIssue) {
     isUserBook()
     .then((val) => {
-        // console.log(val)
         setCanIssue(val)
     })
     .catch((err) => {
@@ -20,9 +19,7 @@ export default function IssueCard(props) {
     
     canIssueInfo(setCanIssue)
     
-
     let bookDetails = props.bookDetail
-    let returnDate = 'xxxx yyyyy zzzzz'
 
     return (
         props.showBookItem ? (
@@ -39,7 +36,6 @@ export default function IssueCard(props) {
                     (canIssue=="yes") ? (
                         <>
                             <div className='book-card-details'>
-                                {/* {console.log(bookDetails)} */}
                                 <div>
                                     <div className='book-card-details-head'>
                                         Name:&nbsp;&nbsp;
@@ -93,24 +89,16 @@ export default function IssueCard(props) {
                                         {bookDetails.date.split(' ')[0]}
                                     </div>
                                 </div>
-
-                                {/* <div>Return Date: {bookDetails.date}</div> */}
                             </div>
 
                             <div className='book-card-bottom'>
                                 <button className='book-card-button' onClick={()=>[ issueRequest(bookDetails.book_id), window.location.reload()] }>Issue Book</button>
                             </div>
                         </>
-                        )
-                        
-                        : 
-                        
-                            (canIssue==="requested") ? (
+                        ): 
+                        (canIssue==="requested") ? (
                                 <div className='issue-error-message'>You already have a book issue request in process.</div>
                             ) : <div className='issue-error-message'>Please return the first book to issue next.</div>
-
-                        
-                        
                     }
                 </div>
             </div>) :  null

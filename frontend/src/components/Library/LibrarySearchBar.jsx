@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 export default function LibrarySearchBar(props) {
 
     // function updateSearchValue(book) {

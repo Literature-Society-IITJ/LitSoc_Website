@@ -123,7 +123,10 @@ export default function SignUpModal(props) {
                             </div>
                         </div>
 
-                        <div className='sign-modal-error-msg'>{'*' + errorMessage}</div>
+                        <div className='sign-modal-error-msg'>
+                            { errorMessage? ('*' + errorMessage): null }
+                        </div>
+                        
                         <br />
                         <button className='sign-modal-button' onClick={()=>{signupFunction(setErrorMessage, props.setShowSignUpPopUp)}}>Lit Me Up</button>
                     </section>

@@ -72,5 +72,12 @@ export const readersecNavPanelItems = [
         title: "article",
         class: "reader-sec navbar-article",
         category: "article",
+    },
+
+    {
+        index: 5,
+        title: "essay",
+        class: "reader-sec navbar-esssy",
+        category: "essay",
     }
 ]

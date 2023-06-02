@@ -76,7 +76,9 @@ export default function SignInModal(props) {
                                     <input type="password" className='input-label' name='password' id='passwordInput'/>
                                 </div>
                                 
-                                <div className='sign-modal-error-msg'>{'*' + errorMessage}</div>
+                                <div className='sign-modal-error-msg'>
+                                    { errorMessage? ('*' + errorMessage) : null }
+                                </div>
 
                                 <br />
                             </div>
@@ -92,9 +94,7 @@ export default function SignInModal(props) {
                     <span>Not a literati yet?</span>
                     <button className='sign-modal-button' onClick={()=>[props.setShowSignInPopUp(false) ,props.setShowSignUpPopUp(true)]}>Sign Up Now</button>
                 
-                    
                 </div>
-                
             </div>
         </div>
     ):null;
