@@ -28,6 +28,12 @@ class ContentReadView(APIView):
     def get(self, request, format=None):
         category = request.query_params.get('category')
         content = Content.objects.filter(Q(category = category) & Q(approval_by_admin = "approved")).values()
+        # print(content)
+        for c in list(content):
+            member = Member.objects.filter(id = c['member_id']).values()[0]
+            # c['member_name'] = f"{member['first_name']} {member['last_name']}"
+            c['member_name'] = f"{member['username']}"
+        # print(content)
         return Response(list(content), status=status.HTTP_200_OK)
 
 
