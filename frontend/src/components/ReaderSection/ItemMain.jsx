@@ -11,7 +11,7 @@ export default function ItemMain(props) {
 
     return props.showItem ? (
         <div className='item-main'>
-            <div className='item-main-box' style={{backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.6) 75%, rgba(0, 0, 0, 0)), linear-gradient(90deg, rgba(0, 0, 0, 0.6) 75%, rgba(0, 0, 0, 0)), url(${img_src})`}}>
+            <div className='item-main-box' style={{backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.4) 75%, rgba(0, 0, 0, 0)), linear-gradient(90deg, rgba(0, 0, 0, 0.4) 75%, rgba(0, 0, 0, 0)), url(${img_src})`, backgroundRepeat: `no-repeat`, backgroundSize: `cover`}}>
                 <div className='item-main-top'>
                     <div className='item-box-title'>{title}</div>
                     <div className='item-box-x-button' onClick={()=>props.setShowItem(false)}>

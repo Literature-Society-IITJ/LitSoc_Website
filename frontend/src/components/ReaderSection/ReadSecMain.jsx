@@ -47,7 +47,7 @@ export default function ReadSecMain() {
                     {
                     readsecContent.length ? (
                         readsecContent.map((item) =>(
-                            <ItemCard title={item.title} content={item.content} author={item.member_id} img={item.background}/>
+                            <ItemCard title={item.title} content={item.content} author={item.member_name} img={item.background}/>
                             ))
                         ):
                         <div className='reader-sec-contents no-content-message'>Alas! There is no content in this category right now!!!</div>
