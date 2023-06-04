@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'library',
     'corsheaders',
     'readerSection',
+    'puzzles',
 ]
 
 MIDDLEWARE = [
