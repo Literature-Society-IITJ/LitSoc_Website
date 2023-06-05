@@ -13,7 +13,7 @@ export default function Puzzles() {
 
     return (
         <>
-            <div className='puzzles-main' style={{backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0)), url(${imgsrc})`}}>
+            <div className='puzzles-main' style={{backgroundImage: `url(${imgsrc})`}}>
                 <GeneralTop item={item} />
                 <PuzzlesMain />
                 {/* <HomeMiddle /> */}

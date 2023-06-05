@@ -13,7 +13,7 @@ export default function Team() {
 
     return (
         <>
-            <div className='teams-main' style={{backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0)), url(${imgsrc})`}}>
+            <div className='teams-main' style={{backgroundImage: `url(${imgsrc})`}}>
                 <GeneralTop item={item} />
                 <TeamMain />
                 {/* <HomeMiddle /> */}

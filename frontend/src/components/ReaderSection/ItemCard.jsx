@@ -14,17 +14,17 @@ export default function ItemCard(props) {
 
     return (
         <>
-        <div className='reader-sec item-card' onClick={()=>setShowItem(true)}>
-            <div className='reader-sec item-card-image-container'>
-                <div className='reader-sec item-card-image' style={{backgroundImage: `url(${img_src})`}}>
+            <div className='reader-sec item-card' onClick={()=>setShowItem(true)}>
+                <div className='reader-sec item-card-image-container'>
+                    <div className='reader-sec item-card-image' style={{backgroundImage: `url(${img_src})`}}>
+                    </div>
+                </div>
+                <div className='reader-sec item-card-content-container'>
+                    <div className='reader-sec item-card-title'>{title}</div>
+                    <div className='reader-sec item-card-author'>{author}</div>             
                 </div>
             </div>
-            <div className='reader-sec item-card-content-container'>
-                <div className='reader-sec item-card-title'>{title}</div>
-                <div className='reader-sec item-card-author'>{author}</div>             
-            </div>
-        </div>
-        <ItemMain showItem={showItem} setShowItem={setShowItem} title={title} content={content} author={author} img={img_src}/>
+            <ItemMain showItem={showItem} setShowItem={setShowItem} title={title} content={content} author={author} img={img_src}/>
         </>
     )
 }

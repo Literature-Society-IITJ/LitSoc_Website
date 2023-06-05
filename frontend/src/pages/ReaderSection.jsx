@@ -14,7 +14,7 @@ export default function ReaderSection() {
 
     return (
         <>
-            <div className='reader-sec-main' style={{backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0)), url(${imgsrc})`}}>
+            <div className='reader-sec-main' style={{backgroundImage: `url(${imgsrc})`}}>
                 <GeneralTop item={item} />
                 <ReadSecMain />
                 {/* <ItemCard /> */}

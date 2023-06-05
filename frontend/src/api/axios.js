@@ -183,3 +183,11 @@ export async function getReadSecItems(category) {
     // console.log(response.data)
     return response.data
 }
+
+export async function getPuzzles() {
+    let baseURL = 'http://127.0.0.1:8000/'
+
+    let response = await axios.get(`${baseURL}puzzle/`)
+
+    return response.data
+}

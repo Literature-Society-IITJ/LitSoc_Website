@@ -28,7 +28,7 @@ export const GeneralTopData = {
         id: 'puzzles',
         title: "PUZZLES",
         tagline: "We welcome you to LitSoc!",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/images/pexels-anni-roenkae-4793467.jpg'
     },
 
     Team:{
@@ -52,7 +52,7 @@ export const GeneralTopData = {
         id: 'book-club',
         title: "BOOK CLUB",
         tagline: "\"Sharing stories, creating connections, and discovering new perspectives - all through the power of books.\"",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: 'https://source.unsplash.com/random/800x800/?img=1'
     },
 
     OratoryClub: {

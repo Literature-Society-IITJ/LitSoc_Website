@@ -5,29 +5,26 @@ import { useState } from 'react'
 
 export default function PuzzleCard(props) {
 
-    let [showItem, setShowItem] = useState(false)
-
-
-    let title = 'Oblivian'
-    let img_src = '/src/media/images/bg4.jpg'
-    let content = props.content
+    let title = props.title
+    let puzzle = 'src/media/' + props.puzzle
+    let image = props.image
     let author = props.author
 
     return (
-        <div className='puzzles puzzle-card'>
-            <a className='puzzles puzzle-card-image-button' href='https://www.google.com/' without rel="noopener noreferrer" target='_blank' >
-                {/* <div className='puzzles puzzle-card-image-container'> */}
-                
-                    {/* <img src={img_src} alt={title} className='puzzles puzzle-card-image' />
-                 */}
-                {/* <div className='puzzles puzzle-card-image-border'>
-                </div> */}
-                {/* </div> */}
+        <>
+            <a className='puzzle-card-anchor' href={puzzle} target='blank'>
+                <div className='puzzle-card'>
+                    <div className='puzzles puzzle-card-image-container'>
+                        <div className='puzzles puzzle-card-image' style={{backgroundImage: `url(${image})`}}>
+                        </div>
+                        {/* <div className='puzzles puzzle-card-inner-border'></div> */}
+                    </div>
+                    <div className='puzzles puzzle-card-content-container'>
+                        <div className='puzzles puzzle-card-title'>{title}</div>
+                        <div className='puzzles puzzle-card-author'>{author}</div>
+                    </div>
+                </div>
             </a>
-            
-            <div className='puzzles puzzle-card-title'>{title}</div>
-
-            {/* <ItemMain showItem={showItem} setShowItem={setShowItem} content={props.content} author={props.author}/> */}
-        </div>
+        </>
     )
 }

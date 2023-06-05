@@ -22,7 +22,8 @@
     width: 100vw;
     height: auto;
 
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 20%, rgba(0, 0, 0, 0));
+    background-color: rgba(0, 0, 0, 0.65);
+    /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 20%, rgba(0, 0, 0, 0)); */
 
 }
 
@@ -79,7 +80,7 @@
     display: flex;
     flex-direction: column;
 
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.65);
 }
 
 
@@ -97,22 +98,35 @@
 }
 
 .featured-image{
-    height: 500px;
-    width: 500px;
+    height: 630px;
+    width: 450px;
 
-    background-color: blue;
-    background-image: url('../../media/content/T7pQnb2MN7pCW1r3Uj6g--1--0DI3N_4x.jpg');
+    /* background-color: blue; */
+    background-image: url('../../media/images/syahidarpan.png');
+
+    background-repeat: no-repeat;
+    background-size: cover;
 
     /* position: relative; */
     /* left: 30%; */
 }
 
 .featured-content{
-    height: 500px;
-    width: 500px;
+    height: 630px;
+    width: 450px;
 
-    margin: 50px 0px 0px -50px;
-    background-color: gray;
+    margin: 115px 0px 0px 0px;
+    background-color: black;
+
+    font-family: monospace;
+
+    padding: 15px 40px 60px 40px;
+
+    font-size: 20px;
+
+    align-self: center;
+    align-items: center;
+    align-content: center;
 
     /* position: relative; */
     /* left: 30%; */
@@ -199,29 +213,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .item-card{
-    width: min-content;
-
     height: 16vw;
     width: 23vw;
 
@@ -235,8 +227,7 @@
 
     border-radius: 2px;
 
-
-    transition: 1s;
+    transition: 0.5s;
 }
 
 .item-card-image-container{
@@ -257,6 +248,8 @@
     height: inherit;
     width: inherit;
 }
+
+
 
 .item-card:hover>.item-card-image-container>.item-card-image{
     transition: 0.5s;
@@ -289,20 +282,23 @@
 .item-card-title{
     transition: 1s;
 
+    font-weight: 600;
     /* text-transform: uppercase; */
     justify-content: left;
 
-    font-size: 30px;
+    font-size: 36px;
     padding: 10px 15px 5px 15px;
 }
 
 .item-card-author{
     transition: 1s;
 
+    font-weight: 500;
+    font-size: 28px;
+
     justify-content: left;
 
-    font-size: 24px;
-    padding: 20px 15px 10px 15px;
+    padding: 0px 15px 10px 15px;
 }
 
 .item-card:hover>.item-card-content-container>div{
