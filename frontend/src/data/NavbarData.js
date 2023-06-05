@@ -60,12 +60,12 @@ export const navPanelItems = [
         path: "#",
         dropdown: navClubsItems,
     },
-    {
-        index: 2,
-        title: "EVENTS",
-        path: "#",
-        dropdown: navEventsItems,
-    },
+    // {
+    //     index: 2,
+    //     title: "EVENTS",
+    //     path: "#",
+    //     dropdown: navEventsItems,
+    // },
     {
         index: 3,
         title: "READER'S SECTION",

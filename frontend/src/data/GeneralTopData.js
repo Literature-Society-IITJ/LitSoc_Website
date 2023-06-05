@@ -36,7 +36,7 @@ export const GeneralTopData = {
         id: 'team',
         title: "TEAM",
         tagline: "Current Team (2022-23)",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/images/pexels-min-an-853168.jpg'
     },
 
     Library:{
@@ -52,7 +52,7 @@ export const GeneralTopData = {
         id: 'book-club',
         title: "BOOK CLUB",
         tagline: "\"Sharing stories, creating connections, and discovering new perspectives - all through the power of books.\"",
-        imgsrc: 'https://source.unsplash.com/random/800x800/?img=1'
+        imgsrc: '/src/media/images/bookclub2.jpg'
     },
 
     OratoryClub: {
@@ -60,7 +60,7 @@ export const GeneralTopData = {
         id: 'oratory-club',
         title: "ORATORY CLUB",
         tagline: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/images/oratoryclub2.jpg'
     },
 
     CWPClub: {
@@ -68,7 +68,7 @@ export const GeneralTopData = {
         id: 'cwp-club',
         title: "CREATIVE WRITING & POETRY CLUB",
         tagline: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/images/cwpc5.jpg'
     },
 
     WordGamesClub: {
@@ -76,7 +76,7 @@ export const GeneralTopData = {
         id: 'word-games-club',
         title: "WORD GAMES CLUB",
         tagline: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/images/wgc2.jpg'
     },
 
     Goonj: {
@@ -84,7 +84,7 @@ export const GeneralTopData = {
         id: 'goonj',
         title: "GOONJ",
         tagline: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/images/goonj.jpg'
     },
 
     AllEvents: {
