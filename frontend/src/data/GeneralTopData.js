@@ -67,7 +67,7 @@ export const GeneralTopData = {
         className: 'clubs-top',
         id: 'cwp-club',
         title: "CREATIVE WRITING & POETRY CLUB",
-        tagline: "\"Lorem Ipsum for testing the script.\"",
+        tagline: "\"The heart beholds a treasure, when discovered through writings, it can either be hated or beloved for an eternity.\"",
         imgsrc: '/src/media/images/cwpc5.jpg'
     },
 
