@@ -87,19 +87,15 @@
 
 
 
-.book-club-middle{
+.club-desc-quote-container{
     position: relative;
-
-    /* width: 100vw; */
 
     display: flex;
     flex-direction: column;
 
-    padding: 50px 100px;
+    padding: 50px 100px 0px 100px;
 
-    /* height: 600px; */
-    /* background-color: rgba(255, 255, 255,0.95); */
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 1%, rgba(0, 0, 0, 0)), linear-gradient(315deg, rgba(255, 255, 255, 0.8) 1%, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 1%, rgba(0, 0, 0, 0)), linear-gradient(315deg, rgba(255, 255, 255, 0.25) 1%, rgba(0, 0, 0, 0));
     backdrop-filter: blur(5px);
 }
 
@@ -136,11 +132,13 @@
 }
 
 
-.middle-container-1{
+
+
+
+.club-description-container{
     display: flex;
     flex-direction: row;
 
-    justify-content: center;
 
     padding: 10px 10px 60px 10px;
 
@@ -148,58 +146,52 @@
     border-color: beige;
     /* border-width: 4px; */
     border-width: 0px 0px 4px 0px;
+    border-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(255, 255, 255), rgba(0, 0, 0, 0)) 1 0%;
 
     max-width: 100%;
+    height: max-content;
 
-    justify-items: center;
     justify-content: center;
     align-items: center;
-    align-content: center;
 }
 
-.middle-container-1-image{
-    /* background-image: url('../../media/images/oclogo.jpg'); */
+.club-logo-container{
+    display: flex;
 
     width: 300px;
-    height: 300px;
+    height: auto;
+
+    background-repeat: no-repeat;
 
     background-size: contain;
 
-    margin: 0px 50px 0px 0px;
+    padding: 0px 50px 0px 0px;
 }
 
-.middle-container-1-description{
-    padding: 60px;
+.club-description{
+    padding: 60px 60px 30px 60px;
 
     border-style: solid;
-    border-color: beige;
-    /* border-width: 4px; */
-    border-width: 4px 4px 0px 0px;
+    border-color: rgb(255, 255, 255);
+    border-width: 3px 3px 0px 0px;
 
     justify-content: center;
     align-items: center;
 
     width: 900px;
     /* height: 280px; */
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 25px;
     font-weight: 600;
 }
 
-.middle-container-2{
-    padding: 60px;
-
-    /* border-style: solid;
-    border-color: rgb(0, 0, 0);
-    border-width: 4px; 
-    border-width: 4px 0px 0px 4px; */ 
+.club-desc-quote{
+    padding: 60px 60px 60px 60px;
 
     justify-content: center;
     align-content: center;
 
-    /* width: 700px;
-    height: 280px; */
-    color: beige;
+    color: rgb(255, 255, 255);
     font-size: 25px;
     font-weight: 600;
 

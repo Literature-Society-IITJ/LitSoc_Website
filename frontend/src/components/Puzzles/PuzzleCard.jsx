@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 // import ItemMain from './'
 // import {B21CS073_Lab_Assignment_4} from '../../data/B21CS073_Lab_Assignment_4.pdf'
+// import { Image } from '../../data/Clubs'
 
 export default function PuzzleCard(props) {
 
@@ -9,6 +10,8 @@ export default function PuzzleCard(props) {
     let puzzle = 'src/media/' + props.puzzle
     let image = props.image
     let author = props.author
+    // let image = Image[0]
+
 
     return (
         <>

@@ -52,7 +52,7 @@ export const GeneralTopData = {
         id: 'book-club',
         title: "BOOK CLUB",
         tagline: "\"Sharing stories, creating connections, and discovering new perspectives - all through the power of books.\"",
-        imgsrc: '/src/media/images/bookclub2.jpg'
+        imgsrc: '/src/media/images/bookclub.jpg'
     },
 
     OratoryClub: {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { ClubsData } from '../../data/Clubs'
-import ClubsTop from './ClubsTop'
+// import ClubsTop from './ClubsTop'
 import './Clubs.css'
 import BottomBar from '../BottomBar/BottomBar'
 import HomeMiddle from '../HomePage/HomeMiddle'
@@ -8,9 +8,10 @@ import HomeMiddle from '../HomePage/HomeMiddle'
 export default function CWPclubMain() {
     
     let clubdata = ClubsData.CWPClub
+    console.log(clubdata)
 
     return (
-        <div className='cwpc-middle'>
+        <div className='club-desc-container'>
             <div className='middle-container-1'>
                 <div className='middle-container-1-image' style={{backgroundImage: `url(${clubdata.imgsrc})`}}></div>
                 <div className='middle-container-1-description'>
