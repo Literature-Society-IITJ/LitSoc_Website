@@ -247,6 +247,9 @@
     padding: 15px;
     height: inherit;
     width: inherit;
+
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 

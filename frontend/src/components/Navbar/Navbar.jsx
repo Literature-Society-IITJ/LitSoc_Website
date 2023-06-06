@@ -15,6 +15,8 @@ const changeNavBarBG = () => {
 
 window.addEventListener('scroll', changeNavBarBG);
 
+
+
 export default function Navbar() {
     let [showSigninPopup, setShowSignInPopUp] = useState(false)
     let [showSignupPopup, setShowSignUpPopUp] = useState(false)

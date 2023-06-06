@@ -109,6 +109,10 @@
     text-align: center;
 }
 
+.profile-button-anchor:hover{
+    color: white;
+}
+
 
 .Nav-panel{
     position: relative;

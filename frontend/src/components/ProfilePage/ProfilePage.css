@@ -1,14 +1,22 @@
-.profile-page-main{
+.profile-main{
+    display: flex;
+    flex-direction: column;
+    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 100vw;
+}
+
+.profile-page-display{
     display: flex;
     flex-direction: column;
 
-    /* background-color: black; */
     background-color: rgb(37, 60, 87);
 
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0));
 }
-
-
 
 
 .profile-page-upper-bar{
@@ -17,19 +25,12 @@
 }
 
 .profile-page-top{
-
     padding: 40px 130px;
 
     display: flex;
     flex-direction: row;
 
     justify-content: space-between;
-
-    backdrop-filter: blur(20px);
-    /* background-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0)); */
-    /* background-color: rgb(0, 0, 0); */
-
-
 }
 
 
@@ -39,16 +40,8 @@
     color: white;
     font-size: 17px;
     font-weight: bold;
-}
 
-.profile-page-home-button{
-    padding: 2px 5px;
-    border-radius: 2px;
-}
-
-.profile-page-logout-button{
-    padding: 2px 5px;
-    border-radius: 2px;
+    border-radius: 1px;
 }
 
 
@@ -74,12 +67,6 @@
     display: flex;
     flex-direction: row;
     flex-grow: 2;
-    
-
-    /* height: 700px; */
-
-    /* width: 1000px; */
-    max-height: 700px;
 
     align-content: center;
 
@@ -90,22 +77,59 @@
 
 
 
+.general-data-card{
+    display: flex;
+    flex-direction: column;
+
+    margin: 40px 70px;
+    max-height: 600px;
+    text-align: start;
+}
+
+.general-data-card-issuedbook-info{
+    padding: 0px 20px 15px 20px;
+
+    border-style: solid;
+    border-color: beige;
+    border-width: 0px 0px 1px 0px;
+}
+
+.issuedbook-header{
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.issuedbook-name{
+    font-size: 25px;
+    font-weight: normal;
+}
+
+
+
+
+
+.general-data-card-uploadedcontent-info{
+    margin-top: 30px;
+
+    padding: 0px 20px 15px 20px;
+    border-style: solid;
+    border-color: beige;
+    border-width: 0px 0px 1px 0px;
+}
+
+
 .profile-card{
     display: flex;
     flex-direction: column;
 
     padding: 20px 100px 20px 20px;
-    /* margin: 0px 0px 0px 30px; */
-
 
     height: 600px;
-
-    /* backdrop-filter: blur(20px); */
 
     border-style: solid;
     border-color: beige;
     border-width: 0px 1px 0px 0px;
-
+    
     align-items: center;
     justify-content: center;
 
@@ -134,62 +158,39 @@
 }
 
 
-.general-data-card{
-    display: flex;
-    flex-direction: column;
-
-    margin: 40px 70px;
-    /* padding: 40px 20px; */
-    /* padding: 40px 20px; */
-    /* border: solid white 1px; */
-    
-    max-height: 600px;
-    text-align: start;
-
-
-}
-
-.general-data-card-issuedbook-info{
-    padding: 0px 20px 15px 20px;
-
-    border-style: solid;
-    border-color: beige;
-    border-width: 0px 0px 1px 0px;
-}
-.issuedbook-header{
-    font-size: 35px;
-    font-weight: bold;
-}
-.issuedbook-name{
-    font-size: 25px;
-    font-weight: normal;
-}
-
-
-.general-data-card-uploadedcontent-info{
-    margin-top: 30px;
-
-    padding: 0px 20px 15px 20px;
-    border-style: solid;
-    border-color: beige;
-    border-width: 0px 0px 1px 0px;
-}
-
-
 
 
 
 .mod-admin-section{
+    display: flex;
+    flex-direction: column;
+
     margin: 50px 0px 0px 0px;
 
-    padding: 50px;
+    padding: 50px 50px 50px 50px;
 
     border-style: solid;
-    border-color: beige;
-    border-width: 1px 0px 0px 0px;
+    border-width: 1px 0px 1px 0px;
+    border-image: linear-gradient(to right, rgba(0, 0, 0, 0), beige, rgba(0, 0, 0, 0)) 1 0%;
 
     text-align: start;
+
+    align-items: center;
 }
+
+.admin-requests-card{
+    width: 90%;
+    /* background-color: rgba(255, 255, 255, 0.25); */
+    background-color: rgb(37, 60, 87);
+    
+    padding: 16px 40px;
+
+    font-size: 32px;
+    font-weight: 600;
+
+    border-radius: 2px;
+}
+
 
 .book-issue-sec{
     max-height: 500px;

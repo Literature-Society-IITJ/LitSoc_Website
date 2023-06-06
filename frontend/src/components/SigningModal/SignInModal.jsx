@@ -7,8 +7,8 @@ function loginFunction(setErrorMessage, setShowSignInPopUp) {
 
     let email = document.getElementById('emailInput').value
     let password = document.getElementById('passwordInput').value
-    console.log(password == '')
-    console.log(email, password)
+    // console.log(password == '')
+    // console.log(email, password)
     // let response = ''
     if(email == '' || password == '') {
         setErrorMessage('Please enter all the fields')

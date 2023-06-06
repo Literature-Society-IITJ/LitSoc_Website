@@ -1,16 +1,8 @@
 import axios from 'axios'
 import { getToken } from '../utilities/localStorage';
 
-// API Call
-// const getQuotes = async () => {
-// 	const response = await instance.get('/team', {
-// 		params: { category: 'all', count: '1' },
-// 	});
-// 	console.log(response.data);
-// }
 
 export default getQuotes;
-
 
 export async function getQuotes() {
     let baseURL =  'http://127.0.0.1:8000/'
@@ -18,8 +10,6 @@ export async function getQuotes() {
     // console.log(response.data);
     return response.data;    
 }
-
-
 
 export async function getBooks(params) {
     let baseURL =  'http://127.0.0.1:8000/'
@@ -29,8 +19,6 @@ export async function getBooks(params) {
     // console.log('resp data', response.data);
     return response.data;
 }
-
-
 
 export async function login(email, password) {
     let baseURL =  'http://127.0.0.1:8000/'
@@ -44,8 +32,6 @@ export async function signup(firstname, lastname, rollnumber, phonenumber, usern
     console.log('pass', password)
     console.log('conf', cnfrmpassword)
     let response = await axios.post(`${baseURL}home/register/`, {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
-
-    // console.log(response.data)
 
     return response.data;
 }
@@ -68,15 +54,11 @@ export async function isUserBook() {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
-    // console.log(access_token)
-
     let response = await axios.get(`${baseURL}library/issue/`,
     { headers: {'Authorization': `Bearer ${access_token}`} })
 
     return response.data
 }
-
-
 
 export async function getUserData() {
     let baseURL = 'http://127.0.0.1:8000/'
@@ -87,6 +69,7 @@ export async function getUserData() {
     let response = await axios.get(`${baseURL}home/profile/`,
     { headers: {'Authorization': `Bearer ${access_token}`}})
 
+    console.log(1)
     console.log(response)
 
     return response.data
