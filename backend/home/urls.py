@@ -1,6 +1,6 @@
 from django.urls import path, include
 from . import views
-from home.views import MemberRegistrationView, MemberLoginView, MemberProfileView, MemberToModeratorView
+from home.views import MemberRegistrationView, MemberLoginView, MemberProfileView, MemberToModeratorView, ModeratorToMemberView
 from rest_framework import routers
 
 
@@ -15,5 +15,6 @@ urlpatterns = [
     path("login/", MemberLoginView.as_view(), name="login"),
     path("register/", MemberRegistrationView.as_view(), name='register'),
     path("profile/", MemberProfileView.as_view(), name="profile"),
-    path('newmoderator/', MemberToModeratorView.as_view(), name='newmoderator')
+    path("newmoderator/", MemberToModeratorView.as_view(), name='newmoderator'),
+    path("removemoderator/",  ModeratorToMemberView.as_view(), name='removemoderator')
 ]
