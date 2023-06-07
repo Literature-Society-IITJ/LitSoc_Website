@@ -102,6 +102,8 @@ class MemberToModeratorView(APIView):
     def get(self, request, format=None):
         if request.user.is_admin:
             moderators = Member.objects.filter(role = "moderator").values()
+            moderators = list(moderators)
+            moderators.reverse()
             return Response(list(moderators), status=status.HTTP_200_OK)
         else:
             return Response("You are not authorized to take this action", status=status.HTTP_401_UNAUTHORIZED)

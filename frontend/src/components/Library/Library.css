@@ -226,8 +226,15 @@
     padding: 20px 0px;
 }
 
+.book-display-body{
+    transition: 0.5s;
+}
+
 .book-display-body:hover{
-    background-color: rgba(255, 255, 255, 0,5);
+    border-collapse: collapse;
+    transform: scale(1.05);
+
+    transition: 0.5s;
 }
 
 
@@ -320,14 +327,21 @@
     
     /* background-image: url('../../media/images/KX4CwkcWXpl0PVA40CeA--1--djlip.jpg'); */
     /* background-size: cover; */
+    background-color: rgba(37, 60, 87, 1);
+    background-image: linear-gradient(315deg, rgba(24, 28, 36, 0.8) 70%, rgba(0, 0, 0, 0));
     
-    box-shadow: inset 2px 2px 250px rgba(255, 255, 255, .5);
-    backdrop-filter: blur(20px);
+    /* box-shadow: inset 1px 1px 500px rgba(255, 255, 255, 0.03); */
+    /* backdrop-filter: blur(20px); */
 
-    border-radius: 2px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 0px 1px 1px 0px;
 
     width: 50%;
     height: fit-content;
+    color: rgb(255, 255, 255);
+
 }
 
 .book-card-top{
@@ -335,7 +349,7 @@
     flex-direction: row;
 
     border-style: solid;
-    border-color: beige;
+    border-color: rgb(255, 255, 255);
     border-width: 0px 0px 1px 0px;
 
     /* width: fit-content; */
@@ -346,7 +360,6 @@
     font-size: 30px;
     font-weight: bold;
 
-    color: bisque;
 }
 
 .book-card-x-button{
@@ -375,7 +388,6 @@
 
     align-content: center;
 
-    color: beige;
 }
 
 .book-card-details>div{

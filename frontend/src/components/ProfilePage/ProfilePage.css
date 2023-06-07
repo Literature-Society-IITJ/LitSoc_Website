@@ -267,6 +267,8 @@
     background-color: rgba(0, 0, 0, 0.3);
 
     z-index: 20000;
+
+    transition: 0.5s;
 }
 
 .admin-action-card{
@@ -286,8 +288,8 @@
 
     box-sizing: border-box;
 
-    background-color: rgba(24, 28, 36, 1);
-    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0));
+    background-color: rgba(37, 60, 87, 1);
+    background-image: linear-gradient(315deg, rgba(24, 28, 36, 0.8) 60%, rgba(0, 0, 0, 0));
 
     border-style: solid;
     border-width: 0px 2px;
@@ -332,6 +334,8 @@
     border-style: solid;
     border-width: 0px 0px 1px 0px;
     border-color: white;
+
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .new-mod-sec-input-container{
@@ -401,13 +405,18 @@
     justify-content: space-evenly;
     column-gap: 20px;
 
-    padding: 36px 40px;
+    margin: 20px 0px;
+    padding: 32px 30px 0px 30px;
 
     border-style: solid;
-    border-width: 0px 0px 1px 0px;
+    border-width: 0px 0px 0px 0px;
     border-color: white;
 
+    height: 100%;
     overflow: scroll;
+
+    background-color: rgba(0, 0, 0, 0.2);
+
 }
 
 .moderators-table{
@@ -416,4 +425,83 @@
     border-collapse: collapse;
 
     overflow: scroll;
+
+}
+
+.moderators-table-headers{
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 1px 0px 1px 0px;
+
+    padding: 8px 0px 8px 0px;
+
+    font-size: 21px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.moderators-table td{
+    border-style: solid;
+    border-color: rgba(245, 245, 220, 0.4);
+    border-width: 1px 0px 1px 0px;
+
+    padding: 12px 4px 12px 4px;
+
+    font-size: 20px;
+    font-weight: normal;
+    /* text-transform: uppercase; */
+}
+.roll-number{
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.moderator-details-name{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    /* width: fit-content; */
+    /* text-align: left; */
+}
+
+.moderators-table-details-container{
+    transition: 0.5s;
+}
+.moderators-table-details-container:hover{
+    transform: scale(1.04);
+    transition: 0.5s;
+}
+
+td.name{
+    justify-self: center;
+    width: 35%;
+}
+.email-id{
+    width: 20%;
+}
+.phone-num{
+    width: 20%;
+}
+.remove-button{
+    width: 15%;
+}
+
+.remove-button>button{
+    width: fit-content;
+    padding: 7px 20px;
+
+    border-radius: 2px;
+}
+
+
+.moderator-section-lower-border{
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 0px 1px 0px;
+}
+
+.no-moderator-message{
+    font-size: 22px;
 }

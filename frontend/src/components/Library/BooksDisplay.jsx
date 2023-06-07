@@ -20,7 +20,6 @@ export default function BooksDisplay(props) {
                     </tr>
                 </thead>
 
-                    {/* <div className=''> */}
                 <tbody>
                 {
                     booksList.length ? booksList.map((book) => (
