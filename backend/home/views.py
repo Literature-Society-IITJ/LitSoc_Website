@@ -67,11 +67,13 @@ class MemberProfileView(APIView):
 
         temp_book = False
         temp_content = False
+        return_date = False
 
         if len(book) != 0:
             book[0]['issue_date'] = str(book[0]['issue_date'])
             book[0]['return_date'] = str(book[0]['return_date'])
             temp_book = book
+            return_date = temp_book[0]['return_date']
 
         elif len(issue_request) != 0:
             temp_book = issue_request
@@ -84,10 +86,12 @@ class MemberProfileView(APIView):
             
         # print(temp_book)
         # print('__________',temp_book)
-        book_name = Book.objects.filter(pk = temp_book[0]['book_id']).values()[0]
+        book_name = False
+        if temp_book:
+            book_name = Book.objects.filter(pk = temp_book[0]['book_id']).values()[0]
         # print(temp_book[0])
         
-        details = {'member_details': serializer.data, 'book': {'book_name':book_name, 'return_date':temp_book[0]['return_date']}, 'content': temp_content}
+        details = {'member_details': serializer.data, 'book': {'book_name':book_name, 'return_date':return_date}, 'content': temp_content}
         print(details)
         return Response(details, status=status.HTTP_200_OK)
 
