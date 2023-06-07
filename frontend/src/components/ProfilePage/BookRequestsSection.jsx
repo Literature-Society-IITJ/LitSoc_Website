@@ -20,7 +20,7 @@ export default function BookRequestsSection() {
                 Book Issue Requests
                 </h2></div>
             <div className='issue-requests-table-container'>
-                <table className='ssue-requests-table'>
+                <table className='issue-requests-table'>
                     {/* <thead>
                         <tr>
                             <th className='isbn'>ISBN</th>

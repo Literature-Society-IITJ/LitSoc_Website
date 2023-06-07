@@ -105,13 +105,10 @@ export async function modBookResponse(bookId, roll_number, appprovalStatus) {
 
 export async function getIssuedBooks() {
     let baseURL = 'http://127.0.0.1:8000/'
-    // let { access_token } = getToken()
-
-    // console.log(access_token)
 
     let response = await axios.get(`${baseURL}library/bookreturn/`)
 
-    console.log(response.data)
+    // console.log(response.data)
 
     return response.data
 }
@@ -144,26 +141,45 @@ export async function addModerator(rollNumber) {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
-    console.log(rollNumber)
-
     let response = await axios.post(`${baseURL}home/newmoderator/`, 
     {'roll_number': rollNumber},
     { headers: {'Authorization': `Bearer ${access_token}`, 
                 'Content-Type': 'application/json'} })
-    console.log(response.data)
+    // console.log(response.data)
     return response.data
 }
+
+export async function getModerators() {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+
+    let response = await axios.get(`${baseURL}home/newmoderator/`,
+        {headers: {'Authorization': `Bearer ${access_token}`, 
+        'Content-Type': 'application/json'}})
+
+    return response.data
+}
+
+export async function removeModerator(rollNumber) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    let response = await axios.post(`${baseURL}home/removemoderator/`, 
+    {'roll_number': rollNumber},
+    { headers: {'Authorization': `Bearer ${access_token}`, 
+                'Content-Type': 'application/json'} })
+    // console.log(response.data)
+    return response.data
+}
+
 
 export async function getReadSecItems(category) {
     let baseURL = 'http://127.0.0.1:8000/'
 
-    // console.log(123)
-
     let response = await axios.get(`${baseURL}readerSection/`,
                                     {params : {'category' : category}})
 
-    // console.log(1234567)
-    // console.log(response.data)
     return response.data
 }
 
