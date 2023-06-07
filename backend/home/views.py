@@ -94,16 +94,44 @@ class MemberProfileView(APIView):
 
 class MemberToModeratorView(APIView):
     permission_classes = [IsAuthenticated]
+    
+    def get(self, request, format=None):
+        if request.user.is_admin:
+            moderators = Member.objects.filter(role = "moderator").values()
+            return Response(list(moderators), status=status.HTTP_200_OK)
+        else:
+            return Response("You are not authorized to take this action", status=status.HTTP_401_UNAUTHORIZED)
 
     def post(self, request, format=None):
-        print(request.data)
-        roll_number = request.data.get('roll_number')
-        member = Member.objects.filter(roll_number = roll_number)
+        if request.user.is_admin:
+        # print(request.data)
+            roll_number = request.data.get('roll_number')
+            member = Member.objects.filter(roll_number = roll_number)
 
-        if len(member) == 0:
-            return Response("Please check the credentials and try again", status=status.HTTP_400_BAD_REQUEST)
+            if len(member) == 0:
+                return Response("Please check the credentials and try again", status=status.HTTP_400_BAD_REQUEST)
+            else:
+                member = member[0]
+                member.role = "moderator"
+                member.save()
+                return Response("Role updated successfully", status=status.HTTP_200_OK)
         else:
-            member = member[0]
-            member.role = "moderator"
-            member.save()
-            return Response("Role updated successfully", status=status.HTTP_200_OK)
+            return Response("You are not authorized to take this action", status=status.HTTP_401_UNAUTHORIZED)
+
+class ModeratorToMemberView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, format=None):
+        if request.user.is_admin:
+            roll_number = request.data.get('roll_number')
+            moderator = Member.objects.filter(roll_number = roll_number)
+
+            if len(moderator) == 0:
+                return Response("Please check the credentials and try again", status=status.HTTP_400_BAD_REQUEST)
+            else:
+                moderator = moderator[0]
+                moderator.role = "member"
+                moderator.save()
+                return Response("Role updated successfully", status=status.HTTP_200_OK)
+        else:
+            return Response("You are not authorized to take this action", status=status.HTTP_401_UNAUTHORIZED)
