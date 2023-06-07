@@ -1,29 +1,32 @@
 import React from 'react'
 import { addModerator } from '../../api/axios'
+import { RxCross2 } from 'react-icons/rx'
 
 
 
-export default function ModeratorRequests() {
+export default function ModeratorRequests(props) {
     return (
-        <div>
-            <div>
-                <h2>
-                    Moderator Requests
-                </h2>
-            </div>
-            <br />
-
-            <div>
-                <div>
-                    <div>Roll Number</div>
-                    <input type="text" id='roll-number'></input>
+        <div className='admin-action-modal'>
+            <div className='admin-action-card moderator-requests-card'>
+                <div className='admin-action-card-upperbar'>
+                    <div>Moderator Details</div>
+                    <div className='admin-action-card-x-button' onClick={()=>props.setShowModeratorDetails(false)}>
+                        <RxCross2 />
+                    </div>
                 </div>
-                <br />
-                <button onClick={()=>{addModerator(document.getElementById('roll-number').value)
-                // location.reload()
-                }}>
-                    Add
-                </button>
+
+                <div className='admin-action-card-body new-moderator-section'>
+                    <div className='new-mod-sec-input-container'>
+                        <div className='new-mod-sec-fixed-label'>Roll Number:</div>
+                        <input className='new-mod-sec-input-label' type="text" id='roll-number'></input>
+                    </div>
+                    <button onClick={()=>{addModerator(document.getElementById('roll-number').value)}}>
+                        Make Moderator
+                    </button>
+                </div>
+    
+                <div className='admin-action-card-body'>
+                </div>
             </div>
         </div>
     )
