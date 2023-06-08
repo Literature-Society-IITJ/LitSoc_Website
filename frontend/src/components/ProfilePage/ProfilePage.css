@@ -323,19 +323,110 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .new-moderator-section{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    column-gap: 20px;
+    flex-direction: column;
+    row-gap: 10px;
 
-    padding: 36px 40px;
+    padding: 24px 40px 16px 40px;
 
     border-style: solid;
     border-width: 0px 0px 1px 0px;
     border-color: white;
 
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+.new-moderator-input-button-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    column-gap: 20px;
 }
 
 .new-mod-sec-input-container{
@@ -396,10 +487,14 @@
     transition: 0.5s;
 }
 
+.new-mod-sec-error-message{
+    color: rgba(255, 255, 255, 0.8);
+}
 
 
 
-.moderators-display-section{
+
+.admin-section-table-display-section{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -412,6 +507,8 @@
     border-width: 0px 0px 0px 0px;
     border-color: white;
 
+    /* max-height: 200px; */
+
     height: 100%;
     overflow: scroll;
 
@@ -419,7 +516,7 @@
 
 }
 
-.moderators-table{
+.admin-section-table{
     width: 100%;
 
     border-collapse: collapse;
@@ -428,7 +525,7 @@
 
 }
 
-.moderators-table-headers{
+.admin-section-table-headers{
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-width: 1px 0px 1px 0px;
@@ -440,68 +537,123 @@
     text-transform: uppercase;
 }
 
-.moderators-table td{
+.admin-section-table td{
     border-style: solid;
     border-color: rgba(245, 245, 220, 0.4);
-    border-width: 1px 0px 1px 0px;
+    border-width: 0px 0px 1px 0px;
 
-    padding: 12px 4px 12px 4px;
+    padding: 14px 4px 14px 4px;
 
     font-size: 20px;
     font-weight: normal;
     /* text-transform: uppercase; */
 }
-.roll-number{
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.9);
-}
 
-.moderator-details-name{
-    display: flex;
-    flex-direction: column;
 
-    justify-content: center;
-
-    /* width: fit-content; */
-    /* text-align: left; */
-}
-
-.moderators-table-details-container{
+.admin-section-table-details-container{
     transition: 0.5s;
 }
-.moderators-table-details-container:hover{
+.admin-section-table-details-container:hover{
     transform: scale(1.04);
     transition: 0.5s;
 }
 
-td.name{
-    justify-self: center;
+.admin-action-lower-border{
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 0px 1px 0px;
+}
+
+
+
+
+.moderator-details-name{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    text-align: left;
+
+    padding-left: 40%;
+}
+.mod-name{
+    /* justify-self: center; */
     width: 35%;
 }
-.email-id{
+.mod-roll-number{
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.8);
+}
+.mod-email-id{
     width: 20%;
 }
-.phone-num{
+.mod-phone-num{
     width: 20%;
 }
-.remove-button{
+.mod-remove-button{
     width: 15%;
 }
 
-.remove-button>button{
+.mod-remove-button>button{
     width: fit-content;
     padding: 7px 20px;
 
     border-radius: 2px;
 }
 
-
-.moderator-section-lower-border{
-    border-style: solid;
-    border-color: white;
-    border-width: 0px 0px 1px 0px;
+.no-moderator-message{
+    font-size: 22px;
 }
 
-.no-moderator-message{
+
+
+
+
+
+
+
+.issued-books-book-details-name{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    text-align: left;
+
+    padding-left: 20%;
+}
+.issued-books-borrower-details-name{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    text-align: left;
+
+    padding-left: 25%;
+}
+.issued-books-book-id{
+    width: 15%;
+}
+.issued-books-borrower-details{
+    width: 15%;
+}
+.issued-books-borrower-roll-number{
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+}
+.issued-books-issue-date{
+    width: 10%;
+}
+.issued-books-return-date{
+    width: 10%;
+}
+.issued-books-return-button{
+    width: 15%;
+}
+.issued-books-return-button>button{
+    width: fit-content;
+    padding: 7px 20px;
+    border-radius: 2px;
+}
+.no-issued-books-message{
     font-size: 22px;
 }

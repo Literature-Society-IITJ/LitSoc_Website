@@ -90,7 +90,7 @@ export default function ProfileMain() {
 
                             {
                                 (showIssuedBooks) ? (
-                                    <IssuedBooksSection />
+                                    <IssuedBooksSection setShowIssuedBooks={setShowIssuedBooks}/>
                                 ) : null
                             }
 

@@ -1,59 +1,86 @@
 import React, { useState, useEffect } from 'react'
+import { RxCross2 } from 'react-icons/rx'
 import { getIssuedBooks, markBookReturned } from '../../api/axios'
 
-export default function IssuedBooksSection() {
+export default function IssuedBooksSection(props) {
+
+    let [refresh, setRefresh] = useState(false)
 
     const [issuedBooksList, setIssuedBooksList] = useState([])
-    // let load_again = 1
-    // const [load_again, setload_again] = useState(true)
-
     useEffect(() => {
-        getIssuedBooks().then((data) => {setIssuedBooksList(data)})}
-        , [])
+        getIssuedBooks().then((data) => {setIssuedBooksList(data)})
+        setRefresh(false)}
+        , [refresh])
 
-    // console.log(issuedBooksList)
+    const bookReturnFunction = (book_id) => {
+        markBookReturned(book_id)
+        setRefresh(true)
+    }
 
     return (
-        <div className='requests-section book-issue-sec'>
-            <div className='requests-section-head book-issue-requests'>
-                <h2>Issued Books</h2>
-            </div>
+        <div className='admin-action-modal'>
+            <div className='admin-action-card moderator-requests-card'>
+                <div className='admin-action-card-upperbar'>
+                    <div>Issued Books Details</div>
+                    <div className='admin-action-card-x-button' onClick={()=>props.setShowIssuedBooks(false)}>
+                        <RxCross2 />
+                    </div>
+                </div>
 
-            <div className='issue-requests-table-container'>
-                <table className='ssue-requests-table'>
-                    <thead>
-                        <tr>
-                            <th className='isbn'>Book Id</th>
-                            <th className='bookname'>Roll Number</th>
-                            <th className='author'>Issue Date</th>
-                            <th className='genre'>Expected Return Date</th>
-                            <th className='button'>Mark as Returned</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
+                <div className='admin-action-card-body admin-section-table-display-section'>
                     {
-                        issuedBooksList.length ? issuedBooksList.map((issuedBook) => (
-                                <tr className='book-display-body'>
-                                    <td className='isbn'>{issuedBook.book_info.book_id}</td>
-                                    <td className='bookname'>{issuedBook.member_info.roll_number}</td>
-                                    <td>{issuedBook.issue_date}</td>
-                                    <td>{issuedBook.return_date}</td>
-                                    <td className='button'>
-                                        <button onClick={()=>{
-                                            console.log("hereeee", issuedBook)
-                                            markBookReturned(issuedBook.book_info.book_id)
-                                            location.reload()
-                                        }}>Returned</button>
-                                    </td> 
-                                </tr>
-                            )): 
-                            <tr>
-                                <td colSpan={5}>No Books Issued</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+                        (issuedBooksList.length) ? (
+                            <table className='admin-section-table'>
+                                <thead className='admin-section-table-headers-container'>
+                                    <tr>
+                                        <th className='admin-section-table-headers issued-books-book-id'>Book Id</th>
+                                        <th className='admin-section-table-headers issued-books-borrower-details'>BORROWER DETAILS</th>
+                                        <th className='admin-section-table-headers issued-books-issue-date'>Issue Date</th>
+                                        <th className='admin-section-table-headers issued-books-return-date'>Expected Return Date</th>
+                                        <th className='admin-section-table-headers issued-books-return-button'>Mark as Returned</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody className='admin-section-table-body'>
+                                    {
+                                        issuedBooksList.map ((issuedBook) => (
+                                            <tr className='admin-section-table-details-container'>
+                                                <td className='issued-books-book-id'>
+                                                    <div className='issued-books-book-details-name'>
+                                                        <div>
+                                                            {issuedBook.book_info.name}
+                                                        </div>
+                                                        <div >
+                                                            {issuedBook.book_info.book_id}
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className='issued-books-borrower-details'>
+                                                    <div className='issued-books-borrower-details-name'>
+                                                        <div>
+                                                            {issuedBook.member_info.name}
+                                                        </div>
+                                                        <div className='issued-books-borrower-roll-number'>
+                                                            {issuedBook.member_info.roll_number}
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className='issued-books-issue-date'>{issuedBook.issue_date}</td>
+                                                <td className='issued-books-return-date'>{issuedBook.return_date}</td>
+                                                <td className='issued-books-return-button'>
+                                                    <button onClick={()=>{
+                                                        bookReturnFunction(issuedBook.book_info.book_id)
+                                                        }}>Returned</button>
+                                                </td> 
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+                            </table>
+                        ) : <div className="no-issued-books-message">All the books are in the library :|</div>
+                    }
+                </div>
+                <div className='admin-action-lower-border'></div>
             </div>
         </div>
     )
