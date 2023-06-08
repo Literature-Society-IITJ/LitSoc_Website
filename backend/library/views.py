@@ -190,6 +190,8 @@ class BookIssueApprovalView(APIView):
             # print(book_info)
             req['member_info'] = member_info
             req['book_info'] = book_info
+            req['return_date'] = str(datetime.today()+timedelta(days=15))
+            
         return Response(list(issueRequest), status=status.HTTP_200_OK)
     
     

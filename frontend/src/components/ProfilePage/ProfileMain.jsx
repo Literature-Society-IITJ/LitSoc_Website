@@ -33,10 +33,13 @@ export default function ProfileMain() {
 
     useEffect(() => {getUserData().then((data) => {setUserData(data)})}, [])
 
-    let role = 'moderator'
+    console.log(userData)
+
+    // let role = userData.member_details.role
+    let role = 'member'
+    // let isAdmin = userData.member_details.is_admin
     let isAdmin = true
 
-    console.log(userData)
 
     return (
         <div className='profile-page-display'>
@@ -84,7 +87,7 @@ export default function ProfileMain() {
                         <div>
                             {
                                 (showBookRequests) ? (
-                                    <BookRequestsSection bookDetails={userData.book}/>
+                                    <BookRequestsSection setShowBookRequests={setShowBookRequests}/>
                                 ) : null
                             }
 

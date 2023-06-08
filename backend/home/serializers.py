@@ -77,7 +77,7 @@ class MemberLoginSerializer(serializers.ModelSerializer):
 class MemberProfileViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
-        fields = ['username', 'role']
+        fields = ['username', 'role', 'is_admin']
        
        
 class FullMemSz(serializers.ModelSerializer):

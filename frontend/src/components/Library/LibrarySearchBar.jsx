@@ -2,21 +2,6 @@ import React from 'react'
 
 export default function LibrarySearchBar(props) {
 
-    // function updateSearchValue(book) {
-    //     console.log(book)
-    //     if (book != null) {
-    //         book = book.value;
-    //     }
-    //     else {
-    //         book = '0;'
-    //     }
-    
-    //     // book=book.value
-    
-    //     console.log(book)
-    
-    //     // return bookNameValue
-    // }
 
     return (
         <div className='book-issue-search-bar'>

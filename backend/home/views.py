@@ -57,6 +57,7 @@ class MemberProfileView(APIView):
     permission_classes = [IsAuthenticated]
     
     def get(self, request, format=None):
+        print('______________________________!1111111111111111111111111111111111111111111111111111111111')
         serializer = MemberProfileViewSerializer(request.user)
         
         book = IssuedBook.objects.filter(Q(member = request.user) & Q(availability = False)).values()
@@ -92,7 +93,8 @@ class MemberProfileView(APIView):
         # print(temp_book[0])
         
         details = {'member_details': serializer.data, 'book': {'book_name':book_name, 'return_date':return_date}, 'content': temp_content}
-        print(details)
+        print('_____________________________________')
+        print(serializer.data)
         return Response(details, status=status.HTTP_200_OK)
 
 

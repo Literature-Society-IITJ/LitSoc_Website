@@ -334,80 +334,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .new-moderator-section{
     display: flex;
     flex-direction: column;
@@ -612,6 +538,14 @@
 
 
 
+
+
+
+
+
+
+
+
 .issued-books-book-details-name{
     display: flex;
     flex-direction: column;
@@ -619,7 +553,7 @@
     justify-content: center;
     text-align: left;
 
-    padding-left: 20%;
+    padding-left: 25%;
 }
 .issued-books-borrower-details-name{
     display: flex;
@@ -657,3 +591,70 @@
 .no-issued-books-message{
     font-size: 22px;
 }
+
+
+
+
+
+
+
+
+
+.issue-requests-book-details-name{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    text-align: left;
+
+    padding-left: 30%;
+}
+.issue-requests-borrower-details-name{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    text-align: left;
+
+    padding-left: 30%;
+}
+.issue-requests-book-id{
+    width: 15%;
+}
+.issue-requests-borrower-details{
+    width: 15%;
+}
+.issue-requests-borrower-roll-number{
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+}
+.issue-requests-return-date{
+    width: 15%;
+}
+.issue-requests-approve-button{
+    width: 10%;
+}
+.issue-requests-approve-button>button{
+    width: fit-content;
+    padding: 7px 20px;
+    border-radius: 2px;
+}
+.issue-requests-reject-button{
+    width: 5%;
+}
+.issue-requests-reject-button>button{
+    width: fit-content;
+    padding: 7px 20px;
+    border-radius: 2px;
+}
+.no-issue-requests-message{
+    font-size: 22px;
+}
+
+
+
+
+
+
+
+

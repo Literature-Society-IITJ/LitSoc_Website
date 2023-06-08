@@ -11,11 +11,7 @@ export default function IssuedBooksSection(props) {
         getIssuedBooks().then((data) => {setIssuedBooksList(data)})
         setRefresh(false)}
         , [refresh])
-
-    const bookReturnFunction = (book_id) => {
-        markBookReturned(book_id)
-        setRefresh(true)
-    }
+        
 
     return (
         <div className='admin-action-modal'>
@@ -33,8 +29,8 @@ export default function IssuedBooksSection(props) {
                             <table className='admin-section-table'>
                                 <thead className='admin-section-table-headers-container'>
                                     <tr>
-                                        <th className='admin-section-table-headers issued-books-book-id'>Book Id</th>
-                                        <th className='admin-section-table-headers issued-books-borrower-details'>BORROWER DETAILS</th>
+                                        <th className='admin-section-table-headers issued-books-book-id'>Book Details</th>
+                                        <th className='admin-section-table-headers issued-books-borrower-details'>Borrower Details</th>
                                         <th className='admin-section-table-headers issued-books-issue-date'>Issue Date</th>
                                         <th className='admin-section-table-headers issued-books-return-date'>Expected Return Date</th>
                                         <th className='admin-section-table-headers issued-books-return-button'>Mark as Returned</th>
@@ -69,7 +65,8 @@ export default function IssuedBooksSection(props) {
                                                 <td className='issued-books-return-date'>{issuedBook.return_date}</td>
                                                 <td className='issued-books-return-button'>
                                                     <button onClick={()=>{
-                                                        bookReturnFunction(issuedBook.book_info.book_id)
+                                                        markBookReturned(issuedBook.book_info.book_id)
+                                                        setRefresh(true)
                                                         }}>Returned</button>
                                                 </td> 
                                             </tr>
