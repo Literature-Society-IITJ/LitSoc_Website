@@ -225,3 +225,22 @@ class BookIssueApprovalView(APIView):
             issueRequest.save()
             
         return Response({'bookissued': issueRequest.book.name, 'msg':'Book issued successfully'}, status=status.HTTP_200_OK)
+
+class IssueRequestSearchView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        member = Member.objects.filter(roll_number = request.data.get('roll_number'))
+        issueRequests = IssueRequest.objects.filter(Q(member = member)
+                                                    & Q(approved = False)
+                                                    & Q(moderator = '')).values()
+        return Response(list(issueRequests), status=status.HTTP_200_OK)
+    
+class IssuedBookSearchView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        book = Book.objects.filter(book_id = request.data.get('book_id'))
+        issuedBooks = IssuedBook.objects.filter(Q(book = book)
+                                                & Q(availability = False)).values()
+        return Response(list(issuedBooks), status=status.HTTP_200_OK)
