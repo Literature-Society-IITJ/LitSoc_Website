@@ -164,11 +164,11 @@ class BookReturnView(APIView):
 
 class BookIssueApprovalView(APIView):
 
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     # mods see the pending issue requests from here
     def get(self, request, format=None):
-        print('___________________________',request.user.is_admin)
+        # print('___________________________',request.user.is_admin)
         # sz = FullMemSz(request.user)
         # print(sz.is_valid())
         # print(sz.errors)
@@ -177,9 +177,20 @@ class BookIssueApprovalView(APIView):
             print('eeeeeeeeeeeeeeeeeeeeeeeee')
             return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
         
-        issueRequest = IssueRequest.objects.filter(Q(approved = False) & Q(moderator = '')).values()
-        
-        for req in issueRequest:
+        member = Member.objects.filter(roll_number__icontains = str(request.query_params.get('roll_number')))
+        # print(member)
+        issueRequests = []
+        for i in member:
+            issuerequest = IssueRequest.objects.filter(Q(member = i)
+                                                    & Q(approved = False)
+                                                    & Q(moderator = '')).values()
+            if len(issuerequest)!=0:
+                for j in issuerequest:
+                    issueRequests.append(j)
+
+        # issueRequests = IssueRequest.objects.filter(Q(approved = False) & Q(moderator = '')).values()
+        # print(issueRequests)
+        for req in issueRequests:
             member_info_all = Member.objects.filter(id = req['member_id']).values()[0]
             member_info = {}
             member_info['name'] = f"{member_info_all['first_name']} {member_info_all['last_name']}"
@@ -192,7 +203,7 @@ class BookIssueApprovalView(APIView):
             req['book_info'] = book_info
             req['return_date'] = str(datetime.today()+timedelta(days=15))
             
-        return Response(list(issueRequest), status=status.HTTP_200_OK)
+        return Response(list(issueRequests), status=status.HTTP_200_OK)
     
     
     # mods approve any particular request from here
@@ -225,22 +236,14 @@ class BookIssueApprovalView(APIView):
             issueRequest.save()
             
         return Response({'bookissued': issueRequest.book.name, 'msg':'Book issued successfully'}, status=status.HTTP_200_OK)
-
-class IssueRequestSearchView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request, format=None):
-        member = Member.objects.filter(roll_number = request.data.get('roll_number'))
-        issueRequests = IssueRequest.objects.filter(Q(member = member)
-                                                    & Q(approved = False)
-                                                    & Q(moderator = '')).values()
-        return Response(list(issueRequests), status=status.HTTP_200_OK)
     
-class IssuedBookSearchView(APIView):
-    permission_classes = [IsAuthenticated]
+# class IssuedBookSearchView(APIView):
+#     permission_classes = [IsAuthenticated]
 
-    def get(self, request, format=None):
-        book = Book.objects.filter(book_id = request.data.get('book_id'))
-        issuedBooks = IssuedBook.objects.filter(Q(book = book)
-                                                & Q(availability = False)).values()
-        return Response(list(issuedBooks), status=status.HTTP_200_OK)
+#     def get(self, request, format=None):
+#         book = Book.objects.filter(book_id__icontains = str(request.query_params.get('book_id')))
+#         issuedBooks = []
+#         for i in book:
+#             issuedBooks.append(IssuedBook.objects.filter(Q(book = book)
+#                                                     & Q(availability = False)).values())
+#         return Response(issuedBooks, status=status.HTTP_200_OK)
