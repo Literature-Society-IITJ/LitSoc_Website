@@ -173,12 +173,13 @@ class BookIssueApprovalView(APIView):
         # print(sz.is_valid())
         # print(sz.errors)
         
-        if request.user.role not in ['moderator', 'admin'] and not request.user.is_admin:
-            print('eeeeeeeeeeeeeeeeeeeeeeeee')
-            return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
-        
+        # if request.user.role not in ['moderator', 'admin'] and not request.user.is_admin:
+        #     print('eeeeeeeeeeeeeeeeeeeeeeeee')
+        #     return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
+
         member = Member.objects.filter(roll_number__icontains = str(request.query_params.get('roll_number')))
         # print(member)
+        # print(request.query_params.get('roll_number'))
         issueRequests = []
         for i in member:
             issuerequest = IssueRequest.objects.filter(Q(member = i)

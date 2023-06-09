@@ -85,8 +85,8 @@ export async function getIssueRequests(roll_number) {
     console.log(roll_number)
 
     let response = await axios.get(`${baseURL}library/bookapproval/`,
-                                    { headers: {'Authorization': `Bearer ${access_token}`}},
                                     { params : {'roll_number' : roll_number }})
+                                    // { headers: {'Authorization': `Bearer ${access_token}`}})
 
     console.log(2222222222)
     console.log(response.data)
