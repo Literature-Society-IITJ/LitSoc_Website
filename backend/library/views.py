@@ -140,8 +140,8 @@ class BookReturnView(APIView):
             # print(book_info)
             book['member_info'] = member_info
             book['book_info'] = book_info
-        issued_books[0]['issue_date'] = str(issued_books[0]['issue_date'])
-        issued_books[0]['return_date'] = str(issued_books[0]['return_date'])
+        # issued_books[0]['issue_date'] = str(issued_books[0]['issue_date'])
+        # issued_books[0]['return_date'] = str(issued_books[0]['return_date'])
         print(issued_books)
         return Response(issued_books, status=status.HTTP_200_OK)
     
