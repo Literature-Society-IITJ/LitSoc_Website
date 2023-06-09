@@ -11,6 +11,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from library.models import IssuedBook, IssueRequest, Book
 from django.db.models import Q
 from readerSection.models import Content
+import time
 
 
 def get_tokens_for_user(user):
@@ -95,6 +96,8 @@ class MemberProfileView(APIView):
         details = {'member_details': serializer.data, 'book': {'book_name':book_name, 'return_date':return_date}, 'content': temp_content}
         print('_____________________________________')
         print(serializer.data)
+        
+        time.sleep(5)
         return Response(details, status=status.HTTP_200_OK)
 
 

@@ -8,6 +8,8 @@ import IssuedBooksSection from './IssuedBooksSection'
 import ModeratorRequests from './ModeratorRequests'
 import { getUserData } from '../../api/axios'
 import AdminRequestCard from './AdminRequestCard'
+import { Hypnosis } from 'react-cssfx-loading'
+
 
 function fetchUserData(setUserData) {
     console.log('first')
@@ -40,81 +42,91 @@ export default function ProfileMain() {
     // let isAdmin = userData.member_details.is_admin
     let isAdmin = true
 
+    userData = ''
 
     return (
-        <div className='profile-page-display'>
-            <ProfileUpper />
-            <div className='profile-page-body'>
-                <div className='profile-page-body-general'>
-                    {userData != '' && <ProfileCard userDetails={userData.member_details}/>}
-                    {userData != '' && <ProfileDataCard userDetails={userData.member_details}/>}
-                </div>
+            (userData) ? (
+                <div className='profile-page-display'>
+                    <ProfileUpper />
+                    <div className='profile-page-body'>
+                        <div className='profile-page-body-general'>
+                            {userData != '' && <ProfileCard userDetails={userData.member_details}/>}
+                            {userData != '' && <ProfileDataCard userDetails={userData.member_details}/>}
+                        </div>
 
 
-                {
-                    (role == 'moderator' || isAdmin) ? (
-                        <div className='profile-page mod-admin-section'>
-                            <AdminRequestCard
-                                title='Book Issue Requests'
-                                showSection={showBookRequests}
-                                setShowSection={setShowBookRequests} />
-
-                            <AdminRequestCard
-                                title='Issued Books'
-                                showSection={showIssuedBooks}
-                                setShowSection={setShowIssuedBooks} />
-
-                            <AdminRequestCard
-                                title='Reader Section Upload Requests' 
-                                showSection={showContentUploadRequests}
-                                setShowSection={setShowContentUploadRequests} />
-
-                            {
-                                (isAdmin) ? (
+                        {
+                            (userData.member_details.role== 'moderator' || userData.member_details.is_admin) ? (
+                                <div className='profile-page mod-admin-section'>
                                     <AdminRequestCard
-                                        title='Moderator Details'
-                                        showSection={showModeratorDetails}
-                                        setShowSection={setShowModeratorDetails} />
-                                    ) : null
-                            }
-                        </div>
-                    ) : null
-                }
+                                        title='Book Issue Requests'
+                                        showSection={showBookRequests}
+                                        setShowSection={setShowBookRequests} />
+
+                                    <AdminRequestCard
+                                        title='Issued Books'
+                                        showSection={showIssuedBooks}
+                                        setShowSection={setShowIssuedBooks} />
+
+                                    <AdminRequestCard
+                                        title='Reader Section Upload Requests' 
+                                        showSection={showContentUploadRequests}
+                                        setShowSection={setShowContentUploadRequests} />
+
+                                    {
+                                        (userData.member_details.is_admin) ? (
+                                            <AdminRequestCard
+                                                title='Moderator Details'
+                                                showSection={showModeratorDetails}
+                                                setShowSection={setShowModeratorDetails} />
+                                            ) : null
+                                    }
+                                </div>
+                            ) : null
+                        }
 
 
-                {
-                    (role == 'moderator' || isAdmin) ? (
-                        <div>
-                            {
-                                (showBookRequests) ? (
-                                    <BookRequestsSection setShowBookRequests={setShowBookRequests}/>
-                                ) : null
-                            }
+                        {
+                            (userData.member_details.role == 'moderator' || userData.member_details.is_admin) ? (
+                                <div>
+                                    {
+                                        (showBookRequests) ? (
+                                            <BookRequestsSection setShowBookRequests={setShowBookRequests}/>
+                                        ) : null
+                                    }
 
-                            {
-                                (showIssuedBooks) ? (
-                                    <IssuedBooksSection setShowIssuedBooks={setShowIssuedBooks}/>
-                                ) : null
-                            }
+                                    {
+                                        (showIssuedBooks) ? (
+                                            <IssuedBooksSection setShowIssuedBooks={setShowIssuedBooks}/>
+                                        ) : null
+                                    }
 
-                            {
-                                (showContentUploadRequests) ? (
-                                    <ContentUploadRequests />
-                                ) : null
-                            }
+                                    {
+                                        (showContentUploadRequests) ? (
+                                            <ContentUploadRequests />
+                                        ) : null
+                                    }
 
-                            {
-                                (isAdmin) ? (
-                                    (showModeratorDetails) ? (
-                                        <ModeratorRequests 
-                                            setShowModeratorDetails={setShowModeratorDetails} />
-                                    ) : null
-                                ) : null
-                            }
-                        </div>
-                    ) : null
-                }
-            </div>
-        </div>
+                                    {
+                                        (userData.member_details.is_admin) ? (
+                                            (showModeratorDetails) ? (
+                                                <ModeratorRequests 
+                                                    setShowModeratorDetails={setShowModeratorDetails} />
+                                            ) : null
+                                        ) : null
+                                    }
+                                </div>
+                            ) : null
+                        }
+                    </div>
+                </div>
+            ) : (
+                <div className='profile-page-loading-screen'>
+                    <div className="loading-dots"></div>
+                    <div className="loading-dots"></div>
+                    <div className="loading-dots"></div>
+                </div>
+            )
     )
 }
+

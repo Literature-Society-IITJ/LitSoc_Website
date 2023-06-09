@@ -14,7 +14,6 @@
     flex-direction: column;
 
     background-color: rgb(37, 60, 87);
-
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0));
 }
 
@@ -86,7 +85,7 @@
     flex-direction: column;
 
     margin: 20px 0px;
-    padding: 0px 100px 0px 20px;
+    padding: 0px 80px 0px 20px;
 
     height: 600px;
 
@@ -108,16 +107,29 @@
     
     border: solid 2px rgb(255, 255, 255);
     
-    transition: 0.3s;
+    transition: 0.5s;
 }
 .profile-card-image-container:hover{
     border-color: rgba(0, 0, 0, 0.8);
     transition: 0.3s;
 }
 
+.profile-card-image{
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .profile-card-image-upload{
     display: flex;
+    /* flex-direction: column; */
     flex-wrap: wrap;
+    row-gap: 20px;
     justify-content: center;
     align-content: center;
 
@@ -135,7 +147,7 @@
 
     z-index: 0;
 
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .profile-card-image-container:hover .profile-card-image-upload{
@@ -145,6 +157,65 @@
     z-index: 3;
 
     transition: 0.3s;
+}
+
+/* input[type='file']{
+    display: none;
+} */
+
+
+.profile-card-image-upload>input{
+    color: transparent;
+    background-color: transparent;
+    
+    transition: 0.5s;
+}
+.profile-card-image-upload>button{
+    color: transparent;
+    background-color: transparent;
+    
+    padding: 12px 20px;
+    font-size: 18px;
+    
+    text-transform: uppercase;
+    
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent;
+    border-radius: 25px;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    align-content: center;
+    
+    transition: 0.5s;
+}
+.profile-card-image-upload:hover>input{
+    color: black;
+    background-color: transparent;
+    
+    transition: 0.3s;
+}
+.profile-card-image-upload:hover>button{
+    color: white;
+    border-color: white;
+    
+    transition: 0.3s;
+}
+.profile-card-image-upload>button:hover{
+    background-color: white;
+    color: black;
+    
+    transition: 0.3s;
+}
+.profile-card-image-upload:hover .image-upload-label{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4285f4;
+    color: #fff;
+    cursor: pointer;
 }
 
 
@@ -725,3 +796,60 @@
 
 
 
+.profile-page-loading-screen{
+    position: absolute;
+
+    height: 100vh;
+    width: 100vw;
+    
+    background-color: rgb(37, 60, 87);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0));
+
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+
+    z-index: 2;
+}
+
+.loading-dots{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #4b9cdb;
+}
+@keyframes jumpingAnimation {
+    0 {
+      transform: translate3d(0, 0,0);
+    }
+    50% {
+      transform: translate3d(0, 15px,0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes expandAnimation {
+    0 {
+      height: 15px;
+    }
+    50% {
+      height: 35px;
+    }
+    100% {
+      height: 15px;
+    }
+  }
+.profile-page-loading-screen .loading-dots:nth-last-child(1) {
+    animation: expandAnimation 6s 0s ease-in infinite;
+}
+.profile-page-loading-screen .loading-dots:nth-last-child(2) {
+    animation: expandAnimation 6s 2s ease-in infinite;
+}
+.profile-page-loading-screen .loading-dots:nth-last-child(3) {
+    animation: expandAnimation 6s 4s ease-in infinite;
+}

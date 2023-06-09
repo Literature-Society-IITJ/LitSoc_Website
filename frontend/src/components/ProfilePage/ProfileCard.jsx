@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import profile from '../../media/images/profile-icon.jpg'
-
+import { RxInput } from 'react-icons/rx'
 
 export default function ProfileCard(props) {
 
@@ -10,11 +10,11 @@ export default function ProfileCard(props) {
     return (
         <div className='profile-page profile-card'>
             <div className='profile-card-image-container'>
-                <img src={profile} width='300px' height='300px' className='profile-card-image' />
+                <img src={profile} className='profile-card-image' />
                 <div className='profile-card-image-upload'>
-                    <button>
-                        Upload Image
-                    </button>
+                    {/* <label className='image-upload-label' htmlFor="profile-image">Choose File</label> */}
+                    <input id='profile-image' type='file' accept='images/*' />
+                    <button> <RxInput /> Upload Photo</button>
                 </div>
             </div>
 

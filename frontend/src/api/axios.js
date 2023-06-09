@@ -111,7 +111,6 @@ export async function getIssuedBooks(bookId) {
     let baseURL = 'http://127.0.0.1:8000/'
 
     let response = await axios.get(`${baseURL}library/bookreturn/`,
-                                    { headers: {'Authorization': `Bearer ${access_token}`}},
                                     { params : {'book_id' : bookId }})
 
     // console.log(response.data)
