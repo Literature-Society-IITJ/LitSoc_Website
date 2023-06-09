@@ -117,7 +117,17 @@ class BookReturnView(APIView):
     
     # get a list of all the issued books i.e. approved requests
     def get(self, request, format=None):
-        issued_books = IssuedBook.objects.filter(availability = False).values()
+
+        books = Book.objects.filter(book_id__icontains = str(request.query_params.get('book_id')))
+        issued_books = []
+        for i in books:
+            issuedBook = IssuedBook.objects.filter(Q(book = i) & Q(availability = False)).values()
+            
+            if len(issuedBook)!=0:
+                for j in issuedBook:
+                    issued_books.append(j)
+        # return Response(issuedBooks, status=status.HTTP_200_OK)
+        # issued_books = IssuedBook.objects.filter(availability = False).values()
         
         for book in issued_books:
             member_info_all = Member.objects.filter(id = book['member_id']).values()[0]
