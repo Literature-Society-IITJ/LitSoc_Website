@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from library.views import BookIssueView, BookAddView, BookSearchView, BookIssueApprovalView, BookReturnView
+from library.views import BookIssueView, BookAddView, BookSearchView, BookIssueApprovalView, BookReturnView, IssuedBookSearchView, IssueRequestSearchView
 
 urlpatterns = [
     path('issue/', BookIssueView.as_view(), name='bookissue'),
@@ -8,5 +8,7 @@ urlpatterns = [
     path('', BookSearchView.as_view(), name='booksearch'),
     path('bookapproval/', BookIssueApprovalView.as_view(), name='bookapproval'),
     # path('update/', TeamUpdate.as_view())
-    path('bookreturn/', BookReturnView.as_view(), name='bookreturn')
+    path('bookreturn/', BookReturnView.as_view(), name='bookreturn'),
+    path('issuerequestsearch/', IssueRequestSearchView.as_view(), name='issuerequestsearch'),
+    path('issuedbooksearch/', IssuedBookSearchView.as_view(), name='issuedbooksearch'),
 ]
