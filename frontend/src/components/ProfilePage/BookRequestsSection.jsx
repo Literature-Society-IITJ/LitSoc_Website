@@ -6,33 +6,30 @@ export default function BookRequestsSection(props) {
 
     let [refresh, setRefresh] = useState(false)
 
+    let [rollNumberInput, setRollNumberInput] = useState('')
+
     const [issueRequestList, setIssueRequestList] = useState([])
 
     useEffect(() => {
-        getIssueRequests().then((data) => {setIssueRequestList(data)})
+        getIssueRequests(rollNumberInput).then((data) => {setIssueRequestList(data)})
         setRefresh(false)}
-        , [refresh])
+        , [refresh, rollNumberInput])
 
 
     return (
         <div className='admin-action-modal'>
-            <div className='admin-action-card moderator-requests-card'>
+            <div className='admin-action-card issue-requests-card'>
                 <div className='admin-action-card-upperbar'>
-                    <div>Issued Books Details</div>
+                    <div>Book Issue Requests</div>
                     <div className='admin-action-card-x-button' onClick={()=>props.setShowBookRequests(false)}>
                         <RxCross2 />
                     </div>
                 </div>
 
-                <div className='admin-action-card-body new-moderator-section'>
-                    <div className="new-moderator-input-button-section">
-                        <div className='new-mod-sec-input-container'>
-                            <div className='new-mod-sec-fixed-label'>Roll Number :</div>
-                            <input className='new-mod-sec-input-label' type="text" id='roll-number'></input>
-                        </div>
-                        <button className='new-mod-sec-addmod-button'>
-                            Add Moderator
-                        </button>
+                <div className='admin-action-card-search-bar issue-requests-search-bar'>
+                    <div className='admin-action-card-search-bar-container issue-requests-search-roll-num'>
+                        <span>Roll Number:</span>
+                        <input type="text" name="name" id="issue-requests-search-roll-num" onChange={()=>setRollNumberInput(document.getElementById("issue-requests-search-roll-num").value)}/>
                     </div>
                 </div>
 
@@ -44,7 +41,7 @@ export default function BookRequestsSection(props) {
                                     <tr>
                                         <th className='admin-section-table-headers issue-requests-book-id'>Book Details</th>
                                         <th className='admin-section-table-headers issue-requests-borrower-details'>BORROWER DETAILS</th>
-                                        <th className='admin-section-table-headers issue-requests-return-date'>Expected Return Date</th>
+                                        <th className='admin-section-table-headers issue-requests-return-date'>Return Date</th>
                                         <th className='admin-section-table-headers issue-requests-approve-button'></th>
                                         <th className='admin-section-table-headers issue-requests-reject-button'></th>
                                     </tr>

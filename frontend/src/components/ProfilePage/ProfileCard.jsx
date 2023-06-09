@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import secy from '../../media/Teams/secy_dity.jpg'
+import profile from '../../media/images/profile-icon.jpg'
 
 
 export default function ProfileCard(props) {
@@ -10,7 +10,12 @@ export default function ProfileCard(props) {
     return (
         <div className='profile-page profile-card'>
             <div className='profile-card-image-container'>
-                <img src={secy} width='300px' height='300px' className='profile-card-image' />
+                <img src={profile} width='300px' height='300px' className='profile-card-image' />
+                <div className='profile-card-image-upload'>
+                    <button>
+                        Upload Image
+                    </button>
+                </div>
             </div>
 
             <div className='profile-card-name'>

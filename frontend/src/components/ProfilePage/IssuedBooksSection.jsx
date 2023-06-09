@@ -6,11 +6,13 @@ export default function IssuedBooksSection(props) {
 
     let [refresh, setRefresh] = useState(false)
 
+    let [bookIdInput, setBookIdInput] = useState('')
+
     const [issuedBooksList, setIssuedBooksList] = useState([])
     useEffect(() => {
-        getIssuedBooks().then((data) => {setIssuedBooksList(data)})
+        getIssuedBooks(bookIdInput).then((data) => {setIssuedBooksList(data)})
         setRefresh(false)}
-        , [refresh])
+        , [refresh, bookIdInput])
         
 
     return (
@@ -20,6 +22,13 @@ export default function IssuedBooksSection(props) {
                     <div>Issued Books Details</div>
                     <div className='admin-action-card-x-button' onClick={()=>props.setShowIssuedBooks(false)}>
                         <RxCross2 />
+                    </div>
+                </div>
+
+                <div className='admin-action-card-search-bar issued-books-search-bar'>
+                    <div className='admin-action-card-search-bar-container issued-books-search-bookid'>
+                        <span>Book Id:</span>
+                        <input type="text" name="name" id="issued-books-search-bookid" onChange={()=>setBookIdInput(document.getElementById("issued-books-search-bookid").value)}/>
                     </div>
                 </div>
 

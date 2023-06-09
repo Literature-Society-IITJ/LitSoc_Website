@@ -15,7 +15,7 @@ export async function getBooks(params) {
     let baseURL =  'http://127.0.0.1:8000/'
     console.log(params.genreInput)
     let response = await axios.get(`${baseURL}library/`, 
-    {params : {'category': params.genreInput, 'name': params.bookNameInput, 'isbn': params.isbnInput, 'author': params.authorNameInput}})
+                                    {params : {'category': params.genreInput, 'name': params.bookNameInput, 'isbn': params.isbnInput, 'author': params.authorNameInput}})
     // console.log('resp data', response.data);
     return response.data;
 }
@@ -43,7 +43,7 @@ export async function issueRequest(bookId){
     // console.log(bookId)
     let response = await axios.post(`${baseURL}library/issue/`, {'book_id': bookId}, 
                                     { headers: {'Authorization': `Bearer ${access_token}`, 
-                                    'Content-Type': 'application/json'} })
+                                    'Content-Type': 'application/json'}})
 
     // console.log(response)
     return response.data
@@ -55,10 +55,11 @@ export async function isUserBook() {
     let { access_token } = getToken()
 
     let response = await axios.get(`${baseURL}library/issue/`,
-    { headers: {'Authorization': `Bearer ${access_token}`} })
+    { headers: {'Authorization': `Bearer ${access_token}`}})
 
     return response.data
 }
+
 
 export async function getUserData() {
     let baseURL = 'http://127.0.0.1:8000/'
@@ -76,15 +77,18 @@ export async function getUserData() {
 }
 
 
-export async function getIssueRequests() {
+export async function getIssueRequests(roll_number) {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
     console.log('getting issue req')
+    console.log(roll_number)
 
     let response = await axios.get(`${baseURL}library/bookapproval/`,
-    { headers: {'Authorization': `Bearer ${access_token}`}})
+                                    { headers: {'Authorization': `Bearer ${access_token}`}},
+                                    { params : {'roll_number' : roll_number }})
 
+    console.log(2222222222)
     console.log(response.data)
     return response.data
 }
@@ -96,17 +100,19 @@ export async function modBookResponse(bookId, roll_number, appprovalStatus) {
     // console.log(access_token)
 
     let response = await axios.post(`${baseURL}library/bookapproval/`, 
-    {'bookId':bookId, 'roll_number':roll_number, 'status':appprovalStatus},
-    { headers: {'Authorization': `Bearer ${access_token}`, 
-                'Content-Type': 'application/json'} })
+                                    {'bookId':bookId, 'roll_number':roll_number, 'status':appprovalStatus},
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                                'Content-Type': 'application/json'} })
 
     return response.data
 }
 
-export async function getIssuedBooks() {
+export async function getIssuedBooks(bookId) {
     let baseURL = 'http://127.0.0.1:8000/'
 
-    let response = await axios.get(`${baseURL}library/bookreturn/`)
+    let response = await axios.get(`${baseURL}library/bookreturn/`,
+                                    { headers: {'Authorization': `Bearer ${access_token}`}},
+                                    { params : {'book_id' : bookId }})
 
     // console.log(response.data)
 

@@ -47,7 +47,7 @@ export default function ProfileMain() {
             <div className='profile-page-body'>
                 <div className='profile-page-body-general'>
                     {userData != '' && <ProfileCard userDetails={userData.member_details}/>}
-                    <ProfileDataCard bookDetails={userData.book}/>
+                    {userData != '' && <ProfileDataCard userDetails={userData.member_details}/>}
                 </div>
 
 

@@ -15,7 +15,7 @@
 
     background-color: rgb(37, 60, 87);
 
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0));
 }
 
 
@@ -59,18 +59,110 @@
 .profile-page-body{
     display: flex;
     flex-direction: column;
-
+    
     padding: 50px 100px;
 }
 
 .profile-page-body-general{
     display: flex;
     flex-direction: row;
-    flex-grow: 2;
+    /* flex-grow: 2; */
+    
+    align-content: center;
+    
+    padding: 50px 100px 0px 100px;
+}
 
+
+
+
+
+
+
+
+
+.profile-card{
+    display: flex;
+    flex-direction: column;
+
+    margin: 20px 0px;
+    padding: 0px 100px 0px 20px;
+
+    height: 600px;
+
+    border-style: solid;
+    border-width: 0px 1px 0px 0px;
+    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(255, 255, 255), rgba(0, 0, 0, 0)) 1 100%;
+    
+    align-items: center;
+    justify-content: center;
+
+    width: min-content;
+}
+
+.profile-card-image-container{
+    position: relative;
+
+    height: 300px;
+    width: 300px;
+    
+    border: solid 2px rgb(255, 255, 255);
+    
+    transition: 0.3s;
+}
+.profile-card-image-container:hover{
+    border-color: rgba(0, 0, 0, 0.8);
+    transition: 0.3s;
+}
+
+.profile-card-image-upload{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-content: center;
 
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    color: transparent;
+    background-color: transparent;
+
+    z-index: 0;
+
+    transition: 0.3s;
 }
+
+.profile-card-image-container:hover .profile-card-image-upload{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+
+    z-index: 3;
+
+    transition: 0.3s;
+}
+
+
+.profile-card-name{
+    font-size: 35px;
+    font-weight: bold;
+
+    padding: 30px 0px 20px 0px;
+}
+
+.profile-card-position{
+    font-size: 25px;
+    font-weight: normal;
+}
+
+
+
+
 
 
 
@@ -118,44 +210,6 @@
 }
 
 
-.profile-card{
-    display: flex;
-    flex-direction: column;
-
-    padding: 20px 100px 20px 20px;
-
-    height: 600px;
-
-    border-style: solid;
-    border-color: beige;
-    border-width: 0px 1px 0px 0px;
-    
-    align-items: center;
-    justify-content: center;
-
-    width: min-content;
-}
-
-.profile-card-image-container{
-    padding: 10px 10px 3px 10px;
-    background-color: white;
-}
-
-.profile-card-image{
-    border-radius: 2px;
-}
-
-.profile-card-name{
-    font-size: 35px;
-    font-weight: bold;
-
-    padding: 30px 0px 20px 0px;
-}
-
-.profile-card-position{
-    font-size: 25px;
-    font-weight: normal;
-}
 
 
 
@@ -175,7 +229,7 @@
 
     border-style: solid;
     border-width: 1px 0px 1px 0px;
-    border-image: linear-gradient(to right, rgba(0, 0, 0, 0), beige, rgba(0, 0, 0, 0)) 1 0%;
+    border-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(255, 255, 255), rgba(0, 0, 0, 0)) 1 0%;
 
     text-align: start;
 
@@ -216,41 +270,6 @@
     flex-direction: column;
     justify-content: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-.book-issue-sec{
-    max-height: 500px;
-    border-style: solid;
-    border-color: beige;
-    border-width: 0px 0px 1px 0px;
-
-
-    max-height: 400px;
-    overflow-y: scroll;
-
-    margin: 40px 0px;
-}
-
-.book-issue-section-header{
-    font-size: 30px;
-    font-weight: bold;
-}
-
-
-
-
-
-
-
 
 
 
@@ -542,7 +561,57 @@
 
 
 
+.admin-action-card-search-bar{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 
+    padding: 16px 40px 16px 40px;
+
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: white;
+
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.admin-action-card-search-bar-container{
+    display: flex;
+    
+    /* width: 35%; */
+
+    font-size: 25px;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px 100px 10px 0px;
+}
+
+.admin-action-card-search-bar-container>span{
+    padding: 0px 20px 0px 0px;
+}
+
+.admin-action-card-search-bar-container>input{
+    /* margin: 5px 0px 10px 0px; */
+    padding: 20px 15px;
+    width: 300px;
+    height: 0px;
+
+    text-align: left;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    color: white;
+
+    font-size: 15px;
+
+    border-radius: 2px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.5);
+}
 
 
 
@@ -591,8 +660,6 @@
 .no-issued-books-message{
     font-size: 22px;
 }
-
-
 
 
 
