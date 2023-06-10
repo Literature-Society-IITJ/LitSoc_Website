@@ -83,3 +83,8 @@ class Member(AbstractBaseUser):
         if self.role == "member":
             return False
         return True
+
+class EmailVerification(models.Model):
+    email = models.EmailField(unique=True)
+    otp = models.IntegerField(default=0000)
+    is_verified = models.BooleanField(default=False)
