@@ -45,13 +45,16 @@ class ContentModeratorApprovalView(APIView):
     
     def post(self, request, format=None):
         if request.user.role == "moderator":
-            content = Content.objects.filter(member = request.data.get('member')).values()
+            content = Content.objects.filter(member = request.data.get('member'))
             content= content[0]
             if request.data.get('status') == "approved":
                 content.approval_by_moderator = "approved"
+                content.approval_moderator = f"{request.user.first_name} {request.user.last_name}"
 
             elif request.data.get('status') == "rejected":
                 content.approval_by_moderator = "rejected"
+                content.approval_moderator = f"{request.user.first_name} {request.user.last_name}"
+
             content.save()
         return Response("Details updated successfully", status=status.HTTP_200_OK)
     
@@ -59,16 +62,19 @@ class ContentModeratorApprovalView(APIView):
 class ContentAdminApprovalView(APIView):
     def get(self, request, format=None):
         if request.user.is_admin:
-            upload_requests = Content.objects.filter(approval_by_admin="pending").exclude(approval_by_moderator="pending").values()
+            upload_requests = Content.objects.filter(approval_by_admin="pending").values()
         return Response(list(upload_requests), status=status.HTTP_200_OK)
     
     def post(self, request, format=None):
         if request.user.is_admin:
-            content = Content.objects.filter(member = request.data.get('member')).values()
+            content = Content.objects.filter(member = request.data.get('member'))
             content= content[0]
             if request.data.get('status') == "approved":
                 content.approval_by_admin = "approved"
+                content.approval_admin = f"{request.user.first_name} {request.user.last_name}"
+                content.save()
 
             elif request.data.get('status') == "rejected":
                 content.delete()
+
         return Response("Details updated successfully", status=status.HTTP_200_OK)

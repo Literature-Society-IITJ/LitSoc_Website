@@ -27,3 +27,5 @@ class Content(models.Model):
     background = models.ImageField(upload_to='content', default = None)
     approval_by_admin = models.CharField(max_length=20, choices=approval_categories, default='pending')
     approval_by_moderator = models.CharField(max_length=20, choices=approval_categories, default='pending')
+    approval_moderator = models.CharField(max_length=200, default='')
+    approval_admin = models.CharField(max_length=200, default='')
