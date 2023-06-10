@@ -12,7 +12,7 @@ from library.models import IssuedBook, IssueRequest, Book
 from django.db.models import Q
 from readerSection.models import Content
 import time
-from emails import send_otp_via_email
+from .emails import send_otp_via_email
 
 
 def get_tokens_for_user(user):
@@ -23,16 +23,29 @@ def get_tokens_for_user(user):
         'access': str(refresh.access_token),
     }
 
-# class MemberVerificationView(APIView):
+class MemberVerificationView(APIView):
 
-#     def get(self, request, format=None):
-#         email = request.query_params.get('email')
-#         temp_member = EmailVerification.objects.create(email = email)
-#         send_otp_via_email(email)
-#         return Response("OTP sent!", status=status.HTTP_200_OK)
+    def get(self, request, format=None):
+        email = request.query_params.get('email')
+        request_type = request.query_params.get('request_type')
+
+        if request_type == 'sendOTP':
+            temp_member = EmailVerification.objects.create(email = email)
+            send_otp_via_email(email)
+
+        elif request_type == 'resendOTP':
+            send_otp_via_email(email)
+
+        return Response("OTP sent!", status=status.HTTP_200_OK)
     
-#     def post(self, request, format=None):
+    # def post(self, request, format=None):
+    #     email = request.data.get('email')
+    #     otp = request.data.get('otp')
 
+    #     verify = EmailVerification.objects.filter(email = email).values()[0].otp
+
+    #     if verify == otp:
+            
 
 class MemberRegistrationView(APIView):
     renderer_classes = [MemberRenderer]
