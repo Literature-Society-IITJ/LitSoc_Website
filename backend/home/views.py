@@ -240,7 +240,7 @@ class ProfileImageUploadView(APIView):
         GET request to get the profile
         image of the requested user.
         """
-
+        
         username = request.user.username
         image = Member.objects.filter(username = username).values()[0].image
         return Response(image)

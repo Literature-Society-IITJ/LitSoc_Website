@@ -65,13 +65,14 @@ export async function getUserData() {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
-    console.log(access_token)
+    // console.log(access_token)
 
     let response = await axios.get(`${baseURL}home/profile/`,
-    { headers: {'Authorization': `Bearer ${access_token}`}})
+                                    { headers: {'Authorization': `Bearer ${access_token}`,
+                                                'Content-Type': 'application/json'}})
 
-    console.log(1)
-    console.log(response)
+    // console.log(1)
+    // console.log(response)
 
     return response.data
 }
@@ -93,11 +94,10 @@ export async function getIssueRequests(roll_number) {
     return response.data
 }
 
+
 export async function modBookResponse(bookId, roll_number, appprovalStatus) {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
-
-    // console.log(access_token)
 
     let response = await axios.post(`${baseURL}library/bookapproval/`, 
                                     {'bookId':bookId, 'roll_number':roll_number, 'status':appprovalStatus},
@@ -107,6 +107,7 @@ export async function modBookResponse(bookId, roll_number, appprovalStatus) {
     return response.data
 }
 
+
 export async function getIssuedBooks(bookId) {
     let baseURL = 'http://127.0.0.1:8000/'
 
@@ -115,6 +116,80 @@ export async function getIssuedBooks(bookId) {
 
     // console.log(response.data)
 
+    return response.data
+}
+
+
+
+
+export async function markBookReturned(bookId) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    console.log(bookId)
+
+    let response = await axios.post(`${baseURL}library/bookreturn/`, 
+    {'book_id': bookId},
+    { headers: {'Authorization': `Bearer ${access_token}`, 
+    'Content-Type': 'application/json'} })
+    console.log(response.data)
+    return response.data
+}
+
+
+export async function addModerator(rollNumber) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+    
+    let response = await axios.post(`${baseURL}home/newmoderator/`, 
+    {'roll_number': rollNumber},
+    { headers: {'Authorization': `Bearer ${access_token}`, 
+    'Content-Type': 'application/json'} })
+    // console.log(response.data)
+    return response.data
+}
+
+
+export async function getModerators() {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+    
+    
+    let response = await axios.get(`${baseURL}home/newmoderator/`,
+                                    {headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'application/json'}})
+    
+    return response.data
+}
+
+
+export async function removeModerator(rollNumber) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+    
+    let response = await axios.post(`${baseURL}home/removemoderator/`, 
+                                    {'roll_number': rollNumber},
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'application/json'} })
+    // console.log(response.data)
+    return response.data
+}
+
+
+export async function getReadSecItems(category) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    
+    let response = await axios.get(`${baseURL}readerSection/`,
+    {params : {'category' : category}})
+    
+    return response.data
+}
+
+export async function getPuzzles() {
+    let baseURL = 'http://127.0.0.1:8000/'
+    
+    let response = await axios.get(`${baseURL}puzzle/`)
+    
     return response.data
 }
 
@@ -128,70 +203,33 @@ export async function getTeamDetails(year) {
     return response.data
 }
 
-export async function markBookReturned(bookId) {
+
+export async function getProfileImage() {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
-    console.log(bookId)
+    console.log(222222222)
 
-    let response = await axios.post(`${baseURL}library/bookreturn/`, 
-    {'book_id': bookId},
-    { headers: {'Authorization': `Bearer ${access_token}`, 
-                'Content-Type': 'application/json'} })
+    let response = await axios.get(`${baseURL}home/updateprofileimage`,
+                                    {params : {'username' : username}},
+                                    )
+
+    console.log(33333333333333)
     console.log(response.data)
     return response.data
 }
 
-export async function addModerator(rollNumber) {
+export async function updateProfileImage(image) {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
-    let response = await axios.post(`${baseURL}home/newmoderator/`, 
-    {'roll_number': rollNumber},
-    { headers: {'Authorization': `Bearer ${access_token}`, 
-                'Content-Type': 'application/json'} })
-    // console.log(response.data)
-    return response.data
-}
+    console.log(1111111111)
+    console.log(image)
 
-export async function getModerators() {
-    let baseURL = 'http://127.0.0.1:8000/'
-    let { access_token } = getToken()
-
-
-    let response = await axios.get(`${baseURL}home/newmoderator/`,
-        {headers: {'Authorization': `Bearer ${access_token}`, 
-        'Content-Type': 'application/json'}})
-
-    return response.data
-}
-
-export async function removeModerator(rollNumber) {
-    let baseURL = 'http://127.0.0.1:8000/'
-    let { access_token } = getToken()
-
-    let response = await axios.post(`${baseURL}home/removemoderator/`, 
-    {'roll_number': rollNumber},
-    { headers: {'Authorization': `Bearer ${access_token}`, 
-                'Content-Type': 'application/json'} })
-    // console.log(response.data)
-    return response.data
-}
-
-
-export async function getReadSecItems(category) {
-    let baseURL = 'http://127.0.0.1:8000/'
-
-    let response = await axios.get(`${baseURL}readerSection/`,
-                                    {params : {'category' : category}})
-
-    return response.data
-}
-
-export async function getPuzzles() {
-    let baseURL = 'http://127.0.0.1:8000/'
-
-    let response = await axios.get(`${baseURL}puzzle/`)
+    let response = await axios.post(`${baseURL}library/bookapproval/`, 
+                                    {'image' : image},
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                                'Content-Type': 'application/json'} })
 
     return response.data
 }

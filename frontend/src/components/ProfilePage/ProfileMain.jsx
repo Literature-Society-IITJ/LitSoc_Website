@@ -8,7 +8,6 @@ import IssuedBooksSection from './IssuedBooksSection'
 import ModeratorRequests from './ModeratorRequests'
 import { getUserData } from '../../api/axios'
 import AdminRequestCard from './AdminRequestCard'
-import { Hypnosis } from 'react-cssfx-loading'
 
 
 function fetchUserData(setUserData) {
@@ -35,12 +34,8 @@ export default function ProfileMain() {
 
     useEffect(() => {getUserData().then((data) => {setUserData(data)})}, [])
 
-    console.log(userData)
-
-    // let role = userData.member_details.role
-    let role = 'member'
-    // let isAdmin = userData.member_details.is_admin
-    let isAdmin = true
+    // console.log(111111111111111)
+    // console.log(userData)
 
     // userData = ''
 
@@ -50,8 +45,8 @@ export default function ProfileMain() {
                     <ProfileUpper />
                     <div className='profile-page-body'>
                         <div className='profile-page-body-general'>
-                            {userData != '' && <ProfileCard userDetails={userData.member_details}/>}
-                            {userData != '' && <ProfileDataCard userDetails={userData.member_details}/>}
+                            <ProfileCard userDetails={userData.member_details} />
+                            <ProfileDataCard userDetails={userData.member_details} />
                         </div>
 
 

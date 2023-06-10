@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function ProfileDataCard(props) {
 
-    console.log(props.bookDetails)
+    // console.log(props.bookDetails)
     const bookData = props.bookDetails
-    console.log(bookData)
+    // console.log(bookData)
     return (
         <div className='profile-page general-data-card'>
             <div className='general-data-card-issuedbook-info'>

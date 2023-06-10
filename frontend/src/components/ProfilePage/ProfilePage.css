@@ -14,7 +14,7 @@
     flex-direction: column;
 
     background-color: rgb(37, 60, 87);
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0));
 }
 
 
@@ -105,7 +105,7 @@
     height: 300px;
     width: 300px;
     
-    border: solid 2px rgb(255, 255, 255);
+    border: solid 2px rgb(0, 0, 0);
     
     transition: 0.5s;
 }
@@ -159,18 +159,17 @@
     transition: 0.3s;
 }
 
-/* input[type='file']{
+
+input[type='file']{
     display: none;
-} */
-
-
-.profile-card-image-upload>input{
+}
+/* .profile-card-image-upload>input{
     color: transparent;
     background-color: transparent;
     
     transition: 0.5s;
-}
-.profile-card-image-upload>button{
+} */
+.profile-card-image-upload>label>div{
     color: transparent;
     background-color: transparent;
     
@@ -182,7 +181,7 @@
     border-style: solid;
     border-width: 2px;
     border-color: transparent;
-    border-radius: 25px;
+    border-radius: 30px;
     
     display: flex;
     flex-direction: row;
@@ -190,33 +189,40 @@
     column-gap: 10px;
     align-content: center;
     
+    cursor: pointer;
+    
     transition: 0.5s;
 }
-.profile-card-image-upload:hover>input{
+/* .profile-card-image-upload:hover>input{
     color: black;
     background-color: transparent;
     
     transition: 0.3s;
-}
-.profile-card-image-upload:hover>button{
+} */
+.profile-card-image-upload:hover>label>div{
     color: white;
     border-color: white;
     
     transition: 0.3s;
 }
-.profile-card-image-upload>button:hover{
+.profile-card-image-upload>label>div:hover{
     background-color: white;
     color: black;
     
     transition: 0.3s;
 }
-.profile-card-image-upload:hover .image-upload-label{
+.profile-image-upload-icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/* .profile-card-image-upload:hover .image-upload-label{
     display: inline-block;
     padding: 10px 20px;
     background-color: #4285f4;
     color: #fff;
     cursor: pointer;
-}
+} */
 
 
 .profile-card-name{
@@ -816,11 +822,11 @@
 
 .loading-dots{
     display: inline-block;
-    width: 15px;
+    width: 2px;
     height: 15px;
     border-radius: 10px;
     margin: 10px;
-    background-color: #4b9cdb;
+    background-color: #ffffff;
 }
 @keyframes jumpingAnimation {
     0 {
