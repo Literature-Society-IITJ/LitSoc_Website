@@ -208,28 +208,31 @@ export async function getProfileImage() {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
-    console.log(222222222)
+    // console.log(222222222)
 
     let response = await axios.get(`${baseURL}home/updateprofileimage/`,
                                     {headers: {'Authorization': `Bearer ${access_token}`, 
                                     'Content-Type': 'application/json'}})
 
-    console.log(33333333333333)
-    console.log(response.data)
+    // console.log(33333333333333)
+    // console.log(response.data)
     return response.data
 }
 
-export async function updateProfileImage(image) {
+export async function updateProfileImage(formData) {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
-    console.log(1111111111)
-    console.log(image)
+    // console.log(1111111111)
+    // console.log(formData.get("myImage"))
+    formData.append('access_token', access_token)
+    // console.log(formData.get("access_token"))
 
     let response = await axios.post(`${baseURL}home/updateprofileimage/`, 
-                                    {'image' : image},
-                                    { headers: {'Authorization': `Bearer ${access_token}`, 
-                                                'Content-Type': 'application/json'} })
+                                    formData,
+                                    // { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    //             'Content-Type': 'application/json'} }
+                                    )
 
     return response.data
 }

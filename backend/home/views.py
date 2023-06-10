@@ -18,6 +18,9 @@ from readerSection.models import Content
 
 from .emails import send_otp_via_email
 
+import jwt
+
+import os
 
 def get_tokens_for_user(user):
     """
@@ -253,11 +256,25 @@ class ProfileImageUploadView(APIView):
         the profile image of the
         requested user.
         """
-        print('HEREEEEEEEEEEEEEEEEEEEEEEEEE')
-        image = request.data.get('image')
-        print(image)
-        roll_number = request.user.roll_number
-        member = Member.objects.filter(roll_number = roll_number)[0]
-        member.image = image
+        
+        # print('HEREEEEEEEEEEEEEEEEEEEEEEEEE')
+        # print(request.FILES.get)
+        # time.sleep(2)
+        # print(type(image_file))
+        # print(image_file)
+        # print(access_token)
+        # print(decoded_token)
+        # roll_number = request.user.roll_number
+        # print(member)
+        
+        
+        image_file = request.FILES.get('myImage')
+        access_token = request.POST.get('access_token')
+        secret_key = os.getenv('SECRET_KEY')
+        decoded_token = jwt.decode(access_token, secret_key, algorithms=['HS256'])
+        user_id = decoded_token['user_id']
+        member = Member.objects.filter(id = user_id)[0]
+        member.image = image_file
         member.save()
+        
         return Response("Image updated")

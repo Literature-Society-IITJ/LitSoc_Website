@@ -11,7 +11,7 @@ export default function ProfileCard(props) {
 
     let [profileImage, setProfileImage] = useState('') 
     useEffect(() => {
-        getProfileImage().then((data) => {setProfileImage('src/media/' + data)})
+        getProfileImage().then((data) => {setProfileImage('/src/media/' + data)})
         setRefresh(false)}
         , [refresh])
 
@@ -21,9 +21,22 @@ export default function ProfileCard(props) {
                 <img src={profileImage} className='profile-card-image' />
                 <div className='profile-card-image-upload'>
                     <label className='image-upload-label' htmlFor="profile-image">
-                        <input id='profile-image' type='file' accept='images/*' 
-                                onChange={()=>{updateProfileImage(document.getElementById('profile-image').value)
-                                                setRefresh(true)}} />
+                        <input id='profile-image' type='file' name='myImage' accept='images/*' 
+                                onChange={()=>{ const formData = new FormData()
+                                                const imageFile = document.getElementById('profile-image').files[0]
+                                                formData.append("myImage", imageFile)
+                                                updateProfileImage(formData)
+                                                setRefresh(true)
+                                                // console.log(22222222222, formData)
+                                                // console.log(document.getElementById('profile-image').value)
+                                                // document.getElementById('profile-image').value = ''
+                                                // console.log(44444444444, imageFile)
+                                                // console.log(33333333, formData)
+                                                // console.log(formData.get("myImage"))
+                                                // setRefresh(false)
+                                                }} />
+
+
                         <div>
                             <div className="profile-image-upload-icon">
                                 <RxInput />
