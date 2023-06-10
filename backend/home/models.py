@@ -37,7 +37,7 @@ class MemberManager(BaseUserManager):
             first_name=first_name,
             last_name=last_name,
             password=password,
-            role = role
+            role = 'admin'
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -55,6 +55,7 @@ class Member(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     role = models.CharField(max_length = 20, default="member")
     date_time_created = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='profile', default='images/profile-icon.jpg')
     # book_issued = models.IntegerField(default=-1)
 
     objects = MemberManager()

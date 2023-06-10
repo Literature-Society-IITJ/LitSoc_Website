@@ -146,3 +146,12 @@ class ModeratorToMemberView(APIView):
                 return Response("Role updated successfully", status=status.HTTP_200_OK)
         else:
             return Response("You are not authorized to take this action", status=status.HTTP_401_UNAUTHORIZED)
+        
+class ProfileImageUploadView(APIView):
+
+    def post(self, request, format=None):
+        image = request.data.get('image')
+        roll_number = request.user.roll_number
+        member = Member.objects.filter(roll_number = roll_number)
+        member.image = image
+        member.save()
