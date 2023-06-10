@@ -211,8 +211,8 @@ export async function getProfileImage() {
     console.log(222222222)
 
     let response = await axios.get(`${baseURL}home/updateprofileimage`,
-                                    {params : {'username' : username}},
-                                    )
+                                    {headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'application/json'}})
 
     console.log(33333333333333)
     console.log(response.data)
