@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework import viewsets
-from home.models import Member
+from home.models import Member, EmailVerification
 from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated
 from home.serializers import MemberRegistrationSerializer, MemberLoginSerializer, MemberProfileViewSerializer
@@ -12,6 +12,7 @@ from library.models import IssuedBook, IssueRequest, Book
 from django.db.models import Q
 from readerSection.models import Content
 import time
+from emails import send_otp_via_email
 
 
 def get_tokens_for_user(user):
@@ -21,6 +22,16 @@ def get_tokens_for_user(user):
         'refresh': str(refresh),
         'access': str(refresh.access_token),
     }
+
+# class MemberVerificationView(APIView):
+
+#     def get(self, request, format=None):
+#         email = request.query_params.get('email')
+#         temp_member = EmailVerification.objects.create(email = email)
+#         send_otp_via_email(email)
+#         return Response("OTP sent!", status=status.HTTP_200_OK)
+    
+#     def post(self, request, format=None):
 
 
 class MemberRegistrationView(APIView):
@@ -148,6 +159,11 @@ class ModeratorToMemberView(APIView):
             return Response("You are not authorized to take this action", status=status.HTTP_401_UNAUTHORIZED)
         
 class ProfileImageUploadView(APIView):
+
+    def get(self, request, format=None):
+        username = request.user.username
+        image = Member.objects.filter(username = username).values()[0].image
+        return Response(image)
 
     def post(self, request, format=None):
         image = request.data.get('image')

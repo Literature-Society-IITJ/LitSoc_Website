@@ -42,7 +42,7 @@ export default function ProfileMain() {
     // let isAdmin = userData.member_details.is_admin
     let isAdmin = true
 
-    userData = ''
+    // userData = ''
 
     return (
             (userData) ? (
