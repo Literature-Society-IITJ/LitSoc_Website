@@ -210,7 +210,7 @@ export async function getProfileImage() {
 
     console.log(222222222)
 
-    let response = await axios.get(`${baseURL}home/updateprofileimage`,
+    let response = await axios.get(`${baseURL}home/updateprofileimage/`,
                                     {headers: {'Authorization': `Bearer ${access_token}`, 
                                     'Content-Type': 'application/json'}})
 
@@ -226,7 +226,7 @@ export async function updateProfileImage(image) {
     console.log(1111111111)
     console.log(image)
 
-    let response = await axios.post(`${baseURL}library/bookapproval/`, 
+    let response = await axios.post(`${baseURL}home/updateprofileimage/`, 
                                     {'image' : image},
                                     { headers: {'Authorization': `Bearer ${access_token}`, 
                                                 'Content-Type': 'application/json'} })

@@ -116,7 +116,7 @@ class MemberLoginView(APIView):
                 return Response({'token':token, 'msg':'Login Success'}, status=status.HTTP_200_OK)
             
             else:
-                return Response({'errors':{'non_field_errors':['Email or passowrd is not valid']}}, status=status.HTTP_404_NOT_FOUND)
+                return Response({'errors':{'non_field_errors':['Email or password is not valid']}}, status=status.HTTP_404_NOT_FOUND)
 
 
 class MemberProfileView(APIView):
@@ -240,9 +240,11 @@ class ProfileImageUploadView(APIView):
         GET request to get the profile
         image of the requested user.
         """
-        
+        print("...............................................")
         username = request.user.username
-        image = Member.objects.filter(username = username).values()[0].image
+        print(username)
+        image = Member.objects.filter(username = username).values()[0]['image']
+        print(image)
         return Response(image)
 
     def post(self, request, format=None):
@@ -251,9 +253,11 @@ class ProfileImageUploadView(APIView):
         the profile image of the
         requested user.
         """
-
+        print('HEREEEEEEEEEEEEEEEEEEEEEEEEE')
         image = request.data.get('image')
+        print(image)
         roll_number = request.user.roll_number
-        member = Member.objects.filter(roll_number = roll_number)
+        member = Member.objects.filter(roll_number = roll_number)[0]
         member.image = image
         member.save()
+        return Response("Image updated")
