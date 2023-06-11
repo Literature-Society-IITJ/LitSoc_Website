@@ -1,10 +1,10 @@
 import React from 'react'
+import AdminRequestCard from './AdminRequestCard'
+
 
 export default function ProfileDataCard(props) {
 
-    // console.log(props.bookDetails)
     const bookData = props.bookDetails
-    // console.log(bookData)
     return (
         <div className='profile-page general-data-card'>
             <div className='general-data-card-issuedbook-info'>
@@ -25,9 +25,11 @@ export default function ProfileDataCard(props) {
                         </>
                     ) : <div>No book issued.</div>
                 }
+
                 
             </div>
 
+            <AdminRequestCard title='Issued Books'/>
 
 
             <div className='general-data-card-uploadedcontent-info'>

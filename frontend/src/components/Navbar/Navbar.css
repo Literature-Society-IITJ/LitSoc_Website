@@ -57,7 +57,7 @@
 }
 
 .upper-bar-right{
-    padding: 10px 20px 10px 10px;
+    padding: 10px 40px 10px 10px;
     height: auto;
 }
 
@@ -96,10 +96,12 @@
 
     border-style: solid;
     border-color: white;
-    border-width: 2px;
+    border-width: 1px;
     border-radius: 50%;
 
     background-color: #b0546f;
+
+    background-size: contain;
 
     align-items: center;
     justify-content: center;

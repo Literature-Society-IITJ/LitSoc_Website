@@ -98,7 +98,7 @@ export default function ProfileMain() {
 
                                     {
                                         (showContentUploadRequests) ? (
-                                            <ContentUploadRequests />
+                                            <ContentUploadRequests setShowContentUploadRequests={setShowContentUploadRequests}/>
                                         ) : null
                                     }
 

@@ -99,10 +99,15 @@ export async function modBookResponse(bookId, roll_number, appprovalStatus) {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
+    // console.log(111111111)
+    console.log(bookId)
+
     let response = await axios.post(`${baseURL}library/bookapproval/`, 
                                     {'bookId':bookId, 'roll_number':roll_number, 'status':appprovalStatus},
                                     { headers: {'Authorization': `Bearer ${access_token}`, 
                                                 'Content-Type': 'application/json'} })
+
+    // console.log(2222222222222)
 
     return response.data
 }
@@ -236,3 +241,17 @@ export async function updateProfileImage(formData) {
 
     return response.data
 }
+
+
+export async function uploadContent(params) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    // console.log('pass', password)
+    // console.log('conf', cnfrmpassword)
+    let response = await axios.post(`${baseURL}readerDection/upload/`,
+                                    {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
+
+    return response.data;
+}
+
+
+// export async function getContentUploadRequests()

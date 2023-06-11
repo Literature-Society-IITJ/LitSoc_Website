@@ -24,7 +24,7 @@ export default function ReadSecMain() {
           })
     };
 
-    let [onDisplayCategory, setOnDisplayCategory] = useState('poems')
+    let [onDisplayCategory, setOnDisplayCategory] = useState('')
 
     let [readsecContent, setReadsecContent] = useState([])
     useEffect(() => {getReadSecItems(onDisplayCategory).then((data) => {setReadsecContent(data)})}, [onDisplayCategory])
@@ -50,7 +50,19 @@ export default function ReadSecMain() {
                             <ItemCard title={item.title} content={item.content} author={item.member_name} img={item.background}/>
                             ))
                         ):
-                        <div className='reader-sec-contents no-content-message'>Alas! There is no content in this category right now!!!</div>
+                        <div className='reader-sec-contents no-content-message'>
+                            {
+                                (onDisplayCategory) ? (
+                                    <div>
+                                    Alas! There is no content in this category right now!!!
+                                    </div>
+                                ) : 
+                                (
+                                    <div>
+                                        Please select a category!
+                                    </div>)
+                            }
+                        </div>
                     }
                 </div>
             </div>
