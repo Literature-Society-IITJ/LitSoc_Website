@@ -1,5 +1,6 @@
 import React from 'react'
 import { RxCross2 } from "react-icons/rx"
+import { removeContent } from '../../api/axios'
 
 
 export default function ItemMain(props) {
@@ -8,6 +9,7 @@ export default function ItemMain(props) {
     let img_src = props.img
     let content = props.content
     let author = props.author
+    let isAdmin = props.isAdmin
 
     return props.showItem ? (
         <div className='item-main'>
@@ -27,6 +29,16 @@ export default function ItemMain(props) {
                 </div>
 
                 <div className='item-main-body-bottom-border'></div>
+
+                {
+                    (isAdmin) ? (
+                        <div className='item-main-body-remove-button'>
+                            <button onClick={() => {removeContent(title)
+                                                    props.setRefresh(true)
+                                                    props.setShowItem(false)}}>Remove</button>
+                        </div>
+                    ) : null
+                }
             </div>
         </div>
     ):null;

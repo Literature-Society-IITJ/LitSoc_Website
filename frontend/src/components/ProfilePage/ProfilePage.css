@@ -228,16 +228,35 @@ input[type='file']{
 
 
 .profile-card-name{
-    font-size: 35px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    /* flex-wrap: wrap; */
+    /* align-content: baseline; */
+    
+    font-size: 36px;
     font-weight: bold;
 
-    padding: 30px 0px 20px 0px;
+    padding: 14px 0px 4px 0px;
 }
 
 .profile-card-position{
-    font-size: 25px;
+    font-size: 20px;
     font-weight: normal;
+    text-transform: uppercase;
 }
+.profile-card-name-edit-button{
+    display: none;
+    font-size: 28px;
+
+    cursor: pointer;
+}
+.profile-card-name:hover .profile-card-name-edit-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 
 

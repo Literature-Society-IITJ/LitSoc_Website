@@ -73,8 +73,8 @@ class ContentApprovalView(APIView):
         approval for reader section content.
         """
 
-        content = Content.objects.filter(member = request.data.get('member'))
-        content= content[0]
+        content = Content.objects.filter(title = request.data.get('title'))
+        content = content[0]
 
         if request.data.get('status') == "approved":
             if request.user.is_admin:

@@ -82,15 +82,15 @@ export async function getIssueRequests(roll_number) {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
-    console.log('getting issue req')
-    console.log(roll_number)
+    // console.log('getting issue req')
+    // console.log(roll_number)
 
     let response = await axios.get(`${baseURL}library/bookapproval/`,
                                     { params : {'roll_number' : roll_number }})
                                     // { headers: {'Authorization': `Bearer ${access_token}`}})
 
-    console.log(2222222222)
-    console.log(response.data)
+    // console.log(2222222222)
+    // console.log(response.data)
     return response.data
 }
 
@@ -100,7 +100,7 @@ export async function modBookResponse(bookId, roll_number, appprovalStatus) {
     let { access_token } = getToken()
 
     // console.log(111111111)
-    console.log(bookId)
+    // console.log(bookId)
 
     let response = await axios.post(`${baseURL}library/bookapproval/`, 
                                     {'bookId':bookId, 'roll_number':roll_number, 'status':appprovalStatus},
@@ -247,11 +247,35 @@ export async function uploadContent(params) {
     let baseURL = 'http://127.0.0.1:8000/'
     // console.log('pass', password)
     // console.log('conf', cnfrmpassword)
-    let response = await axios.post(`${baseURL}readerDection/upload/`,
+    let response = await axios.post(`${baseURL}readerSection/upload/`,
                                     {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
 
     return response.data;
 }
 
 
+
+export async function removeContent(title) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    // console.log(11111111)
+    let response = await axios.post(`${baseURL}readerSection/contentapproval/`,
+                                    {'title': title, 'status': 'rejected'},
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'application/json'} })
+
+    // console.log(response.data)
+    return response.data()
+}
 // export async function getContentUploadRequests()
+export async function checkAdmin() {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    let response = await axios.get(`${baseURL}readerSection/isadmin/`,
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'application/json'} })
+
+    return response.data
+}

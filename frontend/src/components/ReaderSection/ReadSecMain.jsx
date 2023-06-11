@@ -1,6 +1,6 @@
 import {React, useState, useEffect} from 'react'
 import ItemCard from './ItemCard'
-import { getReadSecItems } from '../../api/axios'
+import { checkAdmin, getReadSecItems } from '../../api/axios'
 import { readersecNavPanelItems } from '../../data/PageNavbarItems'
 import ReadSecFeatured from './ReadSecFeatured'
 
@@ -25,9 +25,19 @@ export default function ReadSecMain() {
     };
 
     let [onDisplayCategory, setOnDisplayCategory] = useState('')
+    let [refresh, setRefresh] = useState(true)
 
     let [readsecContent, setReadsecContent] = useState([])
-    useEffect(() => {getReadSecItems(onDisplayCategory).then((data) => {setReadsecContent(data)})}, [onDisplayCategory])
+    useEffect(() => {
+        getReadSecItems(onDisplayCategory).then((data) => {
+            setReadsecContent(data)})
+            setRefresh(false)}
+            ,[onDisplayCategory, refresh])
+
+
+    let [isAdmin, setIsAdmin] = useState(false)
+    useEffect(() => {checkAdmin().then((data) => { setIsAdmin(data) })}, [])
+    
 
     return (
         <div className='reader-sec-body'>
@@ -47,20 +57,14 @@ export default function ReadSecMain() {
                     {
                     readsecContent.length ? (
                         readsecContent.map((item) =>(
-                            <ItemCard title={item.title} content={item.content} author={item.member_name} img={item.background}/>
+                            <ItemCard title={item.title} content={item.content} author={item.member_name} img={item.background} setRefresh={setRefresh} isAdmin={isAdmin}/>
                             ))
                         ):
                         <div className='reader-sec-contents no-content-message'>
                             {
-                                (onDisplayCategory) ? (
-                                    <div>
-                                    Alas! There is no content in this category right now!!!
-                                    </div>
-                                ) : 
-                                (
-                                    <div>
-                                        Please select a category!
-                                    </div>)
+                                (onDisplayCategory) ? 
+                                    'Alas! There is no content in this category right now!!!' :                                 
+                                    'Please select a category!'
                             }
                         </div>
                     }

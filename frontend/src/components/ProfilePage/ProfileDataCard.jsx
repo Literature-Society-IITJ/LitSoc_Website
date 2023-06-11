@@ -25,8 +25,6 @@ export default function ProfileDataCard(props) {
                         </>
                     ) : <div>No book issued.</div>
                 }
-
-                
             </div>
 
             <AdminRequestCard title='Issued Books'/>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import profile from '../../media/images/profile-icon.jpg'
-import { RxInput } from 'react-icons/rx'
+import { RxInput, RxPencil1 } from 'react-icons/rx'
 import { getProfileImage, updateProfileImage } from '../../api/axios'
 
 export default function ProfileCard(props) {
@@ -50,10 +50,17 @@ export default function ProfileCard(props) {
             </div>
 
             <div className='profile-card-name'>
-                {userDetails.username}
+                <div>
+                    {userDetails.username}
+                </div>
+                <div className='profile-card-name-edit-button'>
+                    <RxPencil1 />
+                </div>
             </div>
             <div className='profile-card-position'>
-                {userDetails.role}
+                {
+                    (userDetails.is_admin) ? `admin` : `${userDetails.role}` 
+                }
             </div>
         </div>
     )
