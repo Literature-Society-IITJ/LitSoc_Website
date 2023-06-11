@@ -243,11 +243,10 @@ class ProfileImageUploadView(APIView):
         GET request to get the profile
         image of the requested user.
         """
-        print("...............................................")
+
         username = request.user.username
-        print(username)
         image = Member.objects.filter(username = username).values()[0]['image']
-        print(image)
+
         return Response(image)
 
     def post(self, request, format=None):
@@ -256,18 +255,7 @@ class ProfileImageUploadView(APIView):
         the profile image of the
         requested user.
         """
-        
-        # print('HEREEEEEEEEEEEEEEEEEEEEEEEEE')
-        # print(request.FILES.get)
-        # time.sleep(2)
-        # print(type(image_file))
-        # print(image_file)
-        # print(access_token)
-        # print(decoded_token)
-        # roll_number = request.user.roll_number
-        # print(member)
-        
-        
+
         image_file = request.FILES.get('myImage')
         access_token = request.POST.get('access_token')
         secret_key = os.getenv('SECRET_KEY')
@@ -278,3 +266,20 @@ class ProfileImageUploadView(APIView):
         member.save()
         
         return Response("Image updated")
+
+
+class MemberListView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        """
+        GET request for displaying
+        the list of all members.
+        """
+        members = Member.objects.all().values()
+
+        if request.user.is_admin:
+            return Response(list(members), status=status.HTTP_200_OK)
+        
+        else:
+            return Response("You are not authorized to take this action.", status=status.HTTP_401_UNAUTHORIZED)

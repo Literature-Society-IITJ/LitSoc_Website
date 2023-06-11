@@ -156,45 +156,40 @@ class BookReturnView(APIView):
 
             if len(qset) == 0:
                 return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
-                
+            
             else:
                 Issued_book = qset[0]
                 Issued_book.availability = True
                 Issued_book.save()
 
                 return Response("Details updated successfully", status=status.HTTP_200_OK)
-        return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
-    
+
 
 class BookIssueApprovalView(APIView):
 
-    # permission_classes = [IsAuthenticated]
-
-    # mods see the pending issue requests from here
     def get(self, request, format=None):
-        # print('___________________________',request.user.is_admin)
-        # sz = FullMemSz(request.user)
-        # print(sz.is_valid())
-        # print(sz.errors)
+        """
+        GET request to access the pending
+        issue requests for moderators to
+        view.
+        """
         
         # if request.user.role not in ['moderator', 'admin'] and not request.user.is_admin:
         #     print('eeeeeeeeeeeeeeeeeeeeeeeee')
         #     return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
 
         member = Member.objects.filter(roll_number__icontains = str(request.query_params.get('roll_number')))
-        # print(member)
-        # print(request.query_params.get('roll_number'))
+
         issueRequests = []
         for i in member:
             issuerequest = IssueRequest.objects.filter(Q(member = i)
                                                     & Q(approved = False)
                                                     & Q(moderator = '')).values()
+            
             if len(issuerequest)!=0:
                 for j in issuerequest:
                     issueRequests.append(j)
 
-        # issueRequests = IssueRequest.objects.filter(Q(approved = False) & Q(moderator = '')).values()
-        # print(issueRequests)
         for req in issueRequests:
             member_info_all = Member.objects.filter(id = req['member_id']).values()[0]
             member_info = {}
@@ -202,29 +197,38 @@ class BookIssueApprovalView(APIView):
             member_info['roll_number'] = member_info_all['roll_number']
             
             book_info = Book.objects.filter(id = req['book_id']).values()[0]
-            # print(member_info)
-            # print(book_info)
+
             req['member_info'] = member_info
             req['book_info'] = book_info
             req['return_date'] = str(datetime.today()+timedelta(days=15))
             
         return Response(list(issueRequests), status=status.HTTP_200_OK)
-    
-    
-    # mods approve any particular request from here
+
     def post(self, request, format=None):
-        
-        # print(request.user)
+        """
+        POST request from the moderators
+        to approve a book issue request.
+        """
+
         if request.user.role not in ['moderator', 'admin'] and not request.user.is_admin:
-            print(111111111)
-            return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
+            return Response("You are not authorized to take this action.", status=status.HTTP_401_UNAUTHORIZED)
         
         member = Member.objects.filter(roll_number = request.data.get('roll_number'))[0]
+        book = Book.objects.filter(book_id = 'book_id')[0]
+        issued_book = IssuedBook.objects.filter(book = book)
+        issued_to = None
+        
+        if len(issued_book) != 0:
+            issued_to = Member.objects.filter(pk = issued_book.values()[0]['member_id']).values()[0]['username']
+
         issueRequest = IssueRequest.objects.filter(Q(member = member) & Q(approved = False) & Q(moderator = ''))
 
         if len(issueRequest) == 0:
             return Response("Check the entered credentials and try again", status=status.HTTP_400_BAD_REQUEST)
-            
+        
+        elif len(issued_book) != 0:
+            return Response(f'This book is already issued to {issued_to}')
+        
         elif request.data.get('status') == "approved":
             issueRequest = issueRequest[0]
             issueRequest.approved = True
@@ -252,3 +256,4 @@ class BookIssueApprovalView(APIView):
 #             issuedBooks.append(IssuedBook.objects.filter(Q(book = book)
 #                                                     & Q(availability = False)).values())
 #         return Response(issuedBooks, status=status.HTTP_200_OK)
+
