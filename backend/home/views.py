@@ -163,7 +163,9 @@ class MemberProfileView(APIView):
         if temp_book:
             book_name = Book.objects.filter(pk = temp_book[0]['book_id']).values()[0]
         
-        details = {'member_details': serializer.data, 'book': {'book_name':book_name, 'return_date':return_date}, 'content': temp_content}
+        details = {'member_details': serializer.data,
+                   'book': {'book_name':book_name, 'return_date':return_date},
+                   'content': temp_content}
 
         time.sleep(5)
         return Response(details, status=status.HTTP_200_OK)
@@ -283,3 +285,16 @@ class MemberListView(APIView):
         
         else:
             return Response("You are not authorized to take this action.", status=status.HTTP_401_UNAUTHORIZED)
+
+class ReadBooksView(APIView):
+
+    def get(self, request, format=None):
+        """
+        GET request for getting a list
+        of all the books issued till
+        date by the requested user.
+        """
+
+        read_books = IssuedBook.objects.filetr(Q(member = request.user) & Q(availability = True)).values()
+
+        return Response(list(read_books), status=status.HTTP_200_OK)
