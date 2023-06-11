@@ -1,80 +1,108 @@
-from django.shortcuts import render
+from django.db.models import Q
+
+from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.parsers import FileUploadParser
-from readerSection.serializers import ReaderSectionViewSerializer, ReaderSectionUploadSerializer
+
+import os
+
+import jwt
+
 from readerSection.models import Content
+
 from home.models import Member
-from django.db.models import Q
-# Create your views here.
+
 
 class ContentUploadView(APIView):
-    # parser_classes = (FileUploadParser, )
 
-    def post(self, request, format='jpg'):
-        serializer = ReaderSectionUploadSerializer(data=request.data)
-        if serializer.is_valid():
-            new = serializer.save()
-            return Response({'new': serializer.data, 'msg': 'Content Uploaded Successfully'}, status=status.HTTP_200_OK)
-        return Response("Please check the credentials", status=status.HTTP_404_NOT_FOUND)
-        # ...
-        # do some stuff with uploaded file
-        # ...
-        # return Response(serializer.data, status.HTTP_201_CREATED)
+    def post(self, request, format=None):
+        """
+        POST request for making an
+        upload request from the user end.
+        """
+
+        title = request.data.get('title')
+        category = request.data.get('category')
+        content = request.data.get('content')
+        background_image = request.FILES.get('background_image')
+        access_token = request.POST.get('access_token')
+        secret_key = os.getenv('SECRET_KEY')
+        decoded_token = jwt.decode(access_token, secret_key, algorithms=['HS256'])
+        user_id = decoded_token['user_id']
+        member = Member.objects.filter(id = user_id)[0]
+        
+        new = Content.objects.create(title = title, member = member, category = category, content = content, background_image = background_image)
+
+        return Response("Entry successful!", status=status.HTTP_404_NOT_FOUND)
 
 
 class ContentReadView(APIView):
+
     def get(self, request, format=None):
+        """
+        GET request to display the
+        approved content of reader
+        section for the requested
+        category.
+        """
+
         category = request.query_params.get('category')
         content = Content.objects.filter(Q(category = category) & Q(approval_by_admin = "approved")).values()
-        # print(content)
+
         for c in list(content):
             member = Member.objects.filter(id = c['member_id']).values()[0]
-            # c['member_name'] = f"{member['first_name']} {member['last_name']}"
             c['member_name'] = f"{member['username']}"
-        # print(content)
+
         return Response(list(content), status=status.HTTP_200_OK)
 
 
-class ContentModeratorApprovalView(APIView):
+class ContentApprovalView(APIView):
+
     def get(self, request, format=None):
         if request.user.role == "moderator":
             upload_requests = Content.objects.filter(approval_by_moderator = "pending").values()
-        return Response(list(upload_requests), status=status.HTTP_200_OK)
-    
-    def post(self, request, format=None):
-        if request.user.role == "moderator":
-            content = Content.objects.filter(member = request.data.get('member'))
-            content= content[0]
-            if request.data.get('status') == "approved":
-                content.approval_by_moderator = "approved"
-                content.approval_moderator = f"{request.user.first_name} {request.user.last_name}"
-
-            elif request.data.get('status') == "rejected":
-                content.approval_by_moderator = "rejected"
-                content.approval_moderator = f"{request.user.first_name} {request.user.last_name}"
-
-            content.save()
-        return Response("Details updated successfully", status=status.HTTP_200_OK)
-    
-
-class ContentAdminApprovalView(APIView):
-    def get(self, request, format=None):
-        if request.user.is_admin:
+        
+        elif request.user.is_admin:
             upload_requests = Content.objects.filter(approval_by_admin="pending").values()
+    
         return Response(list(upload_requests), status=status.HTTP_200_OK)
     
     def post(self, request, format=None):
-        if request.user.is_admin:
-            content = Content.objects.filter(member = request.data.get('member'))
-            content= content[0]
-            if request.data.get('status') == "approved":
+        """
+        POST request for admin/moderator
+        approval for reader section content.
+        """
+
+        content = Content.objects.filter(member = request.data.get('member'))
+        content= content[0]
+
+        if request.data.get('status') == "approved":
+            if request.user.is_admin:
                 content.approval_by_admin = "approved"
                 content.approval_admin = f"{request.user.first_name} {request.user.last_name}"
                 content.save()
 
-            elif request.data.get('status') == "rejected":
+            elif request.user.role == "moderator":
+                content.approval_by_moderator = "approved"
+                content.approval_moderator = f"{request.user.first_name} {request.user.last_name}"
+
+        elif request.data.get('status') == "rejected":
+            if request.user.is_admin:
                 content.delete()
 
+            elif request.user.role == "moderator":
+                content.approval_by_moderator = "rejected"
+                content.approval_moderator = f"{request.user.first_name} {request.user.last_name}"
+
         return Response("Details updated successfully", status=status.HTTP_200_OK)
+
+
+class IsAdminView(APIView):
+
+    def get(self, request, format=None):
+        """
+        GET request to check if the
+        requested user is an admin.
+        """
+
+        return Response(request.user.is_admin)

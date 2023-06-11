@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path
-from readerSection.views import ContentReadView, ContentUploadView, ContentAdminApprovalView, ContentModeratorApprovalView
+from readerSection.views import ContentReadView, ContentUploadView, IsAdminView, ContentApprovalView
 
 urlpatterns = [
     path('', ContentReadView.as_view(), name='read'),
     path('upload/', ContentUploadView.as_view(), name='upload'),
-    path('moderatorapproval/', ContentModeratorApprovalView.as_view(), name='moderatorapproval'),
-    path('adminapproval/', ContentAdminApprovalView.as_view(), name='adminapproval')
+    path('contentapproval/', ContentApprovalView.as_view(), name='contentapproval'),
+    path('isadmin/', IsAdminView.as_view(), name='isadmin')
 ]
