@@ -295,6 +295,6 @@ class ReadBooksView(APIView):
         date by the requested user.
         """
 
-        read_books = IssuedBook.objects.filetr(Q(member = request.user) & Q(availability = True)).values()
+        read_books = IssuedBook.objects.filter(Q(member = request.user) & Q(availability = True)).values()
 
         return Response(list(read_books), status=status.HTTP_200_OK)
