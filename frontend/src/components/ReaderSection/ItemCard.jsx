@@ -23,7 +23,7 @@ export default function ItemCard(props) {
                     <div className='reader-sec item-card-author'>{author}</div>             
                 </div>
             </div>
-            <ItemMain showItem={showItem} setShowItem={setShowItem} title={title} content={content} author={author} img={img_src} setRefresh={props.setRefresh} isAdmin={props.isAdmin}/>
+            <ItemMain showItem={showItem} setShowItem={setShowItem} title={title} content={content} author={author} img={img_src} setRefresh={props.setRefresh} isAdmin={props.isAdmin} category={props.category}/>
         </>
     )
 }

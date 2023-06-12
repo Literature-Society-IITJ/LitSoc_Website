@@ -21,7 +21,7 @@ export default function ProfileCard(props) {
                 <img src={profileImage} className='profile-card-image' />
                 <div className='profile-card-image-upload'>
                     <label className='image-upload-label' htmlFor="profile-image">
-                        <input id='profile-image' type='file' name='myImage' accept='images/*' 
+                        <input className='profile-image-input-file' id='profile-image' type='file' name='myImage' accept='images/*' 
                                 onChange={()=>{ const formData = new FormData()
                                                 const imageFile = document.getElementById('profile-image').files[0]
                                                 formData.append("myImage", imageFile)

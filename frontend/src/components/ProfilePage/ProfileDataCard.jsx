@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AdminRequestCard from './AdminRequestCard'
+import ContentUploadForm from './ContentUploadForm'
 
 
 export default function ProfileDataCard(props) {
 
     const bookData = props.bookDetails
+
+    let [showContentUploadForm, setShowContentUploadForm] = useState(true)
+
     return (
         <div className='profile-page general-data-card'>
             <div className='general-data-card-issuedbook-info'>
@@ -39,6 +43,12 @@ export default function ProfileDataCard(props) {
                     {/* Harry Potter and the Philosophers Stone */}
                 </div>
             </div>
+
+            {
+                (showContentUploadForm) ? (
+                    <ContentUploadForm setShowContentUploadForm={setShowContentUploadForm}/>
+                ) : null
+            }
         </div>
     )
 }

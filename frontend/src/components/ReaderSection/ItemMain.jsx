@@ -33,7 +33,7 @@ export default function ItemMain(props) {
                 {
                     (isAdmin) ? (
                         <div className='item-main-body-remove-button'>
-                            <button onClick={() => {removeContent(title)
+                            <button onClick={() => {removeContent(title, author, props.category)
                                                     props.setRefresh(true)
                                                     props.setShowItem(false)}}>Remove</button>
                         </div>

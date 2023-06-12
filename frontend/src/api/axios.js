@@ -250,23 +250,23 @@ export async function uploadContent(params) {
     let response = await axios.post(`${baseURL}readerSection/upload/`,
                                     {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
 
-    return response.data;
+    return response.data
 }
 
 
 
-export async function removeContent(title) {
+export async function removeContent(title, author, category) {
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
     // console.log(11111111)
-    let response = await axios.post(`${baseURL}readerSection/contentapproval/`,
-                                    {'title': title, 'status': 'rejected'},
+    let response = await axios.post(`${baseURL}readerSection/contentremoval/`,
+                                    { 'title': title, 'username': author, 'category': category },
                                     { headers: {'Authorization': `Bearer ${access_token}`, 
                                     'Content-Type': 'application/json'} })
 
     // console.log(response.data)
-    return response.data()
+    return response.data
 }
 // export async function getContentUploadRequests()
 export async function checkAdmin() {
