@@ -30,10 +30,17 @@ class ContentUploadView(APIView):
         decoded_token = jwt.decode(access_token, secret_key, algorithms=['HS256'])
         user_id = decoded_token['user_id']
         member = Member.objects.filter(id = user_id)[0]
+
+        existing_titles = Content.objects.filter(Q(member = member)
+                                                 & Q(category = category)
+                                                 & Q(title = title)).values()
+        
+        if len(existing_titles) != 0:
+            return Response("You cannot have two entries with the same title under the same category", status=status.HTTP_406_NOT_ACCEPTABLE)
         
         new = Content.objects.create(title = title, member = member, category = category, content = content, background_image = background_image)
 
-        return Response("Entry successful!", status=status.HTTP_404_NOT_FOUND)
+        return Response("Entry successful!", status=status.HTTP_200_OK)
 
 
 class ContentReadView(APIView):
@@ -73,8 +80,12 @@ class ContentApprovalView(APIView):
         approval for reader section content.
         """
 
-        content = Content.objects.filter(title = request.data.get('title'))
-        content = content[0]
+        member = Member.objects.filter(pk = request.data.get('member_id'))
+        content = Content.objects.filter(Q(member = member)
+                                        & Q(approval_by_admin = 'pending')
+                                        & Q(title = request.data.get('title'))
+                                        & Q(category = request.data.get('category')))
+        content= content[0]
 
         if request.data.get('status') == "approved":
             if request.user.is_admin:
@@ -106,3 +117,21 @@ class IsAdminView(APIView):
         """
 
         return Response(request.user.is_admin)
+
+
+class RemoveContentByAdminView(APIView):
+    
+    def post(self, request, format=None):
+        """
+        POST request for removing requested
+        content from the reader section.
+        """
+
+        member = Member.objects.filter(username = request.data.get('username'))[0]
+        content = Content.objects.filter(Q(member = member)
+                                         & Q(category = request.data.get('category'))
+                                         & Q(title = request.data.get('title')))[0]
+        
+        content.delete()
+        
+        return Response("Entry deleted!")
