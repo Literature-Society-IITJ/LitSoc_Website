@@ -6,7 +6,8 @@ export default getQuotes;
 
 export async function getQuotes() {
     let baseURL =  'http://127.0.0.1:8000/'
-    let response = await axios.get(`${baseURL}team/`, {params : {'year' : '20'}})
+    let response = await axios.get(`${baseURL}team/`,
+                                    {params : {'year' : '20'}})
     // console.log(response.data);
     return response.data;    
 }
@@ -22,7 +23,8 @@ export async function getBooks(params) {
 
 export async function login(email, password) {
     let baseURL =  'http://127.0.0.1:8000/'
-    let response = await axios.post(`${baseURL}home/login/`, {'email': email, 'password': password})
+    let response = await axios.post(`${baseURL}home/login/`,
+                                    {'email': email, 'password': password})
     // console.log('login returned', response.data);
     return response.data;
 }
@@ -31,7 +33,8 @@ export async function signup(firstname, lastname, rollnumber, phonenumber, usern
     let baseURL = 'http://127.0.0.1:8000/'
     console.log('pass', password)
     console.log('conf', cnfrmpassword)
-    let response = await axios.post(`${baseURL}home/register/`, {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
+    let response = await axios.post(`${baseURL}home/register/`,
+                                    {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
 
     return response.data;
 }
@@ -55,7 +58,7 @@ export async function isUserBook() {
     let { access_token } = getToken()
 
     let response = await axios.get(`${baseURL}library/issue/`,
-    { headers: {'Authorization': `Bearer ${access_token}`}})
+                                    { headers: {'Authorization': `Bearer ${access_token}`}})
 
     return response.data
 }
@@ -234,21 +237,21 @@ export async function updateProfileImage(formData) {
     // console.log(formData.get("access_token"))
 
     let response = await axios.post(`${baseURL}home/updateprofileimage/`, 
-                                    formData,
-                                    // { headers: {'Authorization': `Bearer ${access_token}`, 
-                                    //             'Content-Type': 'application/json'} }
-                                    )
+                                    formData)
 
     return response.data
 }
 
 
-export async function uploadContent(params) {
+export async function uploadContent(formData) {
+
     let baseURL = 'http://127.0.0.1:8000/'
-    // console.log('pass', password)
-    // console.log('conf', cnfrmpassword)
-    let response = await axios.post(`${baseURL}readerSection/upload/`,
-                                    {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
+    let { access_token } = getToken()
+
+    formData.append('access_token', access_token)
+
+    let response = await axios.post(`${baseURL}readerSection/upload/`, 
+                                    formData)
 
     return response.data
 }
@@ -274,6 +277,18 @@ export async function checkAdmin() {
     let { access_token } = getToken()
 
     let response = await axios.get(`${baseURL}readerSection/isadmin/`,
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'application/json'} })
+
+    return response.data
+}
+
+
+export async function getContentUploadRequests() {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+    
+    let response = await axios.get(`${baseURL}readerSection/contentapproval/`,
                                     { headers: {'Authorization': `Bearer ${access_token}`, 
                                     'Content-Type': 'application/json'} })
 

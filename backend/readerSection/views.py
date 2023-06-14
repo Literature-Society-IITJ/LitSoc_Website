@@ -21,11 +21,14 @@ class ContentUploadView(APIView):
         upload request from the user end.
         """
 
-        title = request.data.get('title')
-        category = request.data.get('category')
-        content = request.data.get('content')
+        print('______________________________________________________________________________')
+        title = request.POST.get('title')
+        category = request.POST.get('category')
+        content = request.POST.get('content')
+        
         background_image = request.FILES.get('background_image')
         access_token = request.POST.get('access_token')
+        
         secret_key = os.getenv('SECRET_KEY')
         decoded_token = jwt.decode(access_token, secret_key, algorithms=['HS256'])
         user_id = decoded_token['user_id']
@@ -38,7 +41,7 @@ class ContentUploadView(APIView):
         if len(existing_titles) != 0:
             return Response("You cannot have two entries with the same title under the same category", status=status.HTTP_406_NOT_ACCEPTABLE)
         
-        new = Content.objects.create(title = title, member = member, category = category, content = content, background_image = background_image)
+        new = Content.objects.create(title = title, member = member, category = category, content = content, background = background_image)
 
         return Response("Entry successful!", status=status.HTTP_200_OK)
 

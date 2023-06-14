@@ -218,6 +218,9 @@
     padding: 7px 20px;
 
     border-radius: 2px;
+
+    background-color: white;
+    color: black;
 }
 
 
@@ -232,7 +235,7 @@
 
 .book-display-body:hover{
     border-collapse: collapse;
-    transform: scale(1.05);
+    transform: scale(1.035);
 
     transition: 0.5s;
 }
@@ -420,6 +423,7 @@
     border-radius: 1px;
 
     background-color: white;
+    color: black;
 }
 
 .issue-error-message{

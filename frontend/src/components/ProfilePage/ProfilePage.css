@@ -281,6 +281,17 @@
     /* background-color: blue; */
 }
 
+
+
+
+
+
+
+
+
+
+
+
 .content-upload-form-body{
     position: absolute;
     top: 0;
@@ -295,8 +306,8 @@
 
     box-sizing: border-box;
 
-    background-color: rgba(24,41,58,1);
-    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0));
+    background-color: rgba(24, 41, 58, 1);
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0));
 
     border: solid 1px rgba(255, 255, 255, 0.5);
 }
@@ -311,6 +322,94 @@
 
     column-gap: 30px;
 }
+.content-upload-form-input-container{
+    display: flex;
+    flex-direction: column;
+
+    margin: 10px 0px 0px 0px;
+}
+.input-container-fixed-label{
+    margin: 0px;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: normal;
+    text-align: left;
+}
+#titleInput{
+    margin: 5px 0px 10px 0px;
+    padding: 20px 15px;
+    width: 90%;
+    height: 0px;
+
+    text-align: left;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    color: white;
+
+    font-size: 15px;
+
+    border-radius: 2px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* #categoryInput{
+    margin: 5px 0px 10px 0px;
+    padding: 20px 15px;
+    width: 300px;
+    height: 0px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    color: black;
+} */
+
+#contentInput{
+    margin: 5px 0px 10px 0px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+
+    padding: 10px;
+    box-sizing: border-box;
+    resize: none;
+
+    font-size: 15px;
+
+    border-radius: 2px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+#backgroundInput{
+    margin: 5px 0px 10px 0px;
+}
+
+.upload-button{
+    padding: 8px 15px;
+    border-radius: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .general-data-card-issuedbook-info{
     padding: 0px 20px 15px 20px;
