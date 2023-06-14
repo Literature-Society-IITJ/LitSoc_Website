@@ -292,5 +292,21 @@ export async function getContentUploadRequests() {
                                     { headers: {'Authorization': `Bearer ${access_token}`, 
                                     'Content-Type': 'application/json'} })
 
+    console.log(response.data)
+
+    return response.data
+}
+
+export async function contentUploadRequestResponse(title, member_id, category, appprovalStatus) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    // console.log(11111111)
+    let response = await axios.post(`${baseURL}readerSection/contentapproval/`,
+                                    { 'title': title, 'member_id': member_id, 'category': category, 'status': appprovalStatus },
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'application/json'} })
+
+    console.log(response.data)
     return response.data
 }

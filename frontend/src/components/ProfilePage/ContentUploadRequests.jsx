@@ -1,19 +1,21 @@
 import React, {useState, useEffect} from 'react'
 import { RxCross2 } from 'react-icons/rx'
-import { getIssueRequests, modBookResponse } from '../../api/axios'
+import { contentUploadRequestResponse, getContentUploadRequests, modBookResponse } from '../../api/axios'
+import ItemMain from '../ReaderSection/ItemMain'
 
 export default function ContentUploadRequests(props) {
 
     let [refresh, setRefresh] = useState(false)
 
-    let [rollNumberInput, setRollNumberInput] = useState('')
+    let [showItem, setShowItem] = useState(false)
+    let [details, setDetails] = useState('')
 
-    const [issueRequestList, setIssueRequestList] = useState([])
+    const [contentUploadRequestList, setContentUploadRequestList] = useState([])
 
     useEffect(() => {
-        getIssueRequests(rollNumberInput).then((data) => {setIssueRequestList(data)})
+        getContentUploadRequests().then((data) => {setContentUploadRequestList(data)})
         setRefresh(false)}
-        , [refresh, rollNumberInput])
+        , [refresh])
 
 
     return (
@@ -35,13 +37,13 @@ export default function ContentUploadRequests(props) {
 
                 <div className='admin-action-card-body admin-section-table-display-section'>
                     {
-                        (issueRequestList.length) ? (
+                        (contentUploadRequestList.length) ? (
                             <table className='admin-section-table'>
                                 <thead className='admin-section-table-headers-container'>
                                     <tr>
-                                        <th className='admin-section-table-headers issue-requests-book-id'>Book Details</th>
-                                        <th className='admin-section-table-headers issue-requests-borrower-details'>BORROWER DETAILS</th>
-                                        <th className='admin-section-table-headers issue-requests-return-date'>Return Date</th>
+                                        <th className='admin-section-table-headers issue-requests-book-id'>Author Name</th>
+                                        <th className='admin-section-table-headers issue-requests-borrower-details'>Title</th>
+                                        <th className='admin-section-table-headers issue-requests-return-date'>Category</th>
                                         <th className='admin-section-table-headers issue-requests-approve-button'></th>
                                         <th className='admin-section-table-headers issue-requests-reject-button'></th>
                                     </tr>
@@ -49,51 +51,60 @@ export default function ContentUploadRequests(props) {
 
                                 <tbody className='admin-section-table-body'>
                                     {
-                                        issueRequestList.map ((issueRequest) => (
-                                            <tr className='admin-section-table-details-container'>
+                                        contentUploadRequestList.map ((issueRequest) => (
+                                            <>
+
+                                            <tr className='admin-section-table-details-container'
+                                            // onClick={() => {setShowItem(true)
+                                            // setDetails(issueRequest)}}
+                                            >
+                                                
                                                 <td className='issue-requests-book-id'>
                                                     <div className='issue-requests-book-details-name'>
                                                         <div>
-                                                            {issueRequest.book_info.name}
+                                                            {issueRequest.title}
                                                         </div>
                                                         <div >
-                                                            {issueRequest.book_info.book_id}
+                                                            {issueRequest.title}
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td className='issue-requests-borrower-details'>
                                                     <div className='issue-requests-borrower-details-name'>
                                                         <div>
-                                                            {issueRequest.member_info.name}
+                                                            {issueRequest.category}
                                                         </div>
                                                         <div className='issue-requests-borrower-roll-number'>
-                                                            {issueRequest.member_info.roll_number}
+                                                            {issueRequest.category}
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td className='issue-requests-return-date'>{issueRequest.return_date.split(' ')[0]}</td>
+                                                <td className='issue-requests-return-date'>{issueRequest.category}</td>
                                                 <td className='issue-requests-approve-button'>
                                                     <button onClick={()=>{
-                                                        modBookResponse(issueRequest.book_id, issueRequest.member_info.roll_number, 'approved')
+                                                        contentUploadRequestResponse(issueRequest.title, issueRequest.member_id, issueRequest.category, 'approved')
                                                         setRefresh(true)}}>
-                                                    Issue Book</button>
+                                                    Approve</button>
                                                 </td> 
                                                 <td className='issue-requests-reject-button'>
                                                     <button onClick={()=>{
-                                                        modBookResponse(issueRequest.book_id, issueRequest.member_info.roll_number, 'rejected')
+                                                        contentUploadRequestResponse(issueRequest.title, issueRequest.member_id, issueRequest.category, 'rejected')
                                                         setRefresh(true)}}>
                                                     Reject</button>
                                                 </td> 
                                             </tr>
+                                            </>
                                         ))
                                     }
                                 </tbody>
                             </table>
-                        ) : <div className="no-issue-requests-message">No Issue Requests to be Reviewed. Enjoy your time :o</div>
+                        ) : <div className="no-issue-requests-message">No Content Upload Requests Right Now. Enjoy your time :o</div>
                     }
                 </div>
                 <div className='admin-action-lower-border'></div>
+
             </div>
+            <ItemMain showItem={showItem} setShowItem={setShowItem} title={details.title} content={details.content} author='dgf' img={'src/media/' + details.background} isAdmin={false} category={details.category}/>
         </div>
     )
 }

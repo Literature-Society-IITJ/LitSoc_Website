@@ -82,13 +82,22 @@ class ContentApprovalView(APIView):
         POST request for admin/moderator
         approval for reader section content.
         """
+        
+        print('_______________________________________________________________')
 
         member = Member.objects.filter(pk = request.data.get('member_id'))
+        print('_______________________________________________________________')
+        
         content = Content.objects.filter(Q(member = member)
                                         & Q(approval_by_admin = 'pending')
                                         & Q(title = request.data.get('title'))
                                         & Q(category = request.data.get('category')))
+        print('_______________________________________________________________')
+        
         content= content[0]
+        print('_______________________________________________________________')
+        
+        print(content)
 
         if request.data.get('status') == "approved":
             if request.user.is_admin:
