@@ -301,7 +301,8 @@ export async function contentUploadRequestResponse(title, member_id, category, a
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
-    // console.log(11111111)
+    console.log(11111111)
+    console.log(title, category, appprovalStatus, member_id)
     let response = await axios.post(`${baseURL}readerSection/contentapproval/`,
                                     { 'title': title, 'member_id': member_id, 'category': category, 'status': appprovalStatus },
                                     { headers: {'Authorization': `Bearer ${access_token}`, 

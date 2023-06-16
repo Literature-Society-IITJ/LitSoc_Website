@@ -54,12 +54,12 @@ export default function ContentUploadRequests(props) {
                                         contentUploadRequestList.map ((issueRequest) => (
                                             <>
 
-                                            <tr className='admin-section-table-details-container'
-                                            // onClick={() => {setShowItem(true)
-                                            // setDetails(issueRequest)}}
-                                            >
+                                            <tr className='admin-section-table-details-container'>
                                                 
-                                                <td className='issue-requests-book-id'>
+                                                <td className='issue-requests-book-id'
+                                                    onClick={() => {setShowItem(true)
+                                                    setDetails(issueRequest)}}
+                                                >
                                                     <div className='issue-requests-book-details-name'>
                                                         <div>
                                                             {issueRequest.title}

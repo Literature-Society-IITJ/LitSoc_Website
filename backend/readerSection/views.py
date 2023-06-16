@@ -91,11 +91,11 @@ class ContentApprovalView(APIView):
         content = Content.objects.filter(Q(member = member)
                                         & Q(approval_by_admin = 'pending')
                                         & Q(title = request.data.get('title'))
-                                        & Q(category = request.data.get('category')))
-        print('_______________________________________________________________')
+                                        & Q(category = request.data.get('category'))).values()
+        print('__________________11111111111111111111111111111111111111_____________________________________________')
         
         content= content[0]
-        print('_______________________________________________________________')
+        print('_________________________1111111111111111111111111111111111111111______________________________________')
         
         print(content)
 
