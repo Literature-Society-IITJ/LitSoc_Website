@@ -85,13 +85,13 @@ class ContentApprovalView(APIView):
         
         print('_______________________________________________________________')
 
-        member = Member.objects.filter(pk = request.data.get('member_id'))
+        member = Member.objects.filter(pk = request.data.get('member_id'))[0]
         print('_______________________________________________________________')
         
         content = Content.objects.filter(Q(member = member)
                                         & Q(approval_by_admin = 'pending')
                                         & Q(title = request.data.get('title'))
-                                        & Q(category = request.data.get('category'))).values()
+                                        & Q(category = request.data.get('category')))
         print('__________________11111111111111111111111111111111111111_____________________________________________')
         
         content= content[0]
@@ -108,6 +108,7 @@ class ContentApprovalView(APIView):
             elif request.user.role == "moderator":
                 content.approval_by_moderator = "approved"
                 content.approval_moderator = f"{request.user.first_name} {request.user.last_name}"
+                content.save()
 
         elif request.data.get('status') == "rejected":
             if request.user.is_admin:
@@ -116,6 +117,7 @@ class ContentApprovalView(APIView):
             elif request.user.role == "moderator":
                 content.approval_by_moderator = "rejected"
                 content.approval_moderator = f"{request.user.first_name} {request.user.last_name}"
+                content.save()
 
         return Response("Details updated successfully", status=status.HTTP_200_OK)
 
