@@ -69,11 +69,12 @@ class ContentReadView(APIView):
 class ContentApprovalView(APIView):
 
     def get(self, request, format=None):
-        if request.user.role == "moderator":
-            upload_requests = Content.objects.filter(approval_by_moderator = "pending").values()
-        
-        elif request.user.is_admin:
+        if request.user.is_admin:
             upload_requests = Content.objects.filter(approval_by_admin="pending").values()
+            
+        elif request.user.role == "moderator":
+            upload_requests = Content.objects.filter(approval_by_moderator = "pending").values()
+
     
         return Response(list(upload_requests), status=status.HTTP_200_OK)
     

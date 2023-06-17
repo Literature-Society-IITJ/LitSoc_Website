@@ -14,7 +14,9 @@ export default function ContentUploadRequests(props) {
 
     useEffect(() => {
         getContentUploadRequests().then((data) => {setContentUploadRequestList(data)})
-        setRefresh(false)}
+        setRefresh(false)
+        // console.log(contentUploadRequestList.length)
+        }
         , [refresh])
 
 
@@ -28,12 +30,12 @@ export default function ContentUploadRequests(props) {
                     </div>
                 </div>
 
-                <div className='admin-action-card-search-bar issue-requests-search-bar'>
+                {/* <div className='admin-action-card-search-bar issue-requests-search-bar'>
                     <div className='admin-action-card-search-bar-container issue-requests-search-roll-num'>
                         <span>Roll Number:</span>
                         <input type="text" name="name" id="issue-requests-search-roll-num" onChange={()=>setRollNumberInput(document.getElementById("issue-requests-search-roll-num").value)}/>
                     </div>
-                </div>
+                </div> */}
 
                 <div className='admin-action-card-body admin-section-table-display-section'>
                     {
@@ -41,7 +43,7 @@ export default function ContentUploadRequests(props) {
                             <table className='admin-section-table'>
                                 <thead className='admin-section-table-headers-container'>
                                     <tr>
-                                        <th className='admin-section-table-headers issue-requests-book-id'>Author Name</th>
+                                        <th className='admin-section-table-headers issue-requests-book-id'>Author Details</th>
                                         <th className='admin-section-table-headers issue-requests-borrower-details'>Title</th>
                                         <th className='admin-section-table-headers issue-requests-return-date'>Category</th>
                                         <th className='admin-section-table-headers issue-requests-approve-button'></th>
@@ -69,7 +71,10 @@ export default function ContentUploadRequests(props) {
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td className='issue-requests-borrower-details'>
+                                                <td className='issue-requests-borrower-details'
+                                                    onClick={() => {setShowItem(true)
+                                                    setDetails(issueRequest)}}
+                                                >
                                                     <div className='issue-requests-borrower-details-name'>
                                                         <div>
                                                             {issueRequest.category}
@@ -79,7 +84,10 @@ export default function ContentUploadRequests(props) {
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td className='issue-requests-return-date'>{issueRequest.category}</td>
+                                                <td className='issue-requests-return-date' 
+                                                    onClick={() => {setShowItem(true)
+                                                    setDetails(issueRequest)}}
+                                                >{issueRequest.category}</td>
                                                 <td className='issue-requests-approve-button'>
                                                     <button onClick={()=>{
                                                         contentUploadRequestResponse(issueRequest.title, issueRequest.member_id, issueRequest.category, 'approved')

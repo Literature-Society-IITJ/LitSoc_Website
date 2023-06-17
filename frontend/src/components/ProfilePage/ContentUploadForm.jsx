@@ -5,31 +5,41 @@ import { uploadContent } from '../../api/axios'
 export default function ContentUploadForm(props) {
 
     const categorySelectRef = useRef(null)
-    const [selectedValue, setSelectedValue] = useState('selectCategory')
+    // const [selectedValue, setSelectedValue] = useState('selectCategory')
 
     let [errorMessage, setErrorMessage] = useState('')
-
 
     const uploadContentFunction = () => {
         let title = document.getElementById('titleInput').value
         let category = categorySelectRef.current.value
         let content = document.getElementById('contentInput').value
         let background = document.getElementById('backgroundInput').files[0]
-        let background_value = document.getElementById('backgroundInput').value
+        // console.log(background)
 
-        const formData = new FormData()
-        formData.append('background_image', background)
-        formData.append('title', title)
-        formData.append('category', category)
-        formData.append('content', content)
-
-        // uploadContent(formData)
-
-        document.getElementById('titleInput').value = ''
-        // categorySelectRef.current.value = categorySelectRef.current.defaultValue
-        setSelectedValue('selectCategory')
-        document.getElementById('contentInput').value = ''
-        document.getElementById('backgroundInput').value = ''
+        if(title=='' || category=='' || content=='' || background=='') {
+            setErrorMessage('*Please fill all the columns')
+            return
+        }
+        else {
+            const formData = new FormData()
+            formData.append('background_image', background)
+            formData.append('title', title)
+            formData.append('category', category)
+            formData.append('content', content)
+    
+            uploadContent(formData)
+            .then((response) => {
+                setErrorMessage('')
+                document.getElementById('titleInput').value = ''
+                categorySelectRef.current.value = 'selectCategory'
+                // setSelectedValue('selectCategory')
+                document.getElementById('contentInput').value = ''
+                document.getElementById('backgroundInput').value = ''})
+            .catch((error) => {
+                let errorMsg = error.response.data
+                setErrorMessage('*' + errorMsg)
+            })
+        }
     }
 
     return (
@@ -58,8 +68,8 @@ export default function ContentUploadForm(props) {
                                     <span className='input-container-fixed-label'>
                                         Category
                                     </span>
-                                    <select className='input-container-input-label' name="category" id="categoryInput" value={selectedValue} defaultValue='selectCategory'>
-                                        <option value="selectCategory" selected='' hidden>--Select a category--</option>
+                                    <select className='input-container-input-label' name="category" id="categoryInput" defaultValue='selectCategory' ref={categorySelectRef}>
+                                        <option value="selectCategory" hidden>--Select a category--</option>
                                         <option value="poem">Poem</option>
                                         <option value="prose">Prose</option>
                                         <option value="fanfic">Fan Fiction</option>
@@ -90,14 +100,14 @@ export default function ContentUploadForm(props) {
                                 
                             </div>
 
-                            <br />
+                            {/* <br /> */}
                         </div>
 
                         <div>
                             {errorMessage}
                         </div>
 
-                        <button className='upload-button' onClick={() => {uploadContentFunction()}}>
+                        <button className='upload-button' onClick={uploadContentFunction}>
                             Upload
                         </button>
 

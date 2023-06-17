@@ -315,18 +315,21 @@
 .upload-form-container{
     padding: 30px;
     box-sizing: border-box;
+
+    overflow: scroll;
 }
 .content-upload-form-row{
     display: flex;
     flex-direction: row;
 
     column-gap: 30px;
+
 }
 .content-upload-form-input-container{
     display: flex;
     flex-direction: column;
 
-    margin: 10px 0px 0px 0px;
+    margin: 0px 0px 10px 0px;
 }
 .input-container-fixed-label{
     margin: 0px;
@@ -954,6 +957,25 @@
 .no-issue-requests-message{
     font-size: 22px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

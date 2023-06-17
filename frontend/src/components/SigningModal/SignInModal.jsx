@@ -20,7 +20,7 @@ function loginFunction(setErrorMessage, setShowSignInPopUp) {
 
     login(email, password)
     .then((response) => {
-        console.log(response.token.access)
+        // console.log(response.token.access)
         storeToken(response.token)
         window.location.reload()
         setShowSignInPopUp(false)
@@ -30,8 +30,8 @@ function loginFunction(setErrorMessage, setShowSignInPopUp) {
         setErrorMessage(errorMsg)
     })
 
-    console.log('login returned')
-    console.log()
+    // console.log('login returned')
+    // console.log()
 }
 
 
