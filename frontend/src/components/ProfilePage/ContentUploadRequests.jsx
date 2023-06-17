@@ -15,7 +15,7 @@ export default function ContentUploadRequests(props) {
     useEffect(() => {
         getContentUploadRequests().then((data) => {setContentUploadRequestList(data)})
         setRefresh(false)
-        // console.log(contentUploadRequestList.length)
+        console.log(contentUploadRequestList)
         }
         , [refresh])
 
@@ -43,11 +43,16 @@ export default function ContentUploadRequests(props) {
                             <table className='admin-section-table'>
                                 <thead className='admin-section-table-headers-container'>
                                     <tr>
-                                        <th className='admin-section-table-headers issue-requests-book-id'>Author Details</th>
-                                        <th className='admin-section-table-headers issue-requests-borrower-details'>Title</th>
-                                        <th className='admin-section-table-headers issue-requests-return-date'>Category</th>
-                                        <th className='admin-section-table-headers issue-requests-approve-button'></th>
-                                        <th className='admin-section-table-headers issue-requests-reject-button'></th>
+                                        <th className='admin-section-table-headers content-requests-writer'>Writer Details</th>
+                                        <th className='admin-section-table-headers content-requests-content-title'>Title</th>
+                                        <th className='admin-section-table-headers content-requests-category'>Category</th>
+                                        {
+                                            props.isAdmin ? (
+                                                <th className='admin-section-table-headers content-requests-read-by'>Read By</th>
+                                            ) : null
+                                        }
+                                        <th className='admin-section-table-headers content-requests-approve-button'></th>
+                                        <th className='admin-section-table-headers content-requests-reject-button'></th>
                                     </tr>
                                 </thead>
 
@@ -58,11 +63,10 @@ export default function ContentUploadRequests(props) {
 
                                             <tr className='admin-section-table-details-container'>
                                                 
-                                                <td className='issue-requests-book-id'
+                                                <td className='content-requests-writer'
                                                     onClick={() => {setShowItem(true)
-                                                    setDetails(issueRequest)}}
-                                                >
-                                                    <div className='issue-requests-book-details-name'>
+                                                    setDetails(issueRequest)}}>
+                                                    <div className='content-requests-writer-details'>
                                                         <div>
                                                             {issueRequest.title}
                                                         </div>
@@ -71,30 +75,44 @@ export default function ContentUploadRequests(props) {
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td className='issue-requests-borrower-details'
+
+                                                <td className='content-requests-content-title'
                                                     onClick={() => {setShowItem(true)
-                                                    setDetails(issueRequest)}}
-                                                >
-                                                    <div className='issue-requests-borrower-details-name'>
-                                                        <div>
-                                                            {issueRequest.category}
-                                                        </div>
-                                                        <div className='issue-requests-borrower-roll-number'>
-                                                            {issueRequest.category}
-                                                        </div>
-                                                    </div>
+                                                    setDetails(issueRequest)}}>{issueRequest.title}
                                                 </td>
-                                                <td className='issue-requests-return-date' 
+
+                                                <td className='content-requests-category' 
                                                     onClick={() => {setShowItem(true)
-                                                    setDetails(issueRequest)}}
-                                                >{issueRequest.category}</td>
-                                                <td className='issue-requests-approve-button'>
+                                                    setDetails(issueRequest)}}>{issueRequest.category}
+                                                </td>
+
+                                                {
+                                                    props.isAdmin ? (
+                                                        <td className='content-requests-read-by'>
+                                                            {
+                                                                (issueRequest.approval_moderator.length) ? (
+                                                                    <div className='content-requests-approval-details'>
+                                                                        <div>
+                                                                            {issueRequest.approval_moderator}
+                                                                        </div>
+                                                                        <div className='content-requests-approval-details-status'>
+                                                                            {issueRequest.approval_by_moderator}
+                                                                        </div>
+                                                                    </div>
+                                                                ) : 'Pending'
+                                                            }
+                                                        </td>
+                                                        // `${issueRequest.approval_moderator} (${issueRequest.approval_by_moderator})`
+                                                    ) : null
+                                                }
+
+                                                <td className='content-requests-approve-button'>
                                                     <button onClick={()=>{
                                                         contentUploadRequestResponse(issueRequest.title, issueRequest.member_id, issueRequest.category, 'approved')
                                                         setRefresh(true)}}>
                                                     Approve</button>
                                                 </td> 
-                                                <td className='issue-requests-reject-button'>
+                                                <td className='content-requests-reject-button'>
                                                     <button onClick={()=>{
                                                         contentUploadRequestResponse(issueRequest.title, issueRequest.member_id, issueRequest.category, 'rejected')
                                                         setRefresh(true)}}>
@@ -106,7 +124,7 @@ export default function ContentUploadRequests(props) {
                                     }
                                 </tbody>
                             </table>
-                        ) : <div className="no-issue-requests-message">No Content Upload Requests Right Now. Enjoy your time :o</div>
+                        ) : <div className="no-content-upload-requests-message">No Content Upload Requests Right Now. Enjoy your time :o</div>
                     }
                 </div>
                 <div className='admin-action-lower-border'></div>

@@ -73,7 +73,8 @@ class ContentApprovalView(APIView):
             upload_requests = Content.objects.filter(approval_by_admin="pending").values()
             
         elif request.user.role == "moderator":
-            upload_requests = Content.objects.filter(approval_by_moderator = "pending").values()
+            upload_requests = Content.objects.filter(Q(approval_by_moderator = "pending")
+                                                     &Q(approval_by_admin="pending")).values()
 
     
         return Response(list(upload_requests), status=status.HTTP_200_OK)

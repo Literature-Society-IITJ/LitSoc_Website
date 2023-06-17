@@ -390,7 +390,9 @@
 #backgroundInput{
     margin: 5px 0px 10px 0px;
 }
-
+#categoryInput{
+    margin: 5px 0px 0px 0px;
+}
 .upload-button{
     padding: 8px 15px;
     border-radius: 2px;
@@ -698,7 +700,6 @@
     overflow: scroll;
 
     background-color: rgba(0, 0, 0, 0.2);
-
 }
 
 .admin-section-table{
@@ -707,7 +708,6 @@
     border-collapse: collapse;
 
     overflow: scroll;
-
 }
 
 .admin-section-table-headers{
@@ -727,7 +727,7 @@
     border-color: rgba(245, 245, 220, 0.4);
     border-width: 0px 0px 1px 0px;
 
-    padding: 14px 4px 14px 4px;
+    padding: 18px 4px 18px 4px;
 
     font-size: 20px;
     font-weight: normal;
@@ -965,8 +965,54 @@
 
 
 
+.content-requests-writer{
+    width: 15%;
+    cursor: pointer;
+}
+.content-requests-content-title{
+    width: 10%;
+    cursor: pointer;
+}
+.content-requests-category{
+    width: 10%;
+    cursor: pointer;
+}
+.content-requests-read-by{
+    width: 10%;
+}
+.content-requests-approve-button{
+    width: 10%;
+}
+.content-requests-approve-button>button{
+    width: fit-content;
+    padding: 7px 20px;
+    border-radius: 2px;
+}
+.content-requests-reject-button{
+    width: 5%;
+}
+.content-requests-reject-button>button{
+    width: fit-content;
+    padding: 7px 20px;
+    border-radius: 2px;
+}
+.content-requests-writer-details{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    text-align: left;
 
+    padding-left: 30%;
+}
+.content-requests-approval-details-status{
+    font-size: 18px;
+    text-transform: uppercase;
+}
 
+.no-content-upload-requests-message{
+    font-size: 22px;
+}
 
 
 

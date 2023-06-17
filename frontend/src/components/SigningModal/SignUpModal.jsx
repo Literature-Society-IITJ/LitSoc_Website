@@ -27,14 +27,14 @@ function signupFunction(setErrorMessage, setShowSignInPopUp) {
 
     signup(firstname, lastname, rollnumber, phonenumber, username, email, password, cnfrmpwd)
     .then((response) => {
-        console.log(response)
-        console.log(response.token.access)
+        // console.log(response)
+        // console.log(response.token.access)
         storeToken(response.token)
         setShowSignInPopUp(false)
     })
     .catch((error) => {
-        console.log('error')
-        console.log(error.response.data)
+        // console.log('error')
+        // console.log(error.response.data)
         let errorMsg = error.response.data
         setErrorMessage(JSON.stringify(errorMsg))
     })

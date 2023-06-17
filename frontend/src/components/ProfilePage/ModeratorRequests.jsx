@@ -21,7 +21,13 @@ export default function ModeratorRequests(props) {
         var modRollNoElement = document.getElementById("roll-number")
         
         addModerator(modRollNoElement.value)
-        modRollNoElement.value = ""
+        .then((response) => {
+            modRollNoElement.value = ""
+        })
+        .catch((error) => {
+            setErrorMessage(error.response.data)
+        })
+        
         
         setRefresh(true)
     }

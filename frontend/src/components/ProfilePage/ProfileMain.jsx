@@ -86,19 +86,23 @@ export default function ProfileMain() {
                                 <div>
                                     {
                                         (showBookRequests) ? (
-                                            <BookRequestsSection setShowBookRequests={setShowBookRequests}/>
+                                            <BookRequestsSection
+                                                setShowBookRequests={setShowBookRequests}/>
                                         ) : null
                                     }
 
                                     {
                                         (showIssuedBooks) ? (
-                                            <IssuedBooksSection setShowIssuedBooks={setShowIssuedBooks}/>
+                                            <IssuedBooksSection
+                                                setShowIssuedBooks={setShowIssuedBooks}/>
                                         ) : null
                                     }
 
                                     {
                                         (showContentUploadRequests) ? (
-                                            <ContentUploadRequests setShowContentUploadRequests={setShowContentUploadRequests}/>
+                                            <ContentUploadRequests 
+                                                setShowContentUploadRequests={setShowContentUploadRequests}
+                                                isAdmin={userData.member_details.is_admin}/>
                                         ) : null
                                     }
 
