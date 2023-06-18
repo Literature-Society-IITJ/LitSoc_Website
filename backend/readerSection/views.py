@@ -80,6 +80,7 @@ class ContentApprovalView(APIView):
             member = Member.objects.filter(id = i['member_id']).values()[0]
             i['member_name'] = f"{member['first_name']} {member['last_name']}"
             i['member_roll_number'] = member['roll_number']
+            i['member_username'] = member['username']
 
         return Response(list(upload_requests), status=status.HTTP_200_OK)
     

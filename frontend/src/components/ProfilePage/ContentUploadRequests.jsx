@@ -58,45 +58,45 @@ export default function ContentUploadRequests(props) {
 
                                 <tbody className='admin-section-table-body'>
                                     {
-                                        contentUploadRequestList.map ((issueRequest) => (
+                                        contentUploadRequestList.map ((contentRequest) => (
                                             <>
 
                                             <tr className='admin-section-table-details-container'>
                                                 
                                                 <td className='content-requests-writer'
                                                     onClick={() => {setShowItem(true)
-                                                    setDetails(issueRequest)}}>
-                                                    <div className='content-requests-writer-details'>
+                                                    setDetails(contentRequest)}}>
+                                                    <div className='issue-requests-borrower-details-name'>
                                                         <div>
-                                                            {issueRequest.title}
+                                                            {contentRequest.member_name}
                                                         </div>
-                                                        <div >
-                                                            {issueRequest.title}
+                                                        <div>
+                                                            {contentRequest.member_roll_number}
                                                         </div>
                                                     </div>
                                                 </td>
 
                                                 <td className='content-requests-content-title'
                                                     onClick={() => {setShowItem(true)
-                                                    setDetails(issueRequest)}}>{issueRequest.title}
+                                                    setDetails(contentRequest)}}>{contentRequest.title}
                                                 </td>
 
                                                 <td className='content-requests-category' 
                                                     onClick={() => {setShowItem(true)
-                                                    setDetails(issueRequest)}}>{issueRequest.category}
+                                                    setDetails(contentRequest)}}>{contentRequest.category}
                                                 </td>
 
                                                 {
                                                     props.isAdmin ? (
                                                         <td className='content-requests-read-by'>
                                                             {
-                                                                (issueRequest.approval_moderator.length) ? (
+                                                                (contentRequest.approval_moderator.length) ? (
                                                                     <div className='content-requests-approval-details'>
                                                                         <div>
-                                                                            {issueRequest.approval_moderator}
+                                                                            {contentRequest.approval_moderator}
                                                                         </div>
                                                                         <div className='content-requests-approval-details-status'>
-                                                                            {issueRequest.approval_by_moderator}
+                                                                            {contentRequest.approval_by_moderator}
                                                                         </div>
                                                                     </div>
                                                                 ) : 'Pending'
@@ -108,13 +108,13 @@ export default function ContentUploadRequests(props) {
 
                                                 <td className='content-requests-approve-button'>
                                                     <button onClick={()=>{
-                                                        contentUploadRequestResponse(issueRequest.title, issueRequest.member_id, issueRequest.category, 'approved')
+                                                        contentUploadRequestResponse(contentRequest.title, contentRequest.member_id, contentRequest.category, 'approved')
                                                         setRefresh(true)}}>
                                                     Approve</button>
                                                 </td> 
                                                 <td className='content-requests-reject-button'>
                                                     <button onClick={()=>{
-                                                        contentUploadRequestResponse(issueRequest.title, issueRequest.member_id, issueRequest.category, 'rejected')
+                                                        contentUploadRequestResponse(contentRequest.title, contentRequest.member_id, contentRequest.category, 'rejected')
                                                         setRefresh(true)}}>
                                                     Reject</button>
                                                 </td> 
@@ -130,7 +130,8 @@ export default function ContentUploadRequests(props) {
                 <div className='admin-action-lower-border'></div>
 
             </div>
-            <ItemMain showItem={showItem} setShowItem={setShowItem} title={details.title} content={details.content} author='dgf' img={'src/media/' + details.background} isAdmin={false} category={details.category}/>
+            
+            <ItemMain showItem={showItem} setShowItem={setShowItem} title={details.title} content={details.content} author={details.member_username} img={'src/media/' + details.background} isAdmin={false} category={details.category}/>
         </div>
     )
 }

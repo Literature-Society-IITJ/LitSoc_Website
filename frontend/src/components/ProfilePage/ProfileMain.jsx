@@ -10,18 +10,6 @@ import { getUserData } from '../../api/axios'
 import AdminRequestCard from './AdminRequestCard'
 
 
-function fetchUserData(setUserData) {
-    console.log('first')
-    getUserData()
-    .then((val) => {
-        console.log(val)
-        setUserData(val)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-}
-
 export default function ProfileMain() {
 
     let [showBookRequests, setShowBookRequests] = useState(false)
@@ -35,7 +23,7 @@ export default function ProfileMain() {
     useEffect(() => {getUserData().then((data) => {setUserData(data)})}, [])
 
     // console.log(111111111111111)
-    // console.log(userData)
+    console.log(userData)
 
     // userData = ''
 
@@ -46,7 +34,7 @@ export default function ProfileMain() {
                     <div className='profile-page-body'>
                         <div className='profile-page-body-general'>
                             <ProfileCard userDetails={userData.member_details} />
-                            <ProfileDataCard userDetails={userData.member_details} />
+                            <ProfileDataCard userData={userData} />
                         </div>
 
 

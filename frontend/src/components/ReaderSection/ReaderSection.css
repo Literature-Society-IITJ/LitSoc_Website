@@ -195,6 +195,8 @@
     column-gap: 40px;
     row-gap: 70px;
 
+    /* position: relative; */
+
     /* background-color: rgba(0, 0, 0, 0.3); */
     color: black;
 

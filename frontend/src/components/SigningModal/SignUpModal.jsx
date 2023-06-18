@@ -49,7 +49,7 @@ export default function SignUpModal(props) {
     let [errorMessage, setErrorMessage] = useState('')
 
     // {console.log(props.showSignupPopup)}
-    return props.showSignupPopup?(
+    return props.showSignupPopup ? (
         
         <div className='sign-modal' id='sign-up'>
             <div className='sign-modal-box' id='sign-up'>
@@ -103,10 +103,10 @@ export default function SignUpModal(props) {
                                         <input className='input-label' name='username' id='userName'/>
                                     </div>
     
-                                    <div className='input-container' id='email'>
+                                    {/* <div className='input-container' id='email'>
                                         <span className='input-container fixed-label'>Email Address</span>
                                         <input type="email" className='input-label' name='email' id='emailInput'/>
-                                    </div>
+                                    </div> */}
                                 </div>
 
                                 <div className='signup-form-field-row'>

@@ -1,11 +1,14 @@
 import React, { useRef, useState } from 'react'
 import { RxCross2 } from 'react-icons/rx'
 import { uploadContent } from '../../api/axios'
+import ItemMain from '../ReaderSection/ItemMain'
 
 export default function ContentUploadForm(props) {
 
     const categorySelectRef = useRef(null)
     // const [selectedValue, setSelectedValue] = useState('selectCategory')
+    let [showItem, setShowItem] = useState(false)
+
 
     let [errorMessage, setErrorMessage] = useState('')
 
@@ -42,6 +45,21 @@ export default function ContentUploadForm(props) {
         }
     }
 
+    const previewContentFunction = () => {
+        let title = document.getElementById('titleInput').value
+        let category = categorySelectRef.current.value
+        let content = document.getElementById('contentInput').value
+        let background = document.getElementById('backgroundInput').value
+
+        if(title=='' || category=='' || content=='' || background=='') {
+            setErrorMessage('*Please fill all the columns')
+            return
+        }
+        else{
+            setShowItem(true)
+        }
+    }
+
     return (
         <>
             <div className='content-upload-form-body'>
@@ -55,7 +73,7 @@ export default function ContentUploadForm(props) {
 
                 <section className='upload-form-container'>
                     <div className='content-upload-form' id='content-upload-form'>
-                        <div className='content-upload-form-input-container'>
+                        <div className='content-upload-form-input-container-section'>
                             <div className='content-upload-form-row'>
                                 <div className='content-upload-form-input-container' id='content-title'>
                                     <span className='input-container-fixed-label'>
@@ -69,7 +87,7 @@ export default function ContentUploadForm(props) {
                                         Category
                                     </span>
                                     <select className='input-container-input-label' name="category" id="categoryInput" defaultValue='selectCategory' ref={categorySelectRef}>
-                                        <option value="selectCategory" hidden>--Select a category--</option>
+                                        <option value="selectCategory" hidden='hidden'>--Select a category--</option>
                                         <option value="poem">Poem</option>
                                         <option value="prose">Prose</option>
                                         <option value="fanfic">Fan Fiction</option>
@@ -107,13 +125,27 @@ export default function ContentUploadForm(props) {
                             {errorMessage}
                         </div>
 
-                        <button className='upload-button' onClick={uploadContentFunction}>
-                            Upload
-                        </button>
+                        <div className='content-upload-form-button-row'>
+                            <button className='upload-button' onClick={uploadContentFunction}>
+                                Upload
+                            </button>
+
+                            <button className='preview-button' onClick={previewContentFunction}>
+                                Preview
+                            </button>
+                        </div>
+                        
 
                     </div>
                 </section>
             </div>
+
+            {
+                showItem ? (
+                    <ItemMain showItem={showItem} setShowItem={setShowItem} title={document.getElementById('titleInput').value} content={document.getElementById('contentInput').value} author={props.username} img={URL.createObjectURL(document.getElementById('backgroundInput').files[0])} isAdmin={false} category={document.getElementById('categoryInput').value}/>
+                ) : null
+            }
+            
         </>
     )
 }
