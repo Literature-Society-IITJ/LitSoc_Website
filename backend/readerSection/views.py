@@ -76,7 +76,11 @@ class ContentApprovalView(APIView):
             upload_requests = Content.objects.filter(Q(approval_by_moderator = "pending")
                                                      &Q(approval_by_admin="pending")).values()
 
-    
+        for i in list(upload_requests):
+            member = Member.objects.filter(id = i['member_id']).values()[0]
+            i['member_name'] = f"{member['first_name']} {member['last_name']}"
+            i['member_roll_number'] = member['roll_number']
+
         return Response(list(upload_requests), status=status.HTTP_200_OK)
     
     def post(self, request, format=None):
@@ -103,9 +107,11 @@ class ContentApprovalView(APIView):
 
         if request.data.get('status') == "approved":
             if request.user.is_admin:
+                # print('.............', content.approval_by_admin)
                 content.approval_by_admin = "approved"
                 content.approval_admin = f"{request.user.first_name} {request.user.last_name}"
                 content.save()
+                # print('.............', content.approval_by_admin)
 
             elif request.user.role == "moderator":
                 content.approval_by_moderator = "approved"
