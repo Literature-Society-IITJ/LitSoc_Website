@@ -59,7 +59,7 @@ export default function ReadSecMain() {
                     {
                     readsecContent.length ? (
                         readsecContent.map((item) =>(
-                            <ItemCard title={item.title} content={item.content} author={item.member_name} img={item.background} setRefresh={setRefresh} isAdmin={isAdmin} category={item.category}/>
+                            <ItemCard title={item.title} content={item.content} author={item.member_name} img={item.background} setRefresh={setRefresh} isAdmin={isAdmin} category={item.category} clickEnable={true}/>
                             ))
                         ):
                         <div className='reader-sec-contents no-content-message'>

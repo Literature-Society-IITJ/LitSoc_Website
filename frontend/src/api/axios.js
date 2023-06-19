@@ -292,7 +292,7 @@ export async function getContentUploadRequests() {
                                     { headers: {'Authorization': `Bearer ${access_token}`, 
                                     'Content-Type': 'application/json'} })
 
-    console.log(response.data)
+    // console.log(response.data)
 
     return response.data
 }
@@ -301,13 +301,38 @@ export async function contentUploadRequestResponse(title, member_id, category, a
     let baseURL = 'http://127.0.0.1:8000/'
     let { access_token } = getToken()
 
-    console.log(11111111)
-    console.log(title, category, appprovalStatus, member_id)
+    // console.log(11111111)
+    // console.log(title, category, appprovalStatus, member_id)
     let response = await axios.post(`${baseURL}readerSection/contentapproval/`,
                                     { 'title': title, 'member_id': member_id, 'category': category, 'status': appprovalStatus },
                                     { headers: {'Authorization': `Bearer ${access_token}`, 
                                     'Content-Type': 'application/json'} })
 
-    console.log(response.data)
+    // console.log(response.data)
+    return response.data
+}
+
+export async function sendOTP(email, requestType) {
+    let baseURL = 'http://127.0.0.1:8000/'
+
+    console.log(email, requestType)
+
+    let response = await axios.get(`${baseURL}home/emailverification/`,
+                                    {params : {'email' : email,
+                                                'request_type': requestType}})
+
+    return response.data
+}
+
+
+
+export async function getReadBooks() {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+    
+    let response = await axios.get(`${baseURL}home/readbooks/`,
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'application/json'} })
+
     return response.data
 }

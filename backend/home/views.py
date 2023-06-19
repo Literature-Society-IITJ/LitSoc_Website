@@ -44,6 +44,7 @@ class MemberVerificationView(APIView):
         verification.
         """
 
+        print('HEEEEEEEEEEEEEEEEEEREEEEEEEEEEEEEEEEEEEEEEEEEE')
         email = request.query_params.get('email')
         request_type = request.query_params.get('request_type')
 

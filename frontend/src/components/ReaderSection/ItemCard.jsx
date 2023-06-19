@@ -10,10 +10,11 @@ export default function ItemCard(props) {
     let img_src = 'src/media/' + props.img
     let content = props.content
     let author = props.author
+    let clickEnable = props.clickEnable
 
     return (
-        <>
-            <div className='reader-sec item-card' onClick={()=>setShowItem(true)}>
+        <>  
+            <div className='reader-sec item-card' onClick={()=>setShowItem(props.clickEnable)}>
                 <div className='reader-sec item-card-image-container'>
                     <div className='reader-sec item-card-image' style={{backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.3) 75%, rgba(0, 0, 0, 0)), linear-gradient(90deg, rgba(0, 0, 0, 0.3) 75%, rgba(0, 0, 0, 0)), url(${img_src})`}}>
                     </div>
