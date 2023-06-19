@@ -193,3 +193,11 @@
     flex-direction: row;
     gap: 60px;
 }
+
+
+
+.signup-form-verification-button-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
