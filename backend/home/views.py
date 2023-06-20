@@ -307,7 +307,7 @@ class ReadBooksView(APIView):
         """
 
         read_books = IssuedBook.objects.filter(Q(member = request.user) & Q(availability = True))
-
+        read_books = list(read_books.values())
         books = []
         for i in read_books:
             x = {}

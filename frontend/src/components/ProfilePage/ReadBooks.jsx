@@ -36,8 +36,8 @@ export default function ReadBooks(props) {
                                     {
                                         readBooksList.map ((issuedBook) => (
                                             <tr className='admin-section-table-details-container'>
-                                                <td className='issued-books-issue-date'></td>
-                                                <td className='issued-books-return-date'></td> 
+                                                <td className='issued-books-issue-date'>{issuedBook.book}</td>
+                                                <td className='issued-books-return-date'>{issuedBook.author}</td> 
                                             </tr>
                                         ))
                                     }
