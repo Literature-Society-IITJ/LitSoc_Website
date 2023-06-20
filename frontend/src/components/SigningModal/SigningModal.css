@@ -193,7 +193,22 @@
     flex-direction: row;
     gap: 60px;
 }
-
+.signup-form-email-field-row{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.sign-modal-email-reload-button{
+    margin: 5px 0px 10px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 22px;
+}
+.sign-modal-email-reload-button:hover{
+    cursor: pointer;
+}
 
 
 .signup-form-verification-button-row{

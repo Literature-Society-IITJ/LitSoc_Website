@@ -44,7 +44,7 @@ class MemberVerificationView(APIView):
         verification.
         """
 
-        print('HEEEEEEEEEEEEEEEEEEREEEEEEEEEEEEEEEEEEEEEEEEEE')
+        # print('HEEEEEEEEEEEEEEEEEEREEEEEEEEEEEEEEEEEEEEEEEEEE')
         email = request.query_params.get('email')
         request_type = request.query_params.get('request_type')
 
@@ -57,12 +57,13 @@ class MemberVerificationView(APIView):
 
         elif request_type == 'resendOTP':
             send_otp_via_email(email)
+            return Response("OTP resent successfully!", status=status.HTTP_200_OK)
 
         elif request_type == 'aborted':
             temp_member = EmailVerification.objects.filter(email = email)[0]
             temp_member.delete()
 
-        return Response("OTP sent!", status=status.HTTP_200_OK)
+        return Response("OTP sent! Please check your email.", status=status.HTTP_200_OK)
     
     def post(self, request, format=None):
         """

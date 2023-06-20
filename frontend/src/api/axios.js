@@ -312,6 +312,21 @@ export async function contentUploadRequestResponse(title, member_id, category, a
     return response.data
 }
 
+
+
+export async function getReadBooks() {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+    
+    let response = await axios.get(`${baseURL}home/readbooks/`,
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'application/json'} })
+
+    return response.data
+}
+
+
+
 export async function sendOTP(email, requestType) {
     let baseURL = 'http://127.0.0.1:8000/'
 
@@ -325,14 +340,20 @@ export async function sendOTP(email, requestType) {
 }
 
 
+// const delay = ms => new Promise(
+//     resolve => setTimeout(resolve, ms)
+// )
 
-export async function getReadBooks() {
+export async function verifyOTP(email, otp) {
     let baseURL = 'http://127.0.0.1:8000/'
-    let { access_token } = getToken()
-    
-    let response = await axios.get(`${baseURL}home/readbooks/`,
-                                    { headers: {'Authorization': `Bearer ${access_token}`, 
-                                    'Content-Type': 'application/json'} })
+    // let { access_token } = getToken()
+
+    console.log(email, otp)
+
+    // await delay(2000)
+
+    let response = await axios.post(`${baseURL}home/emailverification/`,
+                                    { 'email':email, 'otp':otp })
 
     return response.data
 }
