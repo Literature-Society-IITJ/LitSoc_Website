@@ -48,7 +48,7 @@ class MemberVerificationView(APIView):
         email = request.query_params.get('email')
         request_type = request.query_params.get('request_type')
 
-        if EmailVerification.objects.filter(email = email).exists():
+        if Member.objects.filter(email = email).exists():
             return Response("A user with this email already exists", status=status.HTTP_400_BAD_REQUEST)
         
         if request_type == 'sendOTP':
@@ -99,6 +99,8 @@ class MemberRegistrationView(APIView):
         serializer = MemberRegistrationSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
+            temp_member = EmailVerification.objects.filter(email = request.data.get('email'))[0]
+            temp_member.delete()
             token = get_tokens_for_user(user)
             return Response({'token': token, 'msg':'Registration Success'}, status=status.HTTP_200_OK)
         
@@ -303,6 +305,14 @@ class ReadBooksView(APIView):
         date by the requested user.
         """
 
-        read_books = IssuedBook.objects.filter(Q(member = request.user) & Q(availability = True)).values()
+        read_books = IssuedBook.objects.filter(Q(member = request.user) & Q(availability = True))
 
-        return Response(list(read_books), status=status.HTTP_200_OK)
+        books = []
+        for i in read_books:
+            x = {}
+            book_info = Book.objects.filter(pk = i['book_id']).values()[0]
+            x['book'] = book_info['name']
+            x['author'] = book_info['author']
+            books.append(x)
+
+        return Response(books, status=status.HTTP_200_OK)
