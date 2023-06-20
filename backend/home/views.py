@@ -48,6 +48,9 @@ class MemberVerificationView(APIView):
         email = request.query_params.get('email')
         request_type = request.query_params.get('request_type')
 
+        if EmailVerification.objects.filter(email = email).exists():
+            return Response("A user with this email already exists", status=status.HTTP_400_BAD_REQUEST)
+        
         if request_type == 'sendOTP':
             temp_member = EmailVerification.objects.create(email = email)
             send_otp_via_email(email)
@@ -66,10 +69,10 @@ class MemberVerificationView(APIView):
         
         email = request.data.get('email')
         otp = request.data.get('otp')
-        temp_member = EmailVerification.objects.filter(email = email)
+        temp_member = EmailVerification.objects.filter(email = email)[0]
         verify = EmailVerification.objects.filter(email = email).values()[0]['otp']
 
-        if verify == otp:
+        if verify == int(otp):
             temp_member.is_verified = True
             temp_member.save()
             return Response("Email successfully verified!", status=status.HTTP_200_OK)
