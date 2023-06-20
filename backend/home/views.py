@@ -58,6 +58,10 @@ class MemberVerificationView(APIView):
         elif request_type == 'resendOTP':
             send_otp_via_email(email)
 
+        elif request_type == 'aborted':
+            temp_member = EmailVerification.objects.filter(email = email)[0]
+            temp_member.delete()
+
         return Response("OTP sent!", status=status.HTTP_200_OK)
     
     def post(self, request, format=None):
