@@ -1,5 +1,5 @@
 from django.contrib import admin
-from home.models import Member
+from home.models import Member, EmailVerification
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 # Register your models here.
 
@@ -29,3 +29,4 @@ class MemberAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 admin.site.register(Member, MemberAdmin)
+admin.site.register(EmailVerification)
