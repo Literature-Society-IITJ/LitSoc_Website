@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { signup } from '../../api/axios'
+import { storeToken } from '../../utilities/localStorage'
 
 
 function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmail, setShowDetailsForm, setShowEmailVerificationForm) {
@@ -28,11 +29,14 @@ function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmai
             .then((response) => {
                 // console.log(response)
                 // console.log(response.token.access)
-                console.log(111111111111111111111)
+                // console.log(1111111111111111, 'llllllllllllllllllll')
                 storeToken(response.token)
-                // alert('Sign Up Successful')
+                alert('Sign Up Successful')
                 setErrorMessage('')
-                window.alert('Sign Up done vro')
+                // window.alert('Sign Up done vro')
+
+                console.log(1111111111111111)
+
 
                 document.getElementById('firstName').value = ''
                 document.getElementById('lastName').value = ''
@@ -53,8 +57,10 @@ function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmai
             .catch((error) => {
                 // console.log('error')
                 // console.log(error.response.data)
-                console.log(222222222222222222)
-                let errorMsg = error.response.data
+                // console.log(22222222, 'hhhhhhhhhhhhhhhhhhhhhhh')
+                // console.log(error)
+                let errorMsg = error.response
+                // console.log(errorMsg)
                 setErrorMessage(JSON.stringify(errorMsg))
             })
         }
@@ -139,7 +145,7 @@ export default function SignUpDetailsForm(props) {
             <br />
             <button className='sign-modal-button' onClick={() => 
                                                     {signupFunction(setErrorMessage, props.setShowSignUpPopUp, props.email, props.setEmail, props.setShowDetailsForm, props.setShowEmailVerificationForm)
-                                                    console.log("Heloooooooooooooooooooo")}}>
+                                                    }}>
                 Lit Me Up
             </button>
         </section>

@@ -70,7 +70,8 @@ function otpVerification (setEmailVerifErrorMsg, setEmail, setShowEmailVerificat
         .then((response) => {
             setEmail(email)
             setEmailVerifErrorMsg('VERIFIED... Opening Details Form')
-            setTimeout(() => {}, 2000);
+            // setTimeout(() => {}, 2000);
+            alert('OTP Verified Successfully! Press OK to proceed')
             setShowOTPFields(false)
             setShowEmailVerificationForm(false)
             setShowDetailsForm(true)

@@ -102,9 +102,9 @@ class MemberRegistrationView(APIView):
             user = serializer.save()
             temp_member = EmailVerification.objects.filter(email = request.data.get('email'))[0]
             temp_member.delete()
-            # token = get_tokens_for_user(user)
-            # return Response({'token': token, 'msg':'Registration Success'}, status=status.HTTP_200_OK)
-            return Response('ALLLLLLLLLLLLLL GOOOOOOOOOOOOOOOD', status=status.HTTP_200_OK)
+            token = get_tokens_for_user(user)
+            return Response({'token': token, 'msg':'Registration Success'}, status=status.HTTP_200_OK)
+            # return Response('ALLLLLLLLLLLLLL GOOOOOOOOOOOOOOOD', status=status.HTTP_200_OK)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
