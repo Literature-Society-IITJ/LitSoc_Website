@@ -12,16 +12,16 @@ export default function UploadedContent(props) {
 
 
     return (
-        <div className='admin-action-modal'>
-            <div className='admin-action-card issue-requests-card'>
-                <div className='admin-action-card-upperbar'>
+        <div className='uploaded-content-display-modal'>
+            <div className='profile-uploaded-content-display'>
+                <div className='profile-uploaded-content-display-upperbar'>
                     <div>Reader Section Content Upload Section  &#10629;{uploadedContent.length} items&#10630;</div>
-                    <div className='admin-action-card-x-button' onClick={()=>props.setShowUploadedContent(false)}>
+                    <div className='profile-uploaded-content-display-x-button' onClick={()=>props.setShowUploadedContent(false)}>
                         <RxCross2 />
                     </div>
                 </div>
 
-                <div className='profile-uploaded-content content-display-section'>
+                <div className='profile-uploaded-content-content-display-section'>
                     {
                     uploadedContent.length ? (
                         uploadedContent.map((item) =>(
@@ -40,6 +40,7 @@ export default function UploadedContent(props) {
                         </div>
                     }
                 </div>
+                <div className='uploaded-content-display-lower-border'></div>
             </div>
             <ItemMain showItem={showItem} setShowItem={setShowItem} title={details.title} content={details.content} author='dgf' img={'src/media/' + details.background} isAdmin={false} category={details.category}/>
         </div>
