@@ -56,7 +56,7 @@ function emailReset (setDisabledEmailInput, setShowOTPFields, setOTPRequestType,
 }
 
 
-function otpVerification (setEmailVerifErrorMsg, setEmail, setShowEmailVerificationForm, setShowDetailsForm, setOTPRequestType) {
+function otpVerification (setEmailVerifErrorMsg, setEmail, setShowEmailVerificationForm, setShowDetailsForm, setOTPRequestType, setShowOTPFields) {
     let email = document.getElementById('emailInput').value
     let otp = document.getElementById('otpInput').value
 
@@ -71,6 +71,7 @@ function otpVerification (setEmailVerifErrorMsg, setEmail, setShowEmailVerificat
             setEmail(email)
             setEmailVerifErrorMsg('VERIFIED... Opening Details Form')
             setTimeout(() => {}, 2000);
+            setShowOTPFields(false)
             setShowEmailVerificationForm(false)
             setShowDetailsForm(true)
             setOTPRequestType('sendOTP')
@@ -147,7 +148,7 @@ export default function SignUpEmailVerifSection(props) {
                 {
                     (showOTPFields) ? (
 
-                        <button className='sign-modal-button' onClick={()=> {otpVerification(setEmailVerifErrorMsg, props.setEmail, props.setShowEmailVerificationForm, props.setShowDetailsForm, setOTPRequestType)} }>
+                        <button className='sign-modal-button' onClick={()=> {otpVerification(setEmailVerifErrorMsg, props.setEmail, props.setShowEmailVerificationForm, props.setShowDetailsForm, setOTPRequestType, props.setShowOTPFields)} }>
                             Verify OTP
                         </button>
 
