@@ -36,6 +36,7 @@ export async function signup(firstname, lastname, rollnumber, phonenumber, usern
     let response = await axios.post(`${baseURL}home/register/`,
                                     {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
 
+    console.log(response)
     return response.data;
 }
 

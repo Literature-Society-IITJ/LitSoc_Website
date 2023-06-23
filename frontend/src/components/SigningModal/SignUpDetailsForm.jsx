@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { signup } from '../../api/axios'
 
 
-function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmail, setShowDetailsForm) {
+function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmail, setShowDetailsForm, setShowEmailVerificationForm) {
 
     let firstname = document.getElementById('firstName').value
     let lastname = document.getElementById('lastName').value
@@ -30,7 +30,9 @@ function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmai
                 // console.log(response.token.access)
                 console.log(111111111111111111111)
                 storeToken(response.token)
-                alert('Sign Up Successful')
+                // alert('Sign Up Successful')
+                setErrorMessage('')
+                window.alert('Sign Up done vro')
 
                 document.getElementById('firstName').value = ''
                 document.getElementById('lastName').value = ''
@@ -42,7 +44,10 @@ function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmai
                 document.getElementById('cnfrmPwd').value = ''
                 setEmail('')
                 setShowDetailsForm(false)
+                setShowEmailVerificationForm(true)
+                console.log("I am dancinnggggggggggggggggggg")
                 setShowSignUpPopUp(false)
+                window.location.reload()
 
             })
             .catch((error) => {
@@ -133,7 +138,8 @@ export default function SignUpDetailsForm(props) {
             
             <br />
             <button className='sign-modal-button' onClick={() => 
-                                                    {signupFunction(setErrorMessage, props.setShowSignUpPopUp, props.email, props.setEmail, props.setShowDetailsForm)}}>
+                                                    {signupFunction(setErrorMessage, props.setShowSignUpPopUp, props.email, props.setEmail, props.setShowDetailsForm, props.setShowEmailVerificationForm)
+                                                    console.log("Heloooooooooooooooooooo")}}>
                 Lit Me Up
             </button>
         </section>

@@ -55,7 +55,10 @@ export default function SignUpModal(props) {
                             <SignUpDetailsForm 
                                     email={email}
                                     setEmail={setEmail}
-                                    setShowDetailsForm={setShowDetailsForm} />
+                                    setShowSignUpPopUp={props.setShowSignUpPopUp}
+                                    setShowDetailsForm={setShowDetailsForm}
+                                    setShowEmailVerificationForm={setShowEmailVerificationForm}
+                                    setShowOTPFields={setShowOTPFields} />
                         ) : null
                     }
 
