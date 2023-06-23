@@ -52,7 +52,10 @@ export default function SignUpModal(props) {
 
                     {
                         (showDetailsForm) ? (
-                            <SignUpDetailsForm />
+                            <SignUpDetailsForm 
+                                    email={email}
+                                    setEmail={setEmail}
+                                    setShowDetailsForm={setShowDetailsForm} />
                         ) : null
                     }
 

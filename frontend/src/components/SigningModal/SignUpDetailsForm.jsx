@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { signup } from '../../api/axios'
 
 
-function signupFunction(setErrorMessage, setShowSignInPopUp, emailInput) {
+function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmail, setShowDetailsForm) {
 
     let firstname = document.getElementById('firstName').value
     let lastname = document.getElementById('lastName').value
@@ -13,27 +13,49 @@ function signupFunction(setErrorMessage, setShowSignInPopUp, emailInput) {
     let password = document.getElementById('password').value
     let cnfrmpwd = document.getElementById('cnfrmPwd').value
 
-    if(email == '' || password == '') {
-        setErrorMessage('Please enter all the fields')
+    if(firstname == '' || lastname == '' || rollnumber == '' || phonenumber == '' || username == '' || password == '' || cnfrmpwd == '') {
+        setErrorMessage('Please fill all the fields')
         return
     }
     else {
-        setErrorMessage('')
+        if (password != cnfrmpwd) {
+            setErrorMessage('Confirm Password does not match.')
+            return
+        }
+        else{
+            setErrorMessage('Processing')
+            signup(firstname, lastname, rollnumber, phonenumber, username, email, password, cnfrmpwd)
+            .then((response) => {
+                // console.log(response)
+                // console.log(response.token.access)
+                console.log(111111111111111111111)
+                storeToken(response.token)
+                alert('Sign Up Successful')
+
+                document.getElementById('firstName').value = ''
+                document.getElementById('lastName').value = ''
+                document.getElementById('rollNumber').value = ''
+                document.getElementById('phoneNumber').value = ''
+                document.getElementById('userName').value = ''
+                document.getElementById('emailInput').value = ''
+                document.getElementById('password').value = ''
+                document.getElementById('cnfrmPwd').value = ''
+                setEmail('')
+                setShowDetailsForm(false)
+                setShowSignUpPopUp(false)
+
+            })
+            .catch((error) => {
+                // console.log('error')
+                // console.log(error.response.data)
+                console.log(222222222222222222)
+                let errorMsg = error.response.data
+                setErrorMessage(JSON.stringify(errorMsg))
+            })
+        }
     }
 
-    signup(firstname, lastname, rollnumber, phonenumber, username, email, password, cnfrmpwd)
-    .then((response) => {
-        // console.log(response)
-        // console.log(response.token.access)
-        storeToken(response.token)
-        setShowSignInPopUp(false)
-    })
-    .catch((error) => {
-        // console.log('error')
-        // console.log(error.response.data)
-        let errorMsg = error.response.data
-        setErrorMessage(JSON.stringify(errorMsg))
-    })
+    
 
     // console.log('login returned')
     // console.log()
@@ -43,7 +65,7 @@ function signupFunction(setErrorMessage, setShowSignInPopUp, emailInput) {
 
 export default function SignUpDetailsForm(props) {
 
-
+    let email = props.email
     let [errorMessage, setErrorMessage] = useState('')
 
 
@@ -84,10 +106,10 @@ export default function SignUpDetailsForm(props) {
                             <input className='input-label' name='username' id='userName'/>
                         </div>
 
-                        {/* <div className='input-container' id='email'>
+                        <div className='input-container' id='email'>
                             <span className='input-container fixed-label'>Email Address</span>
-                            <input type="email" className='input-label' name='email' id='emailInput'/>
-                        </div> */}
+                            <input type="email" disabled={true} value={email} className='input-label' name='email' id='emailInput' style={{backgroundColor:'#f0f4fc', color:'black', borderColor:'white'}}/>
+                        </div>
                     </div>
 
                     <div className='signup-form-field-row'>
@@ -104,12 +126,16 @@ export default function SignUpDetailsForm(props) {
                 </div>
             </div>
 
+            <br />
             <div className='sign-modal-error-msg'>
                 { errorMessage? ('*' + errorMessage): null }
             </div>
             
             <br />
-            <button className='sign-modal-button' onClick={()=>{signupFunction(setErrorMessage, props.setShowSignUpPopUp, props.email)}}>Lit Me Up</button>
+            <button className='sign-modal-button' onClick={() => 
+                                                    {signupFunction(setErrorMessage, props.setShowSignUpPopUp, props.email, props.setEmail, props.setShowDetailsForm)}}>
+                Lit Me Up
+            </button>
         </section>
     )
 }

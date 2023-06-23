@@ -5,7 +5,7 @@ import HomeMiddle from '../components/HomePage/HomeMiddle'
 import Navbar from '../components/Navbar/Navbar'
 import '../components/HomePage/HomePage.css'
 import GeneralTop from '../components/GeneralTop'
-import bg4 from './../media/images/bg4.jpg'
+// import bg4 from './../media/images/bg4.jpg'
 
 export default function HomePage() {
 
