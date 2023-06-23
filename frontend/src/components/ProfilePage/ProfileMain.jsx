@@ -20,10 +20,11 @@ export default function ProfileMain() {
 
     let [userData, setUserData] = useState('')
 
+
     useEffect(() => {getUserData().then((data) => {setUserData(data)})}, [])
 
     // console.log(111111111111111)
-    console.log(userData)
+    // console.log(userData)
 
     // userData = ''
 

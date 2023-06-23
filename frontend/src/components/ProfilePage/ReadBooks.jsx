@@ -12,40 +12,44 @@ export default function ReadBooks(props) {
 
     return (
         <>
-            <div className='content-upload-form-body'>
-                <div className='admin-action-card-upperbar'>
-                    <div>Content Upload Form</div>
-                    <div className='admin-action-card-x-button' onClick={()=>props.setShowReadBooks(false)}>
+            <div className='read-books-display-body'>
+                <div className='read-books-display-upperbar'>
+                    <div>
+                        {`Read Books (${readBooksList.length})`}
+                    </div>
+                    <div className='read-books-display-x-button' onClick={()=>props.setShowReadBooks(false)}>
                         <RxCross2 />
                     </div>
                 </div>
 
 
-                <div className='admin-action-card-body admin-section-table-display-section'>
+                <div className='admin-action-card-body read-books-display-table-display-section'>
                     {
                         (readBooksList.length) ? (
-                            <table className='admin-section-table'>
-                                <thead className='admin-section-table-headers-container'>
+                            <table className='read-books-display-table'>
+                                <thead className='read-books-display-table-headers-container'>
                                     <tr>
-                                        <th className='admin-section-table-headers issued-books-book-id'>Book</th>
-                                        <th className='admin-section-table-headers issued-books-borrower-details'>Author</th>
+                                        <th className='read-books-display-table-headers read-books-book-name'>Book</th>
+                                        <th className='read-books-display-table-headers read-books-author'>Author</th>
                                     </tr>
                                 </thead>
 
-                                <tbody className='admin-section-table-body'>
+                                <tbody className='read-books-display-table-body'>
                                     {
-                                        readBooksList.map ((issuedBook) => (
-                                            <tr className='admin-section-table-details-container'>
-                                                <td className='issued-books-issue-date'>{issuedBook.book}</td>
-                                                <td className='issued-books-return-date'>{issuedBook.author}</td> 
+                                        readBooksList.map ((readBook) => (
+                                            <tr className='read-books-display-table-details-container'>
+                                                <td className='read-books-book-name'>{readBook.book}</td>
+                                                <td className='read-books-author'>{readBook.author}</td> 
                                             </tr>
                                         ))
                                     }
                                 </tbody>
                             </table>
-                        ) : <div className="no-issued-books-message">All the books are in the library :|</div>
+                        ) : <div className="no-read-books-message">You haven't read any books yet :/</div>
                     }
+
                 </div>
+                <div className='read-books-display-lower-border'></div>
             </div>
             
         </>
