@@ -3,8 +3,74 @@ import { getBooks } from '../../api/axios'
 
 export default function BooksDisplay(props) {
 
-    let [booksList, setBooksList] = useState([])
-    useEffect(() => {getBooks(props).then((data) => {setBooksList(data)})}, [props])
+    let [initialBooksList, setInitialBooksList] = useState([])
+    let [booksList, setBooksList] = useState(initialBooksList)
+
+    useEffect(() => {getBooks(props).then((data) => {setInitialBooksList(data)
+                                                    setBooksList(data)})}, [])
+    // useEffect(() => {setBooksList(initialBooksList)}, [])
+
+    // const initialBooksList = booksList.map((book) => book)
+
+    // console.log(initialBooksList)
+    // console.log(booksList)
+
+    useEffect(() => {
+        setBooksList(initialBooksList)
+        setBooksList(initialBooksList.filter((book) => {
+            console.log(props)
+            console.log(props.bookNameInput), console.log(props.authorNameInput), console.log(props.genreInput), console.log(props.isbnInput)
+
+            if (props.bookNameInput === '' & props.authorNameInput === '' & props.genreInput === '' & props.isbnInput === '') {
+                return book
+            }
+            else if (props.bookNameInput === '' & props.authorNameInput === '' & props.genreInput === '') {
+                return book.isbn.toString().toLowerCase().includes(props.isbnInput.toString().toLowerCase())
+            }
+            else if (props.bookNameInput === '' & props.authorNameInput === '' & props.isbnInput === '') {
+                return book.category.toString().toLowerCase().includes(props.genreInput.toString().toLowerCase())
+            }
+            else if (props.bookNameInput === '' & props.genreInput === '' & props.isbnInput === '') {
+                return book.author.toString().toLowerCase().includes(props.authorNameInput.toString().toLowerCase())
+            }
+            else if (props.authorNameInput === '' & props.genreInput === '' & props.isbnInput === '') {
+                return book.name.toString().toLowerCase().includes(props.bookNameInput.toString().toLowerCase())
+            }
+            else if (props.bookNameInput === '' & props.authorNameInput === '') {
+                return book.category.toString().toLowerCase().includes(props.genreInput.toString().toLowerCase()) & book.isbn.toString().toLowerCase().includes(props.isbnInput.toString().toLowerCase())
+            }
+            else if (props.bookNameInput === '' & props.genreInput === '') {
+                return book.author.toString().toLowerCase().includes(props.authorNameInput.toString().toLowerCase()) & book.isbn.toString().toLowerCase().includes(props.isbnInput.toString().toLowerCase())
+            }
+            else if (props.bookNameInput === '' & props.isbnInput === '') {
+                return book.author.toString().toLowerCase().includes(props.authorNameInput.toString().toLowerCase()) & book.category.toString().toLowerCase().includes(props.genreInput.toString().toLowerCase())
+            }
+            else if (props.authorNameInput === '' & props.genreInput === '') {
+                return book.name.toString().toLowerCase().includes(props.bookNameInput.toString().toLowerCase()) & book.isbn.toString().toLowerCase().includes(props.isbnInput.toString().toLowerCase())
+            }
+            else if (props.authorNameInput === '' & props.isbnInput === '') {
+                return book.name.toString().toLowerCase().includes(props.bookNameInput.toString().toLowerCase()) & book.category.toString().toLowerCase().includes(props.genreInput.toString().toLowerCase())
+            }
+            else if (props.genreInput === '' & props.isbnInput === '') {
+                return book.name.toString().toLowerCase().includes(props.bookNameInput.toString().toLowerCase()) & book.author.toString().toLowerCase().includes(props.authorNameInput.toString().toLowerCase())
+            }
+            else if (props.bookNameInput === '') {
+                return book.author.toString().toLowerCase().includes(props.authorNameInput.toString().toLowerCase()) & book.category.toString().toLowerCase().includes(props.genreInput.toString().toLowerCase()) & book.isbn.toString().toLowerCase().includes(props.isbnInput.toString().toLowerCase())
+            }
+            else if (props.authorNameInput === '') {
+                return book.name.toString().toLowerCase().includes(props.bookNameInput.toString().toLowerCase()) & book.category.toString().toLowerCase().includes(props.genreInput.toString().toLowerCase()) & book.isbn.toString().toLowerCase().includes(props.isbnInput.toString().toLowerCase())
+            }
+            else if (props.genreInput === '') {
+                return book.name.toString().toLowerCase().includes(props.bookNameInput.toString().toLowerCase()) & book.author.toString().toLowerCase().includes(props.authorNameInput.toString().toLowerCase()) & book.isbn.toString().toLowerCase().includes(props.isbnInput.toString().toLowerCase())
+            }
+            else if (props.isbnInput === '') {
+                return book.name.toString().toLowerCase().includes(props.bookNameInput.toString().toLowerCase()) & book.author.toString().toLowerCase().includes(props.authorNameInput.toString().toLowerCase()) & book.category.toString().toLowerCase().includes(props.genreInput.toString().toLowerCase())
+            }
+            else {
+                return book.name.toString().toLowerCase().includes(props.bookNameInput.toString().toLowerCase()) & book.author.toString().toLowerCase().includes(props.authorNameInput.toString().toLowerCase()) & book.category.toString().toLowerCase().includes(props.genreInput.toString().toLowerCase()) & book.isbn.toString().toLowerCase().includes(props.isbnInput.toString().toLowerCase())
+            }
+        }))
+    }, [props.bookNameInput, props.authorNameInput, props.genreInput, props.isbnInput])
 
     return (
         <>

@@ -36,7 +36,7 @@ export const GeneralTopData = {
         id: 'team',
         title: "TEAM",
         tagline: "Current Team (2022-23)",
-        imgsrc: '/src/media/images/pexels-min-an-853168.jpg'
+        imgsrc: '/src/media/images/teamsbg.jpg'
     },
 
     Library:{

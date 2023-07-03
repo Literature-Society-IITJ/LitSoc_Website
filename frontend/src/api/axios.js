@@ -360,3 +360,18 @@ export async function verifyOTP(email, otp) {
 
     return response.data
 }
+
+
+export async function changeUsername(newUsername) {
+    let baseURL = 'http://127.0.0.1:8000/'
+    let { access_token } = getToken()
+
+    console.log(newUsername)
+
+    let response = await axios.post(`${baseURL}home/changeusername/`,
+                                    { 'new_username':newUsername },
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'application/json'} })
+
+    return response.data
+}

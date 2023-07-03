@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 // import secy from '../../media_back/team/aditi.jpeg'
 import linkedin_logo from '../../media/Teams/linkedin-logo.svg'
 import insta_logo from '../../media/Teams/instagram-logo.svg'
-import gmail_logo from '../../media/Teams/gmail-logo.svg'
+import gmail_logo from '../../media/Teams/gmail_icon.png'
 
 // const img = '../../media/team/aditi.jpeg'
 
@@ -14,7 +14,7 @@ export default function MemberCard(props) {
     let id = props.id;
     let linkedin = props.linkedin
     let instagram = props.insta
-    let gmail = props.mail
+    let gmail = 'goyal.22@iitj.ac.in'
     let img = '/src/media/' + props.image    
 
     return (
@@ -42,7 +42,7 @@ export default function MemberCard(props) {
                     <a href={instagram}>
                         <img src={insta_logo} alt="instagram" />
                     </a>
-                    <a href={gmail}>
+                    <a href={`mailto:${gmail}`}>
                         <img src={gmail_logo} alt="gmail" />
                     </a>
                 </div>

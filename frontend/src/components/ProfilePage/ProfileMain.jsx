@@ -45,24 +45,28 @@ export default function ProfileMain() {
                                     <AdminRequestCard
                                         title='Book Issue Requests'
                                         showSection={showBookRequests}
-                                        setShowSection={setShowBookRequests} />
+                                        setShowSection={setShowBookRequests}
+                                        id='admin-requests-card-book-issue-requests' />
 
                                     <AdminRequestCard
                                         title='Issued Books'
                                         showSection={showIssuedBooks}
-                                        setShowSection={setShowIssuedBooks} />
+                                        setShowSection={setShowIssuedBooks}
+                                        id='admin-requests-card-issued-books' />
 
                                     <AdminRequestCard
                                         title='Reader Section Upload Requests' 
                                         showSection={showContentUploadRequests}
-                                        setShowSection={setShowContentUploadRequests} />
+                                        setShowSection={setShowContentUploadRequests}
+                                        id='admin-requests-card-content-upload-requests' />
 
                                     {
                                         (userData.member_details.is_admin) ? (
                                             <AdminRequestCard
                                                 title='Moderator Details'
                                                 showSection={showModeratorDetails}
-                                                setShowSection={setShowModeratorDetails} />
+                                                setShowSection={setShowModeratorDetails}
+                                                id='admin-requests-card-moderator-details' />
                                             ) : null
                                     }
                                 </div>

@@ -7,11 +7,14 @@
     /* background-color: rgb(64, 91, 123); */
     /* background-image: linear-gradient(180deg, #000000b3 90%, rgba(0, 0, 0, 0)); */
 
+    color: white;
+    
     background-color: rgb(0, 0, 0);
     background-image: linear-gradient(180deg, rgba(24, 28, 36, 0.8) 20%, rgba(0, 0, 0, 0));
 
     border-style: solid;
     border-width: 1px 0px 0px 0px;
+    border-color: white;
 }
 
 .bottom-bar-box{
@@ -89,3 +92,13 @@
 
     height: 6vh;
 }
+
+
+@media screen and (max-width:600px) {
+    /* q: write css for changing body size */
+    
+    .bottom-bar{
+        color: red;
+    }
+}
+

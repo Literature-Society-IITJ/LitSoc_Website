@@ -56,7 +56,6 @@ export default function BookIssueSection(props) {
                                         setIsbnInput={setIsbnInput}
                                         setShowBookItem = {setShowBookItem}
                                         setBookDetail = {setBookDetail}
-
                                         />
 
                         <IssueCard

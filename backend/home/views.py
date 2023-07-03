@@ -179,7 +179,7 @@ class MemberProfileView(APIView):
                    'book': {'book_name':book_name, 'return_date':return_date},
                    'content': temp_content}
 
-        time.sleep(5)
+        time.sleep(3)
         return Response(details, status=status.HTTP_200_OK)
 
 
@@ -318,3 +318,26 @@ class ReadBooksView(APIView):
             books.append(x)
 
         return Response(books, status=status.HTTP_200_OK)
+    
+    
+
+class UsernameChangeView(APIView):
+
+    def post(self, request, format=None):
+        """
+        POST request to upload/update
+        the profile image of the
+        requested user.
+        """
+        # code to change username of the memeber and save it in the database if the username is not already taken
+        
+        username = request.data.get('username')
+        member = Member.objects.filter(username = username)
+        
+        if len(member) != 0:
+            return Response("Username already taken", status=status.HTTP_400_BAD_REQUEST)
+        
+        else:
+            request.user.username = username
+            request.user.save()
+            return Response("Username updated", status=status.HTTP_200_OK)
