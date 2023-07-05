@@ -60,3 +60,7 @@ body{
 .read-the-docs {
   color: #888;
 }
+
+input:focus-visible{
+    outline: none;
+}

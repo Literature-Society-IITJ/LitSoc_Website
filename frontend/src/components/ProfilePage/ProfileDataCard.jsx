@@ -34,7 +34,9 @@ export default function ProfileDataCard(props) {
                                     {userData.book.book_name.name + ' - ' + userData.book.book_name.author}
                                 </div>
                                 <div>
-                                    {'To be returned by: ' + `${userData.book.return_date}`} 
+                                    {
+                                        (!userData.book.return_date) ? 'Issue Requested! Collect from library at the latest.' :  `To be returned by: ${userData.book.return_date}`
+                                    }
                                 </div>
                             </>
                         ) : 

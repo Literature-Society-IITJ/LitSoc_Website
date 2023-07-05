@@ -1,46 +1,86 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './BottomBar.css'
 import BottombarLogos from '../../media/images/bottom-bar-logos.png'
-import lit_logo from '../../media/images/Navbar/lit_logo.png'
+// import lit_logo from '../../media/images/Navbar/lit_logo.png'
+import { BsInstagram, BsLinkedin, BsWhatsapp } from 'react-icons/bs'
+import { RxEnvelopeClosed } from 'react-icons/rx'
+
+
+const changeCollegeAbbreviation = () => {
+    width = window.innerWidth;
+
+    if (width < 600) {
+        setIITJName('IITJ');
+    } else {
+        setIITJName('IIT Jodhpur');
+    }
+};
+
+window.addEventListener('width', changeCollegeAbbreviation);
+
 
 export default function BottomBar() {
-  return (
-    <div className='bottom-bar'>
-        <div className='bottom-bar-box'>
-            <div className='bottom-bar-logos' tabIndex={1}>
-                <img src={BottombarLogos} alt="Logos" />
-            </div>
 
-            <div className='bottom-bar-content' id='bottom-bar-contact' tabIndex={2}>
-                <p>
-                    <strong className='title'>Address: </strong> <br />
-                    NH 62, Surpura Bypass Road, <br />
-                    Karwar, Jodhpur, <br />
-                    Rajasthan 342030 <br /><br />
+    let [IITJName, setIITJName] = useState('IIT Jodhpur');
 
-                    <strong>Email:</strong><br />literature@iitj.ac.in <br /><br />
-                    <strong>Phone No:</strong><br />+91 70541 61004 <br /><br />
-                </p>
-            </div>
+    const [width, setWidth] = React.useState(window.innerWidth);
+    useEffect(() => {
+        const handleResizeWindow = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleResizeWindow)
+        if (width < 600) {
+            setIITJName('IITJ');
+        } else {
+            setIITJName('IIT Jodhpur');
+        }
+    }, [window.innerWidth]);
 
-            <div className='bottom-bar-content' id='bottom-bar-right' tabIndex={3}>
-                <p>
-                    <strong>Social Media Links</strong>
-                </p>
-
-                <div>
-                    <a href="https://www.instagram.com/litsociitj/" target='_blank'>
-                        <div>
-                            <img src={lit_logo} alt="LitSoc | Instagram" />
-                        </div>
-                    </a>
+    return (
+        <div className='bottom-bar'>
+            <div className='bottom-bar-box'>
+                <div className='bottom-bar-logos' tabIndex={1}>
+                    {/* <img src={BottombarLogos} alt="Logos" /> */}
+                    <div></div>
                 </div>
 
-                <p>&copy; Copyright <strong>LitSoc IITJ.</strong> All Rights Reserved.</p>
-            </div>
-        </div>
+                <div className='bottom-bar-content' id='bottom-bar-contact' tabIndex={2}>
+                    
+                    <div style={{textTransform: 'uppercase', fontWeight: '700', lineHeight: '20px'}}>
+                        Literature Society,
+                        {
+                            width > 600 ? <br /> : null
+                        }
+                        {IITJName}
+                    </div>
+                    {/* <br /> */}
 
-        
-    </div>
-  )
+                    <div>
+                        <div className='contact-us-title'>Contact Us:</div>
+                        <div className='contact-info-row'>
+                            <div className='contact-info-item'>
+                                <RxEnvelopeClosed className='contact-info-icon' />  literature@iitj.ac.in 
+                            </div>
+                            <div className='contact-info-item'>
+                                <BsWhatsapp className='contact-info-icon' /> +91 70541 61004 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='social-media-icons-container'>
+                        <a href="https://www.instagram.com/litsociitj/" target='_blank'>
+                            <BsInstagram className='social-media-icon' />
+                        </a>
+                        <a href="">
+                            <BsLinkedin className='social-media-icon' />
+                        </a>
+                    </div>
+
+                    <div style={{lineHeight: '20px'}}>
+                        &copy; Copyright <strong>Literature Society, IIT Jodhpur.</strong> All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    )
 }

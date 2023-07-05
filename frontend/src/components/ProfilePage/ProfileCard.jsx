@@ -50,20 +50,17 @@ export default function ProfileCard(props) {
             </div>
 
             <div className='profile-card-name'>
-                <input id='profile-card-name-input-field' defaultValue={userDetails.username} value={userDetails.username} disabled={true}/> 
-                    {/* {userDetails.username} */}
-                <div className='profile-card-name-edit-button'
-                        >
+                {/* <input id='profile-card-name-input-field' defaultValue={userDetails.username} value={userDetails.username} disabled={true}/> */}
+                    {userDetails.username}
 
-                    <RxPencil1 onClick={() => { document.getElementById('profile-card-name-input-field').disabled = false
-                                            }}/>
-
-                    <RxPencil1 onClick={() => { document.getElementById('profile-card-name-input-field').disabled = true
-                                                changeUsername(document.getElementById('profile-card-name-input-field').value)
-                                                .then((response) => {console.log(response)})
-                                                .catch((error) => {console.log(error)})
-                                                                                            }}/>
-                </div>
+                {/* <div className='profile-card-name-edit-button'> */}
+                    {/* <RxPencil1 onClick={() => { document.getElementById('profile-card-name-input-field').disabled = false}}/> */}
+                {/* </div> */}
+                    {/* <RxPencil1 onClick={() => { document.getElementById('profile-card-name-input-field').disabled = true */}
+                                                {/* changeUsername(document.getElementById('profile-card-name-input-field').value) */}
+                                                {/* .then((response) => {console.log(response)}) */}
+                                                {/* .catch((error) => {console.log(error)}) */}
+                                                                                            {/* }}/> */}
             </div>
             <div className='profile-card-position'>
                 {

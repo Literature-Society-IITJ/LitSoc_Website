@@ -239,6 +239,22 @@
     font-weight: bold;
 
     padding: 14px 0px 4px 0px;
+
+    color: white;
+}
+#profile-card-name-input-field{
+    font-size: 20px;
+    color: #ffffff;
+
+    height: 25px;
+
+    max-width: min-content;
+
+    background-color: transparent;
+
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.7);
+    border-width: 0px 0px 1px 0px;
 }
 
 .profile-card-position{
