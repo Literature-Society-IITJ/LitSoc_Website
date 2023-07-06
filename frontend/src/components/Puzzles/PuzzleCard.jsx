@@ -24,7 +24,7 @@ export default function PuzzleCard(props) {
                     </div>
                     <div className='puzzles puzzle-card-content-container'>
                         <div className='puzzles puzzle-card-title'>{title}</div>
-                        <div className='puzzles puzzle-card-author'>{author}</div>
+                        <div className='puzzles puzzle-card-author'>{'By ' + author}</div>
                     </div>
                 </div>
             </a>
