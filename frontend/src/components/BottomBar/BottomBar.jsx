@@ -27,10 +27,10 @@ export default function BottomBar() {
     useEffect(() => {
         const handleResizeWindow = () => setWidth(window.innerWidth);
         window.addEventListener("resize", handleResizeWindow)
-        if (width < 600) {
-            setIITJName('IITJ');
+        if (width > 900) {
+            setIITJName('Indian Institute of Technology Jodhpur');
         } else {
-            setIITJName('IIT Jodhpur');
+            setIITJName(' IIT Jodhpur');
         }
     }, [window.innerWidth]);
 
@@ -44,10 +44,10 @@ export default function BottomBar() {
 
                 <div className='bottom-bar-content' id='bottom-bar-contact' tabIndex={2}>
                     
-                    <div style={{textTransform: 'uppercase', fontWeight: '700', lineHeight: '20px'}}>
+                    <div style={{textTransform: 'uppercase', fontWeight: '500', lineHeight: '20px'}}>
                         Literature Society,
                         {
-                            width > 600 ? <br /> : null
+                            width > 900 ? <br /> : null
                         }
                         {IITJName}
                     </div>

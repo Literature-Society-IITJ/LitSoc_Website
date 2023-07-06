@@ -121,16 +121,18 @@
     font-size: 2vw;
 }
 
+
 @media screen and (max-width: 1000px) {
     .bottom-bar-content{
         row-gap: 20px;
         font-size: 16px;
     }
     .contact-us-title{
-        font-size: 20px;
+        font-size: 18px;
         margin-bottom: 12px;
     }
 }
+
 
 @media screen and (max-width: 900px) and (min-width: 600px) {
     .bottom-bar-logos>div{
@@ -168,6 +170,7 @@
     }
 }
 
+
 @media screen and (max-width: 720px) {
     .bottom-bar-box{
         border-color: transparent;
@@ -193,12 +196,8 @@
     }
 }
 
-@media screen and (max-width: 600px) {
-    .contact-us-title{
-        font-size: 20px;
-        margin-bottom: 12px;
-    }
 
+@media screen and (max-width: 600px) { 
     .contact-info-row{
         display: flex;
         flex-direction: column;

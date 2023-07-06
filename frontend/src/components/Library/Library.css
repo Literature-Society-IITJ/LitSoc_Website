@@ -84,6 +84,11 @@
 }
 
 
+
+
+
+
+
 .library-login-message{
     position: relative;
 
@@ -93,37 +98,25 @@
 
     text-align: center;
 
-    font-size: 35px;
+    font-size: 32px;
     font-weight: 500;
 }
-
-
-
-
-
 
 .lib-book-issue-sec{
     display: flex;
     flex-direction: row;
 
     padding: 80px 100px;
-    /* margin: 0px 100px; */
 
     height: auto;
 
     backdrop-filter: blur(20px);
-    /* background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 10%, rgba(0, 0, 0, 0)),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.5) 1%, rgba(0, 0, 0, 0)),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.2) 1%, rgba(0, 0, 0, 0)),
-    linear-gradient(270deg, rgba(0, 0, 0, 0.2) 1%, rgba(0, 0, 0, 0)); */
 
     border-style: solid;
     border-color: #ffffff;
     border-width: 2px 0px 1px 0px;
 
     background-color: rgba(0, 0, 0, 0.5);
-
-
 }
 
 .book-issue-sec-main{
@@ -139,16 +132,46 @@
     justify-content: center;
     align-items: center;
 
-    padding: 20px 30px;
+    padding: 20px 20px;
 
     border-style: solid;
     border-color: beige;
     border-width: 2px 0px;
 }
+.lib-search-bar-containers{
+    display: flex;
 
-/* .book-display-sec{
-    height: 6px;
-} */
+    width: 35%;
+
+    font-size: 24px;
+
+    justify-content: right;
+    align-items: center;
+
+    padding: 10px 5.4vw 10px 0px;
+}
+
+.lib-search-bar-containers>span{
+    padding: 0px 20px 0px 0px;
+}
+
+.lib-search-bar-containers>input{
+    font-size: 20px;
+    color: #ffffff;
+
+    height: 25px;
+
+    width: 50%;
+
+    background-color: transparent;
+
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.7);
+    border-width: 0px 0px 1px 0px;
+}
+
+
+
 .book-display-sec{
     max-height: 700px;
 
@@ -162,14 +185,8 @@
 }
 
 .book-display-sec-table{
-    /* display: flex; */
-
     width: 100%;
-
-    /* border: solid beige 2px; */
-
     margin: 0px 0px;
-
     border-collapse: collapse;
 }
 
@@ -190,11 +207,8 @@
     border-color: rgba(245, 245, 220, 0.4);
     border-width: 0px 0px 1px 0px;
 
-    padding: 4px 0px 8px 0px;
-
     font-size: 20px;
     font-weight: normal;
-    /* text-transform: uppercase; */
 }
 
 .isbn{
@@ -212,7 +226,6 @@
 .button{
     width: 15%;
 }
-
 .button>button{
     width: fit-content;
     padding: 7px 20px;
@@ -223,16 +236,12 @@
     color: black;
 }
 
-
-
 .book-display-sec-table>tbody>tr>td{
     padding: 20px 0px;
 }
-
 .book-display-body{
     transition: 0.5s;
 }
-
 .book-display-body:hover{
     border-collapse: collapse;
     transform: scale(1.035);
@@ -241,56 +250,106 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-.lib-search-bar-containers{
-    display: flex;
-
-    width: 35%;
-
-    font-size: 25px;
-
-    justify-content: right;
-    align-items: center;
-
-    padding: 10px 100px 10px 0px;
+@media screen and (max-width: 1080px){
+    .lib-search-bar-containers{
+        width: 40%;
+        padding: 10px 50px 10px 0px;
+    }
+    .lib-book-issue-sec{
+        padding: 80px 50px;
+    }
 }
 
-.lib-search-bar-containers>span{
-    padding: 0px 20px 0px 0px;
+@media screen and (max-width: 800px){
+    .lib-book-issue-sec{
+        padding: 60px 50px;
+    }
+    .library-login-message{
+        font-size: 24px;
+    }
+    .book-issue-search-bar{
+        padding: 16px 0px;
+    }
+    .lib-search-bar-containers{
+        font-size: 18px;
+        width: 40%;
+        padding: 10px 2vw 10px 0px;
+    }
+    .lib-search-bar-containers>span{
+        padding: 0px 16px 0px 0px;
+    }
+    .lib-search-bar-containers>input{
+        font-size: 18px;
+        height: 22px;
+        width: 50%;
+    }
+
+    .book-display-sec-table th{
+        font-size: 18px;
+    }
+    .book-display-sec-table td{
+        font-size: 18px;
+    }  
+    .button>button{
+        width: fit-content;
+        padding: 7px 10px;
+    }      
 }
 
-.lib-search-bar-containers>input{
-
-    font-size: 20px;
-    color: #ffffff;
-
-    height: 25px;
-
-    width: 50%;
-
-    background-color: transparent;
-
-    border-style: solid;
-    border-color: rgba(255, 255, 255, 0.7);
-    border-width: 0px 0px 1px 0px;
-
+@media screen and (max-width: 640px) {
+    .isbn{
+        display: none;
+    }
 }
 
-/* .lib-search-bar-containers>input:hover{
-    background-color: #ffffff;
-    font-size: 20px;
+@media screen and (max-width: 600px) {
+    .lib-book-issue-sec{
+        padding: 40px 20px;
+    }
+}
 
-} */
+@media screen and (max-width: 500px) {
+    .book-issue-search-bar{
+        padding: 10px 0px;
+        justify-content: left;
+    }
+    .lib-search-bar-containers{
+        font-size: 18px;
+        width: 80%;
+        padding: 10px 0vw 10px 0px;
+    }
+    .lib-search-bar-containers>span{
+        padding: 0px 16px 0px 0px;
+    }
+    .lib-search-bar-containers>input{
+        font-size: 18px;
+        height: 22px;
+        width: 50%;
+    }
+
+    .book-display-sec-table th{
+        padding: 8px 0px 8px 0px;
+        font-size: 18px;
+    }
+    .book-display-sec-table td{
+        padding: 4px 0px 8px 0px;
+        font-size: 16px;
+    }  
+    .book-display-sec-table>tbody>tr>td{
+        padding: 14px 0px;
+    }
+    .genre{
+        display: none;
+    }
+    .button>button{
+        padding: 5px 6px;
+    }
+}
+
+
+
+
+
 
 
 

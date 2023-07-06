@@ -18,7 +18,7 @@ class Book(models.Model):
         ('scifi','Sci-Fi')
         ]
     
-    name=models.CharField(max_length=30, blank=True)
+    name=models.CharField(max_length=80, blank=True)
     isbn=models.PositiveBigIntegerField()
     book_id = models.CharField(max_length=10)
     author=models.CharField(max_length=40)
