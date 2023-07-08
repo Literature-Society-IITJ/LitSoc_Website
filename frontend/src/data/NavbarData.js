@@ -61,10 +61,10 @@ export const navPanelItems = [
         dropdown: navClubsItems,
     },
     // {
-    //     index: 2,
-    //     title: "EVENTS",
-    //     path: "#",
-    //     dropdown: navEventsItems,
+        // index: 2,
+        // title: "EVENTS",
+        // path: "#",
+        // dropdown: navEventsItems,
     // },
     {
         index: 3,
@@ -73,10 +73,10 @@ export const navPanelItems = [
         dropdown: [],
     },
     // {
-    //     index: 4,
-    //     title: "ARCHIVE",
-    //     path: "/archive",
-    //     dropdown: [],
+        // index: 4,
+        // title: "ARCHIVE",
+        // path: "/archive",
+        // dropdown: [],
     // },
     {
         index: 5,

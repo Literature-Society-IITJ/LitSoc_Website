@@ -1,6 +1,7 @@
 .teams-main{
     display: flex;
     flex-direction: column;
+    align-items: center;
     
     position: absolute;
     top: 0px;
@@ -8,15 +9,8 @@
 
     width: 100vw;
 
-    /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 1%, rgba(0, 0, 0, 0)), url('../../media/images/bg4.jpg');
-
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 1%, rgba(0, 0, 0, 0)), url('../../media/images/bg4.jpg'); */
-
     background-attachment: fixed;
     background-size: cover;
-
-    /* background-color: black; */
-    align-items: center;
 }
 
 .teams-top{
@@ -27,10 +21,6 @@
     width: 100vw;
     height: auto;
 
-    /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 1%, rgba(0, 0, 0, 0)); */
-    /* background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed; */
     border-style: solid;
     border-color: #ffffff;
     border-width: 0px 0px 2px 0px;
@@ -47,10 +37,6 @@
 
     text-align: center;
     align-items: center;
-
-    /* height: auto; */
-
-    /* transition: 0.3s; */
 }
 
 .teams-top-content-title{
@@ -66,7 +52,7 @@
     border-width: 0px 0px 4px 0px; 
     border-color: #ffffff;
 
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0));
 
     font-size: 6vw;
 }

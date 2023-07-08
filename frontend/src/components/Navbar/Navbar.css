@@ -4,7 +4,6 @@
     top: 0px;
 
     width: 100vw;
-    /* height: auto; */
 }
 
 .nav-bar-main{
@@ -20,46 +19,46 @@
     background-color: transparent;
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0));
     background-color: rgba(0, 0, 0, 0.6);
-
-    transition: 1s;
-    /* z-index: 9997; */
 }
 
-/* .nav-bar-main:hover{
-    background-color: rgba(0, 0, 0, 0.5);
-} */
 
-.Navbar-upper{
+
+
+
+/* ######################################################################################## */
+/* Upper Section of Navigation Bar (contains logos, login and profile buttons) */
+.navbar-upper{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-
-    position: sticky;
-    /* width: 100vw; */
-    max-height: 100px;
-
-    padding: 0px;
-
     align-items: center;
 
-    /* background-color: transparent; */
+    position: sticky;
+    max-height: 100px;
+
+    padding: 10px 36px 10px 20px;
+    box-sizing: border-box;
 
     transition: 1s;
 }
 
-.upper-bar-left{
-    padding: 10px 20px 5px 20px;
-    height: auto;
+.lit-logo{
+    height: 65px;
+    width: 65px;
+
+    background-image: url('../../media/images/Navbar/lit_logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-.upper-bar-center{
-    padding: 5px 5px;
-    height: auto;
-}
-
-.upper-bar-right{
-    padding: 10px 40px 10px 10px;
-    height: auto;
+.iitj-logo{
+    height: 65px;
+    width: 59px;
+    
+    background-image: url('../../media/images/Navbar/Logo_IITJ.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    
 }
 
 .login-button{
@@ -79,15 +78,6 @@
     
     transition: .3s ease-in-out;
 }
-
-/* .profile-button-anchor{
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    
-} */
 
 .profile-button-anchor{
     display: flex;
@@ -112,9 +102,76 @@
     text-align: center;
 }
 
-.profile-button-anchor:hover{
-    color: white;
+
+@media screen and (max-width: 900px) {
+    .navbar-upper{
+        padding: 10px 20px 10px 20px;
+    }
+    .lit-logo{
+        height: 60px;
+        width: 60px;
+    }
+    .iitj-logo{
+        height: 60px;
+        width: 54px;
+    }
+    .profile-button-anchor{
+        height: 38px;
+        width: 38px;
+    }
+    .login-button{
+        padding: 7px 14px 6px;
+        font-size: 16px;
+    }
 }
+
+@media screen and (max-width: 600px) {
+    .navbar-upper{
+        padding: 10px 16px 10px 12px;
+    }
+    .lit-logo{
+        height: 55px;
+        width: 55px;
+    }
+    .iitj-logo{
+        height: 55px;
+        width: 50px;
+    }
+    .profile-button-anchor{
+        height: 36px;
+        width: 36px;
+    }
+    .login-button{
+        padding: 7px 12px 5px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .navbar-upper{
+        padding: 8px 12px 8px 10px;
+    }
+    .lit-logo{
+        height: 48px;
+        width: 48px;
+    }
+    .iitj-logo{
+        height: 44px;
+        width: 40px;
+    }
+    .profile-button-anchor{
+        height: 30px;
+        width: 30px;
+    }
+    .login-button{
+        padding: 5px 8px 4px 8px;
+        font-size: 12px;
+    }
+}
+
+
+
+
 
 
 .Nav-panel{
@@ -247,9 +304,20 @@
     /* background-color: #000000; */
 /* } */
 
-#dropdown-clubs-bc{
-    animation: translateX .3s ease-in-out 50ms forwards;
+/* #dropdown-clubs-bc{
+    animation: 3s infinite alternate slidein;
+} */
+
+@media screen and (max-width: 430px) {
+    .Nav-panel>a{
+        font-size: 12px;
+        font-weight: 400;
+        /* font-style: italic; */
+        color: white;
+        /* position: relative; */
+        display: flex;
+        flex-direction: column;
+        /* align-items: flex-start; */
+        padding: 1vh 2.4vw;
+    }
 }
-
-
-

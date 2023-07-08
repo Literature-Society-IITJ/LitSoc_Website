@@ -7,7 +7,7 @@ import ProfileButton from './ProfileButton'
 
 export default function NavbarUpper(props) {
     return (
-        <div className='Navbar-upper' tabIndex={1}>
+        <div className='navbar-upper' tabIndex={1}>
             <IITJLogo />
             <MainLogo />
             { !tokenExists() && <LoginButton {...props} />}
