@@ -12,17 +12,13 @@ export default function ProfileUpper() {
 
     return (
         <div className='profile-page-top'>
-            <div className='profile-page-home-button'>
-                <button onClick={()=>{navigateToHome()}}>
-                    HOME
-                </button>
-            </div>
+            <button className='profile-page-top-button' onClick={()=>{navigateToHome()}}>
+                HOME
+            </button>
 
-            <div className='profile-page-logout-button'>
-                <button onClick={()=>[removeToken(), navigateToHome()]}>
-                    LogOut                  
-                </button>
-            </div>
+            <button className='profile-page-top-button' onClick={()=>[removeToken(), navigateToHome()]}>
+                LogOut                  
+            </button>
         </div>
     )
 }

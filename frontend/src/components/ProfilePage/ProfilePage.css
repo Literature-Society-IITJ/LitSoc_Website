@@ -20,23 +20,23 @@
 }
 
 
-.profile-page-upper-bar{
-    display: flex;
-    flex-direction: row;
-}
 
+
+
+/* ################################################################################# */
+/* Top Bar of Profile Page (contains Login Button and Home Button) */
 .profile-page-top{
-    padding: 40px 130px;
-
     display: flex;
     flex-direction: row;
-
     justify-content: space-between;
+    
+    padding: 40px 130px;
 }
 
-
-.profile-page-top>div>button{
+.profile-page-top-button{
     background-color: #b0546f;
+
+    padding: 10px 16px;
     
     color: white;
     font-size: 17px;
@@ -45,16 +45,38 @@
     border-radius: 1px;
 }
 
+@media screen and (max-width: 1000px) {
+    .profile-page-top{
+        padding: 40px 80px;
+    }
+    .profile-page-top-button{
+        font-size: 17px;
+        /* padding: 16px; */
+    }
+}
 
+@media screen and (max-width: 800px) {
+    .profile-page-top-button{
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+}
 
+@media screen and (max-width: 600px) {
+    .profile-page-top{
+        padding: 32px 54px;
+    }
+}
 
-
-
-
-
-
-
-
+@media screen and (max-width: 480px) {
+    .profile-page-top{
+        padding: 28px 44px;
+    }
+    .profile-page-top-button{
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}
 
 
 .profile-page-body{
@@ -64,48 +86,106 @@
     padding: 50px 5vw;
 }
 
-.profile-page-body-general{
-    display: flex;
-    flex-direction: row;
-    /* flex-grow: 2; */
-    
-    align-content: center;
-    
-    padding: 0px 100px 0px 100px;
+@media screen and (max-width: 800px) {
+    .profile-page-body{
+        padding-top: 36px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .profile-page-body{
+        padding-top: 24px;
+    }
 }
 
 
 
+/* ############################################################################################# */
+/* ############################################################################################# */
+/* Profile Card General (Displays profile details) */
+.profile-page-body-general{
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    
+    align-content: center;
+    
+    /* padding: 0px 100px 0px 100px; */
+}
 
 
-
-
-
-
+/* Profile Card (Left Section of general data card that displays personal information) */
 .profile-card{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 
-    margin: 20px 0px;
-    padding: 0px 80px 0px 20px;
-
-    height: 600px;
+    padding: 0px 5vw;
+    box-sizing: border-box;
 
     border-style: solid;
     border-width: 0px 1px 0px 0px;
     border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(255, 255, 255), rgba(0, 0, 0, 0)) 1 100%;
     
-    align-items: center;
-    justify-content: center;
-
+    /* height: 600px; */
     width: min-content;
 }
 
+.general-data-card{
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+
+    padding: 40px 5vw;
+    box-sizing: border-box;
+    /* max-height: 600px; */
+    text-align: start;
+
+    width: 100%;
+
+    position: relative;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .profile-page-body-general{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile-card{
+        padding: 0px 40px 40px 40px;
+        border-width: 0px 0px 1px 0px;
+        border-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(255, 255, 255), rgba(0, 0, 0, 0)) 1 0%;
+    }
+    .general-data-card{
+        padding: 50px 5vw 0px 5vw;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .general-data-card{
+        padding: 40px 5vw 0px 5vw;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .profile-card{
+        padding: 0px 40px 32px 40px;
+    }
+    .general-data-card{
+        padding: 32px 5vw 0px 5vw;
+    }
+}
+
+/* Profile Image Display */
 .profile-card-image-container{
     position: relative;
 
-    height: 18vw;
-    width: 18vw;
+    height: 280px;
+    width: 280px;
     
     border: solid 1px rgb(255, 255, 255);
     
@@ -131,7 +211,6 @@
 
 .profile-card-image-upload{
     display: flex;
-    /* flex-direction: column; */
     flex-wrap: wrap;
     row-gap: 20px;
     justify-content: center;
@@ -166,12 +245,7 @@
 .profile-image-input-file{
     display: none;
 }
-/* .profile-card-image-upload>input{
-    color: transparent;
-    background-color: transparent;
-    
-    transition: 0.5s;
-} */
+
 .profile-card-image-upload>label>div{
     color: transparent;
     background-color: transparent;
@@ -196,12 +270,7 @@
     
     transition: 0.5s;
 }
-/* .profile-card-image-upload:hover>input{
-    color: black;
-    background-color: transparent;
-    
-    transition: 0.3s;
-} */
+
 .profile-card-image-upload:hover>label>div{
     color: white;
     border-color: white;
@@ -219,13 +288,6 @@
     flex-direction: column;
     justify-content: center;
 }
-/* .profile-card-image-upload:hover .image-upload-label{
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4285f4;
-    color: #fff;
-    cursor: pointer;
-} */
 
 
 .profile-card-name{
@@ -256,7 +318,6 @@
     border-color: rgba(255, 255, 255, 0.7);
     border-width: 0px 0px 1px 0px;
 }
-
 .profile-card-position{
     font-size: 20px;
     font-weight: normal;
@@ -276,27 +337,68 @@
 
 
 
-
-
-
-
-
-
-
-
-.general-data-card{
-    display: flex;
-    flex-direction: column;
-    row-gap: 32px;
-
-    padding: 40px 70px;
-    max-height: 600px;
-    text-align: start;
-
-    width: 100%;
-
-    position: relative;
+@media screen and (max-width: 800px) {
+    .profile-card-image-container{
+        height: 260px;
+        width: 260px;
+    }
+    .profile-card-name{
+        padding: 12px 0px 4px 0px;
+        font-size: 34px;
+    }
+    .profile-card-position{
+        font-size: 19px;
+    }
 }
+
+@media screen and (max-width: 600px) {
+    .profile-card-image-container{
+        height: 240px;
+        width: 240px;
+    }
+    .profile-card-name{
+        font-size: 32px;
+    }
+    .profile-card-position{
+        font-size: 18px;
+    }
+
+    .profile-card-image-upload>label>div{
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .profile-card-image-container{
+        height: 220px;
+        width: 220px;
+    }
+    .profile-card-name{
+        padding: 10px 0px 4px 0px;
+        font-size: 28px;
+    }
+    .profile-card-position{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .profile-card-image-container{
+        height: 200px;
+        width: 200px;
+    }  
+}
+
+
+
+
+
+
+
+
+
+
 .general-data-card-books-info{
     display: flex;
     flex-direction: column;
@@ -311,7 +413,7 @@
     background-image: url('../../media/images/profilebooks.jpg');
     background-size: cover;
 
-    padding: 12px 88px;
+    padding: 16px 5%;
     box-sizing: border-box;
 
     border: solid transparent 1px;
@@ -335,7 +437,7 @@
 
     /* width: fit-content; */
     
-    padding: 16px 80px;
+    padding: 16px 10px;
     font-size: 20px;
     font-weight: 400;
     
@@ -374,13 +476,13 @@
 }
 
 .issuedbook-header{
-    font-size: 35px;
+    font-size: 36px;
     font-weight: bold;
 }
 
 .issuedbook-name{
     color: white;
-    font-size: 25px;
+    font-size: 26px;
     font-weight: bold;
 }
 
@@ -395,11 +497,16 @@
 }
 
 
+
+
+
+/* ########################################### */
+/* Data Card for Contents  */
 .general-data-card-content-info{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    row-gap: 44px;
+    row-gap: 36px;
 
     width: 100%;
 
@@ -409,7 +516,7 @@
     background-image: url('../../media/images/cwpc3.jpg');
     background-size: cover;
 
-    padding: 12px 88px;
+    padding: 20px 5%;
     box-sizing: border-box;
 
     border: solid transparent 1px;
@@ -427,7 +534,7 @@
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.7);
     
-    padding: 16px 20px;
+    padding: 16px 0px;
     font-size: 20px;
     font-weight: 400;
     
@@ -454,18 +561,101 @@
     color: black;
     background-color: white;
     border-color: white;
-
-    /* transition: 0.5s; */
 }
 
 .profile-content-info-button-icons{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* transition: 0.5s; */
 }
 
 
+@media screen and (max-width: 1000px) {
+    .general-data-card-content-info{
+        padding: 24px 5%;
+        row-gap: 32px;
+    }    
+}
+
+@media screen and (max-width: 800px) {
+    .general-data-card-content-info{
+        padding: 24px 5%;
+        row-gap: 30px;
+    }
+
+    .issuedbook-header{
+        font-size: 34px;
+    }
+    
+    .issuedbook-name{
+        font-size: 24px;
+    }
+    
+    .issued-book-issue-now-anchor{
+        font-size: 19px;
+    }
+
+    .issued-book-issue-now-anchor{
+        text-decoration: underline ;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .general-data-card-content-info{
+        row-gap: 26px;
+    }
+
+    .profile-content-info-button{
+        padding: 14px 10px;
+        font-size: 18px;
+    }
+
+    .profile-book-info-button{
+        padding: 14px 10px;
+        font-size: 18px;
+    }
+
+    .issuedbook-header{
+        font-size: 32px;
+    }
+    
+    .issuedbook-name{
+        font-size: 22px;
+    }
+    
+    .issued-book-issue-now-anchor{
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .general-data-card-content-info{
+        padding: 20px 5%;
+        row-gap: 22px;
+    }
+
+    .profile-content-info-button{
+        padding: 12px 10px;;
+        font-size: 16px;
+    }
+
+    .profile-book-info-button{
+        padding: 12px 10px;
+        font-size: 16px;
+    }
+
+    .issuedbook-header{
+        font-size: 28px;
+    }
+    
+    .issuedbook-name{
+        font-size: 20px;
+    }
+    
+    .issued-book-issue-now-anchor{
+        font-size: 16px;
+    }
+}
 
 
 
@@ -904,7 +1094,8 @@
 
 
 
-
+/* ######################################################################## */
+/* Admin Action Section (contains cards to open admin action cards) */
 .mod-admin-section{
     display: flex;
     flex-direction: column;
@@ -918,8 +1109,6 @@
     border-width: 1px 0px 1px 0px;
     border-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(255, 255, 255), rgba(0, 0, 0, 0)) 1 0%;
 
-    text-align: start;
-
     align-items: center;
 }
 
@@ -929,27 +1118,26 @@
     justify-content: space-between;
 
     width: 90%;
-    /* background-color: rgb(37, 60, 87); */
     
     padding: 16px 40px;
+    /* box-sizing: border-box; */
 
     font-size: 32px;
     font-weight: 600;
 
+    border: solid 1px rgba(255, 255, 255, 0.3);
     border-radius: 2px;
 
-    border: solid 1px rgba(255, 255, 255, 0.3);
-
     transition: 0.5s;
+
+    text-align: start;
 
     cursor: pointer;
 }
 
 .admin-requests-card:hover{
     transform: scale(1.02);
-    /* background-color: rgba(37, 60, 87, 0.7); */
     border-color: white;
-
     transition: 0.5s;
 }
 
@@ -975,6 +1163,47 @@
     background-size: cover;
 }
 
+@media screen and (max-width: 800px) {
+    .mod-admin-section{
+        row-gap: 30px;
+        margin: 40px 0px 0px 0px;
+        padding: 40px 50px 40px 50px;
+        box-sizing: border-box;
+    }
+    
+    .admin-requests-card{
+        padding: 14px 36px;    
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .mod-admin-section{
+        row-gap: 30px;
+        margin: 40px 0px 0px 0px;
+        padding: 40px 40px 40px 40px;
+        box-sizing: border-box;
+    }
+    
+    .admin-requests-card{
+        padding: 12px 32px;    
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .mod-admin-section{
+        row-gap: 24px;
+        margin: 32px 0px 0px 0px;
+        padding: 32px 32px 32px 32px;
+        box-sizing: border-box;
+    }
+    
+    .admin-requests-card{
+        padding: 10px 28px;    
+        font-size: 20px;
+    }
+}
 
 
 .admin-action-modal{
