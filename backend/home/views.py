@@ -315,7 +315,9 @@ class ReadBooksView(APIView):
             book_info = Book.objects.filter(pk = i['book_id']).values()[0]
             x['book'] = book_info['name']
             x['author'] = book_info['author']
-            books.append(x)
+
+            if x not in books:
+                books.append(x)
 
         return Response(books, status=status.HTTP_200_OK)
     
