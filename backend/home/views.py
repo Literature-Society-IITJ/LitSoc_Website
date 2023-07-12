@@ -179,7 +179,7 @@ class MemberProfileView(APIView):
                    'book': {'book_name':book_name, 'return_date':return_date},
                    'content': temp_content}
 
-        time.sleep(3)
+        # time.sleep(3)
         return Response(details, status=status.HTTP_200_OK)
 
 

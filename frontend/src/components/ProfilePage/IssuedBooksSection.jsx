@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { RxCross2 } from 'react-icons/rx'
 import { getIssuedBooks, markBookReturned } from '../../api/axios'
+import { ImCheckmark } from 'react-icons/im'
 
 export default function IssuedBooksSection(props) {
 
@@ -41,8 +42,8 @@ export default function IssuedBooksSection(props) {
                                         <th className='admin-section-table-headers issued-books-book-id'>Book Details</th>
                                         <th className='admin-section-table-headers issued-books-borrower-details'>Borrower Details</th>
                                         <th className='admin-section-table-headers issued-books-issue-date'>Issue Date</th>
-                                        <th className='admin-section-table-headers issued-books-return-date'>Expected Return Date</th>
-                                        <th className='admin-section-table-headers issued-books-return-button'>Mark as Returned</th>
+                                        <th className='admin-section-table-headers issued-books-return-date'>Return Date</th>
+                                        <th className='admin-section-table-headers issued-books-return-button'></th>
                                     </tr>
                                 </thead>
 
@@ -55,7 +56,7 @@ export default function IssuedBooksSection(props) {
                                                         <div>
                                                             {issuedBook.book_info.name}
                                                         </div>
-                                                        <div >
+                                                        <div className='issued-books-book-book-id'>
                                                             {issuedBook.book_info.book_id}
                                                         </div>
                                                     </div>
@@ -76,7 +77,9 @@ export default function IssuedBooksSection(props) {
                                                     <button onClick={()=>{
                                                         markBookReturned(issuedBook.book_info.book_id)
                                                         setRefresh(true)
-                                                        }}>Returned</button>
+                                                        }}>
+                                                            <ImCheckmark />
+                                                        </button>
                                                 </td> 
                                             </tr>
                                         ))

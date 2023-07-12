@@ -9,11 +9,10 @@ import CWPclubMain from '../../components/Clubs/CWPclubMain'
 export default function CWPClub() {
 
     let item = GeneralTopData.CWPClub
-    let imgsrc = item.imgsrc
 
     return (
         <>
-            <div className='club-main' style={{backgroundImage: `url(${imgsrc})`}}>
+            <div className='club-main' id='cwp-club'>
                 <GeneralTop item={item} />
                 <CWPclubMain />
                 <BottomBar />

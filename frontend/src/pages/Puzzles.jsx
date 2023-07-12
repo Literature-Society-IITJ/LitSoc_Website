@@ -9,11 +9,10 @@ import PuzzlesMain from '../components/Puzzles/PuzzlesMain'
 export default function Puzzles() {
   
     let item = GeneralTopData.Puzzles
-    let imgsrc = item.imgsrc
 
     return (
         <>
-            <div className='puzzles-main' style={{backgroundImage: `url(${imgsrc})`}}>
+            <div className='puzzles-main'>
                 <GeneralTop item={item} />
                 <PuzzlesMain />
                 {/* <HomeMiddle /> */}

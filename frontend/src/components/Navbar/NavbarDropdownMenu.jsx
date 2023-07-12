@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, useNavigate} from 'react-router-dom'
+import { RiArrowDownSLine } from 'react-icons/ri'
+
 
 export default function NavbarDropdownMenu(props) {
 
@@ -8,17 +9,27 @@ export default function NavbarDropdownMenu(props) {
     let path = props.path
 
     return (
-        <a className='Nav-panel-items' href={path} >{title}
-            <ul className='Nav-drop-down-ul'>
-                {
-                    items.map((item) =>(
-                        <a key={item.title} href={item.path} className="Nav_panel_clubs_items" tabIndex={item.index}>
-                            {item.title}
-                        </a>
-                    ))
-                }
-            </ul>
-        </a>
+        (items.length === 0) ? (
+            <a className='nav-panel-items' href={path} >{title}
+            </a>
+        ) : 
+        (
+            <div className='nav-panel-items'>
+                <div>
+                    {title}
+                </div>
+                <RiArrowDownSLine className='nav-panel-drop-down-arrow-icon'/>
 
+                <ul className='nav-drop-down-ul'>
+                    {
+                        items.map((item) =>(
+                            <a key={item.title} href={item.path} className="nav-panel-clubs-items" tabIndex={item.index}>
+                                {item.title}
+                            </a>
+                        ))
+                    }
+                </ul>
+            </div>
+        )
     )
 }

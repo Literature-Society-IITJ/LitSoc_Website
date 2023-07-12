@@ -9,11 +9,10 @@ import WordgamesclubMain from '../../components/Clubs/WordgamesclubMain'
 export default function WordGamesCLub() {
 
     let item = GeneralTopData.WordGamesClub
-    let imgsrc = item.imgsrc
 
     return (
         <>
-            <div className='club-main' style={{backgroundImage: `url(${imgsrc})`}}>
+            <div className='club-main' id='word-games-club'>
                 <GeneralTop item={item} />
                 <WordgamesclubMain />
                 <BottomBar />

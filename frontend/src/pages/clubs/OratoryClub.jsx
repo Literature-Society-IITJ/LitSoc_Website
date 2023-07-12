@@ -9,11 +9,10 @@ import OratoryclubMain from '../../components/Clubs/OratoryclubMain'
 export default function OratoryClub() {
 
     let item = GeneralTopData.OratoryClub
-    let imgsrc = item.imgsrc
 
     return (
         <>
-            <div className='club-main' style={{backgroundImage: `url(${imgsrc})`}}>
+            <div className='club-main' id='oratory-club'>
                 <GeneralTop item={item} />
                 <OratoryclubMain />
                 <BottomBar />

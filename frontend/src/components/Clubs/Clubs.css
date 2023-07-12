@@ -9,10 +9,24 @@
     width: 100vw;
     
     background-attachment: fixed;
-    background-size: contain;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+.club-main#word-games-club{
+    background-image: url('../../media/backgrounds/wgc.jpg');
+}
+.club-main#oratory-club{
+    background-image: url('../../media/backgrounds/oratoryclub.jpg');
+}
+.club-main#cwp-club{
+    background-image: url('../../media/backgrounds/cwpc.jpg');
+}
+.club-main#book-club{
+    background-image: url('../../media/backgrounds/bookclub.jpg');
+}
+.club-main#goonj{
+    background-image: url('../../media/backgrounds/goonj.jpg');
 }
 
 .clubs-top{
@@ -26,9 +40,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 40px;
 
-    padding: 180px 10vw 50px 10vw;
+    padding: 160px 60px 40px 60px;
+    box-sizing: border-box;
 
     text-align: center;
 }
@@ -36,7 +50,7 @@
 .clubs-top-content-title{
     width: fit-content;
     
-    padding: 0px 16px;
+    padding: 0px 24px;
     box-sizing: border-box;
 
     border-style: solid;
@@ -45,25 +59,155 @@
 
     background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0));
 
-    font-size: 7vw;
+    font-size: 84px;
 }
 
 .clubs-top-content-title#cwp-club{
-    font-size: 5vw;
+    font-size: 72px
 }
 
 .clubs-top-content-tagline{
     width: fit-content;
     
-    padding: 0px 20px;
+    padding: 20px 0px 0px 0px;
 
     border-style: solid;
     border-width: 0px 0px 0px 0px; 
     border-color: #ffffff;
 
-    font-size: 3vw;
+    font-size: 48px;
 }
 
+@media screen and (max-width: 1000px) {
+    .clubs-top-content{
+        padding: 140px 40px 30px 40px;
+    }
+    
+    .clubs-top-content-title{
+        padding: 0px 24px;
+        font-size: 76px;
+    }
+    
+    .clubs-top-content-tagline{
+        padding: 20px 0px 0px 0px;
+        font-size: 44px;
+    }
+
+    .clubs-top-content-title#cwp-club{
+        font-size: 64px
+    }
+
+    .clubs-top-content-title#word-games-club{
+        font-size: 72px;
+    }
+    .clubs-top-content-title#oratory-club{
+        font-size: 72px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .clubs-top-content{
+        padding: 100px 20px 26px 20px;
+    }
+    
+    .clubs-top-content-title{
+        padding: 0px 24px;
+        font-size: 64px;
+    }
+    
+    .clubs-top-content-tagline{
+        padding: 20px 0px 0px 0px;
+        font-size: 36px;
+    }
+
+    .clubs-top-content-title#cwp-club{
+        font-size: 56px
+    }
+    .clubs-top-content-title#word-games-club{
+        font-size: 60px;
+    }
+    .clubs-top-content-title#oratory-club{
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .clubs-top-content{
+        padding: 86px 20px 24px 20px;
+    }
+    
+    .clubs-top-content-title{
+        padding: 0px 22px;
+        font-size: 56px;
+    }
+    
+    .clubs-top-content-tagline{
+        padding: 24px 0px 0px 0px;
+        font-size: 30px;
+    }
+
+    .clubs-top-content-title#cwp-club{
+        font-size: 48px
+    }
+    .clubs-top-content-title#word-games-club{
+        font-size: 50px;
+    }
+    .clubs-top-content-title#oratory-club{
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .clubs-top-content{
+        padding: 86px 20px 20px 20px;
+    }
+    
+    .clubs-top-content-title{
+        padding: 0px 22px;
+        font-size: 48px;
+    }
+    
+    .clubs-top-content-tagline{
+        padding: 24px 0px 0px 0px;
+        font-size: 26px;
+    }
+
+    .clubs-top-content-title#cwp-club{
+        font-size: 40px
+    }
+    .clubs-top-content-title#word-games-club{
+        font-size: 44px;
+    }
+    .clubs-top-content-title#oratory-club{
+        font-size: 44px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .clubs-top-content{
+        padding: 86px 20px 20px 20px;
+    }
+    
+    .clubs-top-content-title{
+        padding: 0px 20px;
+        font-size: 40px;
+    }
+    
+    .clubs-top-content-tagline{
+        padding: 22px 0px 0px 0px;
+        font-size: 22px;
+    }
+
+    .clubs-top-content-title#cwp-club{
+        font-size: 36px
+    }
+    .clubs-top-content-title#word-games-club{
+        font-size: 36px;
+    }
+    .clubs-top-content-title#oratory-club{
+        font-size: 36px;
+    }
+}
 
 
 

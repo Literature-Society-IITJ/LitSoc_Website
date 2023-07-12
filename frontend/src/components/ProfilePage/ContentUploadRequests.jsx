@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { RxCross2 } from 'react-icons/rx'
-import { contentUploadRequestResponse, getContentUploadRequests, modBookResponse } from '../../api/axios'
+import { contentUploadRequestResponse, getContentUploadRequests } from '../../api/axios'
 import ItemMain from '../ReaderSection/ItemMain'
+import { ImCross, ImCheckmark } from 'react-icons/im'
 
 export default function ContentUploadRequests(props) {
 
@@ -66,11 +67,11 @@ export default function ContentUploadRequests(props) {
                                                 <td className='content-requests-writer'
                                                     onClick={() => {setShowItem(true)
                                                     setDetails(contentRequest)}}>
-                                                    <div className='issue-requests-borrower-details-name'>
+                                                    <div className='content-requests-writer-details-name'>
                                                         <div>
                                                             {contentRequest.member_name}
                                                         </div>
-                                                        <div>
+                                                        <div className='content-requests-writer-roll-number'>
                                                             {contentRequest.member_roll_number}
                                                         </div>
                                                     </div>
@@ -110,13 +111,15 @@ export default function ContentUploadRequests(props) {
                                                     <button onClick={()=>{
                                                         contentUploadRequestResponse(contentRequest.title, contentRequest.member_id, contentRequest.category, 'approved')
                                                         setRefresh(true)}}>
-                                                    Approve</button>
+                                                            <ImCheckmark />
+                                                    </button>
                                                 </td> 
                                                 <td className='content-requests-reject-button'>
                                                     <button onClick={()=>{
                                                         contentUploadRequestResponse(contentRequest.title, contentRequest.member_id, contentRequest.category, 'rejected')
                                                         setRefresh(true)}}>
-                                                    Reject</button>
+                                                            <ImCross />
+                                                    </button>
                                                 </td> 
                                             </tr>
                                             </>

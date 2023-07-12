@@ -9,11 +9,10 @@ import LibraryMain from '../components/Library/LibraryMain'
 export default function Library() {
   
     let item = GeneralTopData.Library
-    let imgsrc = item.imgsrc
 
     return (
         <>
-            <div className='library-main' style={{backgroundImage: `url(${imgsrc})`}}>
+            <div className='library-main'>
                 <GeneralTop item={item} />
                 <LibraryMain />
                 <BottomBar />

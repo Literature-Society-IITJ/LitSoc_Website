@@ -10,7 +10,6 @@ import GeneralTop from '../components/GeneralTop'
 export default function HomePage() {
 
     let item = GeneralTopData.HomePage
-    let imgsrc = item.imgsrc
 
     return (
         <>

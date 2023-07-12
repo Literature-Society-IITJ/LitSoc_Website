@@ -9,11 +9,10 @@ import BookclubMain from '../../components/Clubs/BookclubMain'
 export default function BookClub() {
 
     let item = GeneralTopData.BookClub
-    let imgsrc = item.imgsrc
-
+    
     return (
         <>
-            <div className='club-main' style={{backgroundImage: `url(${imgsrc})`}}>
+            <div className='club-main' id='book-club'>
                 <GeneralTop item={item} />
                 <BookclubMain />
                 <BottomBar />

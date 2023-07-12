@@ -12,7 +12,7 @@ export const GeneralTopData = {
         id: 'reader-section',
         title: "READER'S SECTION",
         tagline: "We welcome you to LitSoc!",
-        imgsrc: '/src/media/images/readsecbg.jpg'
+        imgsrc: '/src/media/backgrounds/readsecbg.jpg'
     },
 
     Archive:{
@@ -20,7 +20,7 @@ export const GeneralTopData = {
         id: 'archive',
         title: "ARCHIVES",
         tagline: "We welcome you to LitSoc!",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/backgrounds/bg4.jpg'
     },
 
     Puzzles:{
@@ -28,7 +28,7 @@ export const GeneralTopData = {
         id: 'puzzles',
         title: "PUZZLES",
         tagline: "We welcome you to LitSoc!",
-        imgsrc: '/src/media/images/pexels-anni-roenkae-4793467.jpg'
+        imgsrc: '/src/media/backgrounds/pexels-anni-roenkae-4793467.jpg'
     },
 
     Team:{
@@ -36,7 +36,7 @@ export const GeneralTopData = {
         id: 'team',
         title: "TEAM",
         tagline: "Current Team (2022-23)",
-        imgsrc: '/src/media/images/teamsbg.jpg'
+        imgsrc: '/src/media/backgrounds/teamsbg.jpg'
     },
 
     Library:{
@@ -44,7 +44,7 @@ export const GeneralTopData = {
         id: 'library',
         title: "LIBRARY",
         tagline: "Please keep the books safe.",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/backgrounds/bg4.jpg'
     },
 
     BookClub: {
@@ -52,7 +52,7 @@ export const GeneralTopData = {
         id: 'book-club',
         title: "BOOK CLUB",
         tagline: "\"Sharing stories, creating connections, and discovering new perspectives - all through the power of books.\"",
-        imgsrc: '/src/media/images/bookclub.jpg'
+        imgsrc: '/src/media/backgrounds/bookclub.jpg'
     },
 
     OratoryClub: {
@@ -60,7 +60,7 @@ export const GeneralTopData = {
         id: 'oratory-club',
         title: "ORATORY CLUB",
         tagline: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/images/oratoryclub2.jpg'
+        imgsrc: '/src/media/backgrounds/oratoryclub2.jpg'
     },
 
     CWPClub: {
@@ -68,7 +68,7 @@ export const GeneralTopData = {
         id: 'cwp-club',
         title: "CREATIVE WRITING & POETRY CLUB",
         tagline: "\"The heart beholds a treasure, when discovered through writings, it can either be hated or beloved for an eternity.\"",
-        imgsrc: '/src/media/images/cwpc5.jpg'
+        imgsrc: '/src/media/backgrounds/cwpc5.jpg'
     },
 
     WordGamesClub: {
@@ -76,7 +76,7 @@ export const GeneralTopData = {
         id: 'word-games-club',
         title: "WORD GAMES CLUB",
         tagline: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/images/wgc2.jpg'
+        imgsrc: '/src/media/backgrounds/wgc2.jpg'
     },
 
     Goonj: {
@@ -84,7 +84,7 @@ export const GeneralTopData = {
         id: 'goonj',
         title: "GOONJ",
         tagline: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/images/goonj.jpg'
+        imgsrc: '/src/media/backgrounds/goonj.jpg'
     },
 
     AllEvents: {
@@ -92,7 +92,7 @@ export const GeneralTopData = {
         id: 'events',
         title: "EVENTS",
         tagline: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/backgrounds/bg4.jpg'
     },
 
     LitsChamber: {
@@ -100,7 +100,7 @@ export const GeneralTopData = {
         id: 'lits-chamber',
         title: "Lit's Chamber of Witchcraft and Wizardry",
         tagline: "\"Its LEVIOOSA NOT LEVIOSAAAA\"",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/backgrounds/bg4.jpg'
     },
 
     MUN: {
@@ -108,6 +108,6 @@ export const GeneralTopData = {
         id: 'mun',
         title: "Model United Nations",
         tagline: "\"Lorem Ipsum for testing the script.\"",
-        imgsrc: '/src/media/images/bg4.jpg'
+        imgsrc: '/src/media/backgrounds/bg4.jpg'
     }
 }

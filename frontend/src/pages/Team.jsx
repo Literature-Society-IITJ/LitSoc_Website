@@ -9,11 +9,10 @@ import TeamMain from '../components/Teams/TeamMain'
 export default function Team() {
 
     let item = GeneralTopData.Team
-    let imgsrc = item.imgsrc
 
     return (
         <>
-            <div className='teams-main' style={{backgroundImage: `url(${imgsrc})`}}>
+            <div className='teams-main'>
                 <GeneralTop item={item} />
                 <TeamMain />
                 {/* <HomeMiddle /> */}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { addModerator, getModerators, removeModerator } from '../../api/axios'
 import { RxCross2 } from 'react-icons/rx'
+import { MdPersonRemove, MdPersonAddAlt1 } from 'react-icons/md'
 
 
 
@@ -50,7 +51,7 @@ export default function ModeratorRequests(props) {
                             <input className='new-mod-sec-input-label' type="text" id='roll-number'></input>
                         </div>
                         <button className='new-mod-sec-addmod-button' onClick={addModFunction}>
-                            Add Moderator
+                            <MdPersonAddAlt1 />
                         </button>
                     </div>
                     <div className='new-mod-sec-error-message'>{errorMessage}</div>
@@ -89,7 +90,9 @@ export default function ModeratorRequests(props) {
                                                     <button onClick={()=>{
                                                         removeModerator(moderator.roll_number)
                                                         setRefresh(true)
-                                                        }}>Remove</button>
+                                                        }}>
+                                                            <MdPersonRemove />
+                                                        </button>
                                                 </td>
                                             </tr>
                                         ))

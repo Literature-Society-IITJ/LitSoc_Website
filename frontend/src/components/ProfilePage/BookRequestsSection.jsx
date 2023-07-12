@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { RxCross2 } from 'react-icons/rx'
 import { getIssueRequests, modBookResponse } from '../../api/axios'
+import { ImCross, ImCheckmark } from 'react-icons/im'
 
 export default function BookRequestsSection(props) {
 
@@ -14,7 +15,7 @@ export default function BookRequestsSection(props) {
         getIssueRequests(rollNumberInput).then((data) => {setIssueRequestList(data)})
         setRefresh(false)}
         , [refresh, rollNumberInput])
-
+    
 
     return (
         <div className='admin-action-modal'>
@@ -56,7 +57,7 @@ export default function BookRequestsSection(props) {
                                                         <div>
                                                             {issueRequest.book_info.name}
                                                         </div>
-                                                        <div >
+                                                        <div className='issue-requests-book-book-id' >
                                                             {issueRequest.book_info.book_id}
                                                         </div>
                                                     </div>
@@ -76,13 +77,15 @@ export default function BookRequestsSection(props) {
                                                     <button onClick={()=>{
                                                         modBookResponse(issueRequest.book_id, issueRequest.member_info.roll_number, 'approved')
                                                         setRefresh(true)}}>
-                                                    Issue Book</button>
+                                                            <ImCheckmark />
+                                                    </button>
                                                 </td> 
                                                 <td className='issue-requests-reject-button'>
                                                     <button onClick={()=>{
                                                         modBookResponse(issueRequest.book_id, issueRequest.member_info.roll_number, 'rejected')
                                                         setRefresh(true)}}>
-                                                    Reject</button>
+                                                            <ImCross />
+                                                    </button>
                                                 </td> 
                                             </tr>
                                         ))

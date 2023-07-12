@@ -6,18 +6,6 @@ import { BsInstagram, BsLinkedin, BsWhatsapp } from 'react-icons/bs'
 import { RxEnvelopeClosed } from 'react-icons/rx'
 
 
-const changeCollegeAbbreviation = () => {
-    width = window.innerWidth;
-
-    if (width < 600) {
-        setIITJName('IITJ');
-    } else {
-        setIITJName('IIT Jodhpur');
-    }
-};
-
-window.addEventListener('width', changeCollegeAbbreviation);
-
 
 export default function BottomBar() {
 

@@ -9,11 +9,10 @@ import GoonjMain from '../../components/Clubs/GoonjMain'
 export default function Goonj() {
 
     let item = GeneralTopData.Goonj
-    let imgsrc = item.imgsrc
 
     return (
         <>
-            <div className='club-main' style={{backgroundImage: `url(${imgsrc})`}}>
+            <div className='club-main' id='goonj'>
                 <GeneralTop item={item} />
                 <GoonjMain />
                 <BottomBar />
