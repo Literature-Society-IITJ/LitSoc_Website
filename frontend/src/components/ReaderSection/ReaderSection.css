@@ -318,6 +318,8 @@
 
     transition: 0.5s;
     cursor: pointer;
+
+    text-align: center;
 }
 
 .item-card-image-container{

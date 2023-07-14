@@ -61,11 +61,11 @@ export default function ContentUploadForm(props) {
     }
 
     return (
-        <>
-            <div className='content-upload-form-body'>
-                <div className='admin-action-card-upperbar'>
+        <div className='content-upload-form-section'>
+            <div className='content-upload-form-display'>
+                <div className='content-upload-form-upperbar'>
                     <div>Content Upload Form</div>
-                    <div className='admin-action-card-x-button' onClick={()=>props.setShowContentUploadForm(false)}>
+                    <div className='content-upload-form-x-button' onClick={()=>props.setShowContentUploadForm(false)}>
                         <RxCross2 />
                     </div>
                 </div>
@@ -101,7 +101,7 @@ export default function ContentUploadForm(props) {
 
                             <div className='content-upload-form-input-container' id='content'>
                                 <span className='input-container-fixed-label'>
-                                    Password
+                                    Content
                                 </span>
                                 <textarea className='input-container-input-label' name="content" id="contentInput" cols="5" rows="8"></textarea>
                                 {/* <input type="textarea" className='input-label' name='password' id='passwordInput'/> */}
@@ -145,7 +145,6 @@ export default function ContentUploadForm(props) {
                     <ItemMain showItem={showItem} setShowItem={setShowItem} title={document.getElementById('titleInput').value} content={document.getElementById('contentInput').value} author={props.username} img={URL.createObjectURL(document.getElementById('backgroundInput').files[0])} isAdmin={false} category={document.getElementById('categoryInput').value}/>
                 ) : null
             }
-            
-        </>
+        </div>
     )
 }

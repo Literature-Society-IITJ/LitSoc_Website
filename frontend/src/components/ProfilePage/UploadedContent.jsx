@@ -15,7 +15,9 @@ export default function UploadedContent(props) {
         <div className='uploaded-content-display-modal'>
             <div className='profile-uploaded-content-display'>
                 <div className='profile-uploaded-content-display-upperbar'>
-                    <div>Reader Section Content Upload Section  &#10629;{uploadedContent.length} items&#10630;</div>
+                    <div>
+                        {`Reader Section Content Upload Section (${uploadedContent.length})`}
+                    </div>
                     <div className='profile-uploaded-content-display-x-button' onClick={()=>props.setShowUploadedContent(false)}>
                         <RxCross2 />
                     </div>
