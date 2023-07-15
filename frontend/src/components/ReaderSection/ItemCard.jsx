@@ -7,7 +7,7 @@ export default function ItemCard(props) {
     let [showItem, setShowItem] = useState(false)
 
     let title = props.title
-    let img_src = 'src/media/' + props.img
+    let img_src = props.img
     let content = props.content
     let author = props.author
     let clickEnable = props.clickEnable

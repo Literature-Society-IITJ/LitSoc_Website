@@ -6,7 +6,8 @@
     top: 0px;
     left: 0px;
 
-    width: 100vw;
+    width: 100%;
+    height: 100%;
 
     background-image: url('../../media/backgrounds/library.jpg');
     background-attachment: fixed;
@@ -159,7 +160,7 @@
 .library-login-message{
     position: relative;
 
-    /* top: 50%; */
+    top: 30%;
     left: 50%;
     transform: translate(-50%, 0%);
 
@@ -172,10 +173,11 @@
 .lib-book-issue-sec{
     display: flex;
     flex-direction: row;
+    flex-grow: 2;
     
     padding: 80px 100px;
-    
-    height: auto;
+    box-sizing: border-box;
+    /* height: auto; */
     
     backdrop-filter: blur(20px);
     
