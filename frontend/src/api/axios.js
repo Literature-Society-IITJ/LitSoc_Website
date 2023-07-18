@@ -2,8 +2,8 @@ import axios from 'axios'
 import { getToken } from '../utilities/localStorage';
 
 
-// const url = 'https://litiitjb.litsoc.live/'
-const url = ''
+const url = 'https://litiitjb.litsoc.live/'
+// const url = ''
 
 export default getQuotes;
 
