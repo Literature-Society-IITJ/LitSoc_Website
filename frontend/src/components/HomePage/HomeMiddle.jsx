@@ -31,7 +31,7 @@ export default function HomeMiddle() {
                         <div>
                             {/* <h1> */}
                             <div>
-                                Who do we do we do?
+                                What do we do?
                             </div>
                             {/* </h1> */}
                         </div>
