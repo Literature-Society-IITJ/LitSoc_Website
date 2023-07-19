@@ -10,8 +10,9 @@ export default function NavbarUpper(props) {
         <div className='navbar-upper' tabIndex={1}>
             <IITJLogo {...props}/>
             <MainLogo />
-            { !tokenExists() && <LoginButton {...props} />}
-            { tokenExists() && <ProfileButton />}
+{/*             { !tokenExists() && <LoginButton {...props} />} */}
+{/*             { tokenExists() && <ProfileButton />} */}
+            <div></div>
         </div>
     )
 }
