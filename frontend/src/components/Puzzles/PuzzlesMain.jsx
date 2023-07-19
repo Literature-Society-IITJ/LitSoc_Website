@@ -20,7 +20,10 @@ export default function PuzzlesMain() {
                         <PuzzleCard title={item.puzzle_title} author={item.made_by} puzzle={item.puzzle} image={image} />
                         ))
                     ):
-                    <div className='puzzles-no-content-message'>Alas! There are no puzzles right now! Please Wait for some time!</div>
+                    <div className='puzzles-no-content-message'>
+{/*                         Alas! There are no puzzles right now! Please Wait for some time! */}
+                        To be live in a few days!
+                    </div>
                 }
                 {/* {
                 puzzles.length ? (
