@@ -47,13 +47,13 @@ export default function ReadSecMain() {
             <ReadSecFeatured />
 
             <div className="readersec-content-main">
-                <div className='reader-sec-nav-panel'>
+{/*                 <div className='reader-sec-nav-panel'>
                     {
                         readersecNavPanelItems.map((items) =>(
                             <div className='reader-sec-nav-panel-items' id={items.category} onClick={()=>[setOnDisplayCategory(items.category), handleDivClick(items.category)]}>{items.title}</div>
                             ))
                     }
-                </div>
+                </div> */}
 
                 <div className='reader-sec-contents'>
                     {
@@ -66,7 +66,8 @@ export default function ReadSecMain() {
                             {
                                 (onDisplayCategory) ? 
                                     'Alas! There is no content in this category right now!!!' :                                 
-                                    'Please select a category!'
+                                    // 'Please select a category!'
+                                    'To be live in a few days!!!'
                             }
                         </div>
                     }
