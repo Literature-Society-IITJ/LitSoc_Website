@@ -59,7 +59,7 @@ export const GeneralTopData = {
         className: 'clubs-top',
         id: 'oratory-club',
         title: "ORATORY CLUB",
-        tagline: "\"Lorem Ipsum for testing the script.\"",
+        tagline: "\"Where words take flight, voices find strength, and ideas resonate in a symphony of oratory brilliance.\"",
         imgsrc: '/src/media/backgrounds/oratoryclub2.jpg'
     },
 
@@ -75,7 +75,7 @@ export const GeneralTopData = {
         className: 'clubs-top',
         id: 'word-games-club',
         title: "WORD GAMES CLUB",
-        tagline: "\"Lorem Ipsum for testing the script.\"",
+        tagline: "\"A playful realm where letters dance, words entangle, and minds delight in the enigmatic wonders of word games.\"",
         imgsrc: '/src/media/backgrounds/wgc2.jpg'
     },
 
@@ -83,7 +83,7 @@ export const GeneralTopData = {
         className: 'clubs-top',
         id: 'goonj',
         title: "GOONJ",
-        tagline: "\"Lorem Ipsum for testing the script.\"",
+        tagline: "\"\The cultural jukebox of IITJ.\"",
         imgsrc: '/src/media/backgrounds/goonj.jpg'
     },
 
