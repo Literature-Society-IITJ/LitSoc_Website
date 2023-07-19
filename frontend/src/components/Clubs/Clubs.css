@@ -286,6 +286,21 @@
     font-size: 25px;
     font-weight: 600;
 }
+.club-logo-container#word-games-club{
+    background-image: url('../../media/images/wgclogo.jpg');
+}
+.club-logo-container#oratory-club{
+    background-image: url('../../media/images/oclogo.jpg');
+}
+.club-logo-container#cwp-club{
+    background-image: url('../../media/images/cwpclogo.jpg');
+}
+.club-logo-container#book-club{
+    background-image: url('../../media/images/bclogo.jpg');
+}
+.club-logo-container#goonj{
+    background-image: url('../../media/images/goonjlogo.jpg');
+}
 
 @media screen and (max-width: 1320px) {
     .club-description-container{
