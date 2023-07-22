@@ -16,21 +16,14 @@ export default function TeamMembersGen(props) {
     useEffect(() => {getTeamDetails(onDisplay).then((data) => {setOnDisplayObject(data)})}, [onDisplay])
 
     return (
-        <div className='team-members-container' id='current-team'>
-        {
-            onDisplayObject.map((item) =>(
-                <div className='team-members-por-container' id={item.id}>
-                    <div className='members-por-fixed-label'>{item.title}</div>
-                    <div className='members-por-cards-container'>
-                    {
-                        item.members.map((member) => (
-                        <MemberCard name={member.name} quote={member.quote} linkedin={member.linkedin} insta={member.instagram} mail={member.instagram} image={member.image} id={item.id}/>
-                        ))
-                    }
-                    </div>
-                </div>
-            ))
-        }
+        <div className='team-members-container'>
+            {
+                onDisplayObject.map((item) => (                    
+                    item.members.map((member) => (
+                        <MemberCard name={member.name} por={item.title} quote={member.quote} linkedin={member.linkedin} insta={member.instagram} mail={member.instagram} image={member.image} id={item.id}/>
+                    ))
+                ))
+            }
         </div>
     )
 }
