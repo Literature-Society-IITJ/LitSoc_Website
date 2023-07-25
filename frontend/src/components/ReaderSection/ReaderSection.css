@@ -242,6 +242,31 @@
     z-index: 0;
 }
 
+.reader-sec-featured-button{
+    margin: 24px 0px 0px 0px;
+    padding: 14px 24px;
+    
+    border-radius: 28px;
+    border: solid 2px white;
+    
+    background-color: rgba(0, 0, 0, 0);
+    
+    color: white;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: 0.5s;
+}
+.reader-sec-featured-button:hover{
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+    transition: 0.5s;
+}
+
 @media screen and (max-width:1000px) {
     .reader-sec-featured{
         padding: 50px 20px;
@@ -249,6 +274,9 @@
     .featured-content{
         width: 420px;
         font-size: 19px;
+    }
+    .reader-sec-featured-button{
+        font-size: 15px;
     }
 }
 
@@ -259,29 +287,60 @@
     .reader-sec-featured-title{
         font-size: 60px;
     }
+    .featured-image{
+        height: 520px;
+    }
     .featured-content{
         margin: 115px 0px 0px -200px;
         padding: 30px 30px 30px 30px;
         font-size: 18px;
     }
+    .reader-sec-featured-button{
+        padding: 12px 20px;
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width:680px) {
     .featured-content{
-        margin: 400px 0px 0px -300px;
-        width: 90%;
+        margin: 300px 0px 0px -300px;
+        width: 100vw;
+        font-size: 16px;
+    }
+    .reader-sec-featured-title{
+        font-size: 48px;
     }
 }
 @media screen and (max-width:480px) {
+    .featured-image{
+        height: 480px;
+    }
+    .reader-sec-featured-title{
+        font-size: 36px;
+    }
+    
     .featured-content{
         padding: 20px 20px 20px 20px;
+        font-size: 14px;
+    }
+    .reader-sec-featured-button{
+        padding: 10px 16px;
+        font-size: 11px;
     }
 }
-@media screen and (max-width:400px) {
+
+@media(hover: none)  {
+    .reader-sec-featured-button{
+        background-color: rgba(255, 255, 255, 1);
+        color: black;
+        transition: 0.5s;
+    }
+}
+/* @media screen and (max-width:400px) {
     .featured-content{
         width: 100%;
     }
-}
+} */
 
 
 
