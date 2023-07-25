@@ -18,10 +18,14 @@ export default function TeamMembersGen(props) {
     return (
         <div className='team-members-container'>
             {
-                onDisplayObject.map((item) => (                    
-                    item.members.map((member) => (
-                        <MemberCard name={member.name} por={item.title} quote={member.quote} linkedin={member.linkedin} insta={member.instagram} mail={member.instagram} image={member.image} id={item.id}/>
-                    ))
+                onDisplayObject.map((item) => (
+                    <div className='team-member-por-row'>
+                        {
+                            item.members.map((member) => (
+                                <MemberCard name={member.name} por={item.title} quote={member.quote} linkedin={member.linkedin} insta={member.instagram} mail={member.instagram} image={member.image} id={item.id}/>
+                            ))
+                        }
+                    </div>                 
                 ))
             }
         </div>

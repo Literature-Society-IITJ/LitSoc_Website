@@ -9,12 +9,11 @@
 
     width: 100vw;
 
-    background-image: url('../../media/images/meet.jpeg');
+    background-image: url('../../media/backgrounds/teams.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
 }
 
 .teams-top{
@@ -185,36 +184,42 @@
 
 
 .teams-main-body{
+    /* display: block; */
+    /* flex-direction: column; */
+
     position: relative;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
 
     width: 100%;
     height: fit-content;
-    height: 800px;
+
+    box-sizing: border-box;
+    /* height: 800px; */
 }
 
 .teams-main-body-lights-bg{
     position: absolute;
     left: 0;
     top: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-filter: blur(1px);
+    overflow: hidden;
 }
 
 
 .teams-main-body-details-container{
+    position: relative;
     display: flex;
     flex-direction: column;
-
-    position: absolute;
-    left: 0;
-    top: 0;
-    
     width: 100%;
     height: fit-content;
-    
+    top: 0px;
     /* backdrop-filter: blur(4px); */
     /* background-color: black; */
-    
     align-items: center;
+
+    box-sizing: border-box;
     /* background-color: #000000; */
 }
 
@@ -366,9 +371,9 @@
 
 .team-members-container{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    /* flex-wrap: wrap; */
     column-gap: 50px;
     row-gap: 50px;
 
@@ -376,20 +381,24 @@
     width: 100%;
     max-width: 100%;
 
+    /* backdrop-filter: blur(3px); */
+
     padding: 50px 50px;
     box-sizing: border-box;
 }
 
-.members-por-cards-container{
+.team-member-por-row{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 60px;
+    row-gap: 50px;
 
     flex-wrap: wrap;
 
-    padding: 10px;
+    /* padding: 10px; */
 
-    align-items: center;
-    justify-content: space-evenly;
 
     transition: 3s;
 
@@ -406,11 +415,10 @@
     flex-direction: row;
     column-gap: 30px;
 
-    padding: 20px;
+    padding: 30px 30px;
 
     backdrop-filter: blur(10px);
-    /* box-shadow: inset 2px 2px 200px rgba(255, 255, 255, 0.4), 2px 2px 2px rgba(255, 255, 255, 0.7); */
-    box-shadow: inset 2px 2px 200px rgba(0, 0, 0, 0.4), 5px 5px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: inset 2px 2px 200px rgba(0, 0, 0, 0), 5px 5px 5px rgba(255, 255, 255, 0.25);
 
 
     border-style: solid;
@@ -443,7 +451,9 @@
     transition: 0.5s;
 }
 .member-card:hover .member-card-image{
-    border-radius: 10px;
+    border-radius: 0px;
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0);
+
     transition: 0.5s;
 }
 
@@ -507,10 +517,92 @@
 }
 
 
+@media screen and (max-width: 800px) {
+    .member-card{
+        padding: 27px;
+        column-gap: 30px;
+    }    
+    .member-card-image-sociallinks-container{
+        row-gap: 10px;
+    }
+    .member-card-image{
+        width: 110px;
+        height: 110px;
+    }
+    .member-card-social-links{
+        column-gap: 10px;
+    }
+    .member-card-social-icon{
+        font-size: 26px;
+    }
+    .member-card-info-content-container{
+        row-gap: 16px;
+        max-width: 260px;
+        width: 260px;
+    }
+    .member-card-name-por-container{
+        row-gap: 4px;
+    }
+    .member-card-name{
+        font-size: 22px;
+    }
+    .member-card-por{
+        font-size: 16px;
+    }
+    .member-card-quote{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .member-card{
+        padding: 24px 24px;
+        column-gap: 30px;
+    }    
+    .member-card-image-sociallinks-container{
+        row-gap: 10px;
+    }
+    .member-card-image{
+        width: 100px;
+        height: 100px;
+    }
+    .member-card-social-links{
+        column-gap: 10px;
+    }
+    .member-card-social-icon{
+        font-size: 24px;
+    }
+    .member-card-info-content-container{
+        row-gap: 16px;
+        max-width: 240px;
+        width: 70%;
+        min-width: 200px;
+    }
+    .member-card-name-por-container{
+        row-gap: 4px;
+    }
+    .member-card-name{
+        font-size: 20px;
+    }
+    .member-card-por{
+        font-size: 14px;
+    }
+    .member-card-quote{
+        font-size: 16px;
+    }
+}
+
+
 @media screen and (max-width:480px) {
     .member-card{
         flex-direction: column;
         width: 300px;
+        align-content: center;
+        justify-content: center;
+
+        row-gap: 12px;
+
+        padding: 24px 36px;
     }
 
     .member-card-image-sociallinks-container{
@@ -522,9 +614,74 @@
     .member-card-social-links{
         flex-direction: column;
         justify-content: space-evenly;
+    } 
+
+    .member-card-image{
+        border-radius: 0px;
+        width: 120px;
+        height: 120px;
+    }
+    .member-card-social-icon{
+        font-size: 30px;
+    }
+    .member-card-info-content-container{
+        /* align-items: center; */
+        /* text-align: center; */
+        row-gap: 20px;
+        max-width: 300px;
+        width: 100%;
+    }
+    .member-card-name-por-container{
+        text-align: r;
+        row-gap: 4px;
+    }
+    .member-card-name{
+        font-size: 20px;
+    }
+    .member-card-por{
+        font-size: 14px;
+    }
+    .member-card-quote{
+        text-align: left;
+        font-size: 16px;
     }
 }
 
+@media screen and (max-width:400px) {
+    .member-card{
+        width: 280px;
+        row-gap: 12px;
+    }
+
+    .member-card-image{
+        border-radius: 0px;
+        width: 120px;
+        height: 120px;
+    }
+    .member-card-social-icon{
+        font-size: 28px;
+    }
+    .member-card-info-content-container{
+        /* align-items: center; */
+        /* text-align: center; */
+        row-gap: 20px;
+        max-width: 300px;
+        width: 100%;
+    }
+    .member-card-name-por-container{
+        row-gap: 4px;
+    }
+    .member-card-name{
+        font-size: 20px;
+    }
+    .member-card-por{
+        font-size: 14px;
+    }
+    .member-card-quote{
+        text-align: left;
+        font-size: 16px;
+    }
+}
 
 /* @media (hover: none) {
     .member-card{
