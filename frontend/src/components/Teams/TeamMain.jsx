@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { useEffect, useState, useRef, useCallback } from 'react'
 import {teamsNavPanelItems} from '../../data/PageNavbarItems'
 import TeamMembersGen from './TeamMembersGen'
+import { RiArrowDownSLine } from 'react-icons/ri'
 
 
 const StarField = () => {
@@ -124,6 +125,11 @@ const StarField = () => {
 }
 
 
+function isTouchDevice() {
+    return (('ontouchstart' in window) ||
+        (navigator.maxTouchPoints > 0) ||
+        (navigator.msMaxTouchPoints > 0));
+}
 
 export default function TeamMain(props) {
     const particlesInit = useCallback(async engine => {
@@ -146,26 +152,61 @@ export default function TeamMain(props) {
 
             <div className='teams-main-body-details-container' id='teams-main-body-details-container'>
                 <div className='teams-nav-panel'>
-                    <div className='teams-nav-panel-items' onClick={()=>{setDisplayTeam('current')
-                                                                        props.setTaglineDisplay('Current Team (2022-23)')}}>
-                        {Team.title}       
+                    <div className="team-nav-panel-item-container">
+                        <div className='team-nav-panel-item-rope'></div>
+                        <div className='teams-nav-panel-item' style={{cursor: 'pointer'}} onClick={()=>{setDisplayTeam('current')
+                                                                            props.setTaglineDisplay('Current Team (2022-23)')}}>
+                                                                                
+                            {Team.title}       
+                        </div>
                     </div>
+                        {
+                            isTouchDevice() ? (
+                                <div className="team-nav-panel-item-container">
+                                    <div className='team-nav-panel-item-rope'></div>
 
-                    <div className='teams-nav-panel-items'>
-                        {Alumni.title}
-                        <ul className='teams-nav-drop-down-ul'>
-                            {
-                                Alumni.dropdown.map((item) =>(
-                                    <button key= {item.id}className="teams-nav-dropdown-items" tabIndex={item.index}
-                                                onClick={()=>{setDisplayTeam(item.year)
-                                                props.setTaglineDisplay(`Alumni Team (${item.year})`)
-                                                }}>
-                                        {item.year}
-                                    </button>
-                                ))
-                            }
-                        </ul>
-                    </div>
+                                    <select className='alumni-select-tag' name="team-year" id="year" onChange={
+                                        () => {
+                                            setDisplayTeam(document.getElementById('year').value)
+                                            props.setTaglineDisplay(`Alumni Team (${document.getElementById('year').value})`)
+                                        }
+                                    }>
+                                        <option style={{display:'none'}} hidden selected>ALUMNI</option>
+                                        {
+                                            Alumni.dropdown.map((item) => (
+                                                <option value={item.year}>
+                                                    {item.year}
+                                                </option>
+                                            ))
+                                        }
+                                    </select>
+                                </div>
+                            ) :
+                            (
+                                <div className="team-nav-panel-item-container">
+                                    <div className='team-nav-panel-item-rope'></div>
+                                    <div className='teams-nav-panel-item'>
+                                        {Alumni.title}
+                                        <RiArrowDownSLine className='nav-panel-drop-down-arrow-icon'/>
+                                        <ul className='teams-nav-drop-down-ul'>
+                                            {
+                                                Alumni.dropdown.map((item) =>(
+                                                    <div key= {item.id}className="team-nav-panel-dropdown-item-container" tabIndex={item.index}
+                                                                onClick={()=>{setDisplayTeam(item.year)
+                                                                props.setTaglineDisplay(`Alumni Team (${item.year})`)
+                                                                }}>
+                                                        <div className='team-nav-panel-item-rope'></div>
+                                                        <div className='teams-nav-panel-item' style={{cursor: 'pointer'}}>
+                                                            {item.year}
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            }
+                                        </ul>     
+                                    </div>
+                                </div>
+                            )
+                        }
                 </div>
                 <TeamMembersGen displayTeam={displayTeam} />
             </div>

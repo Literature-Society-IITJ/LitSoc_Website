@@ -24,9 +24,9 @@
     width: 100vw;
     height: auto;
     
-    border-style: solid;
-    border-color: #ffffff;
-    border-width: 0px 0px 2px 0px;
+    /* border-style: solid; */
+    /* border-color: #ffffff; */
+    /* border-width: 0px 0px 2px 0px; */
 }
 
 .teams-top-content{
@@ -161,42 +161,20 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ############################################################################################################################# */
+/* THe main  body of teams page */
 .teams-main-body{
-    /* display: block; */
-    /* flex-direction: column; */
-
     position: relative;
-    background-color: rgba(0, 0, 0, 0.7);
-
+    
     width: 100%;
     height: fit-content;
-
     box-sizing: border-box;
-    /* height: 800px; */
+    
+    background-color: rgba(190, 183, 183, 0);
+    box-shadow: inset 2000px 2000px 2000px rgba(0, 0, 0, 0.5);
 }
 
+/* The golden lights background container */
 .teams-main-body-lights-bg{
     position: absolute;
     left: 0;
@@ -207,7 +185,7 @@
     overflow: hidden;
 }
 
-
+/* The member details and nav panel container */
 .teams-main-body-details-container{
     position: relative;
     display: flex;
@@ -215,160 +193,197 @@
     width: 100%;
     height: fit-content;
     top: 0px;
-    /* backdrop-filter: blur(4px); */
-    /* background-color: black; */
     align-items: center;
 
     box-sizing: border-box;
-    /* background-color: #000000; */
 }
 
 
 
 
+@keyframes translateYTeamsNavPanelDropDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
 
-
-
-
-
+/* ############################################################################################################################# */
+/* The nav panel that contains the team names */
 .teams-nav-panel{
     position: relative;
-    top: 0px;
-    padding: 0px;
-
-    /* margin: 0vh 30vw; */
-
+    top: 0;
+    left: 0;
+    
+    width: 60%;
+    
     display: flex;
     flex-direction: row;
-
-    /* flex-wrap: wrap; */
-    /* height: 60px; */
-    width: fit-content;
-
     align-items: center;
+    justify-content: space-between;
+    
     text-align: center;
-    justify-content: center;
+    
+    z-index: 100;
+}
+
+.team-nav-panel-item-container{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    
+    animation: translateX 1s ease-in-out 0s forwards;
+
+    /* z-index: 10; */
+}
+
+.team-nav-panel-dropdown-item-container{
+    display: none;
+    opacity: 0;
+
+    /* z-index: -1; */
+
+    /* animation: translateYTeamsNavPanelDropDown 1s ease-in-out 0s forwards; */
+    animation-name: translateYTeamsNavPanelDropDown;
+    animation-duration: 1.2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+/* @each $i from 1 through 10 {
+    .team-nav-panel-dropdown-item-container: nth-child(#{$i}){
+        animation-delay: #{($i * 1)};
+    }
+} */
+.team-nav-panel-dropdown-item-container:nth-child(1){
+    animation-delay: 0.2s;
+}
+.team-nav-panel-dropdown-item-container:nth-child(2){
+    animation-delay: 0.4s;
+}
+.team-nav-panel-dropdown-item-container:nth-child(3){
+    animation-delay: 0.6s;
+}
+.team-nav-panel-dropdown-item-container:nth-child(4){
+    animation-delay: 0.8s;
+}
+.team-nav-panel-dropdown-item-container:nth-child(5){
+    animation-delay: 1s;
+}
+
+.team-nav-panel-dropdown-item-container .team-nav-panel-item-rope{
+    width: 70%;
+    height: 16px;
 
     border-style: solid;
     border-color: rgba(255, 255, 255, 1);
-    border-width: 0px 0px 2px 0px;
-
-    color: #ffffff;
-
-    /* backdrop-filter: blur(10px); */
-    /* background-image: linear-gradient(180deg, rgb(0, 0, 0) 15%, rgba(16, 20, 27, 0)); */
-    /* transition: 1s; */
+    border-width: 0px 2px;
 }
 
-.teams-nav-panel-items{
-    font-size: 1.5vw;
-    font-weight: 400;
-    /* font-style: italic; */
-    color: white;
-    /* position: relative; */
-    display: flex;
-    flex-direction: column;
-    /* align-items: flex-start; */
-    padding: 0px 25px;
-}
-
-.teams-nav-panel-items:hover{
-    background-color: rgb(255, 255, 255);
-    color: #000000;
-}
-
-.teams-nav-team-button{
-    background-color: transparent;
-    height: fit-content;
-    width: fit-content;
-
-    border-radius: 0px;
-    
-    /* padding: inherit; */
-    /* margin: ; */
-}
-
-.teams-nav-team-button{
-    background-color: transparent;
-    height: fit-content;
-    width: fit-content;
-
-    border-radius: 0px;
-    border-width: 0px;
-    
-    /* padding: inherit; */
-    margin: 0px;
-    padding: 10px;
-}
-
-
-.teams-nav-drop-down-ul{
-    display: none;
-
-    height: fit-content;
-    right: auto;
-    
-
-    /* border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 1px; */
+.team-nav-panel-item-rope{
+    width: 70%;
+    height: 20px;
 
     border-style: solid;
-    border-color: rgba(0, 0, 0, 0.5);
-    border-width: 1px;
-    
-
-    /* left: 0; */
-    position: absolute;
-    top: 100%;
-    width: max-content;
-    z-index: 2;
-    text-align: left;
-    align-self: auto;
-    /* padding: 1.5vh 1vw; */
-    /* padding-top: 2vh; */
-    margin-top: 0;
-    margin-left: -2.4vw;
-    padding: 0vw;
-
-    transition: 1s;
+    border-color: rgba(255, 255, 255, 1);
+    border-width: 0px 2px;
 }
 
-.teams-nav-panel-items:hover .teams-nav-drop-down-ul{
-    display:flex;
-    flex-direction: column;
-    
-    background-color:  rgba(255, 255, 255, 1);
-    /* background-image: */
-    /* backdrop-filter: blur(400px); */
+.teams-nav-panel-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2px;
 
-    transition: 1s;
+    font-weight: 400;
+    color: white;
+
+    font-size: 20px;
+
+    backdrop-filter: blur(10px);
+    box-shadow: inset 60px 10px 40px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(255, 255, 255, 0.5);
+
+    border-style: solid;
+    border-color: white;
+    border-width: 2px 0px 0px 1px;
+
+    
+    padding: 4px 28px;
 }
 
-.teams-nav-drop-down-ul>a{
-    color: #000000;
-
-    /* backdrop-filter: blur(10px); */
-    background-color: transparent;
-
-    padding: 1vh 1vw;
-
-    border: 1px solid rgba(0, 0, 0, 0.7);
-    border-width: 0px 0px 1px 0px;
-
+.teams-nav-panel-item:hover{
+    box-shadow: inset 60px 10px 40px rgba(255, 255, 255, 0.1), 2px 2px 4px rgba(255, 255, 255, 0.5);
+    /* color: black; */
+    
     transition: 0.5s;
 }
 
-.teams-nav-drop-down-ul>a:hover{
-    background-color: rgba(0, 0, 0, 0.8);
-    color: rgba(255, 255, 255, 1);
+.teams-nav-panel-item:hover .team-nav-panel-dropdown-item-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    /* border-style: solid;
-    border-color: #000000;
-    border-width: 2px; */
+.teams-nav-drop-down-ul{
+    display:flex;
+    flex-direction: column;
+
+    width: max-content;
+    height: fit-content;
+    
+    position: absolute;
+    top: 100%;
+    right: auto;
+    
+    text-align: left;
+    align-self: auto;
+    margin-top: 0;
+
+    padding: 0;
+
+    /* backdrop-filter: blur(10px); */
+    
+    transition: 1s;
+}
+
+.teams-nav-panel-item:hover .teams-nav-drop-down-ul{
+    transition: 1s;
+}
+
+
+@media screen and (max-width: 800px) {
+    .teams-nav-panel{
+        width: 80%;
+    }
+    .teams-nav-panel-item{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .teams-nav-panel-item{
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .teams-nav-panel-item{
+        font-size: 16px;
+    }
 }
 
 
 
+
+
+
+/* ######################################################### */
 .team-members-container{
     display: flex;
     flex-direction: column;
@@ -383,7 +398,7 @@
 
     /* backdrop-filter: blur(3px); */
 
-    padding: 50px 50px;
+    padding: 50px 60px;
     box-sizing: border-box;
 }
 
@@ -401,11 +416,7 @@
 
 
     transition: 3s;
-
 }
-
-
-
 
 
 /* ################################################################# */
@@ -418,7 +429,7 @@
     padding: 30px 30px;
 
     backdrop-filter: blur(10px);
-    box-shadow: inset 2px 2px 200px rgba(0, 0, 0, 0), 5px 5px 5px rgba(255, 255, 255, 0.25);
+    box-shadow: inset 2px 2px 200px rgba(0, 0, 0, 0), 5px 5px 5px rgba(255, 255, 255, 0.5);
 
 
     border-style: solid;
@@ -426,6 +437,8 @@
     border-width: 1px 0px 0px 1px;
 
     color: white;
+
+    z-index: 10;
 
     transition: 0.5s;
 }
@@ -466,7 +479,7 @@
 }
 .member-card-social-icon{
     color: white;
-    font-size: 28px;
+    font-size: 30px;
 }
 .member-card-social-icon:hover{
     transform: scale(1.25);
@@ -665,7 +678,7 @@
         /* align-items: center; */
         /* text-align: center; */
         row-gap: 20px;
-        max-width: 300px;
+        max-width: 320px;
         width: 100%;
     }
     .member-card-name-por-container{
@@ -707,3 +720,54 @@
 
 
 
+.alumni-select-tag{
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2px;
+
+    font-weight: 400;
+    color: white;
+
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+
+    background-color: transparent;
+
+    backdrop-filter: blur(10px);
+    box-shadow: inset 60px 10px 40px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(255, 255, 255, 0.5);
+
+    border-style: solid;
+    border-color: white;
+    border-width: 2px 0px 0px 1px;
+
+    
+    padding: 8px 28px;
+}
+
+.alumni-select-tag:focus{
+    outline: none;
+}
+
+@media screen and (max-width: 800px) {
+    .alumni-select-tag{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .alumni-select-tag{
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .alumni-select-tag{
+        font-size: 16px;
+    }
+}
