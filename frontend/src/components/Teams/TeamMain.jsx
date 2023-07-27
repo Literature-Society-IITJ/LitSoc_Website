@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { useEffect, useState, useRef, useCallback } from 'react'
 import {teamsNavPanelItems} from '../../data/PageNavbarItems'
 import TeamMembersGen from './TeamMembersGen'
-import { RiArrowDownSLine } from 'react-icons/ri'
+// import { RiArrowDownSLine } from 'react-icons/ri'
 
 
 const StarField = () => {
@@ -169,9 +169,10 @@ export default function TeamMain(props) {
                                         () => {
                                             setDisplayTeam(document.getElementById('year').value)
                                             props.setTaglineDisplay(`Alumni Team (${document.getElementById('year').value})`)
+                                            document.getElementById('year').value = 'Alumni'
                                         }
                                     }>
-                                        <option style={{display:'none'}} hidden selected>ALUMNI</option>
+                                        <option style={{display:'none'}} hidden selected value='Alumni'>ALUMNI</option>
                                         {
                                             Alumni.dropdown.map((item) => (
                                                 <option value={item.year}>
@@ -183,11 +184,10 @@ export default function TeamMain(props) {
                                 </div>
                             ) :
                             (
-                                <div className="team-nav-panel-item-container">
+                                <div className="team-nav-panel-item-container" style={{zIndex: '22'}}>
                                     <div className='team-nav-panel-item-rope'></div>
                                     <div className='teams-nav-panel-item'>
                                         {Alumni.title}
-                                        <RiArrowDownSLine className='nav-panel-drop-down-arrow-icon'/>
                                         <ul className='teams-nav-drop-down-ul'>
                                             {
                                                 Alumni.dropdown.map((item) =>(
