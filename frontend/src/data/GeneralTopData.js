@@ -31,13 +31,13 @@ export const GeneralTopData = {
         imgsrc: '/src/media/backgrounds/pexels-anni-roenkae-4793467.jpg'
     },
 
-    // Team:{
-    //     className: 'teams-top',
-    //     id: 'team',
-    //     title: "TEAM",
-    //     tagline: "Current Team (2022-23)",
-    //     imgsrc: '/src/media/backgrounds/teamsbg.jpg'
-    // },
+    Team:{
+        className: 'teams-top',
+        id: 'team',
+        title: "TEAM",
+        tagline: "Current Team (2022-23)",
+        imgsrc: '/src/media/backgrounds/teamsbg.jpg'
+    },
 
     Library:{
         className: 'library-top',
