@@ -6,6 +6,7 @@ import NavPanel from './NavPanel';
 import SignInModal from '../SigningModal/SignInModal';
 import SignUpModal from '../SigningModal/SignUpModal';
 import NavSideBar from './NavSideBar';
+
 // import Nav_Club_dropdowns from './Nav_Club_drop';
 
 // const changeNavBarBG = () => {
