@@ -12,7 +12,6 @@ export default function NavbarUpper(props) {
             <MainLogo />
             { !tokenExists() && <LoginButton {...props} />}
             { tokenExists() && <ProfileButton />}
-            <div></div>
         </div>
     )
 }
