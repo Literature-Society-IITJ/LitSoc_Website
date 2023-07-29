@@ -91,12 +91,12 @@ export const navPanelItems = [
         path: "/puzzles",
         dropdown: [],
     },
-    {
-        index: 6,
-        title: "TEAM",
-        path: "/team",
-        dropdown: [],
-    },
+    // {
+    //     index: 6,
+    //     title: "TEAM",
+    //     path: "/team",
+    //     dropdown: [],
+    // },
     {
         index: 7,
         title: "LIBRARY",

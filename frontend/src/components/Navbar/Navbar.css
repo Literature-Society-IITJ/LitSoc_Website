@@ -112,10 +112,12 @@
 
     background-color: #b0546f;
 
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     align-items: center;
     justify-content: center;
+    background-position: center;
 
     position: relative;
     color: white;
