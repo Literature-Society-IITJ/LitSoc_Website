@@ -16,7 +16,7 @@ export default function MemberCard(props) {
     let linkedin = props.linkedin
     let instagram = props.insta
     let gmail = 'goyal.22@iitj.ac.in'
-    let img = '/src/media/' + props.image
+    let img = 'https://litiitjb.litsoc.live/media/' + props.image
     let por = props.por
 
 
