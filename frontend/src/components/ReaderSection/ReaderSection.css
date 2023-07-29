@@ -15,12 +15,18 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    /* animation: imageZoom 1s ease-in-out 0s forwards; */
 }
 
 .reader-sec-top{
     position: relative;
 
-    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0px 0px 40px 0px;
 
     width: 100vw;
     height: auto;
@@ -36,7 +42,7 @@
     display: flex;
     flex-direction: column;
 
-    padding: 160px 60px 40px 60px;
+    padding: 160px 60px 0px 60px;
     box-sizing: border-box;
 
     text-align: center;
@@ -449,6 +455,35 @@
 
 
 
+@keyframes translateXr {
+    0% {
+        opacity: 0;
+        transform: translate(0%, 0%);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+    
+@keyframes translateYr {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
 
 
 /* 1. Reader Section Contents section where all the content cards are present
@@ -476,16 +511,19 @@
 .item-card{
     height: 220px;
     width: 330px;
-
+    
     border: 2px solid rgba(255, 255, 255, 0.85);
     border-radius: 1px;
     box-shadow: 5px 5px 15px rgb(0, 0, 0);
-
+    
     backdrop-filter: blur(20px);
-
+    
     transition: 0.5s;
     cursor: pointer;
 
+    opacity: 0;
+    animation: translateYr 1s ease-in-out 300ms forwards;
+    
     text-align: center;
 }
 
@@ -496,15 +534,18 @@
     width: inherit;
     
     overflow: hidden;
-
+    
     z-index: 10;
 }    
 .item-card-image{
     transition: 1s;
-
+    
     padding: 15px;
     height: inherit;
     width: inherit;
+
+    opacity: 0;
+    animation: translateYr 1s ease-in-out 600ms forwards;
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -524,7 +565,9 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
+    opacity: 0;
+    animation: translateXr 1s ease-in-out 300ms forwards;
 
     height: 188px;
     width: 298px;

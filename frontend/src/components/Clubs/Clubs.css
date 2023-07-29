@@ -31,7 +31,11 @@
 
 .clubs-top{
     width: 100vw;
-    padding: 0px;
+    padding: 0px 0px 40px 0px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .clubs-top-content{
@@ -41,7 +45,7 @@
     flex-direction: column;
     align-items: center;
 
-    padding: 160px 60px 40px 60px;
+    padding: 160px 60px 0px 60px;
     box-sizing: border-box;
 
     text-align: center;
@@ -262,6 +266,21 @@
     background-position: center;
 
     padding: 0px;
+}
+.club-logo-container#word-games-club{
+    background-image: url('../../media/images/wgclogo.jpg');
+}
+.club-logo-container#oratory-club{
+    background-image: url('../../media/images/oclogo.jpg');
+}
+.club-logo-container#cwp-club{
+    background-image: url('../../media/images/cwpclogo.jpg');
+}
+.club-logo-container#book-club{
+    background-image: url('../../media/images/bclogo.jpg');
+}
+.club-logo-container#goonj{
+    background-image: url('../../media/images/goonjlogo.jpg');
 }
 
 .club-description{

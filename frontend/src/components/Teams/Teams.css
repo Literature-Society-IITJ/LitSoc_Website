@@ -14,19 +14,21 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    /* animation: imageZoom 1s ease-in-out 0s forwards; */
 }
 
 .teams-top{
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
-    padding: 0px;
+    padding: 0px 0px 40px 0px;
     
     width: 100vw;
     height: auto;
-    
-    /* border-style: solid; */
-    /* border-color: #ffffff; */
-    /* border-width: 0px 0px 2px 0px; */
 }
 
 .teams-top-content{
@@ -36,7 +38,7 @@
     display: flex;
     flex-direction: column;
     
-    padding: 160px 60px 40px 60px;
+    padding: 160px 60px 0px 60px;
     box-sizing: border-box;
     
     text-align: center;

@@ -1,4 +1,5 @@
 import React from 'react'
+import SlidedownIndicator from './SlidedownIndicator'
 // import { ClubsData } from '../../data/Clubs'
 
 export default function GeneralTop({item}) {
@@ -19,6 +20,8 @@ export default function GeneralTop({item}) {
                 <div className={titleClass} tabIndex={1} id={id}>{title}</div>
                 <div className={taglineClass} tabIndex={2} id={id} style={{fontStyle: 'italic'}}>{tagline}</div>
             </div>
+
+            <SlidedownIndicator />
         </div>
     )
 }
