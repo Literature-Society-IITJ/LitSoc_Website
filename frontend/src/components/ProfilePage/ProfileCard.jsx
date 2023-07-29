@@ -11,7 +11,7 @@ export default function ProfileCard(props) {
 
     let [profileImage, setProfileImage] = useState('') 
     useEffect(() => {
-        getProfileImage().then((data) => {setProfileImage('/src/media/' + data)})
+        getProfileImage().then((data) => {setProfileImage('/media/' + data)})
         setRefresh(false)}
         , [refresh])
 
