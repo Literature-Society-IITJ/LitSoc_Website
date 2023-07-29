@@ -11,7 +11,7 @@ export default function ProfileCard(props) {
 
     let [profileImage, setProfileImage] = useState('') 
     useEffect(() => {
-        getProfileImage().then((data) => {setProfileImage('/media/' + data)})
+        getProfileImage().then((data) => {setProfileImage('https://litiitjb.litsoc.live/media/' + data)})
         setRefresh(false)}
         , [refresh])
 
