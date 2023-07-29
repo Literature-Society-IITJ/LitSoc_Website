@@ -51,7 +51,9 @@
 .bottom-bar-logos>div{
     width: 24vw;
     height: 18vw;
-    background-image: url('../../media/images/bottom-bar-logos.png');
+    background-image: url('../../media/images/bottombarlogo.png');
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: contain;
 }
 

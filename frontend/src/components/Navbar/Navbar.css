@@ -1,9 +1,28 @@
+@keyframes navBarSlideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    /* 50% {
+        transform: translateY(100%);
+    } */
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
 .nav-bar{
     display: flex;
     position: fixed;
     top: 0px;
 
     width: 100vw;
+
+    transform: translateY(-100%);
+
+
+    animation: navBarSlideDown 1.5s ease-in-out 0.7s forwards;
 
     z-index: 100000;
 }

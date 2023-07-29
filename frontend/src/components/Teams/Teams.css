@@ -14,19 +14,21 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    /* animation: imageZoom 1s ease-in-out 0s forwards; */
 }
 
 .teams-top{
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
-    padding: 0px;
+    padding: 0px 0px 40px 0px;
     
     width: 100vw;
     height: auto;
-    
-    /* border-style: solid; */
-    /* border-color: #ffffff; */
-    /* border-width: 0px 0px 2px 0px; */
 }
 
 .teams-top-content{
@@ -36,7 +38,7 @@
     display: flex;
     flex-direction: column;
     
-    padding: 160px 60px 40px 60px;
+    padding: 160px 60px 0px 60px;
     box-sizing: border-box;
     
     text-align: center;
@@ -172,6 +174,8 @@
     
     background-color: rgba(190, 183, 183, 0);
     box-shadow: inset 2000px 2000px 2000px rgba(0, 0, 0, 0.5);
+
+    overflow: hidden;
 }
 
 /* The golden lights background container */
@@ -203,12 +207,56 @@
 
 @keyframes translateYTeamsNavPanelDropDown {
     0% {
-        opacity: 0;
+        opacity: 1;
         transform: translateY(-100%);
+    }
+
+    70%{
+        opacity: 1;
+        transform: translateY(0%);
     }
     100% {
         opacity: 1;
         transform: translateY(0%);
+    }
+}
+@keyframes translateYTeamsNavPanelDropDownRope {
+    0% {
+        height: 16px;
+    }
+
+    30%{
+        height: 44px;
+    }
+
+    100% {
+        height: 16px;
+    }
+}
+
+@keyframes shiverAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20%{
+        transform: rotate(-6deg);
+    }
+
+    40%{
+        transform: rotate(6deg);
+    }
+
+    60%{
+        transform: rotate(-3deg);
+    }
+
+    80%{
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
     }
 }
 
@@ -237,7 +285,9 @@
     
     align-items: center;
     
-    animation: translateX 1s ease-in-out 0s forwards;
+    /* animation: translateX 1s ease-in-out 0s forwards; */
+    animation: translateYTeamsNavPanelDropDown 1s ease-in-out 0s forwards;
+
 
     /* z-index: 10; */
 }
@@ -261,24 +311,29 @@
     }
 } */
 .team-nav-panel-dropdown-item-container:nth-child(1){
+    z-index: 20;
     animation-delay: 0.2s;
 }
 .team-nav-panel-dropdown-item-container:nth-child(2){
+    z-index: 19;
     animation-delay: 0.4s;
 }
 .team-nav-panel-dropdown-item-container:nth-child(3){
+    z-index: 18;
     animation-delay: 0.6s;
 }
 .team-nav-panel-dropdown-item-container:nth-child(4){
+    z-index: 17;
     animation-delay: 0.8s;
 }
 .team-nav-panel-dropdown-item-container:nth-child(5){
+    z-index: 16;
     animation-delay: 1s;
 }
 
 .team-nav-panel-dropdown-item-container .team-nav-panel-item-rope{
     width: 70%;
-    height: 16px;
+    height: 28pxpx;
 
     border-style: solid;
     border-color: rgba(255, 255, 255, 1);
@@ -292,6 +347,8 @@
     border-style: solid;
     border-color: rgba(255, 255, 255, 1);
     border-width: 0px 2px;
+
+    animation: translateYTeamsNavPanelDropDownRope 1s ease-in-out 0s forwards;
 }
 
 .teams-nav-panel-item{
@@ -313,13 +370,18 @@
     border-color: white;
     border-width: 2px 0px 0px 1px;
 
-    
     padding: 4px 28px;
 }
 
 .teams-nav-panel-item:hover{
-    box-shadow: inset 60px 10px 40px rgba(255, 255, 255, 0.1), 2px 2px 4px rgba(255, 255, 255, 0.5);
+    background-color: black;
+    box-shadow: inset 60px 10px 40px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(255, 255, 255, 1);
     /* color: black; */
+
+    /* animation: translateX 1s ease-in-out 0s forwards; */
+
+    animation: shiverAnimation 1s ease-in-out 0s forwards;
+
     
     transition: 0.5s;
 }

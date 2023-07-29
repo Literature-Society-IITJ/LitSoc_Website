@@ -65,8 +65,8 @@ export default function BookIssueSection(props) {
                     </div>) 
                     
                     : <div className='library-login-message'>
-{/*                         LOGIN is required to access library. P.S.: Only IITJ peeps can create account. */}
-                        To be live in a few days!
+                        LOGIN is required to access library. P.S.: Only IITJ peeps can create account.
+                        {/* To be live in a few days! */}
                     </div>
             }   
         </div>
