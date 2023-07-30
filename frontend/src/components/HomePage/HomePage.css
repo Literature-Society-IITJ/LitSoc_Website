@@ -376,14 +376,15 @@
     height: fit-content;
     min-height: 100vh;
 
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 .home-featured-container-bg{
     position: fixed;
+    top: 0px;
     left: 0px;
 
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
     background-image: url('../../media/images/otacon.png');
     background-size: cover;
@@ -446,27 +447,26 @@
 
 .home-featured-button{
     border: solid #ffffff 2px;
+    background-color: white;
     border-radius: 28px;
 
     margin: 20px 0px 0px 0px;
     padding: 12px 24px;
 
     color: black;
+    /* color: transparent; */
     text-decoration: none;
     
     /* background-color: #ffffff; */
-    transition: 0.5s;
-}
-
-
-.home-featured-button-text{
     font-size: 22px;
     font-weight: 600;
     text-transform: uppercase;
-    color: black;
+    transition: 0.5s;
+    background-clip: text;
 }
+
 .home-featured-button:hover{
-    transform: scale(1.05);
+    transform: scaleX(1.05) scaleY(1.1);
     border: solid black 2px;
 
     transition: 0.5s;
@@ -474,17 +474,19 @@
 
 @media screen and (max-width: 1000px) {
     .home-featured-content-container{
-        padding: 120px 10% 50px 10%;
+        padding: 0px 10% 50px 10%;
     }
 }
-@media screen and (max-width: 720px) {
+
+@media screen and (max-width: 800px) {
     .home-featured-description{
         font-size: 14px;
     }
     .home-featured-content-container{
-        padding: 60px 5% 50px 5%;
+        padding: 0px 5% 50px 5%;
     }
 }
+
 @media screen and (max-width: 660px) {
     .home-featured-content-container{
         padding: 120px 5% 50px 5%;
@@ -790,3 +792,51 @@
         font-size: 12px;
     }
 } */
+
+
+@keyframes star1Animate {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.home-starfield{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    z-index: 10000;
+}
+
+.home-stars-1{
+    height: 1px;
+    width: 1px;
+    background-color: white;
+    transform: rotate(45deg);
+    filter: blur(0px);
+
+    animation: star1Animate 3s ease-in-out 0.2s infinite ;
+    
+    z-index: 10001;
+}
+
+.home-stars-2{
+    height: 2px;
+    width: 2px;
+    background-color: white;
+    transform: rotate(45deg);
+    filter: blur(1px);
+
+    animation: star1Animate 3s ease-in-out 0.2s infinite ;
+    
+    z-index: 10001;
+}
