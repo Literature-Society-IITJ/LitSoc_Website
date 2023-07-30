@@ -8,7 +8,7 @@ import HomeStarfield from './HomeStarfield'
 export default function Home() {
     return (
         <div className='home-main-inner'>
-            <HomeStarfield />
+{/*             <HomeStarfield /> */}
             <HomeFeatured />
             <HomeSocDesc />
             <HomeAllSecDesc />
