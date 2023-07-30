@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { useEffect, useState, useRef, useCallback } from 'react'
-import {teamsNavPanelItems} from '../../data/PageNavbarItems'
+import { teamsNavPanelItems } from '../../data/PageNavbarItems'
 import TeamMembersGen from './TeamMembersGen'
 // import { RiArrowDownSLine } from 'react-icons/ri'
 
@@ -132,15 +132,6 @@ function isTouchDevice() {
 }
 
 export default function TeamMain(props) {
-    const particlesInit = useCallback(async engine => {
-        await loadSlim(engine);
-    }, []);
-
-    const particlesLoaded = useCallback(async container => {
-        // console.log(container);
-    }, []);
-
-    
 
     let [displayTeam, setDisplayTeam] = useState('current')
     let Team = teamsNavPanelItems["Team"]

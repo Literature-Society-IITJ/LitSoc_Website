@@ -55,6 +55,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    mix-blend-mode: difference;
 }
 
 .bottom-bar-content{
