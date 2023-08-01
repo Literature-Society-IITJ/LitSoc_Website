@@ -3,12 +3,13 @@
     top: 0px;
     left: 0px;
 
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 
     backdrop-filter: blur(15px);
 
-    z-index: 1000000;
+    z-index: 100000;
 }
 
 .sign-modal-box{
@@ -16,61 +17,56 @@
     flex-direction: column;
 
     height: fit-content;
-    width: fit-content;
-
-    max-width: 80vw;
+    max-height: 90%;
 
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-
-    align-items: center;
-
-    padding: 10px 35px 20px 35px;
+    transform: translate(-50%, -50%);    
     
-    opacity: 100;
+    background-color: rgba(63, 91, 123, 0.9);
+    box-shadow: 10px 10px 14px rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
 
-    overflow: hidden;
+    z-index: 100001;
+}
 
-    background-color: rgba(0, 0, 0, 0.5);
-    
-    box-shadow: inset 200px 200px 2000px rgba(63, 91, 123, 1);
+.sign-modal-box#sign-up-box{
+    width: max-content;
+}
 
-    border-color: beige;
-    border-style: solid;
-    border-width: 0px 2px 2px 0px;
-    border-radius: 10px;
-
-    backdrop-filter: blur(20px);
+.sign-modal-box#sign-in-box{
+    width: fit-content;
 }
 
 .sign-modal-top{
     display: flex;
     flex-direction: row;
-
     justify-content: space-between;
-    align-self: center;
+    align-items: center;
 
     height: auto;
     width: 100%;
 
-    padding: 8px 0px 0px 0px;
+    box-sizing: border-box;
+
+    background-color: rgba(0, 0, 0, 0.8);
+
+    padding: 8px 20px;
 
     border-style: solid;
-    border-width: 0px 0px 1px 0px; 
     border-color: #ffffff;
-}
-
-.sign-modal-top-left{
-    padding: 0px 20px;
-
+    border-width: 1px 0px 0px 1px;
+    
     font-size: 30px;
-    font-weight: 600;
 }
+
 
 .sign-modal-x-button{
-    padding: 10px 15px 0px 15px;
+    display: flex;
+    
+    padding: 0px;
+    
     font-size: 30px;
     font-weight: 600;
 }
@@ -82,119 +78,31 @@
 .sign-modal-body{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
     width: 100%;
+    min-height: 0;
 
-    /* background-image: linear-gradient(180deg, rgba(176, 84, 111, 0.9) 0%, rgba(0, 0, 0, 0)); */
-    padding: 20px;
+    padding: 24px 40px 40px 40px;
+    box-sizing: border-box;
 
-    align-content: center;
-    line-height: 20px;
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 1px 1px 0px;
 
     font-size: 20px;
     font-weight: 600;
-
-    justify-content: center;
-    justify-self: center;
-    align-items: center;
-    align-self: center;
 }
 
 .sign-modal-body-top-msg{
     font-size:25px; 
-    padding: 10px 0px 25px 0px;
     font-weight: normal;
-}
-
-.signin-form-input-container{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-evenly;
-
-    flex-basis: 50%;
-}
-
-.input-container{
-    display: flex;
-    flex-direction: column;
-
-    margin: 10px 0px 0px 0px;
-}
-
-.fixed-label{
-    margin: 0px;
-    text-transform: uppercase;
-    font-size: 17px;
-    font-weight: normal;
-    text-align: left;
-}
-
-.input-label{
-    margin: 5px 0px 10px 0px;
-    padding: 20px 15px;
-    width: 300px;
-    height: 0px;
-
-    text-align: left;
-
-    background-color: rgba(0, 0, 0, 0.5);
-
-    color: white;
-
-    font-size: 15px;
-
-    border-radius: 2px;
-
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(255, 255, 255, 0.5);
-}
-
-.sign-modal-error-msg{
-    margin: 5px 0px 0px 0px;
-    font-weight: normal;
-    font-size: 17px;
-
-    text-align: left;
-}
-
-.sign-modal-button{
-    padding: 8px 15px;
-    border-radius: 2px;
-}
-
-.sign-modal-body>span{
-    margin: 10px 0px 15px 0px;
-    font-weight: 500;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
 }
 
 
-
-
-
-
-
-
-
-
-
-.signup-form-input-container{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-evenly;
-
-    /* padding: 0px 0px 15px 0px; */
-
-    flex-basis: 50%;
-
-    /* border-style: solid; */
-    /* border-width: 0px 0px 1px 0px; */
-}
-
-.signup-form-field-row{
-    display: flex;
-    flex-direction: row;
-    gap: 60px;
-}
 .signup-form-email-field-row{
     display: flex;
     flex-direction: row;
@@ -217,4 +125,230 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
+
+    width: 100%;
+
+    column-gap: 16px;
+    row-gap: 16px;
+}
+
+
+
+
+.signin-form-container{
+    width: 100%;
+    margin: 0px 0px 14px 0px;
+}
+.signin-form{
+    width: 100%;
+}
+.signin-form-input-container{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+
+
+
+.signup-form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    flex: 1;
+
+    row-gap: 10px;
+
+    overflow: auto;
+}
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+
+    width: 100%;
+
+}
+.signup-form-input-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* align-items: left; */
+    row-gap: 10px;
+
+    width: 100%;
+}
+.signup-form-field-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    row-gap: 10px;
+    column-gap: 40px;
+
+    /* width: 100%; */
+}
+
+
+
+
+
+
+
+
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+
+    flex-grow: 2;
+    box-sizing: border-box;
+
+    /* width: 100%; */
+
+    margin: 10px 0px 0px 0px;
+}
+
+.fixed-label{
+    margin: 0px;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.input-label{
+    padding: 20px 15px;
+
+    width: 300px;
+
+    /* flex-grow: 1; */
+    /* flex: 1 1 0; */
+    
+    height: 0px;
+
+    text-align: left;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    color: white;
+
+    font-size: 15px;
+
+    border-radius: 2px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.5);
+
+    box-sizing: border-box;
+}
+
+.input-label-signup{
+    padding: 20px 15px;
+
+    width: 300px;
+    max-width: 300px;
+
+    /* flex-grow: 1; */
+    /* flex: 1 1 0; */
+    
+    height: 0px;
+
+    text-align: left;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    color: white;
+
+    font-size: 15px;
+
+    border-radius: 2px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.5);
+
+    box-sizing: border-box;
+}
+
+
+
+
+.sign-modal-body>span{
+    margin: 10px 0px 10px 0px;
+    font-weight: 500;
+}
+
+.sign-modal-error-msg{
+    margin: 5px 0px 0px 0px;
+    font-weight: normal;
+    font-size: 17px;
+
+    width: 100%;
+
+    text-align: left;
+}
+
+.sign-modal-button{
+    width: fit-content;
+
+    padding: 8px 15px;
+    border-radius: 2px;
+}
+
+
+@media screen and (max-width: 800px) {
+    .signup-form-field-row{
+        column-gap: 40px;
+    }
+    .input-label-signup {
+        width: 100%;
+        /* min-width: 240px; */
+    }
+    .sign-modal-box#sign-up-box {
+        width: 90%;
+    }
+}
+
+
+@media screen and (max-width: 647px) {
+    .input-container{
+        flex-grow: 0;
+    }
+    .input-label-signup{
+        /* flex-grow: 2; */
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .input-container{
+        flex-grow: 2;
+    }
+    .input-label-signup{
+        /* flex-grow: 2; */
+        /* width: 300px; */
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    .sign-modal-box#sign-in-box{
+        width: 90%;
+    }
+    .input-label{
+        width: 100%;
+    }
 }

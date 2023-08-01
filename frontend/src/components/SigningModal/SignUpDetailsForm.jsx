@@ -35,7 +35,7 @@ function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmai
                 setErrorMessage('')
                 // window.alert('Sign Up done vro')
 
-                console.log(1111111111111111)
+                // console.log(1111111111111111)
 
 
                 document.getElementById('firstName').value = ''
@@ -49,7 +49,7 @@ function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmai
                 setEmail('')
                 setShowDetailsForm(false)
                 setShowEmailVerificationForm(true)
-                console.log("I am dancinnggggggggggggggggggg")
+                // console.log("I am dancinnggggggggggggggggggg")
                 setShowSignUpPopUp(false)
                 window.location.reload()
 
@@ -81,31 +81,31 @@ export default function SignUpDetailsForm(props) {
 
 
     return (
-        <section className='signup-form-container'>
+        <div className='signup-form-container'>
             <div className='signup-form'>
 
                 <div className='signup-form-input-container' id='personal-info'>  
                     <div className='signup-form-field-row'>
                         <div className='input-container' id='first-name'>
                             <div className='input-container fixed-label'>First Name</div>
-                            <input className='input-label' name='firstname' id='firstName'/>
+                            <input className='input-label-signup' name='firstname' id='firstName'/>
                         </div>
 
                         <div className='input-container' id='last-name'>
                             <div className='input-container fixed-label'>Last Name</div>
-                            <input className='input-label' name='lastname' id='lastName'/>
+                            <input className='input-label-signup' name='lastname' id='lastName'/>
                         </div>
                     </div>
 
                     <div className='signup-form-field-row'>
                         <div className='input-container' id='last-name'>
                             <div className='input-container fixed-label'>Roll Number</div>
-                            <input className='input-label' name='rollnumber' id='rollNumber'/>
+                            <input className='input-label-signup' name='rollnumber' id='rollNumber'/>
                         </div>
 
                         <div className='input-container' id='last-name'>
                             <div className='input-container fixed-label'>Phone Number</div>
-                            <input className='input-label' name='phonenumber' id='phoneNumber'/>
+                            <input className='input-label-signup' name='phonenumber' id='phoneNumber'/>
                         </div>
                     </div>
                 </div>
@@ -114,40 +114,38 @@ export default function SignUpDetailsForm(props) {
                     <div className='signup-form-field-row'>
                         <div className='input-container' id='email'>    
                             <span className='input-container fixed-label'>Username</span>
-                            <input className='input-label' name='username' id='userName'/>
+                            <input className='input-label-signup' name='username' id='userName'/>
                         </div>
 
                         <div className='input-container' id='email'>
                             <span className='input-container fixed-label'>Email Address</span>
-                            <input type="email" disabled={true} value={email} className='input-label' name='email' id='emailInput' style={{backgroundColor:'#f0f4fc', color:'black', borderColor:'white'}}/>
+                            <input type="email" disabled={true} value={email} className='input-label-signup' name='email' id='emailInput' style={{backgroundColor:'#f0f4fc', color:'black', borderColor:'white'}}/>
                         </div>
                     </div>
 
                     <div className='signup-form-field-row'>
                         <div className='input-container'>
                             <span className='input-container fixed-label'>Password</span>
-                            <input type="password" className='input-label' name='password' id='password'/>
+                            <input type="password" className='input-label-signup' name='password' id='password'/>
                         </div>
 
                         <div className='input-container'>
                             <span className='input-container fixed-label'>Confirm Password</span>
-                            <input type="password" className='input-label' name='cnfrmpwd' id='cnfrmPwd'/>
+                            <input type="password" className='input-label-signup' name='cnfrmpwd' id='cnfrmPwd'/>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <br />
             <div className='sign-modal-error-msg'>
                 { errorMessage? ('*' + errorMessage): null }
             </div>
             
-            <br />
             <button className='sign-modal-button' onClick={() => 
                                                     {signupFunction(setErrorMessage, props.setShowSignUpPopUp, props.email, props.setEmail, props.setShowDetailsForm, props.setShowEmailVerificationForm)
                                                     }}>
                 Lit Me Up
             </button>
-        </section>
+        </div>
     )
 }

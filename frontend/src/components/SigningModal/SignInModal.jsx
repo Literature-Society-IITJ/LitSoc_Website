@@ -43,7 +43,7 @@ export default function SignInModal(props) {
     
     return props.showSigninPopup?(
         <div className='sign-modal' id='sign-in'>
-            <div className='sign-modal-box' id='sign-in'>
+            <div className='sign-modal-box' id='sign-in-box'>
                 <div className='sign-modal-top' id='sign-in'>
                     <div className='sign-modal-top-left'>SIGN IN</div>
                     <div className='sign-modal-x-button' onClick={()=>props.setShowSignInPopUp(false)}>
@@ -90,7 +90,6 @@ export default function SignInModal(props) {
                         </div>
                     </section>
 
-                    <br />
                     <span>Not a literati yet?</span>
                     <button className='sign-modal-button' onClick={()=>[props.setShowSignInPopUp(false) ,props.setShowSignUpPopUp(true)]}>Sign Up Now</button>
                 

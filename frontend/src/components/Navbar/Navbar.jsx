@@ -52,13 +52,9 @@ export default function Navbar() {
 
             {showSideBar && <NavSideBar setShowSideBar={setShowSideBar} />}
 
-            <div>
-                <SignInModal showSigninPopup={showSigninPopup} setShowSignInPopUp={setShowSignInPopUp}
-                setShowSignUpPopUp={setShowSignUpPopUp} />            
-            </div>
-            <div>
-                <SignUpModal showSignupPopup={showSignupPopup} setShowSignUpPopUp={setShowSignUpPopUp} />
-            </div>
+            <SignInModal showSigninPopup={showSigninPopup} setShowSignInPopUp={setShowSignInPopUp}
+            setShowSignUpPopUp={setShowSignUpPopUp} />            
+            <SignUpModal showSignupPopup={showSignupPopup} setShowSignUpPopUp={setShowSignUpPopUp} />
         </>
     )
 }
