@@ -106,7 +106,7 @@ export default function SignUpEmailVerifSection(props) {
                     <div className='input-container'>    
                         <span className='input-container fixed-label'>Email Address</span>
                         <div className='signup-form-email-field-row'>
-                            <input disabled={disabledEmailInput} className='input-label' name='username' id='emailInput'/>
+                            <input disabled={disabledEmailInput} className='input-label-signup' name='username' id='emailInput'/>
 
                             {
                                 (showOTPFields) ? (
@@ -123,7 +123,7 @@ export default function SignUpEmailVerifSection(props) {
                         (showOTPFields) ? (
                             <div className='input-container' id='email'>
                                 <span className='input-container fixed-label'>Enter OTP</span>
-                                <input className='input-label' name='email' id='otpInput'/>
+                                <input className='input-label-signup' name='email' id='otpInput'/>
                             </div>
                         ) : null
                     }
@@ -132,13 +132,9 @@ export default function SignUpEmailVerifSection(props) {
                 </div>
             </div>
 
-            <br />
-
             <div className='sign-modal-error-msg'>
                 { emailVerifErrorMessage ? ('*' + emailVerifErrorMessage) : null }
             </div>
-
-            <br />
 
             <div className='signup-form-verification-button-row'>
                 <button className='sign-modal-button' onClick={()=>{
