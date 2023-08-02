@@ -2089,8 +2089,16 @@
 
     border-radius: 2px;
 
+    /* transition: transform 0.2s,  transform 0.2s; */
     transition: 0.5s;
 }
+
+/* .issue-requests-approve-button>button:active{
+    transform: translateX(3px) translateY(3px);
+    box-shadow: 0 0 0 darkgreen;
+} */
+
+
 .issue-requests-reject-button{
     width: 5%;
 }

@@ -19,10 +19,8 @@
 
     width: 100vw;
 
-    transform: translateY(-100%);
-
-
-    animation: navBarSlideDown 1.5s ease-in-out 0.7s forwards;
+    /* transform: translateY(-100%); */
+    /* animation: navBarSlideDown 1.5s ease-in-out 0.7s forwards; */
 
     z-index: 100000;
 }

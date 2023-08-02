@@ -84,7 +84,7 @@
 
 @media screen and (max-width: 1000px) {
     .clubs-top-content{
-        padding: 140px 40px 30px 40px;
+        padding: 140px 40px 0px 40px;
     }
     
     .clubs-top-content-title{
@@ -111,7 +111,7 @@
 
 @media screen and (max-width: 800px) {
     .clubs-top-content{
-        padding: 100px 20px 26px 20px;
+        padding: 100px 20px 0px 20px;
     }
     
     .clubs-top-content-title{
@@ -137,7 +137,7 @@
 
 @media screen and (max-width: 600px) {
     .clubs-top-content{
-        padding: 86px 20px 24px 20px;
+        padding: 86px 20px 0px 20px;
     }
     
     .clubs-top-content-title{
@@ -163,7 +163,7 @@
 
 @media screen and (max-width: 480px) {
     .clubs-top-content{
-        padding: 86px 20px 20px 20px;
+        padding: 86px 20px 0px 20px;
     }
     
     .clubs-top-content-title{
@@ -189,7 +189,7 @@
 
 @media screen and (max-width: 400px) {
     .clubs-top-content{
-        padding: 86px 20px 20px 20px;
+        padding: 86px 20px 0px 20px;
     }
     
     .clubs-top-content-title{

@@ -82,7 +82,7 @@
 
 @media screen and (max-width: 1000px) {
     .reader-sec-top-content{
-        padding: 140px 40px 30px 40px;
+        padding: 140px 40px 0px 40px;
     }
     
     .reader-sec-top-content-title{
