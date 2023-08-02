@@ -804,7 +804,7 @@
     }
 
     50% {
-        opacity: 0;
+        opacity: 0.5;
     }
 
     100% {
@@ -817,7 +817,7 @@
     }
 
     50% {
-        opacity: 0;
+        opacity: 0.2;
     }
 
     100% {
@@ -854,7 +854,7 @@
     transform: rotate(45deg);
     filter: blur(0px);
 
-    animation: star1Animate 3s ease-in-out 0.2s infinite ;
+    animation: star1Animate 1.5s ease-in-out 0s infinite ;
     
     z-index: 10001;
 }
@@ -866,7 +866,7 @@
     transform: rotate(45deg);
     filter: blur(1px);
 
-    animation: star2Animate 3s ease-in-out 1s infinite ;
+    animation: star2Animate 2.5s ease-in-out 1s infinite ;
     
     z-index: 10001;
 }
@@ -881,5 +881,5 @@
     transform: rotate(45deg);
     /* filter: blur(1px); */
 
-    animation: star3Animate 5s ease-in-out 2s infinite ;
+    animation: star3Animate 4s ease-in-out 2s infinite ;
 }
