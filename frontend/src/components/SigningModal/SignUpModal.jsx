@@ -9,7 +9,7 @@ import { sendOTP } from '../../api/axios'
 export default function SignUpModal(props) {
 
 
-    let [showEmailVerificationForm, setShowEmailVerificationForm] = useState(false)
+    let [showEmailVerificationForm, setShowEmailVerificationForm] = useState(true)
     let [showDetailsForm, setShowDetailsForm] = useState(false)
 
     let [OTPRequestType, setOTPRequestType] = useState('sendOTP')
