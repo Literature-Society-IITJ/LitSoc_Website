@@ -34,11 +34,7 @@ export default function UploadedContent(props) {
                             ))
                         ):
                         <div className='reader-sec-contents no-content-message'>
-                            {
-                                (onDisplayCategory) ? 
-                                    'Alas! There is no content in this category right now!!!' :                                 
-                                    'Please select a category!'
-                            }
+                            No content uploaded yet
                         </div>
                     }
                 </div>

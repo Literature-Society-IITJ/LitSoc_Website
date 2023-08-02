@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes, useRoutes} from "react-router-dom";
 import HomePage from './pages/HomePage'
 import ReaderSection from './pages/ReaderSection'
-import Archive from './pages/Archive'
+// import Archive from './pages/Archive'
 import Puzzles from './pages/Puzzles'
 import Team from './pages/Team'
 import Library from './pages/Library'
@@ -39,7 +39,7 @@ function App() {
                     <Route path='/mun' element={<MUN />}/>
 
                     <Route path='/readersec' element={<ReaderSection />} />
-                    <Route path='/archive' element={<Archive />} />
+                    {/* <Route path='/archive' element={<Archive />} /> */}
                     <Route path='/puzzles' element={<Puzzles />} />
                     <Route path='/team' element={<Team />} />
                     <Route path='/library' element={<Library />} />
