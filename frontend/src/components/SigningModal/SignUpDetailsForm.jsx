@@ -59,9 +59,10 @@ function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmai
                 // console.log(error.response.data)
                 // console.log(22222222, 'hhhhhhhhhhhhhhhhhhhhhhh')
                 // console.log(error)
-                let errorMsg = error.response
+                // let errorMsg = error.response
                 // console.log(errorMsg)
-                setErrorMessage(JSON.stringify(errorMsg))
+                // setErrorMessage(JSON.stringify(errorMsg))
+                setErrorMessage(error.response.data)
             })
         }
     }
