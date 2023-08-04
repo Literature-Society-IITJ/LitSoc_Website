@@ -33,6 +33,7 @@ export default function ContentUploadForm(props) {
             uploadContent(formData)
             .then((response) => {
                 setErrorMessage('')
+                alert('Content Upload Request Sent')
                 document.getElementById('titleInput').value = ''
                 categorySelectRef.current.value = 'selectCategory'
                 // setSelectedValue('selectCategory')
@@ -87,7 +88,7 @@ export default function ContentUploadForm(props) {
                                         Category
                                     </span>
                                     <select className='input-container-input-label' name="category" id="categoryInput" defaultValue='selectCategory' ref={categorySelectRef}>
-                                        <option value="selectCategory" hidden='hidden'>--Select a category--</option>
+                                        <option value="" hidden='hidden'>--Select a category--</option>
                                         <option value="poem">Poem</option>
                                         <option value="prose">Prose</option>
                                         <option value="fanfic">Fan Fiction</option>

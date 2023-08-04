@@ -8,7 +8,7 @@ function emailVerifFunction (setShowOTPFields, OTPRequestType, setOTPRequestType
     let email = document.getElementById('emailInput').value
 
     if (email.includes('@iitj.ac.in')) {
-        console.log(2222222)
+        // console.log(2222222)
 
         setEmail(email)
         setEmailVerifErrorMsg('Processing... Please Wait!')

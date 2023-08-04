@@ -320,3 +320,24 @@
     color: black;
 }
 
+@media screen and (max-width:1000px) {
+    .puzzles-no-content-message{
+        font-size: 36px;
+    }
+}
+@media screen and (max-width:800px) {
+    .puzzles-no-content-message{
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .puzzles-no-content-message{
+        font-size: 28px;
+    }
+}
+@media screen and (max-width:480px) {
+    .puzzles-no-content-message{
+        font-size: 24px;
+    }
+}

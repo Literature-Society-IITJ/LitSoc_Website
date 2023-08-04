@@ -32,7 +32,7 @@ export default function BottomBar() {
 
                 <div className='bottom-bar-content' id='bottom-bar-contact' tabIndex={2}>
                     
-                    <div style={{textTransform: 'uppercase', fontWeight: '500', lineHeight: '20px'}}>
+                    <div style={{textTransform: 'uppercase', fontWeight: '500'}}>
                         Literature Society,
                         {
                             width > 900 ? <br /> : null

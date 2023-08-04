@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ItemCard from '../ReaderSection/ItemCard'
 import ItemMain from '../ReaderSection/ItemMain'
 import { RxCross2 } from 'react-icons/rx'
@@ -9,7 +9,6 @@ export default function UploadedContent(props) {
 
     let [showItem, setShowItem] = useState(false)
     let [details, setDetails] = useState('')
-
 
     return (
         <div className='uploaded-content-display-modal'>
@@ -40,7 +39,7 @@ export default function UploadedContent(props) {
                 </div>
                 <div className='uploaded-content-display-lower-border'></div>
             </div>
-            <ItemMain showItem={showItem} setShowItem={setShowItem} title={details.title} content={details.content} author='dgf' img={'src/media/' + details.background} isAdmin={false} category={details.category}/>
+            <ItemMain showItem={showItem} setShowItem={setShowItem} title={details.title} content={details.content} author='dgf' img={ 'https://litiitjb.litsoc.live/media/' + details.background} isAdmin={false} category={details.category}/>
         </div>
     )
 }
