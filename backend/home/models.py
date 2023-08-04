@@ -87,4 +87,5 @@ class Member(AbstractBaseUser):
 class EmailVerification(models.Model):
     email = models.EmailField(unique=True)
     otp = models.IntegerField(default=0000)
+    request_time = models.DateTimeField()
     is_verified = models.BooleanField(default=False)

@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# load_dotenv()
+load_dotenv()
 SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'readerSection',
     'puzzles',
+    'anymail',
 ]
 
 MIDDLEWARE = [
@@ -129,9 +130,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR.parent, 'frontend', 'src', 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR,  'media')
 
 
 # Default primary key field type
@@ -181,6 +183,7 @@ SIMPLE_JWT = {
 AUTH_USER_MODEL = 'home.Member'
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+#EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
@@ -202,3 +205,13 @@ CORS_ALLOW_HEADERS = [
     "x-csrftoken",
     "x-requested-with",
 ]
+
+#ANYMAIL = {
+#    "SENDINBLUE_API_KEY": os.environ.get('BREVO_API_KEY'),
+#    "SEND_DEFAULTS": {
+#        "tags": ["app"]
+#    },
+#    "DEBUG_API_REQUESTS": DEBUG,
+#}
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10*1024*1024
