@@ -8,7 +8,7 @@ export default function ReadBooks(props) {
     let [readBooksList, setReadBooksList] = useState([])
     useEffect( () => {getReadBooks().then((response) => {setReadBooksList(response)})} , [])
 
-    console.log(readBooksList)
+    // console.log(readBooksList)
 
     return (
         <>

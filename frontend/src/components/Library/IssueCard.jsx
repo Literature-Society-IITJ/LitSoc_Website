@@ -9,7 +9,7 @@ function canIssueInfo(setCanIssue) {
         setCanIssue(val)
     })
     .catch((err) => {
-        console.log(err)
+        // console.log(err)
     })
 }
 

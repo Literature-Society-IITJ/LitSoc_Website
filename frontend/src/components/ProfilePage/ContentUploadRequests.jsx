@@ -16,7 +16,7 @@ export default function ContentUploadRequests(props) {
     useEffect(() => {
         getContentUploadRequests().then((data) => {setContentUploadRequestList(data)})
         setRefresh(false)
-        console.log(contentUploadRequestList)
+        // console.log(contentUploadRequestList)
         }
         , [refresh])
 

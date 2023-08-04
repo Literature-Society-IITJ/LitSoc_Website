@@ -18,8 +18,8 @@ export default function BooksDisplay(props) {
     useEffect(() => {
         setBooksList(initialBooksList)
         setBooksList(initialBooksList.filter((book) => {
-            console.log(props)
-            console.log(props.bookNameInput), console.log(props.authorNameInput), console.log(props.genreInput), console.log(props.isbnInput)
+            // console.log(props)
+            // console.log(props.bookNameInput), console.log(props.authorNameInput), console.log(props.genreInput), console.log(props.isbnInput)
 
             if (props.bookNameInput === '' & props.authorNameInput === '' & props.genreInput === '' & props.isbnInput === '') {
                 return book
@@ -97,7 +97,7 @@ export default function BooksDisplay(props) {
                                 <td className='genre'>{book.category}</td>
                                 {
                                     book.availability ? (<td className='button'>
-                                    <button onClick={()=>[props.setShowBookItem(true), console.log('1'), props.setBookDetail(book)]}>Issue Book</button>
+                                    <button onClick={()=>[props.setShowBookItem(true), props.setBookDetail(book)]}>Issue Book</button>
                                     </td>)
                                     
                                     : <td className='button'>Available by {book.date}</td>

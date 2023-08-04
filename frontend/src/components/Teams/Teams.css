@@ -380,10 +380,11 @@
 
     /* animation: translateX 1s ease-in-out 0s forwards; */
 
-    animation: shiverAnimation 1s ease-in-out 0s forwards;
-
-    
     transition: 0.5s;
+}
+
+.teams-nav-panel-item-animation:hover{
+    animation: shiverAnimation 1s ease-in-out 0s forwards;
 }
 
 .teams-nav-panel-item:hover .team-nav-panel-dropdown-item-container{

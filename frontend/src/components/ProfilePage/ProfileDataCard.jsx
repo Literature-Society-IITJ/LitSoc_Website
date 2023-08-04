@@ -11,7 +11,7 @@ export default function ProfileDataCard(props) {
 
     // const bookData = props.bookDetails
     let userData = props.userData
-    console.log(userData)
+    // console.log(userData)
 
     let [showReadBooks, setShowReadBooks] = useState(false)
     let [showUploadedContent, setShowUploadedContent] = useState(false)

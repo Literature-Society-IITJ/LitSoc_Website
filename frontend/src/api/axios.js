@@ -2,8 +2,8 @@ import axios from 'axios'
 import { getToken } from '../utilities/localStorage';
 
 
-const url = 'https://litiitjb.litsoc.live/'
-// const url = 'http://127.0.0.1:8000/'
+// const url = 'https://litiitjb.litsoc.live/'
+const url = 'http://127.0.0.1:8000/'
 
 export default getQuotes;
 
@@ -18,7 +18,7 @@ export async function getQuotes() {
 
 export async function getBooks(params) {
     let baseURL =  url
-    console.log(params.genreInput)
+    // console.log(params.genreInput)
     let response = await axios.get(`${baseURL}library/`, 
                                     {params : {'category': params.genreInput, 'name': params.bookNameInput, 'isbn': params.isbnInput, 'author': params.authorNameInput}})
     // console.log('resp data', response.data);
@@ -141,13 +141,13 @@ export async function markBookReturned(bookId) {
     let baseURL = url
     let { access_token } = getToken()
 
-    console.log(bookId)
+    // console.log(bookId)
 
     let response = await axios.post(`${baseURL}library/bookreturn/`, 
     {'book_id': bookId},
     { headers: {'Authorization': `Bearer ${access_token}`, 
     'Content-Type': 'application/json'} })
-    console.log(response.data)
+    // console.log(response.data)
     return response.data
 }
 
@@ -197,7 +197,7 @@ export async function getReadSecItems(category) {
     let response = await axios.get(`${baseURL}readerSection/`,
     {params : {'category' : category}})
 
-    console.log(response.data)
+    // console.log(response.data)
     
     return response.data
 }
@@ -339,7 +339,7 @@ export async function getReadBooks() {
 export async function sendOTP(email, requestType) {
     let baseURL = url
 
-    console.log(email, requestType)
+    // console.log(email, requestType)
 
     let response = await axios.get(`${baseURL}home/emailverification/`,
                                     {params : {'email' : email,
@@ -357,7 +357,7 @@ export async function verifyOTP(email, otp) {
     let baseURL = url
     // let { access_token } = getToken()
 
-    console.log(email, otp)
+    // console.log(email, otp)
 
     // await delay(2000)
 
@@ -372,7 +372,7 @@ export async function changeUsername(newUsername) {
     let baseURL = url
     let { access_token } = getToken()
 
-    console.log(newUsername)
+    // console.log(newUsername)
 
     let response = await axios.post(`${baseURL}home/changeusername/`,
                                     { 'new_username':newUsername },

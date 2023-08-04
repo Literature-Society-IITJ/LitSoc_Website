@@ -25,7 +25,7 @@ function emailVerifFunction (setShowOTPFields, OTPRequestType, setOTPRequestType
             setEmailVerifErrorMsg(error.response.data)
         })
 
-        console.log(11111)
+        // console.log(11111)
     } 
     else {
         if (email == '') {
