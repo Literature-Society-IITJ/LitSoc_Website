@@ -2,10 +2,14 @@ import axios from 'axios'
 import { getToken } from '../utilities/localStorage';
 
 
+const url = 'https://litiitjb.litsoc.live/'
+// const url = 'http://127.0.0.1:8000/'
+
 export default getQuotes;
 
+
 export async function getQuotes() {
-    let baseURL =  'http://127.0.0.1:8000/'
+    let baseURL =  url
     let response = await axios.get(`${baseURL}team/`,
                                     {params : {'year' : '20'}})
     // console.log(response.data);
@@ -13,7 +17,7 @@ export async function getQuotes() {
 }
 
 export async function getBooks(params) {
-    let baseURL =  'http://127.0.0.1:8000/'
+    let baseURL =  url
     console.log(params.genreInput)
     let response = await axios.get(`${baseURL}library/`, 
                                     {params : {'category': params.genreInput, 'name': params.bookNameInput, 'isbn': params.isbnInput, 'author': params.authorNameInput}})
@@ -22,7 +26,7 @@ export async function getBooks(params) {
 }
 
 export async function login(email, password) {
-    let baseURL =  'http://127.0.0.1:8000/'
+    let baseURL =  url
     let response = await axios.post(`${baseURL}home/login/`,
                                     {'email': email, 'password': password})
     // console.log('login returned', response.data);
@@ -30,20 +34,20 @@ export async function login(email, password) {
 }
 
 export async function signup(firstname, lastname, rollnumber, phonenumber, username, email, password, cnfrmpassword) {
-    let baseURL = 'http://127.0.0.1:8000/'
-    console.log('pass', password)
-    console.log('conf', cnfrmpassword)
+    let baseURL = url
+    // console.log('pass', password)
+    // console.log('conf', cnfrmpassword)
     let response = await axios.post(`${baseURL}home/register/`,
                                     {'first_name':firstname, 'last_name':lastname, 'roll_number':rollnumber, 'phone': phonenumber, 'username':username , 'email': email, 'password': password, 'password2': cnfrmpassword})
 
-    console.log('hereeeeeeeeeeeeeeeee')
-    console.log(response.data)
+    // console.log('hereeeeeeeeeeeeeeeee')
+    // console.log(response.data)
 
     return response.data;
 }
 
 export async function issueRequest(bookId){
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     // const token = JSON.parse(sessionStorage.getItem('data'))
     let { access_token } = getToken()
     // console.log(bookId)
@@ -57,7 +61,7 @@ export async function issueRequest(bookId){
 
 
 export async function isUserBook() {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     let response = await axios.get(`${baseURL}library/issue/`,
@@ -68,7 +72,7 @@ export async function isUserBook() {
 
 
 export async function getUserData() {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     // console.log(access_token)
@@ -85,7 +89,7 @@ export async function getUserData() {
 
 
 export async function getIssueRequests(roll_number) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     // console.log('getting issue req')
@@ -102,7 +106,7 @@ export async function getIssueRequests(roll_number) {
 
 
 export async function modBookResponse(bookId, roll_number, appprovalStatus) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     // console.log(111111111)
@@ -120,7 +124,7 @@ export async function modBookResponse(bookId, roll_number, appprovalStatus) {
 
 
 export async function getIssuedBooks(bookId) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
 
     let response = await axios.get(`${baseURL}library/bookreturn/`,
                                     { params : {'book_id' : bookId }})
@@ -134,7 +138,7 @@ export async function getIssuedBooks(bookId) {
 
 
 export async function markBookReturned(bookId) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     console.log(bookId)
@@ -149,7 +153,7 @@ export async function markBookReturned(bookId) {
 
 
 export async function addModerator(rollNumber) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
     
     let response = await axios.post(`${baseURL}home/newmoderator/`, 
@@ -162,7 +166,7 @@ export async function addModerator(rollNumber) {
 
 
 export async function getModerators() {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
     
     
@@ -175,7 +179,7 @@ export async function getModerators() {
 
 
 export async function removeModerator(rollNumber) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
     
     let response = await axios.post(`${baseURL}home/removemoderator/`, 
@@ -188,16 +192,18 @@ export async function removeModerator(rollNumber) {
 
 
 export async function getReadSecItems(category) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     
     let response = await axios.get(`${baseURL}readerSection/`,
     {params : {'category' : category}})
+
+    console.log(response.data)
     
     return response.data
 }
 
 export async function getPuzzles() {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     
     let response = await axios.get(`${baseURL}puzzle/`)
     
@@ -206,7 +212,7 @@ export async function getPuzzles() {
 
 export async function getTeamDetails(year) {
     // console.log(year)
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
 
     let response = await axios.get(`${baseURL}team/`,
                                     {params : {'year' : year}})
@@ -216,7 +222,7 @@ export async function getTeamDetails(year) {
 
 
 export async function getProfileImage() {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     // console.log(222222222)
@@ -231,7 +237,7 @@ export async function getProfileImage() {
 }
 
 export async function updateProfileImage(formData) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     // console.log(1111111111)
@@ -248,7 +254,7 @@ export async function updateProfileImage(formData) {
 
 export async function uploadContent(formData) {
 
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     formData.append('access_token', access_token)
@@ -262,7 +268,7 @@ export async function uploadContent(formData) {
 
 
 export async function removeContent(title, author, category) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     // console.log(11111111)
@@ -276,7 +282,7 @@ export async function removeContent(title, author, category) {
 }
 // export async function getContentUploadRequests()
 export async function checkAdmin() {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     let response = await axios.get(`${baseURL}readerSection/isadmin/`,
@@ -288,7 +294,7 @@ export async function checkAdmin() {
 
 
 export async function getContentUploadRequests() {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
     
     let response = await axios.get(`${baseURL}readerSection/contentapproval/`,
@@ -301,7 +307,7 @@ export async function getContentUploadRequests() {
 }
 
 export async function contentUploadRequestResponse(title, member_id, category, appprovalStatus) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     // console.log(11111111)
@@ -318,7 +324,7 @@ export async function contentUploadRequestResponse(title, member_id, category, a
 
 
 export async function getReadBooks() {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
     
     let response = await axios.get(`${baseURL}home/readbooks/`,
@@ -331,7 +337,7 @@ export async function getReadBooks() {
 
 
 export async function sendOTP(email, requestType) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
 
     console.log(email, requestType)
 
@@ -348,7 +354,7 @@ export async function sendOTP(email, requestType) {
 // )
 
 export async function verifyOTP(email, otp) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     // let { access_token } = getToken()
 
     console.log(email, otp)
@@ -363,7 +369,7 @@ export async function verifyOTP(email, otp) {
 
 
 export async function changeUsername(newUsername) {
-    let baseURL = 'http://127.0.0.1:8000/'
+    let baseURL = url
     let { access_token } = getToken()
 
     console.log(newUsername)

@@ -31,7 +31,11 @@
 
 .clubs-top{
     width: 100vw;
-    padding: 0px;
+    padding: 0px 0px 40px 0px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .clubs-top-content{
@@ -41,7 +45,7 @@
     flex-direction: column;
     align-items: center;
 
-    padding: 160px 60px 40px 60px;
+    padding: 160px 60px 0px 60px;
     box-sizing: border-box;
 
     text-align: center;
@@ -80,7 +84,7 @@
 
 @media screen and (max-width: 1000px) {
     .clubs-top-content{
-        padding: 140px 40px 30px 40px;
+        padding: 140px 40px 0px 40px;
     }
     
     .clubs-top-content-title{
@@ -107,7 +111,7 @@
 
 @media screen and (max-width: 800px) {
     .clubs-top-content{
-        padding: 100px 20px 26px 20px;
+        padding: 100px 20px 0px 20px;
     }
     
     .clubs-top-content-title{
@@ -133,7 +137,7 @@
 
 @media screen and (max-width: 600px) {
     .clubs-top-content{
-        padding: 86px 20px 24px 20px;
+        padding: 86px 20px 0px 20px;
     }
     
     .clubs-top-content-title{
@@ -159,7 +163,7 @@
 
 @media screen and (max-width: 480px) {
     .clubs-top-content{
-        padding: 86px 20px 20px 20px;
+        padding: 86px 20px 0px 20px;
     }
     
     .clubs-top-content-title{
@@ -185,7 +189,7 @@
 
 @media screen and (max-width: 400px) {
     .clubs-top-content{
-        padding: 86px 20px 20px 20px;
+        padding: 86px 20px 0px 20px;
     }
     
     .clubs-top-content-title{
@@ -263,6 +267,21 @@
 
     padding: 0px;
 }
+.club-logo-container#word-games-club{
+    background-image: url('../../media/images/wgclogo.jpg');
+}
+.club-logo-container#oratory-club{
+    background-image: url('../../media/images/oclogo.jpg');
+}
+.club-logo-container#cwp-club{
+    background-image: url('../../media/images/cwpclogo.jpg');
+}
+.club-logo-container#book-club{
+    background-image: url('../../media/images/bclogo.jpg');
+}
+.club-logo-container#goonj{
+    background-image: url('../../media/images/goonjlogo.jpg');
+}
 
 .club-description{
     padding: 60px 60px 30px 60px;
@@ -285,6 +304,21 @@
     color: rgb(255, 255, 255);
     font-size: 25px;
     font-weight: 600;
+}
+.club-logo-container#word-games-club{
+    background-image: url('../../media/images/wgclogo.jpg');
+}
+.club-logo-container#oratory-club{
+    background-image: url('../../media/images/oclogo.jpg');
+}
+.club-logo-container#cwp-club{
+    background-image: url('../../media/images/cwpclogo.jpg');
+}
+.club-logo-container#book-club{
+    background-image: url('../../media/images/bclogo.jpg');
+}
+.club-logo-container#goonj{
+    background-image: url('../../media/images/goonjlogo.jpg');
 }
 
 @media screen and (max-width: 1320px) {

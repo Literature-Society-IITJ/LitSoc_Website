@@ -6,7 +6,7 @@ export default function ProfileButton() {
 
     let [profileImage, setProfileImage] = useState('') 
     useEffect(() => {
-        getProfileImage().then((data) => {setProfileImage('/src/media/' + data)})}
+        getProfileImage().then((data) => {setProfileImage('https://litiitjb.litsoc.live/media/' + data)})}
         , [])
 
     return (

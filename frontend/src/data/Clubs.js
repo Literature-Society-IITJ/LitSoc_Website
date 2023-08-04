@@ -36,7 +36,7 @@ export const ClubsData = {
 
         description: "The Word Games Club, Sphinx, is a place where you can challenge your cleverness and vocabulary through witty puzzles like cryptic crossies, rebuses, anagrams, scrabble, Pictionary, and many others. Cryptic crosswords are crosswords in which each clue is a word puzzle in itself. Unlike regular crossword clues, cryptic crossword clues are designed to be deliberately obscure, using wordplay and other tricks to hide the true meaning of the clue. Anagrams are words or phrases that are formed by rearranging the letters of another word or phrase. Scrabble is a board game in which players use letter tiles to form words on a game board. Pictionary is a party game that involves drawing pictures to convey words or phrases to other players, who must guess what the drawing represents.",
 
-        quote: "\"There is no friend as loyal as a book.\" - Ernest Hemingway.",
+        quote: "\"Wordplay hides a key to reality that the dictionary tries in vain to lock inside every free word.\" - Julio Cortazar",
     },
 
     Goonj: {
@@ -44,9 +44,9 @@ export const ClubsData = {
         clubname: "GOONJ",
         imgsrc: 'src/media/images/goonjlogo.jpg',
 
-        description: "Welcome to the college book club! We are a group of students who share a love for reading and a desire to engage with literature in a deeper, more meaningful way. Our club is open to anyone who wants to join, regardless of their major, background, or level of experience with books. Each semester, we will select a series of books to read and discuss, ranging from classics of literature to contemporary bestsellers. Our goal is to foster a community of readers who can share their thoughts, insights, and perspectives on a wide range of texts. Whether you're an avid reader or just starting to explore the world of books, we invite you to join us on this exciting journey of discovery and learning.",
+        description: "Goonj is a club of Literature Society for the people who are more interested in languages ​​other than English literature. People with similar interests meet and enjoy their passion to the utmost through goonj's different frequent online events and offline meetups. Also, regular competitions are conducted to encourage the writers to hold their pens and compile their world of thoughts!",
 
-        quote: "\"There is no friend as loyal as a book.\" - Ernest Hemingway.",
+        quote: "\"Poetry comes alive to me through recitation.\" - Natalie Merchant",
     },
 
 }

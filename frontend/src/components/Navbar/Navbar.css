@@ -1,9 +1,28 @@
+@keyframes navBarSlideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    /* 50% {
+        transform: translateY(100%);
+    } */
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
 .nav-bar{
     display: flex;
     position: fixed;
     top: 0px;
 
     width: 100vw;
+
+    /* transform: translateY(-100%); */
+    /* animation: navBarSlideDown 1.5s ease-in-out 0.7s forwards; */
+
+    z-index: 100000;
 }
 
 .nav-bar-main{
@@ -16,20 +35,29 @@
     height: 100%;
 
     backdrop-filter: blur(5px);
-    /* background-color: rgba(0, 0, 0, 0); */
 
     transition: 0.5s;
 }
 
-.nav-bar-main:hover{
-    background-color: rgba(0, 0, 0, 0.5);
-    /* background-color: rgba(63, 91, 128, 0.7); */
-    /* background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 1)); */
+
+
+.nav-bar-main:hover .navbar-upper{
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: 0.5s;
+}
+.nav-bar-main:hover .nav-panel{
+    background-color: rgba(63, 91, 128, 1);
     transition: 0.5s;
 }
 
-
-
+.nav-bar-main-hover .navbar-upper{
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: 0.5s;
+}
+.nav-bar-main-hover .nav-panel{
+    background-color: rgba(63, 91, 128, 1);
+    transition: 0.5s;
+}
 
 
 /* ######################################################################################## */
@@ -46,7 +74,7 @@
     padding: 10px 36px 10px 20px;
     box-sizing: border-box;
 
-    transition: 1s;
+    transition: 0.5s;
 }
 
 .lit-logo{
@@ -108,10 +136,12 @@
 
     background-color: #b0546f;
 
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     align-items: center;
     justify-content: center;
+    background-position: center;
 
     position: relative;
     color: white;
@@ -147,10 +177,10 @@
         background-color: rgba(63, 91, 128, 0.7);
         background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0));
     }
-    .nav-bar-main:hover{
+    /* .nav-bar-main:hover{
         background-color: rgba(63, 91, 128, 0.7);
         background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0));
-    }
+    } */
 
     .upper-bar-iitj-logo{
         display: none;
@@ -197,7 +227,19 @@
 
 
 
-
+@keyframes opacityChange {
+    0% {
+        opacity: 0;
+        /* transform: translateX(-40px); */
+    }
+    80% {
+        /* transform: translateX(20px); */
+    }
+    100% {
+        opacity: 1;
+        /* transform: translateX(0px); */
+    }
+}
 
 
 .nav-panel{
@@ -215,8 +257,12 @@
     justify-content: center;
 
     border-style: solid;
-    border-color: rgba(255, 255, 255, 0.7);
-    border-width: 1px 0px 1px 0px;
+    border-color: rgba(255, 255, 255, 0);
+    /* border-width: 1px 0px 1px 0px; */
+    border-width: 0px;
+
+    transition: 0.5s;
+
 }
 
 .nav-panel-items{
@@ -225,11 +271,30 @@
     align-items: center;
     column-gap: 2px;
 
+    opacity: 0;
+
     font-size: 20px;
     font-weight: 400;
     color: white;
     padding: 4px 26px 4px 26px;
 }
+
+.nav-panel-items:nth-child(1){
+    animation: opacityChange 1s ease-in-out 300ms forwards;
+}
+.nav-panel-items:nth-child(2){
+    animation: opacityChange 1s ease-in-out 700ms forwards;
+}
+.nav-panel-items:nth-child(3){
+    animation: opacityChange 1s ease-in-out 100ms forwards;
+}
+.nav-panel-items:nth-child(4){
+    animation: opacityChange 1s ease-in-out 900ms forwards;
+}
+.nav-panel-items:nth-child(5){
+    animation: opacityChange 1s ease-in-out 500ms forwards;
+}
+
 .nav-panel-drop-down-arrow-icon{
     font-size: 24px;
 }
@@ -240,48 +305,83 @@
 }
 
 .nav-drop-down-ul{
-    display: none;
+    display: flex;
+    flex-direction: column;
 
     height: fit-content;
     right: auto;
-
+    
     position: absolute;
     top: 100%;
     width: max-content;
     z-index: 2;
     text-align: left;
     align-self: auto;
-
+    
     margin-top: 0;
-    margin-left: -2vw;
+    margin-left: -26px;
     padding: 0vw;
-
+    
     transition: 1s;
 }
 
-.nav-panel-items:hover .nav-drop-down-ul{
-    display:flex;
-    flex-direction: column;
-    
-    /* background-color: rgba(255, 255, 255, 1); */
-    backdrop-filter: blur(10px);
-    background-color: rgba(63, 91, 128, 1);
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 100%, rgba(0, 0, 0, 0));
-
+.nav-panel-items:hover .nav-drop-down-ul{    
     transition: 1s;
+}
+
+
+/* Animation for dropdown items */
+@keyframes translateX {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    80% {
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
 
 .nav-drop-down-ul>a{
+    display: none;
+    opacity: 0;
     color:rgba(255, 255, 255, 1);
     font-size: 18px;
     background-color: transparent;
-
+    
     padding: 6px 26px 6px 20px;
-
+    
+    background-color: rgba(63, 91, 128, 1);
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 100%, rgba(0, 0, 0, 0));
+    
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-width: 0px 0px 1px 0px;
-
+    
+    
     transition: 0.5s;
+}
+
+.nav-drop-down-ul>a:nth-child(1){
+    animation: translateX 0.5s ease-in-out 0ms forwards;
+}
+.nav-drop-down-ul>a:nth-child(2){
+    animation: translateX 0.5s ease-in-out 100ms forwards;
+}
+.nav-drop-down-ul>a:nth-child(3){
+    animation: translateX 0.5s ease-in-out 200ms forwards;
+}
+.nav-drop-down-ul>a:nth-child(4){
+    animation: translateX 0.5s ease-in-out 300ms forwards;
+}
+.nav-drop-down-ul>a:nth-child(5){
+    animation: translateX 0.5s ease-in-out 400ms forwards;
+}
+
+.nav-panel-items:hover .nav-drop-down-ul>a{
+    display: block;
 }
 
 .nav-drop-down-ul>a:last-child{
@@ -289,8 +389,10 @@
 }
 
 .nav-drop-down-ul>a:hover{
-    background-color: rgba(0, 0, 0, 0.6);
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0));
     color: rgba(255, 255, 255, 1);
+
+    transition: 0.5s;
 }
 
 @media screen and (max-width: 1100px) {
@@ -298,7 +400,7 @@
         padding: 4px 20px 4px 20px;
     }
     .nav-drop-down-ul{
-        margin-left: -1.8vw;
+        margin-left: -20px;
     }
 }
 
@@ -309,6 +411,9 @@
     }
     .nav-panel-drop-down-arrow-icon{
         font-size: 22px;
+    }
+    .nav-drop-down-ul{
+        margin-left: -18px;
     }
     .nav-drop-down-ul>a{
         font-size: 16px;
@@ -424,3 +529,8 @@
         font-size: 20px;
     }
 }
+
+
+
+
+

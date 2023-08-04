@@ -7,7 +7,7 @@ import { useState } from 'react'
 export default function PuzzleCard(props) {
 
     let title = props.title
-    let puzzle = 'src/media/' + props.puzzle
+    let puzzle = 'https://litiitjb.litsoc.live/media/' + props.puzzle
     let image = props.image
     let author = props.author
     // let image = Image[0]

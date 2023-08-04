@@ -6,7 +6,9 @@ import NavPanel from './NavPanel';
 import SignInModal from '../SigningModal/SignInModal';
 import SignUpModal from '../SigningModal/SignUpModal';
 import NavSideBar from './NavSideBar';
-// import Nav_Club_dropdowns from './Nav_Club_drop';
+
+
+
 
 // const changeNavBarBG = () => {
 //     var cursorposition = window.scrollY/7
@@ -16,6 +18,21 @@ import NavSideBar from './NavSideBar';
 // };
 
 // window.addEventListener('scroll', changeNavBarBG);
+
+
+const changeNavBarBG = () => {
+    
+    if (window.scrollY) {
+        document.querySelectorAll(".nav-bar-main")[0].classList.add('nav-bar-main-hover');
+    }
+    else{
+        document.querySelectorAll(".nav-bar-main")[0].classList.remove('nav-bar-main-hover');
+    }
+
+    
+};
+
+window.addEventListener('scroll', changeNavBarBG);
 
 
 
@@ -35,13 +52,9 @@ export default function Navbar() {
 
             {showSideBar && <NavSideBar setShowSideBar={setShowSideBar} />}
 
-            <div>
-                <SignInModal showSigninPopup={showSigninPopup} setShowSignInPopUp={setShowSignInPopUp}
-                setShowSignUpPopUp={setShowSignUpPopUp} />            
-            </div>
-            <div>
-                <SignUpModal showSignupPopup={showSignupPopup} setShowSignUpPopUp={setShowSignUpPopUp} />
-            </div>
+            <SignInModal showSigninPopup={showSigninPopup} setShowSignInPopUp={setShowSignInPopUp}
+            setShowSignUpPopUp={setShowSignUpPopUp} />            
+            <SignUpModal showSignupPopup={showSignupPopup} setShowSignUpPopUp={setShowSignUpPopUp} />
         </>
     )
 }

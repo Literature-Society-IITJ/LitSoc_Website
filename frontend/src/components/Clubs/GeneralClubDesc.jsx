@@ -7,12 +7,12 @@ export default function GeneralClubDesc(props) {
     let desc = props.desc
     let quote = props.quote
 
-    console.log(logo)
+    // console.log(logo)
 
     return (
         <div className='club-desc-quote-container' id={id}>
             <div className='club-description-container' id={id}>
-                <div style={{backgroundImage: `url(${logo})`}} className='club-logo-container' id={id}>
+                <div className='club-logo-container' id={id}>
                 </div>
                 <div className='club-description' id={id}>
                     {desc}

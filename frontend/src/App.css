@@ -6,16 +6,19 @@ body{
     font-weight: 300;
      /* line-height: */
     overflow: auto;
+    height: 100%;
 }
 
 ::-webkit-scrollbar{
     display: none;
+    
 }
 
 #root {
     position: absolute;
     top: 0px;
     width: 100%;
+    height: 100%;
     align-items: center;
     margin: 0 auto;
     padding: 0px;

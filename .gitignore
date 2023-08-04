@@ -1,2 +1,5 @@
 #ignores the python environmentnamed litsoc
 litsoc/
+
+nginx.txt
+gunicornsocket.txt

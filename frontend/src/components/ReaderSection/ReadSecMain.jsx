@@ -51,15 +51,17 @@ export default function ReadSecMain() {
                     {
                         readersecNavPanelItems.map((items) =>(
                             <div className='reader-sec-nav-panel-items' id={items.category} onClick={()=>[setOnDisplayCategory(items.category), handleDivClick(items.category)]}>{items.title}</div>
-                            ))
+                        ))
                     }
                 </div>
 
                 <div className='reader-sec-contents'>
                     {
                     readsecContent.length ? (
-                        readsecContent.map((item) =>(
-                            <ItemCard title={item.title} content={item.content} author={item.member_name} img={item.background} setRefresh={setRefresh} isAdmin={isAdmin} category={item.category} clickEnable={true}/>
+                        readsecContent.map((item, i) => (
+                            <ItemCard title={item.title} content={item.content} author={item.member_name} img={item.background} setRefresh={setRefresh} isAdmin={isAdmin} category={item.category} clickEnable={true} 
+                            // dataAnimationOffset={i} 
+                            />
                             ))
                         ):
                         <div className='reader-sec-contents no-content-message'>
@@ -67,6 +69,7 @@ export default function ReadSecMain() {
                                 (onDisplayCategory) ? 
                                     'Alas! There is no content in this category right now!!!' :                                 
                                     'Please select a category!'
+                                    // 'To be live in a few days!!!'
                             }
                         </div>
                     }
