@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
 // import secy from '../../media_back/team/aditi.jpeg'
-import linkedin_logo from '../../media/Teams/linkedin-logo.svg'
-import insta_logo from '../../media/Teams/instagram-logo.svg'
-import gmail_logo from '../../media/Teams/gmail_icon.png'
 import { BiLogoInstagram, BiLogoGmail, BiLogoLinkedin } from 'react-icons/bi'
 
 // const img = '../../media/team/aditi.jpeg'
