@@ -57,21 +57,50 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 } */
 
-/* @media (prefers-color-scheme: light) {
-  :root {
+@media (prefers-color-scheme: light) {
+    input:-internal-autofill-selected {
+        appearance: menulist-button;
+        background-image: none !important;
+        background-color: -internal-ligth-dark(rgb(0, 0, 0), rgba(70, 90, 126, 0.9)) !important;
+        color: fieldtext !important;
+    }
+  /* :root {
     color: white;
-/*     background-color: #ffffff; */
-  }
-  a:hover {
+    background-color: #ffffff;
+  } */
+  /* a:hover {
     color: #747bff;
-  }
+  } */
 }
 @media (prefers-color-scheme: dark) {
-  :root {
-    color: white;
-    background-color: white;
-  }
-  a:hover {
-    color: #747bff;
-  }
-} */
+    input:-internal-autofill-selected {
+        appearance: menulist-button;
+        background-image: none !important;
+        /* background-color: (rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important; */
+        color: fieldtext !important;
+    }
+
+    button {
+        background-color: white;
+        color: black;
+    }
+
+    input::file-selector-button {
+        background-color: white;
+        color: black;
+        border: 2px solid white;
+    }
+
+    select {
+        background-color: white;
+        color: black;
+    }
+    /* :root {
+        color: white;
+        background-color: white;
+    } */
+    /* a:hover {
+        color: #747bff;
+    } */
+}
+

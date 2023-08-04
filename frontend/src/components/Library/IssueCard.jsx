@@ -92,7 +92,11 @@ export default function IssueCard(props) {
                             </div>
 
                             <div className='book-card-bottom'>
-                                <button className='book-card-button' onClick={()=>[ issueRequest(bookDetails.book_id), window.location.reload()] }>Issue Book</button>
+                                <button className='book-card-button' 
+                                onClick={()=>{ issueRequest(bookDetails.book_id).then((response) => {
+                                    alert('Book Issue Request Sent!')
+                                    window.location.reload()})
+                                    .catch((error) => { alert('Error! Please try again.') } )}}>Issue Book</button>
                             </div>
                         </>
                         ): 

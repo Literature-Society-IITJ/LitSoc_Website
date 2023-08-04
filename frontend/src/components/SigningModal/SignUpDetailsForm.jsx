@@ -48,7 +48,7 @@ function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmai
                         .then((response) => {
                             // console.log(response)
                             // console.log(response.token.access)
-                            console.log(1111111111111111, 'llllllllllllllllllll')
+                            // console.log(1111111111111111, 'llllllllllllllllllll')
                             storeToken(response.token)
                             alert('Sign Up Successful')
                             setErrorMessage('')

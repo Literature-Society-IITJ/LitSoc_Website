@@ -1115,6 +1115,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    flex-grow: 2;
 
     overflow-y: scroll;
 
@@ -1123,6 +1124,7 @@
 
 
     width: 100%;
+
 
     padding: 2vh 0vh;
 
