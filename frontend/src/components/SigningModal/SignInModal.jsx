@@ -22,6 +22,7 @@ function loginFunction(setErrorMessage, setShowSignInPopUp) {
     .then((response) => {
         // console.log(response.token.access)
         storeToken(response.token)
+        alert('Login Successful')
         window.location.reload()
         setShowSignInPopUp(false)
     })

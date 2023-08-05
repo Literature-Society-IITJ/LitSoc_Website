@@ -7,7 +7,7 @@ function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmai
 
     let firstname = document.getElementById('firstName').value
     let lastname = document.getElementById('lastName').value
-    let rollnumber = document.getElementById('rollNumber').value
+    let rollnumber = document.getElementById('rollNumber').value.toUpperCase()
     let phonenumber = document.getElementById('phoneNumber').value
     let username = document.getElementById('userName').value
     let email = emailInput
@@ -19,54 +19,77 @@ function signupFunction(setErrorMessage, setShowSignUpPopUp, emailInput, setEmai
         return
     }
     else {
-        if (password != cnfrmpwd) {
-            setErrorMessage('Confirm Password does not match.')
+        if (!['B', 'M', 'P', 'C', 'D'].includes(rollnumber.charAt(0))) {
+            setErrorMessage('Invalid Roll Number')
             return
         }
-        else{
-            setErrorMessage('Processing')
-            signup(firstname, lastname, rollnumber, phonenumber, username, email, password, cnfrmpwd)
-            .then((response) => {
-                // console.log(response)
-                // console.log(response.token.access)
-                // console.log(1111111111111111, 'llllllllllllllllllll')
-                storeToken(response.token)
-                alert('Sign Up Successful')
-                setErrorMessage('')
-                // window.alert('Sign Up done vro')
 
-                // console.log(1111111111111111)
+        else {
+            if (phonenumber.length != 10) {
+                setErrorMessage('Invalid Phone Number')
+                return
+            }
 
+            else {
+                if ((password.length < 8) || (password.search(/[a-z]/i) < 0) || (password.search(/[0-9]/) < 0) || (password.search(/[!@#$%^&*]/) < 0)) {
+                    window.alert('Please follow the password guidelines')
+                    setErrorMessage('')
+                    return
+                }
 
-                document.getElementById('firstName').value = ''
-                document.getElementById('lastName').value = ''
-                document.getElementById('rollNumber').value = ''
-                document.getElementById('phoneNumber').value = ''
-                document.getElementById('userName').value = ''
-                document.getElementById('emailInput').value = ''
-                document.getElementById('password').value = ''
-                document.getElementById('cnfrmPwd').value = ''
-                setEmail('')
-                setShowDetailsForm(false)
-                setShowEmailVerificationForm(true)
-                // console.log("I am dancinnggggggggggggggggggg")
-                setShowSignUpPopUp(false)
-                window.location.reload()
-
-            })
-            .catch((error) => {
-                // console.log('error')
-                // console.log(error.response.data)
-                // console.log(22222222, 'hhhhhhhhhhhhhhhhhhhhhhh')
-                // console.log(error)
-                // let errorMsg = error.response
-                // console.log(errorMsg)
-                // setErrorMessage(JSON.stringify(errorMsg))
-                setErrorMessage(error.response.data)
-            })
+                else {
+                    if (password != cnfrmpwd) {
+                        setErrorMessage('Confirm Password does not match.')
+                        return
+                    }
+                    else{
+                        setErrorMessage('Processing')
+                        signup(firstname, lastname, rollnumber, phonenumber, username, email, password, cnfrmpwd)
+                        .then((response) => {
+                            // console.log(response)
+                            // console.log(response.token.access)
+                            // console.log(1111111111111111, 'llllllllllllllllllll')
+                            storeToken(response.token)
+                            alert('Sign Up Successful')
+                            setErrorMessage('')
+                            // window.alert('Sign Up done vro')
+                
+                            // console.log(1111111111111111)
+                
+                
+                            document.getElementById('firstName').value = ''
+                            document.getElementById('lastName').value = ''
+                            document.getElementById('rollNumber').value = ''
+                            document.getElementById('phoneNumber').value = ''
+                            document.getElementById('userName').value = ''
+                            document.getElementById('emailInput').value = ''
+                            document.getElementById('password').value = ''
+                            document.getElementById('cnfrmPwd').value = ''
+                            setEmail('')
+                            setShowDetailsForm(false)
+                            setShowEmailVerificationForm(true)
+                            // console.log("I am dancinnggggggggggggggggggg")
+                            setShowSignUpPopUp(false)
+                            window.location.reload()
+                
+                        })
+                        .catch((error) => {
+                            // console.log('error')
+                            // console.log(error.response.data)
+                            // console.log(22222222, 'hhhhhhhhhhhhhhhhhhhhhhh')
+                            // console.log(error)
+                            // let errorMsg = error.response
+                            // console.log(errorMsg)
+                            // setErrorMessage(JSON.stringify(errorMsg))
+                            // console.log(error.response.data.errors.username[0])
+                            setErrorMessage(error.response.data.errors.username[0])
+                        })
+                    }   
+                }
+            }
         }
     }
-
+    
     
 
     // console.log('login returned')
@@ -106,7 +129,7 @@ export default function SignUpDetailsForm(props) {
 
                         <div className='input-container' id='last-name'>
                             <div className='input-container fixed-label'>Phone Number</div>
-                            <input className='input-label-signup' name='phonenumber' id='phoneNumber'/>
+                            <input type='number' className='input-label-signup' name='phonenumber' id='phoneNumber'/>
                         </div>
                     </div>
                 </div>
@@ -139,7 +162,12 @@ export default function SignUpDetailsForm(props) {
             </div>
 
             <div className='sign-modal-error-msg'>
-                { errorMessage? ('*' + errorMessage): null }
+                { errorMessage ? ('*' + errorMessage): 
+                <div>
+                    1. At least 8 characters long <br /> 
+                    2. Alphanumeric (at least 1 uppercase letter) <br />
+                    3. At least 1 special character <br />
+                    </div> }
             </div>
             
             <button className='sign-modal-button' onClick={() => 

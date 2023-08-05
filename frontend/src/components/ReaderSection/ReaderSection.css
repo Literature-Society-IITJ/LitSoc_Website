@@ -875,3 +875,25 @@
 
     border-width: 0px;
 }
+
+@media screen and (max-width:1000px) {
+    .no-content-message{
+        font-size: 36px;
+    }
+}
+@media screen and (max-width:800px) {
+    .no-content-message{
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .no-content-message{
+        font-size: 28px;
+    }
+}
+@media screen and (max-width:480px) {
+    .no-content-message{
+        font-size: 24px;
+    }
+}

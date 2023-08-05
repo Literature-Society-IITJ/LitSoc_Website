@@ -145,7 +145,7 @@ export default function TeamMain(props) {
                 <div className='teams-nav-panel'>
                     <div className="team-nav-panel-item-container">
                         <div className='team-nav-panel-item-rope'></div>
-                        <div className='teams-nav-panel-item' style={{cursor: 'pointer'}} onClick={()=>{setDisplayTeam('current')
+                        <div className='teams-nav-panel-item teams-nav-panel-item-animation' style={{cursor: 'pointer'}} onClick={()=>{setDisplayTeam('current')
                                                                             props.setTaglineDisplay('Current Team (2022-23)')}}>
                                                                                 
                             {Team.title}       
