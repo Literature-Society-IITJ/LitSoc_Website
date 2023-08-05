@@ -67,6 +67,7 @@ class MemberVerificationView(APIView):
                     return Response("OTP sent! Please check your inbox.", status=status.HTTP_200_OK)
                 else:
                     delta = (next_request_time - now).total_seconds()
+                    delta = int(delta)
                     return Response(f"The OTP is already sent to you, wait for {delta} seconds to take this action", status=status.HTTP_403_FORBIDDEN)
 
             temp_member = EmailVerification.objects.create(email = email, request_time = datetime.now())
