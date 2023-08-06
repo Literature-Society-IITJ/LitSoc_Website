@@ -303,7 +303,10 @@
     background-color: rgba(255, 255, 255, 1);
     color: #000000;
 }
-
+#nav-panel-club:hover{
+    background-color: rgba(255, 255, 255, 1);
+    color: #000000;
+}
 .nav-drop-down-ul{
     display: flex;
     flex-direction: column;
@@ -326,6 +329,9 @@
 }
 
 .nav-panel-items:hover .nav-drop-down-ul{    
+    transition: 1s;
+}
+#nav-panel-club:hover .nav-drop-down-ul{    
     transition: 1s;
 }
 
@@ -383,6 +389,12 @@
 .nav-panel-items:hover .nav-drop-down-ul>a{
     display: block;
 }
+#nav-panel-club:hover .nav-drop-down-ul>a{
+    display: block;
+}
+.nav-panel-items-hover .nav-drop-down-ul>a{
+    display: block;
+}
 
 .nav-drop-down-ul>a:last-child{
     border: none;
@@ -430,8 +442,7 @@
 
 
 
-
-
+/* ############################################################################################################## */
 .nav-side-bar{
     display: none;
     flex-direction: column;

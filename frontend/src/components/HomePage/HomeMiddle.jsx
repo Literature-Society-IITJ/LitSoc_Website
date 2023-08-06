@@ -3,6 +3,7 @@ import HomeFeatured from './HomeFeatured'
 import HomeAllSecDesc from './HomeAllSecDesc'
 import HomeSocDesc from './HomeSocDesc'
 import HomeStarfield from './HomeStarfield'
+import HomeFunData from './HomeFunData'
 
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
             <HomeStarfield />
             <HomeFeatured />
             <HomeSocDesc />
+            <HomeFunData />
             <HomeAllSecDesc />
         </div>
     )
