@@ -186,8 +186,8 @@ export default function TeamMain(props) {
                                                                 onClick={()=>{setDisplayTeam(item.year)
                                                                 props.setTaglineDisplay(`Alumni Team (${item.year})`)
                                                                 }}>
-                                                        <div className='team-nav-panel-item-rope'></div>
-                                                        <div className='teams-nav-panel-item' style={{cursor: 'pointer'}}>
+                                                        <div className='team-nav-panel-dropdown-item-rope'></div>
+                                                        <div className='teams-nav-panel-dropdown-item' style={{cursor: 'pointer'}}>
                                                             {item.year}
                                                         </div>
                                                     </div>

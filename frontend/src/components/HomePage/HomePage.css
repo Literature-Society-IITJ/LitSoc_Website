@@ -625,6 +625,7 @@
         transform: rotate(-20deg) translate(-15%, 40%);
     }
 }
+
 .home-all-desc-card-animate{
     animation: HomeAllDescFadeIn 1s forwards ease-in-out 0s;
 }
@@ -634,6 +635,7 @@
 .home-all-desc-45rotate-container-animate{
     animation: HomeAllSec45DegRotate 1s forwards ease-in-out 0s;
 }
+
 
 .home-all-sections-desc{
     display: flex;
@@ -1093,5 +1095,97 @@
     }
     .fun-data-card-category{
         font-size: 14px;
+    }
+}
+
+
+
+
+
+
+.home-loading-animation{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    background-color: rgb(37, 60, 87);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 40%, rgba(0, 0, 0, 0));
+
+    z-index: 100001;
+
+    animation: windowOpen 3s ease-in-out 2s forwards;
+}
+.home-loading-animation-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 200px;
+    width: 200px;
+
+    overflow: visible;
+
+    -webkit-mask-image: url('../../media/images/white_logo.png');
+    mask-image: url('../../media/images/white_logo.png');
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;  
+}
+
+.wavies-svg{
+    background-color: white;
+    height: 400px;
+    width: 1000px;
+
+    animation: waveUp 5s linear forwards;
+}
+.wavies{
+    height: 400px;
+    width: 1000px;
+}
+
+.wavies > use{
+    animation: waveAround 12s linear infinite;
+    &:nth-child(1) { animation-delay:-2s; }
+    &:nth-child(2) { animation-delay:-2s; animation-duration:5s }
+    &:nth-child(3) { animation-delay:-4s; animation-duration:3s }
+}
+  
+@keyframes waveAround{
+    0% { transform: translate(-90px , 0%) }
+    100% { transform: translate(85px , 0%) }
+}
+
+@keyframes waveUp {
+    0% { 
+        /* transform: translate(0% , 100%)  */
+        transform: scaleY(0);
+    }
+    100% { 
+        /* transform: translate(0% , -10%) */
+        transform: scaleY(1); 
+    }
+}
+
+@keyframes windowOpen {
+    0% {
+        transform: rotate3d(1, 1, 1, 0deg);
+    }
+    50% {
+        transform: rotate3d(1, 1, 0, 90deg);
+    }
+    100% {
+        transform: rotate3d(1, 1, 0, -90deg);
     }
 }
