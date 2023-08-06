@@ -1,0 +1,42 @@
+export const FandomData = {
+    FandomEvent1 : {
+        index : 1,
+        title : 'Quiz',
+        date : '16th August 2023',
+        time : '19:00',
+        description : 'Anime related quiz with multiple rounds and prizes',
+        special_rules : '1. No cheating', 
+    },
+    FandomEvent2 : {
+        index : 1,
+        title : 'Quiz',
+        date : '16th August 2023',
+        time : '19:00',
+        description : 'Anime related quiz with multiple rounds and prizes',
+        special_rules : '1. No cheating', 
+    },
+    FandomEvent3 : {
+        index : 1,
+        title : 'Quiz',
+        date : '16th August 2023',
+        time : '19:00',
+        description : 'Anime related quiz with multiple rounds and prizes',
+        special_rules : '1. No cheating', 
+    },
+    FandomEvent4 : {
+        index : 1,
+        title : 'Quiz',
+        date : '16th August 2023',
+        time : '19:00',
+        description : 'Anime related quiz with multiple rounds and prizes',
+        special_rules : '1. No cheating', 
+    },
+    FandomEvent5 : {
+        index : 1,
+        title : 'Quiz',
+        date : '16th August 2023',
+        time : '19:00',
+        description : 'Anime related quiz with multiple rounds and prizes',
+        special_rules : '1. No cheating', 
+    },   
+}

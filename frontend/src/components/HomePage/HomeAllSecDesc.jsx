@@ -31,6 +31,16 @@ const addDescriptionAnimation = () => {
             // elem.style.animation = 'HomeAllSec45DegRotate 1s forwards ease-in-out 0s';
         }
     })
+
+    const homeAllSecDescCardContentContainer = document.querySelectorAll(".home-all-desc-content-container");
+    homeAllSecDescCard45DegContainer.forEach(elem => {
+        if (elem.getBoundingClientRect().top < window.innerHeight-60) {
+            elem.classList.add('home-all-desc-content-container-animate');
+            // document.querySelectorAll(".home-all-desc-card-border")[0].classList.add('home-all-desc-card-border-animate');
+            // console.log(elem.style)
+            // elem.style.animation = 'HomeAllSec45DegRotate 1s forwards ease-in-out 0s';
+        }
+    })
 };
 
 window.addEventListener('scroll', addDescriptionAnimation);

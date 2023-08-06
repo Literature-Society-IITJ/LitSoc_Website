@@ -17,6 +17,7 @@ import LitsChamber from './pages/LitsChamber'
 import MUN from './pages/MUN'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
+import Fandom from './pages/Fandom'
 // import home-main from './pages/HomePage'
 
 
@@ -27,6 +28,9 @@ function App() {
                 <Routes>
                     <Route path='/' element={<HomePage />} />
                     <Route path='/home' element={<HomePage />} />
+                    
+                    <Route path='/fandom' element={<Fandom />} />
+                    {/* <Route path='/register' element={<Register />} /> */}
 
                     <Route path='/bookclub' element={<BookClub />} />
                     <Route path='/oratoryclub' element={<OratoryClub />} />

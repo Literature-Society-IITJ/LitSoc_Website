@@ -76,7 +76,7 @@ export const navPanelItems = [
     // },
     {
         index: 3,
-        title: "READER'S SECTION",
+        title: "READERS' SECTION",
         path: "/readersec",
         dropdown: [],
         id: "nav-panel-readersec",

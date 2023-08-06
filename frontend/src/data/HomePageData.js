@@ -9,8 +9,8 @@ export const HomeAllSecDescList = [
     },
     {
         id: 'reader-section',
-        title: 'READER\'S SECTION',
-        desc: 'Visit our reader\'s section to read the latest articles and stories.',
+        title: 'READERS\' SECTION',
+        desc: 'Visit our readers\' section to delve into the works of our witty writers.',
         img: '../../media/images/homereadersec.jpg',
         id: 'home-all-desc-reader',
         href: 'readersec'
@@ -18,7 +18,7 @@ export const HomeAllSecDescList = [
     {
         id: 'puzzles',
         title: 'PUZZLES',
-        desc: 'Visit our puzzles page to solve the latest puzzles.',
+        desc: 'Find the most intriguing word games and puzzles here.',
         img: '../../media/images/homepuzzles.jpg',
         id: 'home-all-desc-puzzles',
         href: 'puzzles'
@@ -26,7 +26,7 @@ export const HomeAllSecDescList = [
     {
         id: 'team',
         title: 'TEAM',
-        desc: 'Visit our team page to know more about the team.',
+        desc: 'Know more about out LIT family.',
         img: '../../media/images/hometeam.jpg',
         id: 'home-all-desc-team',
         href: 'team'
@@ -34,7 +34,7 @@ export const HomeAllSecDescList = [
     {
         id: 'library',
         title: 'LIBRARY',
-        desc: 'Visit our library page to read the latest books.',
+        desc: 'Dive into the world of books and stories.',
         img: '../../media/images/homelibrary.jpg',
         id: 'home-all-desc-library',
         href: 'library'
@@ -44,7 +44,7 @@ export const HomeAllSecDescList = [
 
 export const HomeFeaturedInfo = {
     'title': 'LITSOC',
-    'tagline': 'Welcome to Anime Fandom',
-    'description': 'Hello everyone! We bring to you the first ever Anime Convention of IIT Jodhpur, OTACON. We are a group of anime enthusiasts who have come together to bring to you a convention that will be a celebration of the anime culture. We will be hosting a variety of events, ranging from quizzes to debates to discussions, and much more. We will also be hosting a cosplay competition.',
+    'tagline': 'Join us for OTACON, the Anime Fandom of IIT Jodhpur!',
+    'description': 'Hello everyone! We bring to you the first ever Anime Convention of IIT Jodhpur, OTACON. We are a group of anime enthusiasts who have come together to bring to you a convention that will be a celebration of the anime culture. We will be hosting a variety of events, ranging from quizzes to debates to discussions, and much more.',
     'buttonText': 'Register Now!',
 }

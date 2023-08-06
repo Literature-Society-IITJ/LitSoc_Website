@@ -1,0 +1,326 @@
+/* src/fonts.css */
+
+/* @font-face {
+  font-family: 'Action Comics Black';
+  src: url('../../media/fonts/Action Comics Black.ttf') format('truetype');
+} */
+
+.body{
+  font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum 
+viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+}
+
+.fandom-main {
+    display: grid;
+    grid-template-rows: 1fr; /* Use only one row that takes the entire available height */
+}
+
+.fandom-mainpage {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px 60px;
+    
+    width: 100vw;
+    max-width: 100vw;
+
+    min-height: 80vh;
+    height: fit-content;
+    max-height: 100vh;
+
+    box-sizing: border-box;
+
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 100%, rgb(0, 0, 0, 0)), url("../../media/fandom/fandombg3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: 10;
+
+    /* font-family: "Action Comics Black", "Times New Roman", Times, serif; */
+}
+.fandom-main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    max-width: max(50%, 400px);
+}
+.fandom-mainpage-logo{
+    height: 140px;
+    width: 340px;
+    background-image: url("../../media/fandom/otaconlogo.png");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+.fandom-front-text{
+    color:white;
+    font-weight: 600;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 24px;
+}
+.otacon-register-here-button{
+    /* font-weight: 800; */
+    background-color: black;
+    color: white;
+    padding: 6px 16px;
+    font-size: 26px;
+}
+
+.fandom-teams{
+    width: 100%;
+    background-image: url("../../media/fandom/fandombg2.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+  
+.fandom-timeline{
+    width: 100%;
+    background-color: rgb(116, 216, 116);
+    background-image: url("../../media/fandom/timelinebg.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+} 
+
+
+
+
+
+
+
+
+
+
+.otacon-team-container{
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0)), url("../../media/fandom/kiminonawa.jpg");
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: 60px;
+    row-gap: 40px;
+
+    padding: 40px 40px;
+    box-sizing: border-box;
+
+    background-color: white;
+}
+.otacon-team-card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    column-gap: 5px;
+    row-gap: 20px;
+    padding: 16px 22px;
+    box-sizing: border-box;
+
+    /* width: 300px; */
+    /* min-height: 360px; */
+    height: fit-content;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 4px 4px 8px 0px rgba(255, 255, 255, 0.8);
+}
+.otacon-team-card-img{
+    height: 100px;
+    width: 100px;
+
+    border-radius: 50%;
+}
+.otacon-team-card-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 200px;
+
+    row-gap: 0px;
+    line-height: 0px;
+}
+.otacon-team-card-name{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: black;
+}
+.contact-links{
+    display: flex;
+    flex-direction: row;
+    column-gap: 12px;
+
+    font-size: 22px;
+    color: black;
+}
+.contact-icon-link{
+    font-size: 32px;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+.fandom-events-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+    background-color: white;
+}
+
+  .fandom-teams-card {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 50px 0;
+
+    /* max-width: 300px; */
+  }
+  
+  .fandom-teams-content {
+    flex-basis: calc(33.33333% - 30px);
+    margin: 0 15px 30px;
+    overflow: hidden;
+    border-radius: 28px;
+  }
+  
+  .fandom-teams-content-link {
+    display: block;
+    padding: 30px 20px;
+    background: rgba(0, 0, 0, 1);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .fandom-teams-content-link:hover,
+  .fandom-teams-content-link:hover .fandom-teams-content-date {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .fandom-teams-content-link:hover .fandom-teams-content-bg {
+    transform: scale(10);
+  }
+  
+  .fandom-teams-content-title {
+    min-height: 87px;
+    margin: 0 0 25px;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 30px;
+    color: #fff;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .fandom-teams-content-venue {
+    font-size: 18px;
+    color: #fff;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .fandom-teams-content-date {
+    font-weight: bold;
+    color: #f9b234;
+    transition: color 0.5s ease;
+  }
+  
+  .fandom-teams-content-bg {
+    height: 128px;
+    width: 128px;
+    background-color: #f9b234;
+    z-index: 1;
+    position: absolute;
+    top: -75px;
+    right: -75px;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+  }
+  
+
+
+.fandom-teams-content-date:nth-child(2n) {
+    color: #3ecd5e;
+}
+.fandom-teams-content-date:nth-child(2n) {
+    color: #e44002;
+}
+.fandom-teams-content-date:nth-child(2n) {
+    color: #952aff;
+}
+.fandom-teams-content-date:nth-child(2n) {
+    color: #cd3e94;
+}
+.fandom-teams-content-date:nth-child(2n) {
+    color: #4c49ea;
+}
+.fandom-teams-content:nth-child(2n) .fandom-teams-content-bg {
+    background-color: #3ecd5e;
+}
+
+.fandom-teams-content:nth-child(3n) .fandom-teams-content-bg {
+    background-color: #e44002;
+}
+
+.fandom-teams-content:nth-child(4n) .fandom-teams-content-bg {
+    background-color: #952aff;
+}
+
+.fandom-teams-content:nth-child(5n) .fandom-teams-content-bg {
+    background-color: #cd3e94;
+}
+
+.fandom-teams-content:nth-child(6n) .fandom-teams-content-bg {
+    background-color: #4c49ea;
+}
+  
+@media only screen and (max-width: 979px) {
+    .fandom-teams-content {
+        flex-basis: calc(50% - 30px);
+    }
+    .fandom-teams-content-title {
+        font-size: 24px;
+    }
+}
+  
+@media only screen and (max-width: 767px) {
+    .fandom-teams-container {
+        width: 96%;
+    }
+}
+  
+@media only screen and (max-width: 639px) {
+    .fandom-teams-content {
+        flex-basis: 100%;
+    }
+    .fandom-teams-content-title {
+        min-height: 72px;
+        line-height: 1;
+        font-size: 24px;
+    }
+    .fandom-teams-content-link {
+        padding: 22px 40px;
+    }
+    .fandom-teams-content-date {
+        font-size: 16px;
+    }
+}
+  

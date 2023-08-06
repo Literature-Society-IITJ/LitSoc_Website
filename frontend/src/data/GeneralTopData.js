@@ -10,8 +10,8 @@ export const GeneralTopData = {
     ReaderSection:{
         className: 'reader-sec-top',
         id: 'reader-section',
-        title: "READER'S SECTION",
-        tagline: "We welcome you to LitSoc!",
+        title: "READERS' SECTION",
+        tagline: "Escape into the living through the enchanting words of our witty writers.",
         imgsrc: '/src/media/backgrounds/readsecbg.jpg'
     },
 
@@ -27,7 +27,7 @@ export const GeneralTopData = {
         className: 'puzzles-top',
         id: 'puzzles',
         title: "PUZZLES",
-        tagline: "We welcome you to LitSoc!",
+        tagline: "You might want to swirl your brain around to crack these puzzles.",
         imgsrc: '/src/media/backgrounds/pexels-anni-roenkae-4793467.jpg'
     },
 
@@ -43,7 +43,7 @@ export const GeneralTopData = {
         className: 'library-top',
         id: 'library',
         title: "LIBRARY",
-        tagline: "Please keep the books safe.",
+        tagline: "Uncover worlds between pages, where imagination takes flight!.",
         imgsrc: '/src/media/backgrounds/bg4.jpg'
     },
 

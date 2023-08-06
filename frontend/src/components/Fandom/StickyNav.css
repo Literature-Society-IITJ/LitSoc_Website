@@ -1,0 +1,145 @@
+/* Fandom.css
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.fandom-nav-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #c4693bda; 
+  z-index: 100; 
+}
+
+.fandom-nav {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.fandom-nav-element-first,
+.fandom-nav-element,
+.fandom-nav-element-last {
+  text-decoration: none;
+  color: #000000b0;
+  padding: 10px 20px; 
+  margin: 0 5px; 
+  border-radius: 5px; 
+}
+
+.fandom-nav-element-first:hover,
+.fandom-nav-element:hover,
+.fandom-nav-element-last:hover {
+  background-color: #f0f0f0; 
+}
+
+@media screen and (max-width: 768px) {
+  .fandom-nav {
+    flex-direction: column;
+  }
+
+  .fandom-nav-element-first,
+  .fandom-nav-element,
+  .fandom-nav-element-last {
+    margin: 5px 0;
+  }
+}
+
+*/
+
+ /* @font-face {
+    font-family: "Action Comics";
+    src: url('../../media/fonts/Action Comics.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: "Action Comics Black";
+    src: url('../../media/fonts/Action Comics Black.ttf') format('truetype');
+  } */
+
+  body {
+    font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum 
+  viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+  }
+  
+  .fandom-upper-bar-container {
+    
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    z-index: 100;
+}
+
+.fandom-upper-bar-logo{
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    width: 70px;
+    height: 70px;
+    background-image: url('../../media/images/white_logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    /* mix-blend-mode: difference; */
+
+    z-index: 11;
+}
+
+.fandom-nav {
+    position: fixed;
+    top: 20px;
+
+    font-family: "Action Comics", "Times New Roman", Times, serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 20px;
+    
+    background-color: rgba(214, 102, 45, 1);
+    /* background-color: white; */
+    border-radius: 4px;
+
+    font-weight: 400;
+    font-size: 0.7em;
+
+    padding: 12px 20px;
+  }
+  
+  .fandom-nav-element-first,
+  .fandom-nav-element,
+  .fandom-nav-element-last {
+    text-decoration: none;
+    color: #000000b0;
+    border-radius: 5px;
+  }
+  
+  .fandom-nav-element-first:hover,
+  .fandom-nav-element:hover,
+  .fandom-nav-element-last:hover {
+    background-color: #f0f0f0;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .fandom-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .fandom-nav-element-first,
+    .fandom-nav-element,
+    .fandom-nav-element-last {
+      flex: 0 0 calc(25% - 10px);
+      /* Distribute items in a single column with some spacing */
+      text-align: center;
+      margin: 5px;
+    }
+  }
+  

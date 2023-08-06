@@ -443,6 +443,25 @@
 
 
 /* ############################################################################################################## */
+
+@keyframes navSidebarSlideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes navSidebarSlideOut {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 .nav-side-bar{
     display: none;
     flex-direction: column;
@@ -462,10 +481,18 @@
     
     z-index: 100001;
     
-    
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.5);
     border-width: 0px 2px 0px 0px;
+
+    transition: 0.5s;
+
+    transform: translateX(-100%);
+    animation: navSidebarSlideIn 0.5s ease-in-out 0.1s forwards;
+}
+.nav-side-bar-animate-out{
+    transform: translateX(0%);
+    animation: navSidebarSlideOut 0.5s ease-in-out 0.1s forwards;
 }
 
 .nav-side-bar-upper-bar{

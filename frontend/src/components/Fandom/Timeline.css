@@ -1,0 +1,83 @@
+/* @font-face {
+  font-family: "Quella";
+  src: url('../../media/fonts/Quella-4BO2p.ttf') format('truetype');
+} */
+
+.body{
+  font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum 
+  viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+}
+
+.fandom-timeline{
+  display: grid;
+}
+
+.timeline__heading{
+  font-size: 5vw;
+}
+
+.timeline {
+  margin: 0 auto;
+  max-width: 750px;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 3px 1fr;
+  font-family: "Quella","Fira Sans", sans-serif;
+  /* font-size: 3vw; */
+  color: #ffffff;
+}
+
+.timeline__component {
+  margin: 0 20px 20px 20px;
+  position: relative; /* Add this for positioning timeline__point */
+}
+
+.timeline__component--bg {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.3); /* Make the background slightly opaque */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.timeline__component--bottom {
+  margin-bottom: 0;
+}
+
+.timeline__middle {
+  position: relative;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.timeline__point {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: #3865ce; /* Change the timeline point color */
+  border-radius: 50%;
+  border: 3px solid #fff; /* Add a white border around the timeline point */
+  z-index: 1; /* Raise the timeline point above the timeline__component--bg */
+}
+
+.timeline__point--bottom {
+  top: initial;
+  bottom: 0;
+}
+
+.timeline__date--right {
+  text-align: right;
+}
+
+.timeline__title {
+  margin: 10px 0 5px; /* Add some spacing to the title */
+  font-size: 1.3rem; /* Increase the title font size */
+  font-weight: bold;
+}
+
+.timeline__paragraph {
+  line-height: 1.6;
+  font-size: 1rem; /* Adjust the font size of the paragraphs */
+}

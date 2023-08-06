@@ -17,7 +17,7 @@ export default function HomeFeatured() {
                     {HomeFeaturedInfo.description}
                 </div>
                 <div className='home-featured-button-container'>
-                    <button className='home-featured-button' onClick={() => {location.href = '/team'}}>
+                    <button className='home-featured-button' onClick={() => {location.href = '/fandom'}}>
                         {/* <div className='home-featured-button-text'> */}
                             {HomeFeaturedInfo.buttonText}
                         {/* </div> */}
