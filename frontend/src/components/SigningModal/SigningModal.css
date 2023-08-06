@@ -185,6 +185,9 @@
 
     width: 100%;
 }
+#signup-email-verification{
+    align-items: flex-start;
+}
 .signup-form-field-row{
     display: flex;
     flex-direction: row;
@@ -218,6 +221,7 @@
 
     margin: 10px 0px 0px 0px;
 }
+
 
 .fixed-label{
     margin: 0px;

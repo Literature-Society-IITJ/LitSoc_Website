@@ -66,6 +66,7 @@ export const navPanelItems = [
         title: "CLUBS",
         path: "#",
         dropdown: navClubsItems,
+        id: "nav-panel-club",
     },
     // {
     //     index: 2,
@@ -78,6 +79,7 @@ export const navPanelItems = [
         title: "READER'S SECTION",
         path: "/readersec",
         dropdown: [],
+        id: "nav-panel-readersec",
     },
     // {
         // index: 4,
@@ -90,18 +92,21 @@ export const navPanelItems = [
         title: "PUZZLES",
         path: "/puzzles",
         dropdown: [],
+        id: "nav-panel-puzzles",
     },
     {
         index: 6,
         title: "TEAM",
         path: "/team",
         dropdown: [],
+        id: "nav-panel-team",
     },
     {
         index: 7,
         title: "LIBRARY",
         path: "/library",
         dropdown: [],
+        id: "nav-panel-library",
     }   
 ]
 

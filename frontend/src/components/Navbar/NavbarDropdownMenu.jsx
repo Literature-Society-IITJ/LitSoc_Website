@@ -14,7 +14,7 @@ export default function NavbarDropdownMenu(props) {
             </a>
         ) : 
         (
-            <div className='nav-panel-items'>
+            <div className='nav-panel-items' id={props.id}>
                 <div>
                     {title}
                 </div>

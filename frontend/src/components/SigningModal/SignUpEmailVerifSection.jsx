@@ -102,7 +102,7 @@ export default function SignUpEmailVerifSection(props) {
     return (
         <section className='signup-form-container'>
             <div className='signup-form'>
-                <div className='signup-form-input-container'>
+                <div className='signup-form-input-container' id='signup-email-verification'>
                     <div className='input-container'>    
                         <span className='input-container fixed-label'>Email Address</span>
                         <div className='signup-form-email-field-row'>
@@ -121,7 +121,7 @@ export default function SignUpEmailVerifSection(props) {
 
                     {
                         (showOTPFields) ? (
-                            <div className='input-container' id='email'>
+                            <div className='input-container' id='otp-input-container'>
                                 <span className='input-container fixed-label'>Enter OTP</span>
                                 <input className='input-label-signup' name='email' id='otpInput'/>
                             </div>
