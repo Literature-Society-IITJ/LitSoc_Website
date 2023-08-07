@@ -1,3 +1,20 @@
+/* @keyframes signModalFadeIn{
+    0% {
+        backdrop-filter: blur(0px);
+    }
+    100% {
+        backdrop-filter: blur(15px);
+    }    
+}
+@keyframes signModalBoxRotate{
+    0% {
+        transform: translate(-50%, -50%) rotateY(90deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }    
+} */
+
 .sign-modal{
     position: fixed;
     top: 0px;
@@ -10,6 +27,8 @@
     backdrop-filter: blur(15px);
 
     z-index: 100000;
+
+    animation: signModalFadeIn 0.5s ease-in-out 0.3s forwards;
 }
 
 .sign-modal-box{
@@ -22,21 +41,27 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);    
+
+    transform: translate(-50%, -50%);
     
     background-color: rgba(63, 91, 123, 0.9);
     box-shadow: 10px 10px 14px rgba(0, 0, 0, 0.8);
     box-sizing: border-box;
-
+    
     z-index: 100001;
+    
 }
 
 .sign-modal-box#sign-up-box{
     width: max-content;
+    transform: translate(-50%, -50%);
+    /* animation: signModalBoxRotate 0.5s ease-in-out 0.5s forwards; */
 }
 
 .sign-modal-box#sign-in-box{
     width: fit-content;
+    /* transform: translate(-50%, -50%) rotateY(90deg);     */
+    animation: signModalBoxRotate 0.5s ease-in-out 0.6s forwards;
 }
 
 .sign-modal-top{
@@ -185,6 +210,9 @@
 
     width: 100%;
 }
+#signup-email-verification{
+    align-items: flex-start;
+}
 .signup-form-field-row{
     display: flex;
     flex-direction: row;
@@ -218,6 +246,7 @@
 
     margin: 10px 0px 0px 0px;
 }
+
 
 .fixed-label{
     margin: 0px;
@@ -254,6 +283,7 @@
     box-sizing: border-box;
 }
 
+
 .input-label-signup{
     padding: 20px 15px;
 
@@ -280,6 +310,13 @@
     border-color: rgba(255, 255, 255, 0.5);
 
     box-sizing: border-box;
+}
+@media (prefers-color-scheme: dark) {
+    input:-webkit-autofill{
+        background-color: #e7effd !important;
+        color: black !important;
+    }
+
 }
 
 
@@ -352,3 +389,11 @@
         width: 100%;
     }
 }
+
+
+
+
+
+
+
+
