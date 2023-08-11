@@ -26,7 +26,7 @@ export const HomeAllSecDescList = [
     {
         id: 'team',
         title: 'TEAM',
-        desc: 'Know more about out LIT family.',
+        desc: 'Know more about our LIT family.',
         img: '../../media/images/hometeam.jpg',
         id: 'home-all-desc-team',
         href: 'team'
@@ -46,5 +46,5 @@ export const HomeFeaturedInfo = {
     'title': 'LITSOC',
     'tagline': 'Join us for OTACON, the Anime Fandom of IIT Jodhpur!',
     'description': 'Hello everyone! We bring to you the first ever Anime Convention of IIT Jodhpur, OTACON. We are a group of anime enthusiasts who have come together to bring to you a convention that will be a celebration of the anime culture. We will be hosting a variety of events, ranging from quizzes to debates to discussions, and much more.',
-    'buttonText': 'Register Now!',
+    'buttonText': 'Coming Soon!',
 }
