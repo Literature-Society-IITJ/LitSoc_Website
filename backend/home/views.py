@@ -75,6 +75,9 @@ class MemberVerificationView(APIView):
             return Response("OTP sent! Please check your inbox.", status=status.HTTP_200_OK)
 
         elif request_type == 'resendOTP':
+            member = EmailVerification.objects.filter(email = email)[0]
+            member.request_time = datetime.now()
+            member.save()
             send_otp_via_email(email)
             return Response("OTP resent successfully!", status=status.HTTP_200_OK)
 
