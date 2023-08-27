@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import App from './App'
+import store from './redux/store'
+import { Provider } from 'react-redux'
 
-export default class  extends Component {
+export default class extends Component {
     render() {
         return (
-            <App />
+            <Provider store={store}>
+                <App />
+            </Provider>
         )
     }
 }
