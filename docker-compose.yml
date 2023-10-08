@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  litsoc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: 'litsoc-backend:latest'
+    container_name: litsoc-backend
+    restart: unless-stopped
+    ports:
+      - 6969:6969
+    volumes:
+      - ./backend:/app
+    command:
+      - /bin/sh
+      - -c
+      - |
+        python manage.py flush --no-input
+        python manage.py makemigrations
+        python manage.py migrate
+        python manage.py collectstatic --no-input --clear
+        python manage.py runserver 0.0.0.0:6969
