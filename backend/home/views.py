@@ -22,6 +22,7 @@ import jwt
 
 import os
 
+
 def get_tokens_for_user(user):
     """
     Generates tokens for user
@@ -44,15 +45,17 @@ class MemberVerificationView(APIView):
         verification.
         """
 
-        # print('HEEEEEEEEEEEEEEEEEEREEEEEEEEEEEEEEEEEEEEEEEEEE')
         email = request.query_params.get('email')
         request_type = request.query_params.get('request_type')
 
         if Member.objects.filter(email = email).exists():
-            return Response("A user with this email already exists", status=status.HTTP_400_BAD_REQUEST)
-        
+            return Response(
+                "A user with this email already exists",
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
         if request_type == 'sendOTP':
-            exists = EmailVerification.objects.filter(email = email)
+            exists = EmailVerification.objects.filter(email=email)
             if len(exists)!=0:
                 exists = exists[0]
                 now = datetime.now()
@@ -60,32 +63,44 @@ class MemberVerificationView(APIView):
                 request_time = exists.request_time
                 next_request_time = request_time + timedelta(minutes=2)
 
-                if next_request_time<now:
+                if next_request_time < now:
                     exists.delete()
-                    temp_member = EmailVerification.objects.create(email = email, request_time = datetime.now())
+                    temp_member = EmailVerification.objects.create(
+                        email=email, request_time=datetime.now()
+                    )
                     send_otp_via_email(email)
-                    return Response("OTP sent! Please check your inbox.", status=status.HTTP_200_OK)
+                    return Response(
+                        "OTP sent! Please check your inbox.",
+                        status=status.HTTP_200_OK
+                    )
                 else:
                     delta = (next_request_time - now).total_seconds()
                     delta = int(delta)
-                    return Response(f"The OTP is already sent to you, wait for {delta} seconds to take this action", status=status.HTTP_403_FORBIDDEN)
+                    return Response(
+                        f"The OTP is already sent to you, wait for {delta} seconds to take this action",
+                        status=status.HTTP_403_FORBIDDEN
+                    )
 
-            temp_member = EmailVerification.objects.create(email = email, request_time = datetime.now())
+            temp_member = EmailVerification.objects.create(
+                email=email, request_time=datetime.now()
+            )
             send_otp_via_email(email)
-            return Response("OTP sent! Please check your inbox.", status=status.HTTP_200_OK)
-
+            return Response(
+                "OTP sent! Please check your inbox.", status=status.HTTP_200_OK
+            )
         elif request_type == 'resendOTP':
-            member = EmailVerification.objects.filter(email = email)[0]
+            member = EmailVerification.objects.filter(email=email)[0]
             member.request_time = datetime.now()
             member.save()
             send_otp_via_email(email)
-            return Response("OTP resent successfully!", status=status.HTTP_200_OK)
-
+            return Response(
+                "OTP resent successfully!",
+                status=status.HTTP_200_OK
+            )
         elif request_type == 'aborted':
-            temp_member = EmailVerification.objects.filter(email = email)[0]
+            temp_member = EmailVerification.objects.filter(email=email)[0]
             temp_member.delete()
             return Response(status=status.HTTP_200_OK)
-
 
     def post(self, request, format=None):
         """
@@ -96,8 +111,9 @@ class MemberVerificationView(APIView):
 
         email = request.data.get('email')
         otp = request.data.get('otp')
-        temp_member = EmailVerification.objects.filter(email = email)[0]
-        verify = EmailVerification.objects.filter(email = email).values()[0]['otp']
+        temp_member = EmailVerification.objects.filter(email=email)[0]
+        verify = \
+            EmailVerification.objects.filter(email=email).values()[0]['otp']
 
         now = datetime.now()
         now = now.strftime("%H:%M:%S")
@@ -107,16 +123,24 @@ class MemberVerificationView(APIView):
         request_time = datetime.strptime(request_time, "%H:%M:%S")
         allowed_time = request_time + timedelta(minutes=2)
 
-        if now>allowed_time:
-            return Response("You took too long! The OTP is not valid anymore.", status=status.HTTP_400_BAD_REQUEST)
+        if now > allowed_time:
+            return Response(
+                "You took too long! The OTP is not valid anymore.",
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         if verify == int(otp):
             temp_member.is_verified = True
             temp_member.save()
-            return Response("Email successfully verified!", status=status.HTTP_200_OK)
+            return Response(
+                "Email successfully verified!",
+                status=status.HTTP_200_OK
+            )
 
         else:
-            return Response("Incorrect OTP", status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                "Incorrect OTP", status=status.HTTP_400_BAD_REQUEST
+            )
 
 
 class MemberRegistrationView(APIView):
