@@ -12,14 +12,10 @@ export default function BooksDisplay(props) {
 
     // const initialBooksList = booksList.map((book) => book)
 
-    // console.log(initialBooksList)
-    // console.log(booksList)
 
     useEffect(() => {
         setBooksList(initialBooksList)
         setBooksList(initialBooksList.filter((book) => {
-            // console.log(props)
-            // console.log(props.bookNameInput), console.log(props.authorNameInput), console.log(props.genreInput), console.log(props.isbnInput)
 
             if (props.bookNameInput === '' & props.authorNameInput === '' & props.genreInput === '' & props.isbnInput === '') {
                 return book
@@ -111,7 +107,6 @@ export default function BooksDisplay(props) {
                         </tr>
                     }
                 </tbody>
-                        {/* </div> */}
             </table>
 
         </div>

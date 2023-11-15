@@ -20,18 +20,9 @@ export default function BookIssueSection(props) {
 
 
     let loggedIn = tokenExists()
-    // console.log(loggedIn)
-
-    // console.log(bookNameInput)
-    // console.log(authorNameInput)
-    // console.log(genreInput)
-    // console.log(isbnInput)
 
     // var bookNameInput = ((document.getElementById("cal_preview")||{}).value)||"";
-    
 
-
-    //////////////////////////////////////////////////////////////////
     // bookNameInput.onchange = useValue;
     // authorNameInput.onChange = useValue;
     // genreInput.onChange = useValue;
@@ -65,8 +56,8 @@ export default function BookIssueSection(props) {
                     </div>) 
                     
                     : <div className='library-login-message'>
-                        {/* LOGIN is required to access library. P.S.: Only IITJ peeps can create account. */}
-                        To be live in a few days!
+                        LOGIN is required to access library. P.S.: Only IITJ peeps can create account.
+                        {/* To be live in a few days! */}
                     </div>
             }   
         </div>
