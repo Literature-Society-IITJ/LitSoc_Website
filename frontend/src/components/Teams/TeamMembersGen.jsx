@@ -6,13 +6,8 @@ export default function TeamMembersGen(props) {
 
     
     let onDisplay = props.displayTeam
-    // console.log(getTeamDetails(onDisplay))
-    // let onDisplayObject = teamNameObjectMap[onDisplay]
-    // let onDisplayObject = getTeamDetails(onDisplay).then(data)
-    // console.log('5')
-    // console.log(typeof onDisplayObject)
-    // console.log(onDisplayObject)
     let [onDisplayObject, setOnDisplayObject] = useState([])
+
     useEffect(() => {getTeamDetails(onDisplay).then((data) => {setOnDisplayObject(data)})}, [onDisplay])
 
     return (
