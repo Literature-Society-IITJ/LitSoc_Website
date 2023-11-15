@@ -1,34 +1,48 @@
 from django.db import models
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
-from django.contrib.auth.models import AbstractUser
-# Create your models here.
+
 
 class MemberManager(BaseUserManager):
-    def create_user(self, email, username, phone, roll_number, first_name, last_name, role="member", password=None, password2=None):
-        """
-        Creates and saves a User with the given email, name and password.
-        """
+    def create_user(
+        self,
+        email,
+        username,
+        phone,
+        roll_number,
+        first_name,
+        last_name,
+        role="member",
+        password=None,
+        password2=None
+    ):
         if not email:
             raise ValueError('Members must have an email address')
 
         user = self.model(
-            first_name = first_name,
-            last_name = last_name,
-            username = username,
-            roll_number = roll_number,
-            phone = phone,
+            first_name=first_name,
+            last_name=last_name,
+            username=username,
+            roll_number=roll_number,
+            phone=phone,
             email=self.normalize_email(email),
-            role = role
+            role=role
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, username, phone, roll_number, first_name, last_name, role="admin", password=None):
-        """
-        Creates and saves a superuser with the given email, name and password.
-        """
+    def create_superuser(
+        self,
+        email,
+        username,
+        phone,
+        roll_number,
+        first_name,
+        last_name,
+        role="admin",
+        password=None
+    ):
         user = self.create_user(
             email,
             username=username,
@@ -37,11 +51,12 @@ class MemberManager(BaseUserManager):
             first_name=first_name,
             last_name=last_name,
             password=password,
-            role = 'admin'
+            role='admin'
         )
         user.is_admin = True
         user.save(using=self._db)
         return user
+
 
 class Member(AbstractBaseUser):
     id = models.AutoField(primary_key=True)
@@ -55,21 +70,24 @@ class Member(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     role = models.CharField(max_length = 20, default="member")
     date_time_created = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='profile', default='images/profile-icon.jpg')
-    # book_issued = models.IntegerField(default=-1)
+    image = models.ImageField(
+        upload_to='profile', default='images/profile-icon.jpg'
+    )
 
     objects = MemberManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'phone', 'roll_number', 'first_name', 'last_name']
+    REQUIRED_FIELDS = [
+        'username', 'phone', 'roll_number', 'first_name', 'last_name'
+    ]
 
     def __str__(self):
         return self.email
-    
+
     def has_perm(self, perm, obj=None):
         "Does the user have a specifc permission?"
         return self.is_admin
-    
+
     def has_module_perms(self, app_label):
         "Does the user have permissions to view the app `app_label`?"
         return True
@@ -83,6 +101,7 @@ class Member(AbstractBaseUser):
         if self.role == "member":
             return False
         return True
+
 
 class EmailVerification(models.Model):
     email = models.EmailField(unique=True)
