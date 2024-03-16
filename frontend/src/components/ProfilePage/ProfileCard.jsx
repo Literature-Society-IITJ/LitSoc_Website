@@ -25,7 +25,7 @@ export default function ProfileCard(props) {
                                 onChange={()=>{ const formData = new FormData()
                                                 const imageFile = document.getElementById('profile-image').files[0]
                                                 formData.append("myImage", imageFile)
-                                                updateProfileImage(formData).then(() => { setRefresh(true) }
+                                                updateProfileImage(formData).then(() => { setRefresh(true) })
                                                 }} />
 
 
