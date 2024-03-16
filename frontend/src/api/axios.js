@@ -225,14 +225,14 @@ export async function getProfileImage() {
     let baseURL = url
     let { access_token } = getToken()
 
-    console.log(222222222)
+    // console.log(222222222)
 
     let response = await axios.get(`${baseURL}home/updateprofileimage/`,
                                     {headers: {'Authorization': `Bearer ${access_token}`, 
                                     'Content-Type': 'application/json'}})
 
-    console.log(33333333333333)
-    console.log(response.data)
+    // console.log(33333333333333)
+    // console.log(response.data)
     return response.data
 }
 
@@ -244,16 +244,16 @@ export async function updateProfileImage(formData) {
     // console.log(formData.get("myImage"))
     // formData.append('access_token', access_token)
     // console.log(formData.get("access_token"))
-    console.log(1)
-    console.log(formData)
+    // console.log(1)
+    // console.log(formData)
 
     let response = await axios.post(`${baseURL}home/updateprofileimage/`, 
                                     formData,
                                     { headers: {'Authorization': `Bearer ${access_token}`, 
                                     'Content-Type': 'multipart/form-data'} })
 
-    console.log(2)
-    console.log(response.data)
+    // console.log(2)
+    // console.log(response.data)
 
     return response.data
 }
@@ -266,7 +266,7 @@ export async function uploadContent(formData) {
 
     formData.append('access_token', access_token)
 
-    console.log(formData)
+    // console.log(formData)
 
     let response = await axios.post(`${baseURL}readerSection/upload/`, 
                                     formData,
