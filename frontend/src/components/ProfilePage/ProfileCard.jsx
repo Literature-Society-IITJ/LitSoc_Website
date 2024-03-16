@@ -27,13 +27,6 @@ export default function ProfileCard(props) {
                                                 formData.append("myImage", imageFile)
                                                 updateProfileImage(formData)
                                                 setRefresh(true)
-                                                // console.log(22222222222, formData)
-                                                // console.log(document.getElementById('profile-image').value)
-                                                // document.getElementById('profile-image').value = ''
-                                                // console.log(44444444444, imageFile)
-                                                // console.log(33333333, formData)
-                                                // console.log(formData.get("myImage"))
-                                                // setRefresh(false)
                                                 }} />
 
 

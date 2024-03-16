@@ -2,8 +2,8 @@ import axios from 'axios'
 import { getToken } from '../utilities/localStorage';
 
 
-const url = 'https://litiitjb.litsoc.live/'
-// const url = 'http://127.0.0.1:8000/'
+// const url = 'https://litiitjb.litsoc.live/'
+const url = 'http://127.0.0.1:8000/'
 
 export default getQuotes;
 
@@ -244,9 +244,16 @@ export async function updateProfileImage(formData) {
     // console.log(formData.get("myImage"))
     formData.append('access_token', access_token)
     // console.log(formData.get("access_token"))
+    // console.log(formData)
+    // console.log(1)
 
     let response = await axios.post(`${baseURL}home/updateprofileimage/`, 
-                                    formData)
+                                    formData,
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'multipart/form-data'} })
+
+    // console.log(2)
+    // console.log(response.data)
 
     return response.data
 }
@@ -259,8 +266,12 @@ export async function uploadContent(formData) {
 
     formData.append('access_token', access_token)
 
+    console.log(formData)
+
     let response = await axios.post(`${baseURL}readerSection/upload/`, 
-                                    formData)
+                                    formData,
+                                    { headers: {'Authorization': `Bearer ${access_token}`, 
+                                    'Content-Type': 'multipart/form-data'} })
 
     return response.data
 }
